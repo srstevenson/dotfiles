@@ -1,0 +1,24 @@
+# ~/.gitconfig
+
+[color]
+    ui = auto
+
+[commit]
+    gpgsign = true
+
+[core]
+    excludesfile = ~/.gitignore
+
+[help]
+    autocorrect = 1
+
+[push]
+    default = simple
+
+[user]
+    email = scott@stevenson.io
+    name = Scott Stevenson
+    signingkey = 0xEF25C8864C0618DC
+
+[include]
+    path = ~/.local/gitconfig

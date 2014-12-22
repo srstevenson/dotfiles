@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+
++vi-git-untracked() {
+    if [[ -n "$(git ls-files --other --exclude-standard 2> /dev/null)" ]]; then
+        hook_com[unstaged]+='%F{red}?%f'
+    fi
+}
+
+prompt_srs_precmd() {
+    print -Pn '\e]0;%m:%~\a'
+    vcs_info
+}
+
+prompt_srs_preexec() {
+    print -Pn '\e]0;%m: $2\a'
+}
+
+prompt_srs_setup() {
+    prompt_opts=(cr percent subst)
+
+    autoload -Uz add-zsh-hook vcs_info
+
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:git*' check-for-changes true
+    zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
+    zstyle ':vcs_info:git*' unstagedstr '%F{yellow}!%f'
+    zstyle ':vcs_info:git*' formats '(%b%c%u)'
+    zstyle ':vcs_info:git*' actionformats '(%b|%a%c%u)'
+    zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+
+    add-zsh-hook precmd prompt_srs_precmd
+    add-zsh-hook preexec prompt_srs_preexec
+
+    PROMPT='%F{blue}%B%m%b%f:%~${vcs_info_msg_0_}%# '
+    RPROMPT=''
+    SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_srs_setup

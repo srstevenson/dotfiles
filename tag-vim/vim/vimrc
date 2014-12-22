@@ -1,0 +1,80 @@
+" ~/.vim/vimrc
+
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set colorcolumn=+1
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set nomodeline
+set scrolloff=5
+set shiftwidth=4
+set showcmd
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=4
+set spelllang=en_gb
+set textwidth=79
+set wildmenu
+
+highlight ColorColumn ctermbg=233
+highlight SpellBad ctermbg=52
+highlight SpellLocal ctermbg=52
+highlight SpellRare ctermbg=52
+
+call plug#begin()
+
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'jamessan/vim-gnupg'
+Plug 'ledger/vim-ledger', { 'for': 'ledger' }
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'scrooloose/syntastic'
+Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+
+call plug#end()
+
+let g:airline_left_sep= ''
+let g:airline_right_sep= ''
+let g:airline_theme = 'ubaryd'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:is_posix = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tex_flavor = 'latex'
+
+function! DeleteTrailingWhitespace()
+    let l:view = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:view)
+endfunction
+
+let mapleader = ' '
+
+nnoremap <c-p> :CtrlP<cr>
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+
+nnoremap <leader>a :Ag<space>
+nnoremap <leader>gc :Gcommit --verbose<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+
+augroup vimrc
+    autocmd!
+    autocmd BufWritePre * call DeleteTrailingWhitespace()
+    autocmd FileType gitcommit,markdown,tex setlocal spell
+augroup END
+
+if filereadable(expand('~/.local/vimrc'))
+    source ~/.local/vimrc
+endif
