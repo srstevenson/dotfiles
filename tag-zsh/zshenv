@@ -1,0 +1,32 @@
+# ~/.zshenv
+
+typeset -U path
+path=(~/{,.local/}bin(N)
+      /opt/homebrew/bin(N)
+      /opt/texlive/2014/bin/x86_64-{darwin,linux}(N)
+      $path)
+
+if [[ ! -d "$TMPDIR" ]]; then
+    export TMPDIR="/tmp/$USER"
+    mkdir -p -m 700 "$TMPDIR"
+fi
+
+export EDITOR="vim"
+export VISUAL="vim"
+
+export PAGER="less"
+export LESS="-FiLMRX"
+export LESSSECURE=1
+
+if (( $+commands[brew] )); then
+    export HOMEBREW_NO_EMOJI=1
+    export HOMEBREW_NO_GITHUB_API=1
+fi
+
+if (( $+commands[keychain] )); then
+    eval "$(keychain --quiet --eval id_rsa)"
+fi
+
+if [[ -r ~/.local/zshenv ]]; then
+    source ~/.local/zshenv
+fi

@@ -1,0 +1,7 @@
+# ~/.zlogout
+
+if [[ -r ~/.local/zlogout ]]; then
+    source ~/.local/zlogout
+fi
+
+clear

@@ -1,0 +1,79 @@
+# ~/.zshrc
+
+if [[ -n "$SSH_TTY" && -z "$TMUX" ]]; then
+    tmux new-session -As login
+fi
+
+setopt append_history
+setopt autocd
+setopt correct
+setopt extended_glob
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
+setopt interactive_comments
+setopt no_clobber
+setopt print_exit_value
+setopt rm_star_wait
+setopt warn_create_global
+
+typeset -U fpath
+fpath=(~/.zsh/functions $fpath)
+
+autoload -Uz promptinit
+promptinit
+prompt srs
+
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+
+if ls --color -d . > /dev/null 2>&1; then
+    eval "$(dircolors -b)"
+    alias ls="ls --color=auto -h"
+elif ls -Gd . > /dev/null 2>&1; then
+    alias ls="ls -Gh"
+fi
+alias ll="ls -l"
+alias la="ll -A"
+
+alias ag="ag --pager less --smart-case"
+alias tree="tree -C"
+
+if (( $+commands[htop] )); then
+    alias top="htop"
+fi
+
+alias ga="git add"
+alias gb="git branch"
+alias gc="git commit --verbose"
+alias gco="git checkout"
+alias gd="git diff"
+alias gi="git diff --cached"
+alias gl="git log --decorate --graph"
+alias gs="git status --branch --short"
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format ' %F{cyan}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+HISTFILE=~/.zhistory
+HISTSIZE=5000
+SAVEHIST=5000
+
+if [[ -r ~/.local/zshrc ]]; then
+    source ~/.local/zshrc
+fi
