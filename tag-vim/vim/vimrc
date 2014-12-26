@@ -29,6 +29,7 @@ highlight SpellRare ctermbg=52
 call plug#begin()
 
 Plug 'bling/vim-airline'
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'jamessan/vim-gnupg'
