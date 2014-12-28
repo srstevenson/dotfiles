@@ -86,8 +86,6 @@ nnoremap <leader>gw :Gwrite<cr>
 augroup vimrc
     autocmd!
     autocmd BufWritePre * call DeleteTrailingWhitespace()
-    autocmd FileType gitcommit setlocal spell textwidth=72
-    autocmd FileType markdown,tex setlocal spell
 augroup END
 
 if filereadable(expand('~/.local/vimrc'))
