@@ -16,7 +16,6 @@ setopt interactive_comments
 setopt no_clobber
 setopt print_exit_value
 setopt rm_star_wait
-setopt warn_create_global
 
 typeset -U fpath
 fpath=(~/.zsh/functions $fpath)
