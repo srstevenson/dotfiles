@@ -24,6 +24,7 @@ autoload -Uz promptinit
 promptinit
 prompt srs
 
+bindkey "\e[Z" reverse-menu-complete
 bindkey "^R" history-incremental-search-backward
 
 if ls --color -d . > /dev/null 2>&1; then
