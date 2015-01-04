@@ -37,12 +37,6 @@ alias ll="ls -l"
 alias la="ll -A"
 
 alias ag="ag --pager less --smart-case"
-alias tree="tree -C"
-
-if (( $+commands[htop] )); then
-    alias top="htop"
-fi
-
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit --verbose"
@@ -51,6 +45,7 @@ alias gd="git diff"
 alias gi="git diff --cached"
 alias gl="git log --decorate --graph"
 alias gs="git status --branch --short"
+alias tree="tree -C"
 
 autoload -Uz compinit
 compinit
