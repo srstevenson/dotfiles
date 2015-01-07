@@ -1,7 +1,7 @@
 # ~/.zshrc
 
-if [[ -n "$SSH_TTY" && -z "$TMUX" ]]; then
-    tmux new-session -As login
+if [[ -z "$TMUX" ]] && (( $+commands[tmux] )); then
+    tmux new-session -As default
 fi
 
 setopt append_history
