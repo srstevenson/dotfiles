@@ -20,6 +20,7 @@ set softtabstop=4
 set spelllang=en_gb
 set textwidth=79
 set wildmenu
+set wildmode=longest:full,list:full
 
 highlight ColorColumn ctermbg=233
 highlight SpellBad ctermbg=52
