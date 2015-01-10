@@ -1,8 +1,5 @@
 # ~/.gitconfig
 
-[color]
-    ui = auto
-
 [commit]
     gpgsign = true
 
