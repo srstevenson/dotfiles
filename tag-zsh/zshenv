@@ -2,7 +2,6 @@
 
 typeset -U path
 path=(~/{,.local/}bin(N)
-      /opt/homebrew/bin(N)
       /opt/texlive/2014/bin/x86_64-{darwin,linux}(N)
       $path)
 
