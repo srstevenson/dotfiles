@@ -36,7 +36,7 @@ fi
 alias ll="ls -l"
 alias la="ll -A"
 
-alias ag="ag --pager less --smart-case"
+alias ag="ag --pager less"
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit --verbose"
