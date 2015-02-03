@@ -70,6 +70,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
+if executable('root-config')
+    let g:syntastic_cpp_compiler_options = '-I$(root-config --incdir)'
+endif
+
 function! DeleteTrailingWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
