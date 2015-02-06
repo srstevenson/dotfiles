@@ -31,7 +31,7 @@ prompt_srs_setup() {
     add-zsh-hook precmd prompt_srs_precmd
     add-zsh-hook preexec prompt_srs_preexec
 
-    PROMPT='%F{green}%B%m%b%f:%~${vcs_info_msg_0_}%# '
+    PROMPT='%F{green}%B%m%b%f:%F{cyan}%~%f${vcs_info_msg_0_}%# '
     RPROMPT=''
     SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
