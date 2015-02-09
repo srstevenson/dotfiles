@@ -4,7 +4,6 @@ if [[ -z "$TMUX" ]] && (( $+commands[tmux] )); then
     tmux new-session -As default
 fi
 
-setopt append_history
 setopt autocd
 setopt correct
 setopt extended_glob
