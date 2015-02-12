@@ -18,7 +18,6 @@ export LESS="-FiLMRX"
 export LESSSECURE=1
 
 if (( $+commands[brew] )); then
-    export HOMEBREW_NO_EMOJI=1
     export HOMEBREW_NO_GITHUB_API=1
 fi
 
