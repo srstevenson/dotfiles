@@ -70,6 +70,7 @@ let g:ctrlp_user_command = [
 let g:is_posix = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_ignore_files = ['\.gpg$']
 let g:tex_flavor = 'latex'
 
 if executable('root-config')
