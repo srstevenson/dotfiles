@@ -12,14 +12,10 @@ fi
 
 export EDITOR="vim"
 export VISUAL="vim"
-
+export HOMEBREW_NO_GITHUB_API=1
 export PAGER="less"
 export LESS="-FiLMRX"
 export LESSSECURE=1
-
-if (( $+commands[brew] )); then
-    export HOMEBREW_NO_GITHUB_API=1
-fi
 
 if (( $+commands[keychain] )); then
     eval "$(keychain --quiet --eval id_rsa)"
