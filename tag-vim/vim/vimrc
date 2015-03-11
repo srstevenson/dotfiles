@@ -24,11 +24,6 @@ set textwidth=79
 set wildmenu
 set wildmode=longest:full,list:full
 
-highlight ColorColumn ctermbg=233
-highlight SpellBad ctermbg=52
-highlight SpellLocal ctermbg=52
-highlight SpellRare ctermbg=52
-
 call plug#begin()
 
 Plug 'bling/vim-airline'
@@ -43,8 +38,11 @@ Plug 'scrooloose/syntastic'
 Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
+
+colorscheme hybrid
 
 let g:airline_left_sep= ''
 let g:airline_right_sep= ''
