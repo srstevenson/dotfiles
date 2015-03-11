@@ -26,10 +26,10 @@ set wildmode=longest:full,list:full
 
 call plug#begin()
 
-Plug 'bling/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'ervandew/supertab'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'rking/ag.vim', { 'on': 'Ag' }
@@ -44,23 +44,8 @@ call plug#end()
 
 colorscheme hybrid
 
-let g:airline_left_sep= ''
-let g:airline_right_sep= ''
-let g:airline_theme = 'ubaryd'
-let g:airline_mode_map = {
-            \ '__': '-',
-            \ 'n': 'N',
-            \ 'i': 'I',
-            \ 'R': 'R',
-            \ 'c': 'C',
-            \ 'v': 'V',
-            \ 'V': 'V',
-            \ '^V': 'V',
-            \ 's': 'S',
-            \ 'S': 'S',
-            \ '^S': 'S'
-            \ }
 let g:is_posix = 1
+let g:lightline = { 'colorscheme': 'jellybeans' }
 let g:SuperTabDefaultCompletionType = 'context'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
