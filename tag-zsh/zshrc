@@ -4,7 +4,6 @@ if [[ -z "$TMUX" ]] && (( $+commands[tmux] )); then
     tmux new-session -As default
 fi
 
-setopt autocd
 setopt correct
 setopt extended_glob
 setopt extended_history
@@ -14,7 +13,6 @@ setopt inc_append_history
 setopt interactive_comments
 setopt no_clobber
 setopt no_flow_control
-setopt print_exit_value
 setopt rm_star_wait
 
 typeset -U fpath
