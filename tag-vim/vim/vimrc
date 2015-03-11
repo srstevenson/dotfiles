@@ -64,6 +64,8 @@ endfunction
 
 let mapleader = ' '
 
+cabbrev <silent> bd lclose\|bdelete
+
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 nnoremap <leader>a :Ag<space>
