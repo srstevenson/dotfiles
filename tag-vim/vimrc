@@ -5,6 +5,7 @@ set background=dark
 set backspace=indent,eol,start
 set colorcolumn=+1
 set expandtab
+set grepprg=ag\ --vimgrep
 set hlsearch
 set ignorecase
 set incsearch
@@ -32,7 +33,6 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
-Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'scrooloose/syntastic'
 Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
 Plug 'thoughtbot/pick.vim'
@@ -61,6 +61,8 @@ function! DeleteTrailingWhitespace()
     %s/\s\+$//e
     call winrestview(l:view)
 endfunction
+
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 let mapleader = ' '
 
