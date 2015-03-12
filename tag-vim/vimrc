@@ -1,4 +1,4 @@
-" ~/.vim/vimrc
+" ~/.vimrc
 
 set autoindent
 set background=dark
