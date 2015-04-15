@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 +vi-git-untracked() {
-    if [[ -n "$(git ls-files --other --exclude-standard 2> /dev/null)" ]]; then
+    if [[ -n "$(command git ls-files --other --exclude-standard 2> /dev/null)" ]]; then
         hook_com[unstaged]+='%F{red}?%f'
     fi
 }
