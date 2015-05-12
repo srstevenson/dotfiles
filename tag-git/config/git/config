@@ -1,10 +1,7 @@
-# ~/.gitconfig
+# ~/.config/git/config
 
 [commit]
     gpgsign = true
-
-[core]
-    excludesfile = ~/.gitignore
 
 [push]
     default = simple
