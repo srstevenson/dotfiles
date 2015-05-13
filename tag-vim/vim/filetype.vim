@@ -6,5 +6,4 @@ endif
 
 augroup filetypedetect
     autocmd BufNewFile,BufRead *.md set filetype=markdown
-    autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
 augroup END
