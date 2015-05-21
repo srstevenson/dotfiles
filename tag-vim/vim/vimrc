@@ -28,7 +28,6 @@ set wildmode=longest:full,list:full
 call plug#begin()
 
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'ervandew/supertab'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
@@ -46,7 +45,6 @@ colorscheme hybrid
 
 let g:is_posix = 1
 let g:lightline = { 'colorscheme': 'jellybeans' }
-let g:SuperTabDefaultCompletionType = 'context'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ignore_files = ['\.gpg$']
