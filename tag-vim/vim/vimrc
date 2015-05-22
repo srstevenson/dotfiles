@@ -1,28 +1,21 @@
 " ~/.vim/vimrc
 
-set autoindent
 set background=dark
-set backspace=indent,eol,start
 set colorcolumn=+1
 set expandtab
 set grepprg=ag\ --vimgrep
 set hlsearch
 set ignorecase
-set incsearch
-set laststatus=2
 set nomodeline
 set scrolloff=5
 set shiftwidth=4
-set showcmd
 set showmatch
 set smartcase
-set smarttab
 set softtabstop=4
 set spelllang=en_gb
 set splitbelow
 set splitright
 set textwidth=79
-set wildmenu
 set wildmode=longest:full,list:full
 
 call plug#begin()
@@ -37,6 +30,7 @@ Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
 Plug 'w0ng/vim-hybrid'
 
 call plug#end()
@@ -65,8 +59,6 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 let mapleader = ' '
 
 cabbrev <silent> bd lclose\|bdelete
-
-nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 nnoremap <leader>a :Ag<space>
 
