@@ -1,6 +1,6 @@
 # ~/.zshrc
 
-if [[ -z "$TMUX" ]] && (( $+commands[tmux] )); then
+if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
     tmux new-session -As default
 fi
 
