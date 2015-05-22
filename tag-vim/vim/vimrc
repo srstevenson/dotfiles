@@ -1,5 +1,22 @@
 " ~/.vim/vimrc
 
+call plug#begin()
+
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'itchyny/lightline.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'ledger/vim-ledger', { 'for': 'ledger' }
+Plug 'scrooloose/syntastic'
+Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
+Plug 'thoughtbot/pick.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'w0ng/vim-hybrid'
+
+call plug#end()
+
 set background=dark
 set colorcolumn=+1
 set expandtab
@@ -17,23 +34,6 @@ set splitbelow
 set splitright
 set textwidth=79
 set wildmode=longest:full,list:full
-
-call plug#begin()
-
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'itchyny/lightline.vim'
-Plug 'jamessan/vim-gnupg'
-Plug 'ledger/vim-ledger', { 'for': 'ledger' }
-Plug 'scrooloose/syntastic'
-Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
-Plug 'thoughtbot/pick.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'w0ng/vim-hybrid'
-
-call plug#end()
 
 colorscheme hybrid
 
