@@ -48,7 +48,7 @@ if executable('root-config')
     let g:syntastic_cpp_compiler_options = '-I$(root-config --incdir)'
 endif
 
-function! DeleteTrailingWhitespace()
+function! TrimWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
     call winrestview(l:view)
@@ -77,7 +77,7 @@ augroup vimrc
     autocmd!
 augroup END
 
-autocmd vimrc BufWritePre * call DeleteTrailingWhitespace()
+autocmd vimrc BufWritePre * call TrimWhitespace()
 
 if filereadable(expand('~/.local/vimrc'))
     source ~/.local/vimrc
