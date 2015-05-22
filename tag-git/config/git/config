@@ -3,6 +3,10 @@
 [commit]
     gpgsign = true
 
+[pretty]
+    gll = Commit: %C(yellow)%H%Cred%d%Creset%nAuthor: %Cblue%an <%ae>%Creset%nDate:   %Cgreen%ar (%ad)%Creset%n%n%w(76,4,4)%B%Creset
+    gsl = %C(yellow)%h%Creset %s (%Cgreen%ar%Creset, %Cblue%an%Creset)%Cred%d%Creset%n
+
 [push]
     default = simple
 

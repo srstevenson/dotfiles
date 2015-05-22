@@ -25,24 +25,39 @@ prompt srs
 bindkey "\e[Z" reverse-menu-complete
 bindkey "^R" history-incremental-search-backward
 
+if (( $+commands[dircolors] )); then
+    eval "$(dircolors)"
+fi
+
+alias gad="git add"
+alias gap="git add --patch"
+alias gbr="git branch"
+alias gci="git commit --verbose"
+alias gcl="git clone"
+alias gco="git checkout"
+alias gdc="git diff --cached"
+alias gdi="git diff"
+alias gdw="git diff --word-diff"
+alias gll="git log --decorate --format=gll --graph"
+alias gsl="git log --decorate --format=gsl --graph"
+alias gmv="git mv"
+alias gpl="git pull"
+alias gps="git push"
+alias grm="git rm"
+alias gst="git status"
+
 if ls --color -d . > /dev/null 2>&1; then
-    eval "$(dircolors -b)"
     alias ls="ls --color=auto -h"
 elif ls -Gd . > /dev/null 2>&1; then
     alias ls="ls -Gh"
 fi
+alias la="ls -Al"
 alias ll="ls -l"
-alias la="ll -A"
+alias lt="ls -lrt"
 
 alias ag="ag --pager less"
-alias ga="git add"
-alias gb="git branch"
-alias gc="git commit --verbose"
-alias gco="git checkout"
-alias gd="git diff"
-alias gi="git diff --cached"
-alias gl="git log --decorate --graph"
-alias gs="git status --branch --short"
+alias grep="grep --color=auto"
+alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 alias tree="tree -C"
 
 autoload -Uz compinit
