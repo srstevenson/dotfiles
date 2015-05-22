@@ -75,8 +75,9 @@ nnoremap <leader>gw :Gwrite<cr>
 
 augroup vimrc
     autocmd!
-    autocmd BufWritePre * call DeleteTrailingWhitespace()
 augroup END
+
+autocmd vimrc BufWritePre * call DeleteTrailingWhitespace()
 
 if filereadable(expand('~/.local/vimrc'))
     source ~/.local/vimrc
