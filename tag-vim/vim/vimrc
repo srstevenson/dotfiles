@@ -19,6 +19,7 @@ call plug#end()
 
 set background=dark
 set colorcolumn=+1
+set diffopt+=vertical
 set expandtab
 set grepprg=ag\ --vimgrep
 set hlsearch
