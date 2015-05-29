@@ -17,10 +17,6 @@ export PAGER="less"
 export LESS="-FiLMRX"
 export LESSSECURE=1
 
-if (( $+commands[keychain] )); then
-    eval "$(keychain --quiet --eval id_rsa)"
-fi
-
 if [[ -r ~/.local/zshenv ]]; then
     source ~/.local/zshenv
 fi
