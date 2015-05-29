@@ -1,9 +1,5 @@
 # ~/.zshrc
 
-if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
-    tmux new-session -As default
-fi
-
 setopt correct
 setopt extended_glob
 setopt extended_history
@@ -84,4 +80,8 @@ SAVEHIST=50000
 
 if [[ -r ~/.local/zshrc ]]; then
     source ~/.local/zshrc
+fi
+
+if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
+    tmux new-session -As default
 fi
