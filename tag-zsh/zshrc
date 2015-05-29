@@ -11,15 +11,22 @@ setopt no_clobber
 setopt no_flow_control
 setopt rm_star_wait
 
+bindkey "\e[Z" reverse-menu-complete
+bindkey "^R" history-incremental-search-backward
+
 typeset -U fpath
 fpath=(~/.zsh/functions /usr/local/share/zsh/site-functions $fpath)
 
-autoload -Uz promptinit
+autoload -U compinit
+compinit
+
+autoload -U promptinit
 promptinit
 prompt srs
 
-bindkey "\e[Z" reverse-menu-complete
-bindkey "^R" history-incremental-search-backward
+HISTFILE=~/.zhistory
+HISTSIZE=50000
+SAVEHIST=50000
 
 if (( $+commands[dircolors] )); then
     eval "$(dircolors)"
@@ -57,9 +64,6 @@ alias grep="grep --color=auto"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 alias tree="tree -C"
 
-autoload -Uz compinit
-compinit
-
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format ' %F{cyan}-- %d --%f'
@@ -73,10 +77,6 @@ zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-
-HISTFILE=~/.zhistory
-HISTSIZE=50000
-SAVEHIST=50000
 
 if [[ -r ~/.local/zshrc ]]; then
     source ~/.local/zshrc
