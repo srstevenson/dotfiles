@@ -83,5 +83,5 @@ if [[ -r ~/.local/zshrc ]]; then
 fi
 
 if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
-    tmux new-session -As default
+    tmux new-session -As main
 fi
