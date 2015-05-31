@@ -2,7 +2,7 @@
 
 +vi-git-untracked() {
     if [[ -n "$(command git ls-files --other --exclude-standard 2> /dev/null)" ]]; then
-        hook_com[unstaged]+='%F{red}?%f'
+        hook_com[unstaged]+='%F{red}‽%f'
     fi
 }
 
@@ -22,7 +22,7 @@ prompt_srs_setup() {
 
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:git*' check-for-changes true
-    zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
+    zstyle ':vcs_info:git*' stagedstr '%F{green}±%f'
     zstyle ':vcs_info:git*' unstagedstr '%F{yellow}!%f'
     zstyle ':vcs_info:git*' formats '(%b%c%u)'
     zstyle ':vcs_info:git*' actionformats '(%b|%a%c%u)'
