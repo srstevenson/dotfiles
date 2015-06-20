@@ -74,8 +74,8 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
 
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 augroup vimrc
     autocmd!
