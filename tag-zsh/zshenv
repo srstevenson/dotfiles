@@ -1,9 +1,7 @@
 # ~/.zshenv
 
 typeset -U path
-path=(~/{,.local/,.cabal/}bin(N)
-      /opt/texlive/2015/bin/x86_64-{darwin,linux}(N)
-      $path)
+path=(~/{,.local/,.cabal/}bin(N) /opt/texlive/2015/bin/*(N) $path)
 
 if [[ ! -d "$TMPDIR" ]]; then
     export TMPDIR="/tmp/$LOGNAME"
