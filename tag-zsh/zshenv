@@ -16,7 +16,6 @@ export GNUPGHOME=~/.config/gnupg
 export HOMEBREW_NO_GITHUB_API=1
 export PAGER="less"
 export LESS="-FiLMRX"
-export LESSSECURE=1
 
 if [[ -r ~/.local/zshenv ]]; then
     source ~/.local/zshenv
