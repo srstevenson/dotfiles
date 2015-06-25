@@ -1,5 +1,7 @@
 # ~/.zshenv
 
+typeset -TUx LD_LIBRARY_PATH ld_library_path
+
 typeset -U path
 path=(~/{,.local/,.cabal/}bin(N) /opt/texlive/2015/bin/*(N) $path)
 
