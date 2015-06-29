@@ -79,10 +79,6 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 
-if [[ -r ~/.local/zshrc ]]; then
-    source ~/.local/zshrc
-fi
-
 if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
     tmux new-session -As main
 fi
