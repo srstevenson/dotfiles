@@ -13,7 +13,7 @@ fi
 export EDITOR=vim
 export VISUAL=vim
 export GNUPGHOME=~/.config/gnupg
-export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_GITHUB_API=
 export PAGER=less
 export LESS=-FiLMRX
 
