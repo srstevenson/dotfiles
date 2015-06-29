@@ -1,22 +1,5 @@
 # ~/.zshenv
 
-typeset -TUx LD_LIBRARY_PATH ld_library_path
-
-typeset -U path
-path=(~/{,.local/,.cabal/}bin /opt/texlive/bin/*(N) $path)
-
-if [[ ! -d "$TMPDIR" ]]; then
-    export TMPDIR=/tmp/$LOGNAME
-    mkdir -p -m 700 $TMPDIR
-fi
-
-export EDITOR=vim
-export VISUAL=vim
-export GNUPGHOME=~/.config/gnupg
-export HOMEBREW_NO_GITHUB_API=
-export PAGER=less
-export LESS=-FiLMRX
-
-if (( $+commands[dircolors] )); then
-    eval "$(dircolors)"
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
+    source ~/.zprofile
 fi
