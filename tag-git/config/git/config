@@ -10,6 +10,3 @@
     email = scott@stevenson.io
     name = Scott Stevenson
     signingkey = 0xEF25C8864C0618DC
-
-[include]
-    path = ~/.local/gitconfig
