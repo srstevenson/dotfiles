@@ -15,7 +15,7 @@ bindkey "\e[Z" reverse-menu-complete
 bindkey "^R" history-incremental-search-backward
 
 typeset -U fpath
-fpath=(~/.config/zsh/functions /usr/local/share/zsh/site-functions $fpath)
+fpath=(~/.config/zsh/functions $fpath)
 
 autoload -U compinit promptinit
 
