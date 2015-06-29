@@ -1,8 +1,5 @@
 # ~/.config/git/config
 
-[commit]
-    gpgsign = true
-
 [pretty]
     gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
