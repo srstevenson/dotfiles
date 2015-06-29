@@ -81,4 +81,3 @@ augroup vimrc
     autocmd!
     autocmd BufWritePre * call TrimWhitespace()
 augroup END
-
