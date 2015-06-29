@@ -79,6 +79,6 @@ nnoremap N Nzzzv
 
 augroup vimrc
     autocmd!
+    autocmd BufWritePre * call TrimWhitespace()
 augroup END
 
-autocmd vimrc BufWritePre * call TrimWhitespace()
