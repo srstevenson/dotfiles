@@ -17,10 +17,10 @@ bindkey "^R" history-incremental-search-backward
 typeset -U fpath
 fpath=(~/.config/zsh/functions /usr/local/share/zsh/site-functions $fpath)
 
-autoload -U compinit
+autoload -U compinit promptinit
+
 compinit
 
-autoload -U promptinit
 promptinit
 prompt srs
 
