@@ -82,7 +82,3 @@ augroup vimrc
 augroup END
 
 autocmd vimrc BufWritePre * call TrimWhitespace()
-
-if filereadable(expand('~/.local/vimrc'))
-    source ~/.local/vimrc
-endif
