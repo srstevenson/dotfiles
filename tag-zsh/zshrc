@@ -28,10 +28,6 @@ HISTFILE=~/.zhistory
 HISTSIZE=50000
 SAVEHIST=50000
 
-if (( $+commands[dircolors] )); then
-    eval "$(dircolors)"
-fi
-
 alias gad="git add"
 alias gap="git add --patch"
 alias gbr="git branch"

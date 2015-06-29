@@ -16,3 +16,7 @@ export GNUPGHOME=~/.config/gnupg
 export HOMEBREW_NO_GITHUB_API=
 export PAGER=less
 export LESS=-FiLMRX
+
+if (( $+commands[dircolors] )); then
+    eval "$(dircolors)"
+fi
