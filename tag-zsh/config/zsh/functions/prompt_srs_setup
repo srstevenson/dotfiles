@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+# ~/.config/zsh/functions/prompt_srs_setup
 
 +vi-git-untracked() {
     if [[ -n "$(command git ls-files --other --exclude-standard 2> /dev/null)" ]]; then
