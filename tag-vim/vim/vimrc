@@ -3,7 +3,7 @@
 call plug#begin()
 
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
