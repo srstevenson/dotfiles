@@ -1,5 +1,10 @@
 # ~/.config/git/config
 
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+
 [pretty]
     gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
