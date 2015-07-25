@@ -2,6 +2,7 @@
 
 call plug#begin()
 
+Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'itchyny/lightline.vim'
