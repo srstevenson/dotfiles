@@ -57,13 +57,9 @@ function! TrimWhitespace()
     call winrestview(l:view)
 endfunction
 
-command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
 let mapleader = ' '
 
 cabbrev <silent> bd lclose\|bdelete
-
-nnoremap <leader>a :Ag<space>
 
 nnoremap <leader>e :call PickFile()<cr>
 nnoremap <leader>s :call PickFileSplit()<cr>
@@ -82,4 +78,5 @@ nnoremap N Nzzzv
 augroup vimrc
     autocmd!
     autocmd BufWritePre * call TrimWhitespace()
+    autocmd QuickFixCmdPost *grep* cwindow
 augroup END
