@@ -4,11 +4,13 @@ call plug#begin()
 
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'honza/vim-snippets'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'scrooloose/syntastic'
+Plug 'SirVer/ultisnips'
 Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
