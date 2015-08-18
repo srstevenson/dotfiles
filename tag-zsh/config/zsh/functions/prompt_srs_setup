@@ -7,7 +7,7 @@
 }
 
 prompt_srs_precmd() {
-    print -Pn '\e]0;%m: %~\a'
+    print -Pn '\e]0;%m:%~\a'
     vcs_info
 }
 
