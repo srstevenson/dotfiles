@@ -2,7 +2,7 @@
 
 set -eu
 
-plug_dst=~/.vim/autoload/plug.vim
+plug_dst="$HOME"/.vim/autoload/plug.vim
 plug_src=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p "$(dirname "$plug_dst")"
