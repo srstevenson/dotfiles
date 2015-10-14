@@ -1,4 +1,4 @@
 # ~/.rcrc
 
 EXCLUDES="LICENCE README.md"
-TAGS="git gpg tmux vim zsh"
+TAGS="git gpg rcm tmux vim zsh"
