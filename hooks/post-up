@@ -14,3 +14,10 @@ else
 fi
 
 vim -c PlugClean! -c PlugUpdate -c quitall
+
+if [ ! -d "$HOME"/.zsh/git-radar ]; then
+    git clone -q https://github.com/michaeldfallen/git-radar.git \
+        "$HOME"/.zsh/git-radar
+else
+    git -C "$HOME"/.zsh/git-radar pull -q
+fi
