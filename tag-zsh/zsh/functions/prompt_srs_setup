@@ -1,0 +1,23 @@
+# ~/.zsh/functions/prompt_srs_setup
+
+prompt_srs_precmd() {
+    print -Pn '\e]0;%m: %~\a'
+}
+
+prompt_srs_preexec() {
+    print -Pn '\e]0;%m: $2\a'
+}
+
+prompt_srs_setup() {
+    prompt_opts=(cr percent subst)
+
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd prompt_srs_precmd
+    add-zsh-hook preexec prompt_srs_preexec
+
+    PROMPT='%F{blue}%B%~%b%f$(~/.zsh/git-radar/git-radar --zsh) %# '
+    RPROMPT=''
+    SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_srs_setup
