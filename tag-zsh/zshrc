@@ -11,22 +11,65 @@ setopt no_clobber
 setopt no_flow_control
 setopt rm_star_wait
 
-bindkey "\e[Z" reverse-menu-complete
-bindkey "^R" history-incremental-search-backward
-
 typeset -U fpath
 fpath=(~/.zsh/functions $fpath)
 
-autoload -U compinit promptinit
+typeset -U path
+path=(
+    ~/bin(N)
+    ~/.local/bin(N)
+    ~/.cabal/bin(N)
+    /opt/homebrew/bin(N)
+    /opt/texlive/bin/*(N)
+    $path
+)
 
-compinit
-
+autoload -Uz promptinit
 promptinit
 prompt srs
 
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format ' %F{cyan}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+bindkey "\e[Z" reverse-menu-complete
+bindkey "^R" history-incremental-search-backward
+
 HISTFILE=~/.zhistory
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=10000
+SAVEHIST=10000
+
+if [[ ! -d "$TMPDIR" ]]; then
+    export TMPDIR=/tmp/$LOGNAME
+    mkdir -p -m 700 $TMPDIR
+fi
+
+export EDITOR=vim
+export GPG_TTY="$(tty)"
+export HOMEBREW_NO_GITHUB_API=
+export LESS=FRX
+
+if ls --color -d . > /dev/null 2>&1; then
+    alias ls="ls --color=auto -h"
+elif ls -Gd . > /dev/null 2>&1; then
+    alias ls="ls -Gh"
+fi
+alias la="ls -Al"
+alias ll="ls -l"
+alias lt="ls -lrt"
 
 alias gad="git add"
 alias gap="git add --patch"
@@ -46,34 +89,10 @@ alias gps="git push"
 alias grm="git rm"
 alias gst="git status"
 
-if ls --color -d . > /dev/null 2>&1; then
-    alias ls="ls --color=auto -h"
-elif ls -Gd . > /dev/null 2>&1; then
-    alias ls="ls -Gh"
-fi
-alias la="ls -Al"
-alias ll="ls -l"
-alias lt="ls -lrt"
-
 alias ag="ag --pager less"
 alias fig="find . | ag"
-alias grep="grep --colour=auto"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 alias tree="tree -C"
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format ' %F{cyan}-- %d --%f'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
 
 if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
     tmux new-session -As main
