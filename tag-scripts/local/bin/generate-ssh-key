@@ -11,7 +11,7 @@ keytype="$1"
 keyname="$2"
 keyid=id_"$keytype"_"$keyname"
 
-mkdir -p "$HOME"/.ssh/keys
+mkdir -p -m 700 "$HOME"/.ssh/keys
 
 if [ "$keytype" = "ed25519" ]; then
     ssh-keygen -t "$keytype" -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
