@@ -17,7 +17,7 @@ fpath=(~/.zsh/functions $fpath)
 typeset -U path
 path=(
     ~/bin(N)
-    ~/.local/bin(N)
+    ~/.local/bin
     ~/.cabal/bin(N)
     /opt/homebrew/bin(N)
     /opt/texlive/bin/*(N)
