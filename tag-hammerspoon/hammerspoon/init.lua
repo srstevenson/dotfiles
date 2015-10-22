@@ -1,6 +1,6 @@
 -- ~/.hammerspoon/init.lua
 
-local modifiers = {"cmd", "alt", "ctrl"}
+local mods = {"cmd", "alt", "ctrl"}
 
 function bindMoveToUnit(key, layout)
     hs.hotkey.bind(mods, key, function()
@@ -12,7 +12,7 @@ bindMoveToUnit("left", hs.layout.left50)
 bindMoveToUnit("right", hs.layout.right50)
 bindMoveToUnit("up", hs.layout.maximized)
 
-hs.hotkey.bind(modifiers, "r", function()
+hs.hotkey.bind(mods, "r", function()
     hs.reload()
     hs.notify.new({title="Hammerspoon", informativeText="Reloaded configuration"}):send()
 end)
