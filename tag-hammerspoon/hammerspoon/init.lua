@@ -2,21 +2,15 @@
 
 local modifiers = {"cmd", "alt", "ctrl"}
 
-function resizeFocusedWindow(layout)
-    hs.application.frontmostApplication():focusedWindow():moveToUnit(layout, 0)
+function bindMoveToUnit(key, layout)
+    hs.hotkey.bind(mods, key, function()
+        hs.application.frontmostApplication():focusedWindow():moveToUnit(layout, 0)
+    end)
 end
 
-hs.hotkey.bind(modifiers, "up", function()
-    resizeFocusedWindow(hs.layout.maximized)
-end)
-
-hs.hotkey.bind(modifiers, "left", function()
-    resizeFocusedWindow(hs.layout.left50)
-end)
-
-hs.hotkey.bind(modifiers, "right", function()
-    resizeFocusedWindow(hs.layout.right50)
-end)
+bindMoveToUnit("left", hs.layout.left50)
+bindMoveToUnit("right", hs.layout.right50)
+bindMoveToUnit("up", hs.layout.maximized)
 
 hs.hotkey.bind(modifiers, "r", function()
     hs.reload()
