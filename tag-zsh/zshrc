@@ -93,7 +93,3 @@ alias ag="ag --pager less"
 alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 alias tree="tree -C"
-
-if [[ -n "$SSH_TTY" && -z "$TMUX" ]] && (( $+commands[tmux] )); then
-    tmux new-session -As main
-fi
