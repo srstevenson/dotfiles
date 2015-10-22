@@ -2,25 +2,19 @@
 
 call plug#begin()
 
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'honza/vim-snippets'
+Plug 'christoomey/vim-sort-motion'
+Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips'
-Plug 'srstevenson/vim-decfile', { 'for': 'decfile' }
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
-set background=dark
+set background=light
 set colorcolumn=+1
 set diffopt+=vertical
 set expandtab
@@ -28,57 +22,43 @@ set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep
 set hlsearch
 set ignorecase
-set nomodeline
+set incsearch
+set laststatus=2
+set ruler
 set scrolloff=5
 set shiftwidth=4
 set showmatch
 set smartcase
 set softtabstop=4
 set spelllang=en_gb
-set splitbelow
-set splitright
+set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 set wildmode=longest:full,list:full
 
-colorscheme hybrid
-
-let g:GPGExecutable = 'gpg2 --trust-model always'
-let g:is_posix = 1
-let g:lightline = { 'colorscheme': 'jellybeans' }
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ignore_files = ['\.gpg$']
-let g:tex_flavor = 'latex'
-
-if executable('root-config')
-    let g:syntastic_cpp_compiler_options = '-I$(root-config --incdir)'
+if executable('gpg2')
+    let g:GPGExecutable = 'gpg2 --trust-model always'
 endif
 
-function! TrimWhitespace()
+let g:is_posix = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tex_flavor = 'latex'
+
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+nnoremap <c-p> :call PickFile()<cr>
+
+function! RemoveTrailingWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
     call winrestview(l:view)
 endfunction
 
-let mapleader = ' '
-
 cabbrev <silent> bd lclose\|bdelete
-
-nnoremap <leader>e :call PickFile()<cr>
-nnoremap <leader>s :call PickFileSplit()<cr>
-nnoremap <leader>v :call PickFileVerticalSplit()<cr>
-nnoremap <leader>t :call PickFileTab()<cr>
-nnoremap <leader>b :call PickBuffer()<cr>
-
-nnoremap <leader>gc :Gcommit --verbose<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
 augroup vimrc
     autocmd!
-    autocmd BufWritePre * call TrimWhitespace()
+    autocmd BufWritePre * call RemoveTrailingWhitespace()
     autocmd QuickFixCmdPost *grep* cwindow
 augroup END
