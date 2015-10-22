@@ -43,19 +43,17 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
-nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+cabbrev <silent> bd lclose\|bdelete
 nnoremap <c-p> :call PickFile()<cr>
+nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+nnoremap N Nzzzv
+nnoremap n nzzzv
 
 function! RemoveTrailingWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
     call winrestview(l:view)
 endfunction
-
-cabbrev <silent> bd lclose\|bdelete
-
-nnoremap n nzzzv
-nnoremap N Nzzzv
 
 augroup vimrc
     autocmd!
