@@ -1,4 +1,5 @@
 # ~/.rcrc
 
 EXCLUDES="LICENCE README.md"
-TAGS="git gpg hammerspoon rcm scripts tmux vim zsh"
+TAGS="git gpg rcm scripts tmux vim zsh"
+[ "$(uname -s)" = Darwin ] && TAGS="$TAGS hammerspoon"
