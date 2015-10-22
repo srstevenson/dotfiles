@@ -60,7 +60,7 @@ fi
 export EDITOR=vim
 export GPG_TTY="$(tty)"
 export HOMEBREW_NO_GITHUB_API=
-export LESS=FRX
+export LESS=FiRX
 
 if ls --color -d . > /dev/null 2>&1; then
     alias ls="ls --color=auto -h"
