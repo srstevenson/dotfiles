@@ -2,22 +2,22 @@
 
 set -u
 
-plug_dst="$HOME"/.vim/autoload/plug.vim
+plug_dst=$HOME/.vim/autoload/plug.vim
 plug_src=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir -p "$(dirname "$plug_dst")"
+mkdir -p "$(dirname $plug_dst)"
 
 if command -v curl > /dev/null; then
-    curl -sfLo "$plug_dst" $plug_src
+    curl -sfLo $plug_dst $plug_src
 else
-    wget -qO "$plug_dst" $plug_src
+    wget -qO $plug_dst $plug_src
 fi
 
 vim -c PlugClean! -c PlugUpdate -c quitall
 
-if [ ! -d "$HOME"/.zsh/git-radar ]; then
+if [ ! -d $HOME/.zsh/git-radar ]; then
     git clone -q https://github.com/michaeldfallen/git-radar.git \
-        "$HOME"/.zsh/git-radar
+        $HOME/.zsh/git-radar
 else
-    git -C "$HOME"/.zsh/git-radar pull -q
+    git -C $HOME/.zsh/git-radar pull -q
 fi
