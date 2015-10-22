@@ -12,13 +12,13 @@ setopt no_flow_control
 setopt rm_star_wait
 
 typeset -U fpath
-fpath=(~/.zsh/functions $fpath)
+fpath=($HOME/.zsh/functions $fpath)
 
 typeset -U path
 path=(
-    ~/bin(N)
-    ~/.local/bin
-    ~/.cabal/bin(N)
+    $HOME/bin(N)
+    $HOME/.local/bin
+    $HOME/.cabal/bin(N)
     /opt/homebrew/bin(N)
     /opt/texlive/bin/*(N)
     $path
@@ -48,7 +48,7 @@ zstyle ':completion:*' verbose true
 bindkey "\e[Z" reverse-menu-complete
 bindkey "^R" history-incremental-search-backward
 
-HISTFILE=~/.zhistory
+HISTFILE=$HOME/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
