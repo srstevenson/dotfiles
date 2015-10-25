@@ -2,4 +2,3 @@
 
 EXCLUDES="LICENCE README.md"
 TAGS="git gpg rcm scripts tmux vim zsh"
-[ "$(uname -s)" = Darwin ] && TAGS="$TAGS hammerspoon"
