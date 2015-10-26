@@ -87,7 +87,7 @@ alias gmv="git mv"
 alias gpl="git pull"
 alias gps="git push"
 alias grm="git rm"
-alias gst="git status --branch --status"
+alias gst="git status --branch --short"
 
 alias ag="ag --pager less"
 alias fig="find . | ag"
