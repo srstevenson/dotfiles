@@ -6,7 +6,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'jamessan/vim-gnupg'
-Plug 'ledger/vim-ledger', { 'for': 'ledger' }
+Plug 'ledger/vim-ledger'
 Plug 'scrooloose/syntastic'
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
