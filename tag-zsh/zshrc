@@ -48,7 +48,7 @@ zstyle ':completion:*' verbose true
 bindkey "\e[Z" reverse-menu-complete
 bindkey "^R" history-incremental-search-backward
 
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
