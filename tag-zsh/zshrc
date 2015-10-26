@@ -68,9 +68,8 @@ if ls --color -d . > /dev/null 2>&1; then
 elif ls -Gd . > /dev/null 2>&1; then
     alias ls="ls -Gh"
 fi
-alias la="ls -Al"
 alias ll="ls -l"
-alias lt="ls -lrt"
+alias la="ll -A"
 
 alias gad="git add"
 alias gap="git add --patch"
