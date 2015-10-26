@@ -52,6 +52,7 @@ nnoremap n nzzzv
 function! RemoveTrailingWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
+    %s/\($\n\s*\)\+\%$//e
     call winrestview(l:view)
 endfunction
 
