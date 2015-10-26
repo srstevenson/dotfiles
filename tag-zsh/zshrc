@@ -95,3 +95,5 @@ alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 2
 alias mv="mv -i"
 alias rm="rm -i"
 alias tree="tree -C"
+
+[[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
