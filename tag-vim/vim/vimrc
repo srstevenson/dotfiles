@@ -15,8 +15,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set background=light
-set colorcolumn=+1
-set diffopt+=vertical
+set colorcolumn=80
 set expandtab
 set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep
@@ -24,26 +23,26 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set number
+set relativenumber
 set ruler
 set scrolloff=5
 set shiftwidth=4
-set showmatch
 set smartcase
 set softtabstop=4
 set spelllang=en_gb
 set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
+set wildmenu
 set wildmode=longest:full,list:full
 
-if executable('gpg2')
-    let g:GPGExecutable = 'gpg2 --trust-model always'
-endif
-
+let g:GPGExecutable = 'gpg2 --trust-model always'
 let g:is_posix = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
-cabbrev <silent> bd lclose\|bdelete
 nnoremap <c-p> :call PickFile()<cr>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 nnoremap N Nzzzv
