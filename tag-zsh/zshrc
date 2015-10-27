@@ -1,28 +1,13 @@
 # ~/.zshrc
 
 setopt correct
-setopt extended_glob
-setopt extended_history
-setopt hist_ignore_dups
 setopt hist_reduce_blanks
-setopt inc_append_history
 setopt interactive_comments
+setopt menu_complete
 setopt no_clobber
-setopt no_flow_control
-setopt rm_star_wait
 
 typeset -U fpath
-fpath=($HOME/.zsh/functions $fpath)
-
-typeset -U path
-path=(
-    $HOME/bin(N)
-    $HOME/.local/bin
-    $HOME/.cabal/bin(N)
-    /opt/homebrew/bin(N)
-    /opt/texlive/bin/*(N)
-    $path
-)
+fpath=(~/.zsh/functions $fpath)
 
 autoload -Uz promptinit
 promptinit
@@ -31,26 +16,32 @@ prompt srs
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format ' %F{cyan}-- %d --%f'
-zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt %SScrolling active: %p%s
+(( $+commands[dircolors] )) && eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+zstyle ':completion:*:descriptions' format '%F{green}Completing %d%f'
+zstyle ':completion:*:corrections' format '%F{yellow}Completing %d (errors: %e)%f'
+zstyle ':completion:*:warnings' format '%F{red}No matches found%f'
 
+bindkey -e
 bindkey "\e[Z" reverse-menu-complete
-bindkey "^R" history-incremental-search-backward
 
-HISTFILE=$HOME/.zsh_history
+WORDCHARS=${WORDCHARS:s./.}
+
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+typeset -U path
+path=(
+    ~/.local/bin
+    ~/.cabal/bin(N)
+    /opt/homebrew/bin(N)
+    /opt/texlive/bin/x86_64-*(N)
+    $path
+)
 
 if [[ ! -d "$TMPDIR" ]]; then
     export TMPDIR=/tmp/$LOGNAME
@@ -74,22 +65,21 @@ alias la="ll -A"
 alias gad="git add"
 alias gap="git add --patch"
 alias gbr="git branch"
+alias gcb="git checkout -b"
 alias gci="git commit --verbose"
-alias gcl="git clone"
 alias gco="git checkout"
 alias gdc="git diff --cached"
 alias gdi="git diff"
-alias gdw="git diff --word-diff"
 alias gll="git log --decorate --graph"
-alias glp="git log --decorate --graph --patch"
 alias gls="git log --decorate --format=gls --graph"
-alias gmv="git mv"
 alias gpl="git pull"
 alias gps="git push"
-alias grm="git rm"
 alias gst="git status --branch --short"
 
 alias ag="ag --pager less"
+alias cdc="cd \$(find ~/code -type d -name .git | sed 's./\.git$..' | pick)"
+alias cdd="cd ~/.dotfiles"
+alias cdp="cd ~/.dotfiles-private"
 alias cp="cp -i"
 alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
