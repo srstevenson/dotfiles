@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu
+
+tarsnap --list-archives -v | sort -k 2
