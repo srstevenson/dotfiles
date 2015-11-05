@@ -63,6 +63,10 @@ fi
 alias ll="ls -l"
 alias la="ll -A"
 
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
 alias gad="git add"
 alias gap="git add --patch"
 alias gbr="git branch"
@@ -77,15 +81,13 @@ alias gpl="git pull"
 alias gps="git push"
 alias gst="git status --branch --short"
 
-alias ag="ag --pager less"
 alias cdc="cd \$(find ~/code -type d -name .git | sed 's./\.git$..' | pick)"
 alias cdd="cd ~/.dotfiles"
 alias cdp="cd ~/.dotfiles-private"
-alias cp="cp -i"
+
+alias ag="ag --pager less"
 alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
-alias mv="mv -i"
-alias rm="rm -i"
 alias tree="tree -C"
 
 [[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
