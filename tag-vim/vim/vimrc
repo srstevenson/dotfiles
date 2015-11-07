@@ -16,6 +16,7 @@ call plug#end()
 
 set background=light
 set colorcolumn=80
+set diffopt+=vertical
 set expandtab
 set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep
