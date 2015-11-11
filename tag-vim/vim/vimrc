@@ -45,7 +45,7 @@ let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
 highlight CursorLineNr ctermfg=grey
-highlight LineNr ctermfg=lightgrey
+highlight LineNr ctermfg=grey
 
 nnoremap <c-p> :call PickFile()<cr>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
