@@ -39,14 +39,14 @@ set wildmode=longest:full,list:full
 
 let g:GPGExecutable = 'gpg2 --trust-model always'
 let g:is_posix = 1
-let g:lightline = { 'colorscheme': 'seoul256' }
+let g:lightline = { 'colorscheme': 'jellybeans' }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
-colorscheme base16-default
+colorscheme base16-tomorrow
 
 nnoremap <c-p> :call PickFile()<cr>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
