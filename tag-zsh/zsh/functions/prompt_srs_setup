@@ -15,6 +15,10 @@ prompt_srs_setup() {
     add-zsh-hook precmd prompt_srs_precmd
     add-zsh-hook preexec prompt_srs_preexec
 
+    export GIT_RADAR_COLOR_CHANGES_STAGED="%F{green}"
+    export GIT_RADAR_COLOR_LOCAL_AHEAD="%F{green}"
+    export GIT_RADAR_COLOR_STASH="%F{yellow}"
+
     PROMPT='${SSH_TTY:+"%F{green}%m%f":}%F{blue}%~%f%% '
     RPROMPT='$(~/.zsh/git-radar/git-radar --zsh)'
     SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
