@@ -6,6 +6,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
 Plug 'scrooloose/syntastic'
@@ -33,12 +34,12 @@ set shiftwidth=4
 set smartcase
 set softtabstop=4
 set spelllang=en_gb
-set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 set wildmenu
 set wildmode=longest:full,list:full
 
 let g:GPGExecutable = 'gpg2 --trust-model always'
 let g:is_posix = 1
+let g:lightline = { 'colorscheme': 'seoul256' }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
