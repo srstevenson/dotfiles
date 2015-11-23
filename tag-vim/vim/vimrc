@@ -2,6 +2,7 @@
 
 call plug#begin()
 
+Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
@@ -14,7 +15,7 @@ Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
-set background=light
+set background=dark
 set colorcolumn=80
 set diffopt+=vertical
 set expandtab
@@ -44,8 +45,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
-highlight CursorLineNr ctermfg=grey
-highlight LineNr ctermfg=grey
+colorscheme base16-default
 
 nnoremap <c-p> :call PickFile()<cr>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
