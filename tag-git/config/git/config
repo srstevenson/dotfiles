@@ -1,5 +1,8 @@
 # ~/.config/git/config
 
+[gpg]
+    program = gpg2
+
 [pretty]
     gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
