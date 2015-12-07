@@ -33,6 +33,7 @@ set number
 set relativenumber
 set scrolloff=5
 set shiftwidth=4
+set shortmess+=I
 set smartcase
 set softtabstop=4
 set spelllang=en_gb
