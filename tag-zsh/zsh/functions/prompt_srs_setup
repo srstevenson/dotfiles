@@ -19,7 +19,7 @@ prompt_srs_setup() {
     export GIT_RADAR_COLOR_LOCAL_AHEAD="%F{green}"
     export GIT_RADAR_COLOR_STASH="%F{yellow}"
 
-    PROMPT='${SSH_TTY:+"%F{green}%m%f:"}%F{blue}%~%f %(?.%F{green}.%F{red})∙%f '
+    PROMPT='${SSH_TTY:+"%F{green}%m%f:"}%F{blue}%~%f %(?..%F{red})∙%f '
     RPROMPT='$(git-radar --zsh)'
     SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
