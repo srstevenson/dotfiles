@@ -33,8 +33,8 @@ bindkey "\e[Z" reverse-menu-complete
 WORDCHARS=${WORDCHARS:s./.}
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 
 typeset -U path
 path=(
