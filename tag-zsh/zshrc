@@ -45,11 +45,6 @@ path=(
     $path
 )
 
-if [[ ! -d "$TMPDIR" ]]; then
-    export TMPDIR=/tmp/$LOGNAME
-    mkdir -p -m 700 $TMPDIR
-fi
-
 export EDITOR=vim
 export GPG_TTY="$(tty)"
 export HOMEBREW_NO_GITHUB_API=
