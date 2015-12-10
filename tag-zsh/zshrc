@@ -64,10 +64,6 @@ fi
 alias ll="ls -l"
 alias la="ll -A"
 
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-
 alias gad="git add"
 alias gap="git add --patch"
 alias gbr="git branch"
