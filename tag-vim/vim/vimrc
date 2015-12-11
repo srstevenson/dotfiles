@@ -8,9 +8,9 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'itchyny/lightline.vim'
-Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
 Plug 'scrooloose/syntastic'
+Plug 'srstevenson/vim-gnupg', { 'branch': 'default-to-gpg2' }
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -40,7 +40,6 @@ set spelllang=en_gb
 set wildmenu
 set wildmode=longest:full,list:full
 
-let g:GPGExecutable = 'gpg2 --trust-model always'
 let g:is_posix = 1
 let g:lightline = { 'colorscheme': 'jellybeans' }
 let g:syntastic_always_populate_loc_list = 1
