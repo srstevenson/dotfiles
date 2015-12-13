@@ -80,6 +80,5 @@ alias cdp="cd ~/.dotfiles-private"
 alias ag="ag --color-line-number '0;33' --color-path '0;32' --pager less"
 alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
-alias tree="tree -C"
 
 [[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
