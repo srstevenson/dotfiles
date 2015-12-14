@@ -81,4 +81,6 @@ alias ag="ag --color-line-number '0;33' --color-path '0;32' --pager less"
 alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 
-[[ -f ~/.zshrc-local ]] && source ~/.zshrc-local
+if [[ -f ~/.zshrc-local ]]; then
+    source ~/.zshrc-local
+fi
