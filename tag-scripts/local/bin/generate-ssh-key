@@ -7,9 +7,9 @@ if [ $# -ne 2 ]; then
     exit 64
 fi
 
-keytype="$1"
-keyname="$2"
-keyid=id_"$keytype"_"$keyname"
+readonly keytype="$1"
+readonly keyname="$2"
+readonly keyid=id_"$keytype"_"$keyname"
 
 mkdir -p -m 700 "$HOME"/.ssh/keys
 
