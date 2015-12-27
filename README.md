@@ -1,5 +1,4 @@
-Dotfiles
-========
+# Dotfiles
 
 Install with [rcm](https://thoughtbot.github.io/rcm):
 
