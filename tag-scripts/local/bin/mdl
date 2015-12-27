@@ -2,4 +2,4 @@
 
 set -eu
 
-exec docker run --rm -v $PWD:/workspace srstevenson/mdl "$@"
+exec docker run --rm -v "$PWD":/workspace srstevenson/mdl "$@"
