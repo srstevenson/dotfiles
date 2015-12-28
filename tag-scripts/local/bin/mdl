@@ -1,5 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-exec docker run --rm -v "$PWD":/workspace srstevenson/mdl "$@"
