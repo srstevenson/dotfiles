@@ -1,0 +1,10 @@
+# ~/.hgrc
+
+[extensions]
+pager =
+
+[pager]
+pager = less
+
+[ui]
+username = Scott Stevenson <scott@stevenson.io>
