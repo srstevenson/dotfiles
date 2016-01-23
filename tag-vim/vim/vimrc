@@ -8,14 +8,22 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
+    let g:lightline = { 'colorscheme': 'jellybeans' }
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
 Plug 'scrooloose/syntastic'
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
+
+let g:is_posix = 1
+let g:tex_flavor = 'latex'
 
 set background=dark
 set colorcolumn=80
@@ -40,14 +48,6 @@ set softtabstop=4
 set spelllang=en_gb
 set wildmenu
 set wildmode=longest:full,list:full
-
-let g:is_posix = 1
-let g:lightline = { 'colorscheme': 'jellybeans' }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:tex_flavor = 'latex'
 
 colorscheme base16-tomorrow
 
