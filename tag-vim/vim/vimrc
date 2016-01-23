@@ -5,6 +5,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
+    let g:sort_motion_flags = 'u'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
