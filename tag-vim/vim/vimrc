@@ -12,6 +12,7 @@ Plug 'itchyny/lightline.vim'
     let g:lightline = { 'colorscheme': 'jellybeans' }
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
+    let g:ledger_maxwidth = 62
 Plug 'scrooloose/syntastic'
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
