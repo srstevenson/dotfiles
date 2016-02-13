@@ -3,6 +3,9 @@
 [gpg]
     program = gpg2
 
+[log]
+    decorate = true
+
 [pretty]
     gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
