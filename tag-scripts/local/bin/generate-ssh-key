@@ -11,7 +11,8 @@ readonly keytype="$1"
 readonly keyname="$2"
 readonly keyid=id_"$keytype"_"$keyname"
 
-mkdir -p -m 700 "$HOME"/.ssh/keys
+mkdir -p "$HOME"/.ssh/keys
+chmod 700 "$HOME"/.ssh "$HOME"/.ssh/keys
 
 if [ "$keytype" = ed25519 ]; then
     ssh-keygen -t "$keytype" -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
