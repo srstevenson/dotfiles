@@ -46,7 +46,7 @@ set scrolloff=5
 set shiftwidth=4
 set shortmess+=I
 set smartcase
-set softtabstop=4
+set softtabstop=-1
 set spelllang=en_gb
 set wildmenu
 set wildmode=longest:full,list:full
