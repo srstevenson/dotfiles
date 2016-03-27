@@ -58,7 +58,7 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 nnoremap N Nzzzv
 nnoremap n nzzzv
 
-function! RemoveTrailingWhitespace()
+function! RemoveExcessWhitespace()
     let l:view = winsaveview()
     %s/\s\+$//e
     %s/\%^\n\+//e
@@ -68,6 +68,6 @@ endfunction
 
 augroup vimrc
     autocmd!
-    autocmd BufWritePre * call RemoveTrailingWhitespace()
+    autocmd BufWritePre * call RemoveExcessWhitespace()
     autocmd QuickFixCmdPost grep cwindow
 augroup END
