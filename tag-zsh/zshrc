@@ -47,7 +47,7 @@ path=(
 
 export EDITOR=vim
 export GPG_TTY="$(tty)"
-export HOMEBREW_NO_GITHUB_API=
+export HOMEBREW_NO_GITHUB_API=1
 export LESS=FiRX
 export VISUAL=vim
 
