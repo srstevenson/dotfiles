@@ -1,5 +1,8 @@
 # ~/.config/git/config
 
+[commit]
+    gpgsign = true
+
 [gpg]
     program = gpg2
 
