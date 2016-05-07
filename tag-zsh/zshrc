@@ -74,7 +74,7 @@ alias gpl="git pull"
 alias gps="git push"
 alias gst="git status --branch --short"
 
-alias cdc="cd \$(find ~/code -type d -name .git | sed 's./\.git$..' | pick)"
+alias cdc="cd \$(find ~/code -type d -name .git -execdir pwd \; | pick)"
 alias cdd="cd ~/.dotfiles"
 alias cdp="cd ~/.dotfiles-private"
 
