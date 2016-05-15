@@ -15,6 +15,9 @@
 [push]
     default = simple
 
+[transfer]
+    fsckObjects = true
+
 [user]
     email = scott@stevenson.io
     name = Scott Stevenson
