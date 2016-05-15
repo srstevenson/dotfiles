@@ -1,7 +1,7 @@
 # ~/.config/git/config
 
 [commit]
-    gpgsign = true
+    gpgSign = true
 
 [gpg]
     program = gpg2
@@ -21,4 +21,4 @@
 [user]
     email = scott@stevenson.io
     name = Scott Stevenson
-    signingkey = 0xEF25C8864C0618DC
+    signingKey = 0xEF25C8864C0618DC
