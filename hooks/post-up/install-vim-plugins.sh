@@ -13,4 +13,4 @@ else
   wget -qO "$plug_dst" $plug_src
 fi
 
-vim -c PlugClean! -c PlugUpdate -c quitall
+vim -c PlugClean! -c PlugUpdate -c qall
