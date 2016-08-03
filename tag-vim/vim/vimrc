@@ -18,7 +18,7 @@ Plug 'scrooloose/syntastic'
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
-Plug 'srstevenson/vim-trim-whitespace'
+Plug 'srstevenson/vim-topiary'
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
