@@ -1,5 +1,5 @@
 " ~/.vim/after/ftplugin/crontab.vim
 
-setlocal commentstring=#\ %s
-setlocal nobackup
-setlocal nowritebackup
+setl commentstring=#\ %s
+setl nobackup
+setl nowritebackup
