@@ -53,12 +53,14 @@ export LESS=FiRX
 export VISUAL=vim
 
 if ls --color -d . > /dev/null 2>&1; then
+  alias la="ls --color=auto -Ahl"
+  alias ll="ls --color=auto -hl"
   alias ls="ls --color=auto -h"
 elif ls -Gd . > /dev/null 2>&1; then
+  alias la="ls -AGhl"
+  alias ll="ls -Ghl"
   alias ls="ls -Gh"
 fi
-alias ll="ls -l"
-alias la="ll -A"
 
 alias gad="git add"
 alias gap="git add --patch"
