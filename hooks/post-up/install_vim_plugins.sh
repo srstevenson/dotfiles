@@ -1,16 +1,7 @@
 #!/bin/sh
 
-set -u
+set -eu
 
-plug_dst="$HOME"/.vim/autoload/plug.vim
-plug_src=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mkdir -p "$(dirname "$plug_dst")"
-
-if command -v curl >/dev/null; then
-  curl -sfLo "$plug_dst" $plug_src
-else
-  wget -qO "$plug_dst" $plug_src
-fi
-
-vim -c PlugClean! -c PlugUpdate -c qall
+curl --create-dirs -fLo "$HOME"/.vim/autoload/plug.vim \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim -c PlugClean! -c PlugUpdate -c qa
