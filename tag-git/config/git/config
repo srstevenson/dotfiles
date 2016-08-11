@@ -1,24 +1,24 @@
 # ~/.config/git/config
 
 [commit]
-    gpgSign = true
+  gpgSign = true
 
 [gpg]
-    program = gpg2
+  program = gpg2
 
 [log]
-    decorate = true
+  decorate = true
 
 [pretty]
-    gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
+  gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
 [push]
-    default = simple
+  default = simple
 
 [transfer]
-    fsckObjects = true
+  fsckObjects = true
 
 [user]
-    email = scott@stevenson.io
-    name = Scott Stevenson
-    signingKey = 0xEF25C8864C0618DC
+  email = scott@stevenson.io
+  name = Scott Stevenson
+  signingKey = 0xEF25C8864C0618DC

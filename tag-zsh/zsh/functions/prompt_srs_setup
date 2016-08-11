@@ -1,32 +1,32 @@
 # ~/.zsh/functions/prompt_srs_setup
 
 prompt_srs_pwd() {
-    _prompt_pwd=$(pwd | sed -e "s|$HOME|\~|" -e 's|\([^/.]\)[^/]*/|\1/|g')
+  _prompt_pwd=$(pwd | sed -e "s|$HOME|\~|" -e 's|\([^/.]\)[^/]*/|\1/|g')
 }
 
 prompt_srs_precmd() {
-    prompt_srs_pwd
-    print -Pn '\e]0;%m: $_prompt_pwd\a'
+  prompt_srs_pwd
+  print -Pn '\e]0;%m: $_prompt_pwd\a'
 }
 
 prompt_srs_preexec() {
-    print -Pn '\e]0;%m: $2\a'
+  print -Pn '\e]0;%m: $2\a'
 }
 
 prompt_srs_setup() {
-    prompt_opts=(cr percent subst)
+  prompt_opts=(cr percent subst)
 
-    autoload -Uz add-zsh-hook
-    add-zsh-hook precmd prompt_srs_precmd
-    add-zsh-hook preexec prompt_srs_preexec
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd prompt_srs_precmd
+  add-zsh-hook preexec prompt_srs_preexec
 
-    export GIT_RADAR_COLOR_CHANGES_STAGED="%F{green}"
-    export GIT_RADAR_COLOR_LOCAL_AHEAD="%F{green}"
-    export GIT_RADAR_COLOR_STASH="%F{yellow}"
+  export GIT_RADAR_COLOR_CHANGES_STAGED="%F{green}"
+  export GIT_RADAR_COLOR_LOCAL_AHEAD="%F{green}"
+  export GIT_RADAR_COLOR_STASH="%F{yellow}"
 
-    PROMPT='${SSH_TTY:+"%F{green}%m%f:"}%F{blue}$_prompt_pwd%f %(?..%F{red})%%%f '
-    RPROMPT='$(git-radar --zsh)'
-    SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+  PROMPT='${SSH_TTY:+"%F{green}%m%f:"}%F{blue}$_prompt_pwd%f %(?..%F{red})%%%f '
+  RPROMPT='$(git-radar --zsh)'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
 prompt_srs_setup
