@@ -38,11 +38,11 @@ SAVEHIST=50000
 
 typeset -U path
 path=(
-    ~/.local/bin
-    ~/.cabal/bin(N)
-    /opt/homebrew/bin(N)
-    /opt/texlive/bin/x86_64-*(N)
-    $path
+  ~/.local/bin
+  ~/.cabal/bin(N)
+  /opt/homebrew/bin(N)
+  /opt/texlive/bin/x86_64-*(N)
+  $path
 )
 
 export EDITOR=vim
@@ -53,9 +53,9 @@ export LESS=FiRX
 export VISUAL=vim
 
 if ls --color -d . > /dev/null 2>&1; then
-    alias ls="ls --color=auto -h"
+  alias ls="ls --color=auto -h"
 elif ls -Gd . > /dev/null 2>&1; then
-    alias ls="ls -Gh"
+  alias ls="ls -Gh"
 fi
 alias ll="ls -l"
 alias la="ll -A"
@@ -83,5 +83,5 @@ alias fig="find . | ag"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
 
 if [[ -f ~/.zshrc-local ]]; then
-    source ~/.zshrc-local
+  source ~/.zshrc-local
 fi
