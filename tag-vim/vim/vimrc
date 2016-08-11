@@ -5,19 +5,19 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
-    let g:sort_motion_flags = 'u'
+  let g:sort_motion_flags = 'u'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
-    let g:lightline = { 'colorscheme': 'jellybeans' }
+  let g:lightline = { 'colorscheme': 'jellybeans' }
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
-    let g:ledger_maxwidth = 62
+  let g:ledger_maxwidth = 62
 Plug 'scrooloose/syntastic'
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
 Plug 'srstevenson/vim-topiary'
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
@@ -60,6 +60,6 @@ nnoremap N Nzzzv
 nnoremap n nzzzv
 
 augroup vimrc
-    autocmd!
-    autocmd QuickFixCmdPost grep cwindow
+  autocmd!
+  autocmd QuickFixCmdPost grep cwindow
 augroup END
