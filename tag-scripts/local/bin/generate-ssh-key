@@ -3,8 +3,8 @@
 set -eu
 
 if [ $# -ne 2 ]; then
-    echo "usage: $(basename "$0") type name" >&2
-    exit 64
+  echo "usage: $(basename "$0") type name" >&2
+  exit 64
 fi
 
 readonly keytype="$1"
@@ -15,12 +15,12 @@ mkdir -p "$HOME"/.ssh/keys
 chmod 700 "$HOME"/.ssh "$HOME"/.ssh/keys
 
 if [ "$keytype" = ed25519 ]; then
-    ssh-keygen -t "$keytype" -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
+  ssh-keygen -t "$keytype" -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
 elif [ "$keytype" = rsa ]; then
-    ssh-keygen -t "$keytype" -b 4096 -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
+  ssh-keygen -t "$keytype" -b 4096 -C "$keyid" -f "$HOME"/.ssh/keys/"$keyid"
 else
-    echo "$(basename "$0"): unknown key type '$keytype'" >&2
-    exit 64
+  echo "$(basename "$0"): unknown key type '$keytype'" >&2
+  exit 64
 fi
 
 chmod 600 "$HOME"/.ssh/keys/"$keyid" "$HOME"/.ssh/keys/"$keyid".pub

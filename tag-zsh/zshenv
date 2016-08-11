@@ -1,6 +1,6 @@
 # ~/.zshenv
 
 if [[ ! -d "$TMPDIR" ]]; then
-    export TMPDIR=/tmp/$LOGNAME
-    mkdir -p -m 700 $TMPDIR
+  export TMPDIR=/tmp/$LOGNAME
+  mkdir -p -m 700 $TMPDIR
 fi
