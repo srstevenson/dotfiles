@@ -1,4 +1,4 @@
 " ~/.vim/after/ftplugin/yaml.vim
 
-setlocal shiftwidth=2
-setlocal softtabstop=2
+setl shiftwidth=2
+setl softtabstop=2
