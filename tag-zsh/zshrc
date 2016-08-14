@@ -39,7 +39,6 @@ SAVEHIST=50000
 typeset -U path
 path=(
   ~/.local/bin
-  ~/.cabal/bin(N)
   /opt/homebrew/bin(N)
   /opt/texlive/bin/x86_64-*(N)
   $path
