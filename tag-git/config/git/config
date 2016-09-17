@@ -7,6 +7,9 @@
 [diff]
     compactionHeuristic = true
 
+[fetch]
+    prune = true
+
 [gpg]
     program = gpg2
 
