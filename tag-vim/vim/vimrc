@@ -6,6 +6,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
+Plug 'felixjung/vim-base16-lightline'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'jamessan/vim-gnupg'
@@ -47,7 +48,7 @@ set wildmode=longest:full,list:full
 
 let g:is_posix = 1
 let g:ledger_maxwidth = 62
-let g:lightline = {'colorscheme': 'jellybeans'}
+let g:lightline = {'colorscheme': 'base16_tomorrow'}
 let g:sort_motion_flags = 'u'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
