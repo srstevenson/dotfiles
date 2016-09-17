@@ -1,7 +1,7 @@
 # Dotfiles
 
-These dotfiles are managed using [rcm(7)](https://thoughtbot.github.io/rcm). To
-install them, run:
+Install [rcm](https://thoughtbot.github.io/rcm), and then checkout the
+repository and link the files into place with:
 
 ```sh
 git clone https://github.com/srstevenson/dotfiles.git "$HOME"/.dotfiles
