@@ -9,6 +9,11 @@
 [log]
   decorate = true
 
+[pager]
+  diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
+
 [pretty]
   gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
 
