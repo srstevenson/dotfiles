@@ -54,7 +54,9 @@ function sleepInhibitorToggle()
     setSleepInhibitorDisplay(hs.caffeinate.toggle("displayIdle"))
 end
 
-hs.hotkey.bind(modifiers, "i", function() sleepInhibitorToggle() end)
+hs.hotkey.bind(modifiers, "i", function()
+    sleepInhibitorToggle()
+end)
 
 if sleepInhibitor then
     sleepInhibitor:setClickCallback(sleepInhibitorToggle)
