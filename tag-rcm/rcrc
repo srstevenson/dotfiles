@@ -2,7 +2,7 @@
 
 COPY_ALWAYS="gnupg/gpg.conf"
 EXCLUDES="LICENCE README.md"
-TAGS="git gpg rcm scripts tmux vim zsh"
+TAGS="fish git gpg rcm scripts tmux vim"
 
 if [ "$(uname -s)" = Darwin ]; then
     TAGS="$TAGS hammerspoon"
