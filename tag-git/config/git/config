@@ -4,6 +4,9 @@
     gpgSign = true
     verbose = true
 
+[diff]
+    compactionHeuristic = true
+
 [gpg]
     program = gpg2
 
