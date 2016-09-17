@@ -5,5 +5,5 @@ EXCLUDES="LICENCE README.md"
 TAGS="fish git gpg rcm scripts tmux vim"
 
 if [ "$(uname -s)" = Darwin ]; then
-    TAGS="$TAGS hammerspoon"
+    TAGS="$TAGS hammerspoon kwm"
 fi
