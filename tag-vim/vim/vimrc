@@ -21,7 +21,7 @@ call plug#end()
 colorscheme base16-tomorrow
 
 set background=dark
-set colorcolumn=80
+set colorcolumn=+1
 set diffopt+=vertical
 set expandtab
 set grepformat=%f:%l:%c:%m
