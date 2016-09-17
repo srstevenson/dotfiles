@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu
+
+find "$HOME"/src -type d -name .git -execdir pwd \; | sed "s,$HOME/src/,,"
