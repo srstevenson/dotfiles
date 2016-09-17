@@ -10,6 +10,7 @@ Plug 'felixjung/vim-base16-lightline'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'ledger/vim-ledger'
+Plug 'noahfrederick/vim-neovim-defaults'
 Plug 'scrooloose/syntastic'
 Plug 'srstevenson/vim-topiary'
 Plug 'thoughtbot/pick.vim'
@@ -26,13 +27,9 @@ set diffopt+=vertical
 set expandtab
 set grepformat=%f:%l:%c:%m
 set grepprg=ag\ --vimgrep
-set hlsearch
 set ignorecase
-set incsearch
-set laststatus=2
 set list
 set listchars=tab:→\ ,trail:·,nbsp:+
-set mouse=a
 set nojoinspaces
 set nomodeline
 set noshowmode
@@ -44,8 +41,6 @@ set shortmess+=I
 set smartcase
 set softtabstop=-1
 set spelllang=en_gb
-set wildmenu
-set wildmode=longest:full,list:full
 
 let g:is_posix = 1
 let g:ledger_maxwidth = 62
