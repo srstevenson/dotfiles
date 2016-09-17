@@ -75,8 +75,8 @@ alias gpl="git pull"
 alias gps="git push"
 alias gst="git status --branch --short"
 
-alias cdc="cd \$(find ~/src -type d -name .git -execdir pwd \; | pick)"
 alias cdd="cd ~/.dotfiles"
+alias cds="cd ~/src/\$(git ls-repos | fzy)"
 
 alias ag="ag --color-line-number '0;33' --color-path '0;32' --pager less"
 alias muc="history 1 | awk '{print \$2}' | sort | uniq -c | sort -nr | head -n 20"
