@@ -1,6 +1,6 @@
 " ~/.vim/vimrc
 
-call plug#begin()
+call plug#begin('~/.local/share/vim/plugins')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
