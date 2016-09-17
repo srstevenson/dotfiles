@@ -5,19 +5,12 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
-let g:sort_motion_flags = 'u'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'hattya/python-indent.vim'
 Plug 'itchyny/lightline.vim'
-let g:lightline = { 'colorscheme': 'jellybeans' }
 Plug 'jamessan/vim-gnupg'
 Plug 'ledger/vim-ledger'
-let g:ledger_maxwidth = 62
 Plug 'scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 Plug 'srstevenson/vim-topiary'
 Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
@@ -25,8 +18,7 @@ Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
-let g:is_posix = 1
-let g:tex_flavor = 'latex'
+colorscheme base16-tomorrow
 
 set background=dark
 set colorcolumn=80
@@ -53,7 +45,15 @@ set spelllang=en_gb
 set wildmenu
 set wildmode=longest:full,list:full
 
-colorscheme base16-tomorrow
+let g:is_posix = 1
+let g:ledger_maxwidth = 62
+let g:lightline = {'colorscheme': 'jellybeans'}
+let g:sort_motion_flags = 'u'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tex_flavor = 'latex'
 
 nnoremap <c-p> :call PickFile()<cr>
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
