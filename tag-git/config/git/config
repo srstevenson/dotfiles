@@ -25,7 +25,7 @@
     show = diff-highlight | less
 
 [pretty]
-    gls = %C(auto)%h %s %C(cyan)(%ar, %an)%C(auto)%d%n
+    glo = %C(auto)%h %s (%C(green)%an%C(white), %C(cyan)%ar%C(white))%C(auto) %d
 
 [push]
     default = simple
