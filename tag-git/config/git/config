@@ -13,6 +13,11 @@
 [gpg]
     program = gpg2
 
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    required = true
+    smudge = git-lfs smudge -- %f
+
 [log]
     decorate = true
 
