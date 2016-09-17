@@ -36,6 +36,7 @@ set noshowmode
 set number
 set relativenumber
 set scrolloff=5
+set shiftround
 set shiftwidth=4
 set shortmess+=I
 set smartcase
