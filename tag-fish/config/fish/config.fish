@@ -14,30 +14,30 @@ set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_GITHUB_API 1
 
-abbr la ls -Ahl
-abbr ll ls -hl
-abbr ls ls -h
+abbr -a la ls -Ahl
+abbr -a ll ls -hl
+abbr -a ls ls -h
 
-abbr gad git add
-abbr gbr git branch
-abbr gca git commit --amend -v
-abbr gci git commit -v
-abbr gco git checkout
-abbr gdc git diff --cached
-abbr gdi git diff
-abbr gfp git fetch
-abbr glg git log --graph
-abbr glo git log --format=glo --graph
-abbr gls git ls-files
-abbr gra git rebase --abort
-abbr grc git rebase --continue
-abbr gri git rebase -i
-abbr grs git rebase --skip
-abbr gst git status -bs
+abbr -a gad git add
+abbr -a gbr git branch
+abbr -a gca git commit --amend -v
+abbr -a gci git commit -v
+abbr -a gco git checkout
+abbr -a gdc git diff --cached
+abbr -a gdi git diff
+abbr -a gfp git fetch
+abbr -a glg git log --graph
+abbr -a glo git log --format=glo --graph
+abbr -a gls git ls-files
+abbr -a gra git rebase --abort
+abbr -a grc git rebase --continue
+abbr -a gri git rebase -i
+abbr -a grs git rebase --skip
+abbr -a gst git status -bs
 
-abbr ag ag --pager less
-abbr cdd cd ~/.dotfiles
-abbr tree tree -C
+abbr -a ag ag --pager less
+abbr -a cdd cd ~/.dotfiles
+abbr -a tree tree -C
 
 try_source /opt/miniconda/etc/fish/conf.d/conda.fish
 try_source ~/.config/fish/local.fish
