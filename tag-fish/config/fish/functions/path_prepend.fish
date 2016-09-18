@@ -2,6 +2,8 @@
 
 function path_prepend -d 'Prepend directory to path if it exists'
     if test -d $argv[1]
-        set -gx PATH $argv[1] $PATH
+        if not contains $argv[1] $PATH
+            set -gx PATH $argv[1] $PATH
+        end
     end
 end
