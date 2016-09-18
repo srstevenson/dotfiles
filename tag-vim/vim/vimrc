@@ -29,6 +29,7 @@ runtime! plugin/neovim_defaults.vim
 colorscheme base16-tomorrow
 
 set background=dark
+set clipboard=unnamed
 set colorcolumn=+1
 set diffopt+=vertical
 set expandtab
