@@ -19,12 +19,8 @@ abbr ll ls -hl
 abbr ls ls -h
 
 abbr gad git add
-abbr gap git add -p
-abbr gbd git branch -d
-abbr gbm git branch -m
 abbr gbr git branch
 abbr gca git commit --amend -v
-abbr gcb git checkout -b
 abbr gci git commit -v
 abbr gco git checkout
 abbr gdc git diff --cached
