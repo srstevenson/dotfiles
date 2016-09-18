@@ -10,13 +10,13 @@
 [fetch]
     prune = true
 
-[gpg]
-    program = gpg2
-
 [filter "lfs"]
     clean = git-lfs clean -- %f
     required = true
     smudge = git-lfs smudge -- %f
+
+[gpg]
+    program = gpg2
 
 [log]
     decorate = true
