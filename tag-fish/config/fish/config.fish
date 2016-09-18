@@ -40,4 +40,3 @@ abbr -a cdd cd ~/.dotfiles
 abbr -a tree tree -C
 
 try_source /opt/miniconda/etc/fish/conf.d/conda.fish
-try_source ~/.config/fish/local.fish
