@@ -1,6 +1,6 @@
 # ~/.config/fish/functions/path_prepend.fish
 
-function path_prepend -d 'If a directory exists prepend it to $PATH'
+function path_prepend -d 'Prepend directory to path if it exists'
     if test -d $argv[1]
         set -gx PATH $argv[1] $PATH
     end
