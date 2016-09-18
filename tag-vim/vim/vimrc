@@ -23,6 +23,9 @@ Plug 'tpope/vim-speeddating'
 
 call plug#end()
 
+runtime! plugin/sensible.vim
+runtime! plugin/neovim_defaults.vim
+
 colorscheme base16-tomorrow
 
 set background=dark
