@@ -53,7 +53,12 @@ set spelllang=en_gb
 
 let g:is_posix = 1
 let g:ledger_bin = 'hledger'
-let g:lightline = {'colorscheme': 'base16_tomorrow'}
+let g:lightline = {
+            \ 'colorscheme': 'base16_tomorrow',
+            \ 'active': {
+            \       'right': [['lineinfo'], ['percent'], ['filetype']]
+            \   }
+            \ }
 let g:pick_executable = 'fzy'
 let g:sort_motion_flags = 'u'
 let g:syntastic_always_populate_loc_list = 1
