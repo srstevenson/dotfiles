@@ -6,7 +6,7 @@ readonly EX_USAGE=64
 readonly EX_CANTCREAT=73
 
 usage() {
-    echo "usage: $(basename "$0") [-b|-h|-l] user/repo " >&2
+    echo "usage: $(basename "$0") [-b|-h|-l] user/repo" >&2
     exit $EX_USAGE
 }
 
