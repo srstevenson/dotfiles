@@ -34,7 +34,7 @@ set colorcolumn=+1
 set diffopt+=vertical
 set expandtab
 set grepformat=%f:%l:%c:%m
-set grepprg=ag\ --vimgrep
+set grepprg=rg\ --vimgrep
 set ignorecase
 set list
 set listchars=tab:→\ ,trail:·,nbsp:+
