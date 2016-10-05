@@ -35,7 +35,6 @@ abbr -a gri git rebase -i
 abbr -a grs git rebase --skip
 abbr -a gst git status -bs
 
-abbr -a ag ag --pager less
 abbr -a axel axel -a
 abbr -a cdd cd ~/.dotfiles
 abbr -a tree tree -C
