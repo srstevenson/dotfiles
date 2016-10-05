@@ -3,6 +3,7 @@
 call plug#begin('~/.local/share/vim/plugins')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'calleerlandsson/pick.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
@@ -13,7 +14,6 @@ Plug 'noahfrederick/vim-neovim-defaults'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-topiary'
-Plug 'thoughtbot/pick.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
