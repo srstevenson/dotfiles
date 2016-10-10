@@ -3,7 +3,6 @@
 call plug#begin('~/.local/share/vim/plugins')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'calleerlandsson/pick.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'conradirwin/vim-bracketed-paste'
@@ -13,6 +12,7 @@ Plug 'ledger/vim-ledger'
 Plug 'noahfrederick/vim-neovim-defaults'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
+Plug 'srstevenson/vim-picker'
 Plug 'srstevenson/vim-topiary'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -59,7 +59,6 @@ let g:lightline = {
             \       'right': [['lineinfo'], ['percent'], ['filetype']]
             \   }
             \ }
-let g:pick_executable = 'fzy'
 let g:sort_motion_flags = 'u'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -67,7 +66,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tex_flavor = 'latex'
 
-nnoremap <c-p> :call PickFile()<cr>
+nnoremap <c-p> :PickerEdit<cr>
 nnoremap N Nzzzv
 nnoremap n nzzzv
 
