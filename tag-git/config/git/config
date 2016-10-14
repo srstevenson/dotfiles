@@ -15,9 +15,6 @@
     required = true
     smudge = git-lfs smudge -- %f
 
-[gpg]
-    program = gpg2
-
 [log]
     decorate = true
 
