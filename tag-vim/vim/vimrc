@@ -10,7 +10,6 @@ Plug 'felixjung/vim-base16-lightline'
 Plug 'itchyny/lightline.vim'
 Plug 'ledger/vim-ledger'
 Plug 'noahfrederick/vim-neovim-defaults'
-Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
 Plug 'srstevenson/vim-topiary'
@@ -20,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
