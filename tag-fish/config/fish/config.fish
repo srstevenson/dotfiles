@@ -34,8 +34,6 @@ abbr -a gri git rebase -i
 abbr -a grs git rebase --skip
 abbr -a gst git status -bs
 
-abbr -a axel axel -a
 abbr -a cdd cd ~/.dotfiles
-abbr -a tree tree -C
 
 try_source /opt/miniconda/etc/fish/conf.d/conda.fish
