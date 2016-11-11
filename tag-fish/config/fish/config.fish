@@ -7,7 +7,6 @@ path_prepend /opt/homebrew/bin
 path_prepend /opt/miniconda/bin
 path_prepend ~/.local/bin
 
-set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx LESS FimRX
 set -gx GPG_TTY (tty)
