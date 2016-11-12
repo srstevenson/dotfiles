@@ -5,4 +5,4 @@ set -eu
 tarsnap -c -f "$(hostname)-$(date "+%F")" $HOME
 
 tarsnap --list-archives -v | sort -k 2 -r | \
-    awk '{ if (NR > 7) { system("tarsnap -d -f " $1) } }'
+    awk '{ if (NR > 14) { system("tarsnap -d -f " $1) } }'
