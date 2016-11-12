@@ -7,7 +7,7 @@ path_prepend /opt/homebrew/bin
 path_prepend /opt/miniconda/bin
 path_prepend ~/.local/bin
 
-set -gx VISUAL vim
+set -gx VISUAL nvim
 set -gx LESS FimRX
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
