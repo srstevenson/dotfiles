@@ -16,10 +16,6 @@ elif [ "$1" = -b ]; then
     [ $# != 2 ] && usage
     readonly HOSTNAME=bitbucket.org
     shift
-elif [ "$1" = -h ]; then
-    [ $# != 2 ] && usage
-    readonly HOSTNAME=github.com
-    shift
 elif [ "$1" = -l ]; then
     [ $# != 2 ] && usage
     readonly HOSTNAME=gitlab.com
