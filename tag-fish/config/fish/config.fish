@@ -41,5 +41,6 @@ abbr -a grs git rebase --skip
 abbr -a gst git status -bs
 
 abbr -a cdd cd ~/.dotfiles
+abbr -a scala amm
 
 try_source /opt/miniconda/etc/fish/conf.d/conda.fish
