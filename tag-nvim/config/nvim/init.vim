@@ -94,3 +94,4 @@ nmap <unique> <space>pe <Plug>PickerEdit
 nmap <unique> <space>ps <Plug>PickerSplit
 nmap <unique> <space>pt <Plug>PickerTabedit
 nmap <unique> <space>pv <Plug>PickerVsplit
+nmap <unique> <space>pb <Plug>PickerBuffer
