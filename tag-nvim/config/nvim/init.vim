@@ -90,7 +90,7 @@ nnoremap <unique> <space>gl :GV<cr>
 nnoremap <unique> <space>gs :Gstatus<cr>
 nnoremap <unique> <space>gw :Gwrite<cr>
 
-nnoremap <unique> <space>pe :PickerEdit<cr>
-nnoremap <unique> <space>ps :PickerSplit<cr>
-nnoremap <unique> <space>pt :PickerTabedit<cr>
-nnoremap <unique> <space>pv :PickerVsplit<cr>
+nmap <unique> <space>pe <Plug>PickerEdit
+nmap <unique> <space>ps <Plug>PickerSplit
+nmap <unique> <space>pt <Plug>PickerTabedit
+nmap <unique> <space>pv <Plug>PickerVsplit
