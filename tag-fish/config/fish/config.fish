@@ -17,6 +17,13 @@ abbr -a la ls -Ahl
 abbr -a ll ls -hl
 abbr -a ls ls -h
 
+abbr -a dim docker images
+abbr -a dpa docker ps -a
+abbr -a dps docker ps
+abbr -a dri docker rmi
+abbr -a drm docker rm
+abbr -a dst docker stop
+
 abbr -a gad git add
 abbr -a gap git add -p
 abbr -a gbd git branch -d
