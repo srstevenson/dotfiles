@@ -2,10 +2,10 @@
 
 set -e fish_greeting
 
-path_prepend /opt/texlive/bin/x86_64-darwin
-path_prepend /opt/homebrew/bin
-path_prepend /opt/miniconda/bin
-path_prepend ~/.local/bin
+prepend_to_path /opt/texlive/bin/x86_64-darwin
+prepend_to_path /opt/homebrew/bin
+prepend_to_path /opt/miniconda/bin
+prepend_to_path ~/.local/bin
 
 set -gx VISUAL nvim
 set -gx LESS FimRX
@@ -50,4 +50,4 @@ abbr -a gst git status -bs
 abbr -a cdd cd ~/.dotfiles
 abbr -a scala amm
 
-try_source /opt/miniconda/etc/fish/conf.d/conda.fish
+source_if_readable /opt/miniconda/etc/fish/conf.d/conda.fish
