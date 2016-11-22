@@ -64,6 +64,8 @@ let g:ale_lint_on_save = 1
 
 let g:is_posix = 1
 
+let g:netrw_winsize = -30
+
 let g:rainbow#blacklist = [11]
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
