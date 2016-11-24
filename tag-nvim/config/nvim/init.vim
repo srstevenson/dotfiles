@@ -51,6 +51,8 @@ set splitright
 
 colorscheme base16-default-dark
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 let g:airline#extensions#branch#format = 2
 let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
 let g:airline#extensions#hunks#non_zero_only = 1
