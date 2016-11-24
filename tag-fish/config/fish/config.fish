@@ -47,6 +47,9 @@ abbr -a gri git rebase -i
 abbr -a grs git rebase --skip
 abbr -a gst git status -bs
 
+abbr -a kgc kubectl config current-context
+abbr -a ksc kubectl config set current-context
+
 abbr -a cdd cd ~/.dotfiles
 abbr -a scala amm
 
