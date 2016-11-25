@@ -47,6 +47,7 @@ abbr -a gri git rebase -i
 abbr -a grs git rebase --skip
 abbr -a gst git status -bs
 
+abbr -a kcf kubectl create -f
 abbr -a kgc kubectl config current-context
 abbr -a ksc kubectl config set current-context
 
