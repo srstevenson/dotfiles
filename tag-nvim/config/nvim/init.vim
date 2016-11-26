@@ -52,6 +52,8 @@ colorscheme base16-default-dark
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+let mapleader = ' '
+
 let g:airline#extensions#branch#format = 2
 let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
 let g:airline#extensions#hunks#non_zero_only = 1
@@ -89,16 +91,16 @@ augroup END
 
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
-nnoremap <unique> <space>gc :Gcommit -v<cr>
-nnoremap <unique> <space>gd :Gdiff<cr>
-nnoremap <unique> <space>gl :GV<cr>
-nnoremap <unique> <space>gs :Gstatus<cr>
-nnoremap <unique> <space>gw :Gwrite<cr>
+nnoremap <unique> <leader>gc :Gcommit -v<cr>
+nnoremap <unique> <leader>gd :Gdiff<cr>
+nnoremap <unique> <leader>gl :GV<cr>
+nnoremap <unique> <leader>gs :Gstatus<cr>
+nnoremap <unique> <leader>gw :Gwrite<cr>
 
-nmap <unique> <space>pe <Plug>PickerEdit
-nmap <unique> <space>ps <Plug>PickerSplit
-nmap <unique> <space>pt <Plug>PickerTabedit
-nmap <unique> <space>pv <Plug>PickerVsplit
-nmap <unique> <space>pb <Plug>PickerBuffer
-nmap <unique> <space>p] <Plug>PickerTag
-nmap <unique> <space>ph <Plug>PickerHelp
+nmap <unique> <leader>pe <Plug>PickerEdit
+nmap <unique> <leader>ps <Plug>PickerSplit
+nmap <unique> <leader>pt <Plug>PickerTabedit
+nmap <unique> <leader>pv <Plug>PickerVsplit
+nmap <unique> <leader>pb <Plug>PickerBuffer
+nmap <unique> <leader>p] <Plug>PickerTag
+nmap <unique> <leader>ph <Plug>PickerHelp
