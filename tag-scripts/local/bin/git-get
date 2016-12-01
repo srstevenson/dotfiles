@@ -31,5 +31,5 @@ if [ -d "$DEST" ]; then
     echo "$(basename "$0"): $DEST already exists" >&2
     exit $EX_CANTCREAT
 else
-    git clone "$SRC" "$DEST"
+    git clone --recursive "$SRC" "$DEST"
 fi
