@@ -5,7 +5,7 @@
     verbose = true
 
 [diff]
-    compactionHeuristic = true
+    indentHeuristic = true
 
 [fetch]
     prune = true
