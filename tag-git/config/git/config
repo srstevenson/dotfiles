@@ -16,7 +16,7 @@
     smudge = git-lfs smudge -- %f
 
 [log]
-    decorate = true
+    decorate = short
 
 [merge]
     ff = only
