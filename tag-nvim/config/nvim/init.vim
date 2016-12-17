@@ -48,7 +48,7 @@ set spelllang=en_gb
 set splitbelow
 set splitright
 
-colorscheme base16-default-dark
+colorscheme base16-ocean
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -60,7 +60,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_detect_spell = 0
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16_grayscale'
+let g:airline_theme = 'base16'
 
 let g:ale_echo_msg_format = '%severity%: %s [%linter%]'
 let g:ale_lint_on_save = 1
