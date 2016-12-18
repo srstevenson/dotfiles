@@ -84,8 +84,8 @@ let g:tex_flavor = 'latex'
 augroup vimrc
     autocmd!
     autocmd FileType * RainbowParentheses
-    autocmd InsertEnter * setlocal nolist
-    autocmd InsertLeave * setlocal list
+    autocmd InsertEnter * setl nolist
+    autocmd InsertLeave * setl list
     autocmd QuickFixCmdPost grep cwindow
 augroup END
 
