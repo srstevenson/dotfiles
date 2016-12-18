@@ -1,6 +1,6 @@
 " ~/.config/nvim/init.vim
 
-call plug#begin('~/.local/share/nvim/plugins')
+call plug#begin('~/.local/share/nvim/site/plugins')
 
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
