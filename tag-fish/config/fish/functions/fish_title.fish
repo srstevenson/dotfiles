@@ -1,8 +1,7 @@
 # ~/.config/fish/functions/fish_title.fish
 
 function fish_title -d 'Set the terminal title'
-    hostname -s
-    echo -n ': '
+    echo -ns (hostname -s) ': '
     if test $_ = fish
         prompt_pwd
     else
