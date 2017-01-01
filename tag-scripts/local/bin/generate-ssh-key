@@ -9,7 +9,7 @@ fi
 
 readonly keytype="$1"
 readonly keyname="$2"
-readonly keyid=id_"$keytype"_"$keyname"
+readonly keyid=id_"$keytype"_"$(hostname -s)"_"$keyname"
 
 mkdir -p "$HOME"/.ssh/keys
 chmod 700 "$HOME"/.ssh "$HOME"/.ssh/keys
