@@ -2,9 +2,9 @@
 
 set -e fish_greeting
 
-prepend_to_path /opt/texlive/bin/x86_64-darwin
-prepend_to_path /opt/homebrew/bin
-prepend_to_path /opt/miniconda/bin
+prepend_to_path ~/.local/texlive/bin/x86_64-darwin
+prepend_to_path ~/.local/homebrew/bin
+prepend_to_path ~/.local/miniconda/bin
 prepend_to_path ~/.local/bin
 
 set -gx VISUAL nvim
@@ -54,4 +54,4 @@ abbr -a ksc kubectl config set current-context
 abbr -a cdd cd ~/.dotfiles
 abbr -a scala amm
 
-source_if_readable /opt/miniconda/etc/fish/conf.d/conda.fish
+source_if_readable ~/.local/miniconda/etc/fish/conf.d/conda.fish
