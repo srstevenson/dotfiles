@@ -1,6 +1,6 @@
 # ~/.config/fish/functions/source_if_readable.fish
 
-function source_if_readable -d 'Source a file if it is readable'
-    test -r $argv[1]
-    and source $argv[1]
+function source_if_readable -a file -d 'Source a file if it is readable'
+    test -r $file
+    and source $file
 end
