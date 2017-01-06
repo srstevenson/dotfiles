@@ -55,3 +55,7 @@ abbr -a cdd cd ~/.dotfiles
 abbr -a scala amm
 
 source_if_readable ~/.local/miniconda/etc/fish/conf.d/conda.fish
+
+if set -q SSH_TTY; and not set -q TMUX; and type -q tmux
+    tmux new -As default
+end
