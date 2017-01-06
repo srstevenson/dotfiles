@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -eu
+
+exec git branch --no-color --merged | grep -v '\*\|master$' | \
+    xargs -n 1 git branch -d
