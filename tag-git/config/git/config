@@ -15,6 +15,9 @@
     required = true
     smudge = git-lfs smudge -- %f
 
+[help]
+    autoCorrect = 5
+
 [log]
     decorate = auto
 
