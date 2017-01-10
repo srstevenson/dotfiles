@@ -22,6 +22,7 @@ abbr -a cdd cd ~/.dotfiles
 test -r ~/.local/miniconda/etc/fish/conf.d/conda.fish
 and source ~/.local/miniconda/etc/fish/conf.d/conda.fish
 
-if set -q SSH_TTY; and not set -q TMUX; and type -q tmux
-    tmux new -As default
-end
+set -q SSH_TTY
+and not set -q TMUX
+and type -q tmux
+and tmux new -As default
