@@ -39,7 +39,6 @@ abbr -a gdi git diff
 abbr -a gfp git fetch
 abbr -a glg git log --graph
 abbr -a glo git log --format=glo --graph
-abbr -a gls git ls-files
 abbr -a gpo git push origin
 abbr -a gra git rebase --abort
 abbr -a grc git rebase --continue
