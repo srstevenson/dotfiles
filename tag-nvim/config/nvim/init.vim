@@ -47,6 +47,7 @@ set softtabstop=-1
 set spelllang=en_gb
 set splitbelow
 set splitright
+set wildignore+=*.class
 
 colorscheme base16-ocean
 
