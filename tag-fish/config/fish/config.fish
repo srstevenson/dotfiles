@@ -24,5 +24,6 @@ and source ~/.local/miniconda/etc/fish/conf.d/conda.fish
 
 set -q SSH_TTY
 and not set -q TMUX
+and status --is-login
 and type -q tmux
 and tmux new -As default
