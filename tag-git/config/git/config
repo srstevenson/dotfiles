@@ -4,25 +4,14 @@
     gpgSign = true
     verbose = true
 
-[diff]
-    indentHeuristic = true
-
 [fetch]
     prune = true
-
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    required = true
-    smudge = git-lfs smudge -- %f
 
 [help]
     autoCorrect = 5
 
 [log]
     decorate = auto
-
-[merge]
-    ff = only
 
 [pager]
     diff = diff-highlight | less
@@ -31,9 +20,6 @@
 
 [pretty]
     glo = %C(auto)%h %s (%C(green)%an%C(white), %C(cyan)%ar%C(white))%C(auto)%d
-
-[push]
-    default = simple
 
 [transfer]
     fsckObjects = true
