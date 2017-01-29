@@ -20,6 +20,9 @@ abbr -a ls ls -h
 
 abbr -a cdd cd ~/.dotfiles
 
+type -q jump
+and source (jump shell fish | psub)
+
 test -r ~/.local/miniconda/etc/fish/conf.d/conda.fish
 and source ~/.local/miniconda/etc/fish/conf.d/conda.fish
 
