@@ -8,5 +8,5 @@ function fish_prompt -d 'Print the command prompt'
     echo -n (prompt_pwd)
     set_color normal
     __fish_git_prompt '(%s)'
-    echo -n '> '
+    echo -n '❯ '
 end
