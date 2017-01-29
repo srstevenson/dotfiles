@@ -8,6 +8,7 @@ prepend_to_path ~/.local/miniconda/bin
 prepend_to_path ~/.local/bin
 
 set -gx VISUAL nvim
+set -gx EDITOR nvim
 set -gx LESS FimRX
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
