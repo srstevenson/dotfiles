@@ -7,4 +7,4 @@ if [ $# = 0 ] || [ "$1" = -h ]; then
     exit 64
 fi
 
-exec rg --files -g "*$1*" | less
+exec rg --files -Sg "*$1*" | less
