@@ -32,6 +32,7 @@ set grepformat=%f:%l:%c:%m
 set grepprg=rg\ --vimgrep
 set hidden
 set ignorecase
+set inccommand=nosplit
 set listchars=tab:→\ ,trail:·,nbsp:+
 set nojoinspaces
 set nomodeline
