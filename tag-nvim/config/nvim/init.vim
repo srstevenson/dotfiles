@@ -29,7 +29,7 @@ set cursorline
 set diffopt+=vertical
 set expandtab
 set grepformat=%f:%l:%c:%m
-set grepprg=rg\ --vimgrep
+set grepprg=rg\ --no-heading\ --vimgrep
 set hidden
 set ignorecase
 set inccommand=nosplit
