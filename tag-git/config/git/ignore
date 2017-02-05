@@ -1,7 +1,5 @@
 # ~/.config/git/ignore
 
-*~
 .*.s[a-w][a-z]
 .DS_Store
 /.conda-env
-\#*\#
