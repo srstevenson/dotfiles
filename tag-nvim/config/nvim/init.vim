@@ -37,7 +37,7 @@ set noshowmode
 set number
 set path=**
 set relativenumber
-set scrolloff=3
+set scrolloff=5
 set shiftwidth=4
 set showcmd
 set smartcase
