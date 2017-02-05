@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/site/plugins')
 
 Plug 'chriskempson/base16-vim'
 Plug 'ervandew/supertab'
-Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mhinz/vim-signify'
 Plug 'sheerun/vim-polyglot'
@@ -92,7 +91,6 @@ nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
 nnoremap <unique> <leader>gc :Gcommit -v<cr>
 nnoremap <unique> <leader>gd :Gdiff<cr>
-nnoremap <unique> <leader>gl :GV<cr>
 nnoremap <unique> <leader>gs :Gstatus<cr>
 nnoremap <unique> <leader>gw :Gwrite<cr>
 
