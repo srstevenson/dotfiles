@@ -58,6 +58,9 @@ let g:airline_detect_spell = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
+let g:ale_sign_error = '×'
+let g:ale_sign_warning = '‽'
+
 let g:is_posix = 1
 
 let g:netrw_winsize = -30
