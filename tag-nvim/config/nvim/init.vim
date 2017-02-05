@@ -3,7 +3,6 @@
 call plug#begin('~/.local/share/nvim/site/plugins')
 
 Plug 'chriskempson/base16-vim'
-Plug 'christoomey/vim-sort-motion'
 Plug 'ervandew/supertab'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -78,8 +77,6 @@ let g:signify_sign_change = '±'
 let g:signify_sign_changedelete = '±'
 let g:signify_sign_show_text = 1
 let g:signify_vcs_list = ['git']
-
-let g:sort_motion_flags = 'ui'
 
 let g:tex_flavor = 'latex'
 
