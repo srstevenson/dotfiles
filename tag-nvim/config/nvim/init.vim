@@ -2,10 +2,10 @@
 
 call plug#begin('~/.local/share/nvim/site/plugins')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ervandew/supertab'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'mhinz/vim-signify'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
 Plug 'srstevenson/vim-topiary'
@@ -71,11 +71,6 @@ let g:netrw_winsize = -30
 
 let g:rainbow#blacklist = [11]
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
-let g:signify_sign_change = '±'
-let g:signify_sign_changedelete = '±'
-let g:signify_sign_show_text = 1
-let g:signify_vcs_list = ['git']
 
 let g:tex_flavor = 'latex'
 
