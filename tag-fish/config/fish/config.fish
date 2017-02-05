@@ -2,7 +2,6 @@
 
 set -e fish_greeting
 
-prepend_to_path ~/.local/texlive/bin/x86_64-darwin
 prepend_to_path ~/.local/homebrew/bin
 prepend_to_path ~/.local/miniconda/bin
 prepend_to_path ~/.local/bin
