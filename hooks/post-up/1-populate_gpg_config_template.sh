@@ -2,4 +2,5 @@
 
 set -eu
 
-ex -s -u NONE -c "%s,@@HOME@@,$HOME,g|x" "$HOME"/.gnupg/gpg.conf
+sed "s,@@HOME@@,$HOME," ~/.gnupg/gpg.conf >~/.gnupg/gpg.conf.tmp
+mv ~/.gnupg/gpg.conf.tmp ~/.gnupg/gpg.conf
