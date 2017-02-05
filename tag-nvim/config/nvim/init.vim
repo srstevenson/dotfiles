@@ -35,7 +35,7 @@ set nojoinspaces
 set nomodeline
 set noshowmode
 set number
-set path+=**
+set path=**
 set relativenumber
 set scrolloff=3
 set shiftwidth=4
