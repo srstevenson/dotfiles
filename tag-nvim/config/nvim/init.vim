@@ -62,9 +62,6 @@ let g:airline_detect_spell = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16'
 
-let g:ale_echo_msg_format = '%severity%: %s [%linter%]'
-let g:ale_lint_on_save = 1
-
 let g:is_posix = 1
 
 let g:netrw_winsize = -30
