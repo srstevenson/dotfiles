@@ -52,7 +52,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let mapleader = ' '
 
 let g:airline#extensions#branch#format = 2
-let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_detect_spell = 0
