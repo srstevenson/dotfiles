@@ -19,7 +19,7 @@
     show = diff-highlight | less
 
 [pretty]
-    glo = %C(auto)%h %s (%C(green)%an%C(white), %C(cyan)%ar%C(white))%C(auto)%d
+    glo = %C(auto)%h %s (%C(cyan)%an%C(white), %C(green)%ar%C(white))%C(auto)%d
 
 [transfer]
     fsckObjects = true
