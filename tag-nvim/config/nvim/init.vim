@@ -51,6 +51,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let mapleader = ' '
 
+let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_detect_spell = 0
@@ -59,6 +60,9 @@ let g:airline_theme = 'base16'
 
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '‽'
+
+let g:gitgutter_sign_modified = '±'
+let g:gitgutter_sign_modified_removed = '±_'
 
 let g:is_posix = 1
 
