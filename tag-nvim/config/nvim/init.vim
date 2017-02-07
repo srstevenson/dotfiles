@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/site/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'ervandew/supertab'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
 Plug 'srstevenson/vim-topiary'
@@ -68,14 +67,10 @@ let g:is_posix = 1
 
 let g:netrw_winsize = -30
 
-let g:rainbow#blacklist = [11]
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-
 let g:tex_flavor = 'latex'
 
 augroup vimrc
     autocmd!
-    autocmd FileType * RainbowParentheses
     autocmd InsertEnter * setl nolist
     autocmd InsertLeave * setl list
     autocmd QuickFixCmdPost grep cwindow
