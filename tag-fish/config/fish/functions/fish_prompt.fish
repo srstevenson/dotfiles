@@ -8,7 +8,8 @@ function fish_prompt -d 'Print the command prompt'
         set -g __fish_prompt_hostname (hostname -s)
     end
 
-    echo -ns (set_color cyan) $__fish_prompt_hostname (set_color normal) ':' (prompt_pwd)
+    echo -ns (set_color purple) $__fish_prompt_hostname (set_color normal) \
+        ':' (set_color cyan) (prompt_pwd) (set_color normal)
     __fish_git_prompt '(%s)'
     echo -n '❯ '
 end
