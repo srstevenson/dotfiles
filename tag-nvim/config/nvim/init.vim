@@ -44,7 +44,7 @@ set softtabstop=-1
 set spelllang=en_gb
 set wildignore+=*.class
 
-colorscheme base16-ocean
+colorscheme base16-tomorrow-night
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
