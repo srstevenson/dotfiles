@@ -1,13 +1,17 @@
 # ~/.config/fish/conf.d/git.fish
 
 abbr -a gad git add
+abbr -a gap git add -p
+abbr -a gbm git branch -m
 abbr -a gbr git branch
-abbr -a gca git commit --amend
-abbr -a gci git commit
+abbr -a gca git commit --amend -v
+abbr -a gcb git checkout -b
+abbr -a gci git commit -v
 abbr -a gco git checkout
-abbr -a gdc git diff --cached
 abbr -a gdi git diff
-abbr -a glg git log --graph --stat
+abbr -a gds git diff --staged
+abbr -a gfa git fetch --all
+abbr -a glm git log --graph
 abbr -a glo git log --format=glo --graph
 abbr -a gra git rebase --abort
 abbr -a grc git rebase --continue
