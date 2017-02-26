@@ -4,6 +4,7 @@ set -e fish_greeting
 
 prepend_to_path ~/.local/homebrew/bin
 prepend_to_path ~/.local/miniconda/bin
+prepend_to_path ~/go/bin
 prepend_to_path ~/.local/bin
 
 set -gx VISUAL nvim
