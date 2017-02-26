@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/site/plugins')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-sort-motion'
 Plug 'ervandew/supertab'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
@@ -69,6 +70,8 @@ let g:is_posix = 1
 let g:netrw_winsize = -30
 
 let g:tex_flavor = 'latex'
+
+let g:sort_motion_flags = 'ui'
 
 augroup vimrc
     autocmd!
