@@ -1,5 +1,8 @@
 # ~/.config/fish/config.fish
 
+status --is-interactive
+or exit
+
 set -e fish_greeting
 
 prepend_to_path ~/.local/homebrew/bin
