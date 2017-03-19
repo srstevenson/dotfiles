@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/site/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
+Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
@@ -75,6 +76,7 @@ let g:sort_motion_flags = 'ui'
 
 augroup vimrc
     autocmd!
+    autocmd BufWritePost *.scala EnTypeCheck
     autocmd InsertEnter * setl nolist
     autocmd InsertLeave * setl list
     autocmd QuickFixCmdPost grep cwindow
