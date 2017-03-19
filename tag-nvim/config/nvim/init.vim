@@ -7,6 +7,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
+Plug 'roxma/nvim-completion-manager'
 Plug 'sheerun/vim-polyglot'
 Plug 'srstevenson/vim-picker'
 Plug 'srstevenson/vim-play'
