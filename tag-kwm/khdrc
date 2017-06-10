@@ -1,0 +1,63 @@
+# ~/.khdrc
+
+# Enable kwm compatibility mode.
+khd kwm on
+
+# Restart kwm.
+cmd + lalt - q: brew services restart kwm
+
+# Set space tiling mode to binary space partitioning.
+cmd + lalt - a: kwmc space -t bsp
+
+# Set space tiling mode to monocle.
+cmd + lalt - s: kwmc space -t monocle
+
+# Set space tiling mode to floating.
+cmd + lalt - d: kwmc space -t float
+
+# Toggle fullscreen.
+cmd + lalt - f: kwmc window -z fullscreen
+
+# Rotate window tree by 90 degrees clockwise.
+cmd + lalt - r: kwmc tree rotate 90
+
+# Give focus to screen.
+cmd + lalt - 1: kwmc display -f 0
+cmd + lalt - 2: kwmc display -f 1
+
+# Give focus to window.
+cmd + lalt - h: kwmc window -f west
+cmd + lalt - l: kwmc window -f east
+cmd + lalt - j: kwmc window -f south
+cmd + lalt - k: kwmc window -f north
+
+# Move focused window to screen.
+cmd + lalt + ctrl - 1: kwmc window -m display 0
+cmd + lalt + ctrl - 2: kwmc window -m display 1
+
+# Move focused window to space.
+cmd + lalt + ctrl - left: kwmc window -m space left
+cmd + lalt + ctrl - right: kwmc window -m space right
+
+# Expand window.
+cmd + lalt + ctrl - h: kwmc window -c expand 0.05 west
+cmd + lalt + ctrl - j: kwmc window -c expand 0.05 south
+cmd + lalt + ctrl - k: kwmc window -c expand 0.05 north
+cmd + lalt + ctrl - l: kwmc window -c expand 0.05 east
+
+# Contract window.
+cmd + lalt + shift - h: kwmc window -c reduce 0.05 east
+cmd + lalt + shift - j: kwmc window -c reduce 0.05 north
+cmd + lalt + shift - k: kwmc window -c reduce 0.05 south
+cmd + lalt + shift - l: kwmc window -c reduce 0.05 west
+
+# Swap focused window.
+cmd + lalt - up: kwmc window -s north
+cmd + lalt - down: kwmc window -s south
+cmd + lalt - left: kwmc window -s west
+cmd + lalt - right: kwmc window -s east
+
+# Open applications.
+cmd + lalt - return: exec osascript ~/.local/bin/open-iterm.scpt
+cmd + lalt - b: exec osascript ~/.local/bin/open-chrome.scpt
+cmd + lalt - m: exec osascript ~/.local/bin/open-finder.scpt
