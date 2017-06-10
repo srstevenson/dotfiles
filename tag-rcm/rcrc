@@ -1,6 +1,5 @@
 # ~/.rcrc
 
-COPY_ALWAYS="gnupg/gpg.conf"
 EXCLUDES="LICENCE README.md"
 TAGS="bin ctags fish git gpg nvim rcm sbt tmux"
 
