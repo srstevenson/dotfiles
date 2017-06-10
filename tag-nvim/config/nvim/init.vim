@@ -50,8 +50,6 @@ set wildignore+=*.class
 
 colorscheme base16-tomorrow-night
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 let mapleader = ' '
 
 let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
