@@ -3,8 +3,6 @@
 status --is-interactive
 or exit
 
-set -e fish_greeting
-
 prepend_to_path ~/.local/homebrew/bin
 prepend_to_path ~/.local/conda/bin
 prepend_to_path ~/go/bin
