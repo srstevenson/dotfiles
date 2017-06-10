@@ -1,7 +1,6 @@
 # ~/.config/fish/config.fish
 
-status --is-interactive
-or exit
+status -i; or exit
 
 prepend_to_path ~/.local/homebrew/bin
 prepend_to_path ~/.local/conda/bin
