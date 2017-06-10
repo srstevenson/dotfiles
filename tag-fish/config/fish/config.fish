@@ -6,7 +6,7 @@ or exit
 set -e fish_greeting
 
 prepend_to_path ~/.local/homebrew/bin
-prepend_to_path ~/.local/miniconda/bin
+prepend_to_path ~/.local/conda/bin
 prepend_to_path ~/go/bin
 prepend_to_path ~/.local/bin
 
@@ -26,8 +26,8 @@ abbr -a cdd cd ~/.dotfiles
 type -q jump
 and source (jump shell fish | psub)
 
-test -r ~/.local/miniconda/etc/fish/conf.d/conda.fish
-and source ~/.local/miniconda/etc/fish/conf.d/conda.fish
+test -r ~/.local/conda/etc/fish/conf.d/conda.fish
+and source ~/.local/conda/etc/fish/conf.d/conda.fish
 
 set -q SSH_TTY
 and not set -q TMUX
