@@ -1,7 +1,7 @@
 # ~/.kwm/kwmrc
 
 # Draw border around the focused window.
-kwmc config border focused color 0xFFBDD322
+kwmc config border focused color 0xff8abeb7
 kwmc config border focused on
 kwmc config border focused radius 4
 kwmc config border focused size 1
