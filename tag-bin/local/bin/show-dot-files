@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-defaults write com.apple.finder AppleShowAllFiles true
-killall Finder
