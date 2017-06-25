@@ -2,6 +2,5 @@
 
 set -eu
 
-curl --create-dirs -fLSso ~/.local/bin/diff-highlight \
-  https://git.kernel.org/cgit/git/git.git/plain/contrib/diff-highlight/diff-highlight
+curl --create-dirs -fLSso ~/.local/bin/diff-highlight https://git.io/vQOQ7
 chmod +x ~/.local/bin/diff-highlight
