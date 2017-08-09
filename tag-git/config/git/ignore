@@ -2,4 +2,5 @@
 
 .*.s[a-w][a-z]
 .DS_Store
+.nfs*
 /.conda-env
