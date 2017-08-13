@@ -4,7 +4,7 @@ status -i; or exit
 
 set fish_greeting
 
-prepend_to_path ~/.local/conda/bin
+prepend_to_path ~/miniconda3/bin
 prepend_to_path ~/go/bin
 prepend_to_path ~/.local/bin
 
@@ -24,8 +24,8 @@ abbr -a cdd cd ~/.dotfiles
 type -q jump
 and source (jump shell fish | psub)
 
-test -r ~/.local/conda/etc/fish/conf.d/conda.fish
-and source ~/.local/conda/etc/fish/conf.d/conda.fish
+test -r ~/miniconda3/etc/fish/conf.d/conda.fish
+and source ~/miniconda3/etc/fish/conf.d/conda.fish
 
 set -q SSH_TTY
 and not set -q TMUX
