@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+
+curl --create-dirs -fLSso ~/.local/bin/diff-highlight https://git.io/vQOQ7
+chmod +x ~/.local/bin/diff-highlight
+
+curl --create-dirs -fLSso ~/.local/share/nvim/site/autoload/plug.vim \
+    https://github.com/junegunn/vim-plug/raw/master/plug.vim
+nvim +PlugClean! +PlugUpdate +qa
