@@ -27,8 +27,6 @@ and source (jump shell fish | psub)
 test -r ~/miniconda3/etc/fish/conf.d/conda.fish
 and source ~/miniconda3/etc/fish/conf.d/conda.fish
 
-set -q SSH_TTY
-and not set -q TMUX
-and status --is-login
-and type -q tmux
-and tmux new -As default
+if set -q SSH_TTY; and not set -q TMUX; and status --is-login; and type -q tmux
+    tmux attach; or tmux new
+end
