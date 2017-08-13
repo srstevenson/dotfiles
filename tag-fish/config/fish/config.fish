@@ -4,7 +4,6 @@ status -i; or exit
 
 set fish_greeting
 
-prepend_to_path ~/.local/homebrew/bin
 prepend_to_path ~/.local/conda/bin
 prepend_to_path ~/go/bin
 prepend_to_path ~/.local/bin
