@@ -2,7 +2,6 @@
 
 [commit]
     gpgSign = true
-    verbose = true
 
 [diff "jupyternotebook"]
     command = git-nbdiffdriver diff
