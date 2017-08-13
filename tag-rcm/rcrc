@@ -4,5 +4,5 @@ EXCLUDES="LICENCE README.md"
 TAGS="bin ctags fish git gpg nvim rcm sbt tmux"
 
 if [ "$(uname -s)" = Darwin ]; then
-    TAGS="$TAGS kwm"
+    TAGS="$TAGS chunkwm skhd"
 fi
