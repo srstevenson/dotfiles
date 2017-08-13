@@ -4,10 +4,6 @@
     gpgSign = true
     verbose = true
 
-[credential]
-    helper = !aws codecommit credential-helper $@
-    useHttpPath = true
-
 [diff "jupyternotebook"]
     command = git-nbdiffdriver diff
 
