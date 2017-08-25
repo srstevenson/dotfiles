@@ -1,6 +1,6 @@
 #!/bin/sh
 
-chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/plugins
 
 chunkc core::load border.so
 chunkc core::load ffm.so
