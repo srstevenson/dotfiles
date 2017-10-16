@@ -5,6 +5,7 @@ set -eu
 curl --create-dirs -fLSso ~/.local/bin/diff-highlight https://git.io/vQOQ7
 chmod +x ~/.local/bin/diff-highlight
 
-curl --create-dirs -fLSso ~/.local/share/nvim/site/autoload/plug.vim \
-    https://github.com/junegunn/vim-plug/raw/master/plug.vim
-nvim +PlugClean! +PlugUpdate +qa
+if [ ! -d ~/.config/nvim/pack/minpac/opt/minpac ]; then
+    git clone https://github.com/k-takata/minpac.git \
+        ~/.config/nvim/pack/minpac/opt/minpac
+fi

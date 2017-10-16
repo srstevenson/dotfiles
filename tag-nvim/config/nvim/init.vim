@@ -1,27 +1,28 @@
 " ~/.config/nvim/init.vim
 
-call plug#begin('~/.local/share/nvim/site/plugins')
+packadd minpac
 
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'christoomey/vim-sort-motion'
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ervandew/supertab'
-Plug 'roxma/nvim-completion-manager'
-Plug 'sheerun/vim-polyglot'
-Plug 'srstevenson/vim-picker'
-Plug 'srstevenson/vim-play'
-Plug 'srstevenson/vim-topiary'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+call minpac#init()
 
-call plug#end()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('chriskempson/base16-vim')
+call minpac#add('christoomey/vim-sort-motion')
+call minpac#add('ensime/ensime-vim')
+call minpac#add('ervandew/supertab')
+call minpac#add('roxma/nvim-completion-manager')
+call minpac#add('sheerun/vim-polyglot')
+call minpac#add('srstevenson/vim-picker')
+call minpac#add('srstevenson/vim-play')
+call minpac#add('srstevenson/vim-topiary')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-eunuch')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-rsi')
+call minpac#add('tpope/vim-vinegar')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('w0rp/ale')
 
 set background=dark
 set colorcolumn=80
