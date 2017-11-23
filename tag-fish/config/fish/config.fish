@@ -20,6 +20,7 @@ abbr -a ll ls -hl
 abbr -a ls ls -h
 
 abbr -a cdd cd ~/.dotfiles
+abbr -a octave octave --no-gui --quiet
 
 type -q jump
 and source (jump shell fish | psub)
