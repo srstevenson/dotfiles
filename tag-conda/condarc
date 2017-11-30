@@ -1,0 +1,4 @@
+# ~/.condarc
+
+always_yes: true
+changeps1: false
