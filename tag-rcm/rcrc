@@ -1,4 +1,4 @@
 # ~/.rcrc
 
 EXCLUDES="LICENCE README.md"
-TAGS="bin ctags fish git gpg keras nvim rcm sbt tmux"
+TAGS="bin conda ctags fish git gpg keras nvim rcm sbt tmux"
