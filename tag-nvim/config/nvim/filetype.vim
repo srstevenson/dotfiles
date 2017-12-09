@@ -5,5 +5,6 @@ if exists('did_load_filetypes')
 endif
 
 augroup filetypedetect
+    autocmd! BufNewFile,BufRead *.fish setfiletype fish
     autocmd! BufNewFile,BufRead *.m setfiletype octave
 augroup END
