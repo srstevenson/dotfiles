@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -eu
+
+git branch --no-color --merged | grep -v '\*\|master$' |
+    xargs -n 1 git branch -d 2>&1 | grep -v 'fatal: branch name required'
