@@ -6,6 +6,7 @@ function fish_title -a command -d 'Set the terminal title'
     end
 
     echo -ns $__fish_title_hostname ': '
+
     if test $_ = fish
         prompt_pwd
     else
