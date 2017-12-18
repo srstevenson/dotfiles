@@ -8,9 +8,11 @@ function __activate_conda_env -v PWD
         if test -f $__dir/.conda-env
             set __env (cat $__dir/.conda-env)
 
-            set -q $CONDA_DEFAULT_ENV
-            and test "$CONDA_DEFAULT_ENV" != $__env
-            and activate $__env
+            if set -q $CONDA_DEFAULT_ENV
+                if test "$CONDA_DEFAULT_ENV" != $__env
+                    activate $__env
+                end
+            end
 
             break
         end
@@ -18,7 +20,9 @@ function __activate_conda_env -v PWD
         set __dir (dirname $__dir)
     end
 
-    set -q CONDA_DEFAULT_ENV
-    and test -z $__env
-    and deactivate
+    if set -q CONDA_DEFAULT_ENV
+        if test -z $__env
+            deactivate
+        end
+    end
 end
