@@ -1,4 +1,0 @@
-# ~/.config/git/attributes
-
-*.ipynb diff=jupyternotebook
-*.ipynb merge=jupyternotebook
