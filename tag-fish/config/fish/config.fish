@@ -1,6 +1,8 @@
 # ~/.config/fish/config.fish
 
-status -i; or exit
+if not status is-interactive
+    exit
+end
 
 set fish_greeting
 
@@ -30,6 +32,6 @@ if test -r ~/miniconda3/etc/fish/conf.d/conda.fish
     conda activate base
 end
 
-if set -q SSH_TTY; and not set -q TMUX; and status --is-login; and type -q tmux
+if set -q SSH_TTY; and not set -q TMUX; and status is-login; and type -q tmux
     tmux attach; or tmux new
 end
