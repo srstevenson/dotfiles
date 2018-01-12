@@ -79,7 +79,7 @@ set nojoinspaces
 set nomodeline
 set number
 set relativenumber
-set scrolloff=2
+set scrolloff=3
 set shiftwidth=4
 set showcmd
 set smartcase
