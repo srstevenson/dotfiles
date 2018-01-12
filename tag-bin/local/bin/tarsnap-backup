@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-tarsnap -c -f "$(hostname -s)-$(date "+%F")" $HOME
-
-tarsnap --list-archives -v | sort -k 2 -r \
-    | awk '{ if (NR > 14) { system("tarsnap -d -f " $1) } }'
