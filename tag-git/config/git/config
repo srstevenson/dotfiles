@@ -7,7 +7,7 @@
     prune = true
 
 [help]
-    autoCorrect = 5
+    autoCorrect = 1
 
 [merge]
     ff = only
