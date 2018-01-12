@@ -3,30 +3,14 @@
 [commit]
     gpgSign = true
 
-[diff "jupyternotebook"]
-    command = git-nbdiffdriver diff
-
 [fetch]
     prune = true
-
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    process = git-lfs filter-process
-    required = true
-    smudge = git-lfs smudge -- %f
 
 [help]
     autoCorrect = 5
 
-[log]
-    decorate = auto
-
 [merge]
     ff = only
-
-[merge "jupyternotebook"]
-    driver = git-nbmergedriver merge %O %A %B %L %P
-    name = jupyter notebook merge driver
 
 [pager]
     diff = diff-highlight | less
