@@ -1,99 +1,100 @@
 " ~/.config/nvim/init.vim
 
-packadd minpac
+if empty(glob('~/.config/nvim/pack/minpac'))
+    silent !git clone https://github.com/k-takata/minpac.git
+                \ ~/.config/nvim/pack/minpac/opt/minpac
+    autocmd VimEnter * call minpac#update()
+endif
 
-call minpac#init()
+silent! packadd minpac
 
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('chriskempson/base16-vim')
-call minpac#add('christoomey/vim-sort-motion')
-call minpac#add('ensime/ensime-vim')
-call minpac#add('ervandew/supertab')
-call minpac#add('roxma/nvim-completion-manager')
-call minpac#add('sheerun/vim-polyglot')
-call minpac#add('srstevenson/vim-picker')
-call minpac#add('srstevenson/vim-play')
-call minpac#add('srstevenson/vim-topiary')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-eunuch')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-rsi')
-call minpac#add('tpope/vim-vinegar')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('w0rp/ale')
+if exists('*minpac#init')
+    call minpac#init()
 
-set background=dark
+    call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+    call minpac#add('airblade/vim-gitgutter')
+        let g:gitgutter_map_keys = 0
+        nmap <unique> <space>hs <Plug>GitGutterStageHunk
+        nmap <unique> <space>hu <Plug>GitGutterUndoHunk
+
+    call minpac#add('chriskempson/base16-vim')
+
+    call minpac#add('christoomey/vim-sort-motion')
+        let g:sort_motion_flags = 'iu'
+
+    call minpac#add('cmhamill/vim-jrnl')
+
+    call minpac#add('jamessan/vim-gnupg')
+
+    call minpac#add('machakann/vim-highlightedyank')
+        let g:highlightedyank_highlight_duration = 250
+
+    call minpac#add('sheerun/vim-polyglot')
+
+    call minpac#add('srstevenson/vim-picker')
+        nmap <unique> <space>pb <Plug>PickerBuffer
+        nmap <unique> <space>pe <Plug>PickerEdit
+        nmap <unique> <space>ph <Plug>PickerHelp
+        nmap <unique> <space>ps <Plug>PickerSplit
+        nmap <unique> <space>pt <Plug>PickerTabedit
+        nmap <unique> <space>pv <Plug>PickerVsplit
+
+    call minpac#add('srstevenson/vim-topiary')
+
+    call minpac#add('takac/vim-hardtime')
+        let g:hardtime_allow_different_key = 1
+        let g:hardtime_default_on = 1
+
+    call minpac#add('tpope/vim-commentary')
+
+    call minpac#add('tpope/vim-eunuch')
+
+    call minpac#add('tpope/vim-fugitive')
+        nnoremap <unique> <space>gb :Gblame<cr>
+        nnoremap <unique> <space>gc :Gcommit -v<cr>
+        nnoremap <unique> <space>gd :Gdiff<cr>
+        nnoremap <unique> <space>gs :Gstatus<cr>
+        nnoremap <unique> <space>gw :Gwrite<cr>
+
+    call minpac#add('tpope/vim-rsi')
+
+    call minpac#add('w0rp/ale')
+        let g:ale_echo_msg_format = '%linter%: %s'
+        let g:ale_open_list = 1
+        let g:ale_python_mypy_options = '--ignore-missing-imports'
+        let g:ale_python_pylint_options = '--disable missing-docstring'
+endif
+
+let g:is_posix = 1
+
+colorscheme base16-default-dark
+
 set colorcolumn=80
-set cursorline
-set diffopt+=vertical
 set expandtab
-set grepformat=%f:%l:%c:%m
-set grepprg=rg\ --no-heading\ --vimgrep
 set hidden
 set ignorecase
 set inccommand=nosplit
-set listchars=tab:→\ ,trail:·,nbsp:+
 set nojoinspaces
 set nomodeline
-set noshowmode
 set number
-set path=**
 set relativenumber
-set scrolloff=5
+set scrolloff=2
 set shiftwidth=4
 set showcmd
 set smartcase
 set softtabstop=-1
 set spelllang=en_gb
-set wildignore+=*.class
+set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
-colorscheme base16-tomorrow-night
-
-let mapleader = ' '
-
-let g:airline#extensions#hunks#hunk_symbols = ['+', '±', '-']
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_detect_spell = 0
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
-
-let g:ale_sign_error = '×'
-let g:ale_sign_warning = '‽'
-
-let g:gitgutter_sign_modified = '±'
-let g:gitgutter_sign_modified_removed = '±_'
-
-let g:is_posix = 1
-
-let g:netrw_winsize = -30
-
-let g:tex_flavor = 'latex'
-
-let g:sort_motion_flags = 'ui'
-
-augroup vimrc
-    autocmd!
-    autocmd BufWritePost *.scala EnTypeCheck
-    autocmd InsertEnter * setl nolist
-    autocmd InsertLeave * setl list
-    autocmd QuickFixCmdPost grep cwindow
-augroup END
+if executable('rg')
+    set grepformat^=%f:%l:%c:%m
+    set grepprg=rg\ --vimgrep
+endif
 
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
-nnoremap <unique> <leader>gc :Gcommit -v<cr>
-nnoremap <unique> <leader>gd :Gdiff<cr>
-nnoremap <unique> <leader>gs :Gstatus<cr>
-nnoremap <unique> <leader>gw :Gwrite<cr>
-
-nmap <unique> <leader>pe <Plug>PickerEdit
-nmap <unique> <leader>ps <Plug>PickerSplit
-nmap <unique> <leader>pt <Plug>PickerTabedit
-nmap <unique> <leader>pv <Plug>PickerVsplit
-nmap <unique> <leader>pb <Plug>PickerBuffer
-nmap <unique> <leader>p] <Plug>PickerTag
-nmap <unique> <leader>po <Plug>PickerBufferTag
-nmap <unique> <leader>ph <Plug>PickerHelp
+augroup init
+    autocmd!
+    autocmd QuickFixCmdPost grep cwindow
+augroup END
