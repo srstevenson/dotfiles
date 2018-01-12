@@ -27,6 +27,7 @@ end
 
 if test -r ~/miniconda3/etc/fish/conf.d/conda.fish
     source ~/miniconda3/etc/fish/conf.d/conda.fish
+    conda activate base
 end
 
 if set -q SSH_TTY; and not set -q TMUX; and status --is-login; and type -q tmux
