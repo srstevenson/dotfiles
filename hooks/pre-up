@@ -4,8 +4,3 @@ set -eu
 
 curl --create-dirs -fLSso ~/.local/bin/diff-highlight https://git.io/vQOQ7
 chmod +x ~/.local/bin/diff-highlight
-
-if [ ! -d ~/.config/nvim/pack/minpac/opt/minpac ]; then
-    git clone https://github.com/k-takata/minpac.git \
-        ~/.config/nvim/pack/minpac/opt/minpac
-fi
