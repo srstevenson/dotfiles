@@ -69,7 +69,7 @@ endif
 let g:filetype_m = 'octave'
 let g:is_posix = 1
 
-colorscheme base16-default-dark
+colorscheme base16-mexico-light
 
 set colorcolumn=80
 set expandtab
