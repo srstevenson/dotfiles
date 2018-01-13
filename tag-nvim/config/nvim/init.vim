@@ -12,6 +12,8 @@ if exists('*minpac#init')
     call minpac#init()
 
     call minpac#add('k-takata/minpac', {'type': 'opt'})
+        command! MinpacClean call minpac#clean()
+        command! MinpacUpdate call minpac#update()
 
     call minpac#add('airblade/vim-gitgutter')
         let g:gitgutter_map_keys = 0
