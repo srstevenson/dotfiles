@@ -66,6 +66,7 @@ if exists('*minpac#init')
         let g:ale_python_pylint_options = '--disable missing-docstring'
 endif
 
+let g:filetype_m = 'octave'
 let g:is_posix = 1
 
 colorscheme base16-default-dark
