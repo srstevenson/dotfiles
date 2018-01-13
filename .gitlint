@@ -1,8 +1,0 @@
-[general]
-ignore=B6
-
-[title-max-length]
-line-length=50
-
-[B1]
-line-length=72
