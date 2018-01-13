@@ -13,7 +13,6 @@ set -gx EDITOR nvim
 set -gx LESS FimRX
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx HOMEBREW_NO_GITHUB_API 1
 
 abbr -a la ls -Ahl
 abbr -a ll ls -hl
