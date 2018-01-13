@@ -2,3 +2,5 @@
 
 EXCLUDES="LICENCE README.md"
 TAGS="fish gem git gpg npm nvim rcm tmux"
+
+# vim: ft=sh

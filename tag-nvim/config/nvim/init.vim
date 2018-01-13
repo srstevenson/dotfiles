@@ -77,7 +77,6 @@ set hidden
 set ignorecase
 set inccommand=nosplit
 set nojoinspaces
-set nomodeline
 set number
 set relativenumber
 set scrolloff=3
