@@ -1,7 +1,8 @@
 # ~/.config/fish/functions/fish_title.fish
 
 function fish_title -a command -d 'Write out the terminal title'
-    echo -ns (prompt_hostname) ': '
+    prompt_hostname
+    echo -n ': '
 
     if test $_ = fish
         prompt_pwd
