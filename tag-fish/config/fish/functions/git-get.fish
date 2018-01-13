@@ -3,29 +3,22 @@
 function git-get -d 'Clone a Git repository into ~/src'
     switch "$argv[1]"
         case -b
-            if string match -eq / $argv[2]
-                set src git@bitbucket.org:$argv[2].git
-                set dest ~/src/bitbucket.org/$argv[2]
-            else
-                set src git@bitbucket.org:srstevenson/$argv[2].git
-                set dest ~/src/bitbucket.org/srstevenson/$argv[2]
-            end
+            set host bitbucket.org
+            set repo $argv[2]
         case -l
-            if string match -eq / $argv[2]
-                set src git@gitlab.com:$argv[2].git
-                set dest ~/src/gitlab.com/$argv[2]
-            else
-                set src git@gitlab.com:srstevenson/$argv[2].git
-                set dest ~/src/gitlab.com/srstevenson/$argv[2]
-            end
+            set host gitlab.com
+            set repo $argv[2]
         case '*'
-            if string match -eq / $argv[1]
-                set src git@github.com:$argv[1].git
-                set dest ~/src/github.com/$argv[1]
-            else
-                set src git@github.com:srstevenson/$argv[1].git
-                set dest ~/src/github.com/srstevenson/$argv[1]
-            end
+            set host github.com
+            set repo $argv[1]
+    end
+
+    if string match -eq / $repo
+        set src git@$host:$repo.git
+        set dest ~/src/$host/$repo
+    else
+        set src git@$host:srstevenson/$repo.git
+        set dest ~/src/$host/srstevenson/$repo
     end
 
     if test -d $dest
