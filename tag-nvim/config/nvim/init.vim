@@ -46,10 +46,6 @@ if exists('*minpac#init')
 
     call minpac#add('srstevenson/vim-topiary')
 
-    call minpac#add('takac/vim-hardtime')
-        let g:hardtime_allow_different_key = 1
-        let g:hardtime_default_on = 1
-
     call minpac#add('tpope/vim-commentary')
 
     call minpac#add('tpope/vim-eunuch')
