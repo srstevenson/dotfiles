@@ -37,6 +37,8 @@ if exists('*minpac#init')
     call minpac#add('sheerun/vim-polyglot')
 
     call minpac#add('srstevenson/vim-picker')
+        let g:picker_find_executable = 'fd'
+        let g:picker_find_flags = '--color=never'
         nmap <unique> <space>pb <Plug>PickerBuffer
         nmap <unique> <space>pe <Plug>PickerEdit
         nmap <unique> <space>ph <Plug>PickerHelp
