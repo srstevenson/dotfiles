@@ -13,4 +13,6 @@ abbr -a gra git rebase --abort
 abbr -a grc git rebase --continue
 abbr -a gri git rebase -i
 abbr -a grs git rebase --skip
+abbr -a gsp git stash pop
+abbr -a gss git stash save
 abbr -a gst git status -bs
