@@ -3,7 +3,9 @@
 if empty(glob('~/.config/nvim/pack/minpac'))
     silent !git clone https://github.com/k-takata/minpac.git
                 \ ~/.config/nvim/pack/minpac/opt/minpac
+    " vint: -ProhibitAutocmdWithNoGroup
     autocmd VimEnter * call minpac#update()
+    " vint: +ProhibitAutocmdWithNoGroup
 endif
 
 silent! packadd minpac
