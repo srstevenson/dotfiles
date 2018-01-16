@@ -66,6 +66,9 @@ if exists('*minpac#init')
         let g:ale_open_list = 1
         let g:ale_python_mypy_options = '--ignore-missing-imports'
         let g:ale_python_pylint_options = '--disable missing-docstring'
+        nnoremap <unique> <space>ad <Plug>ALEDisable
+        nnoremap <unique> <space>ae <Plug>ALEEnable
+        nnoremap <unique> <space>at <Plug>ALEToggle
 endif
 
 let g:filetype_m = 'octave'
