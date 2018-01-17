@@ -1,5 +1,7 @@
 " ~/.config/nvim/init.vim
 
+scriptencoding utf-8
+
 if empty(glob('~/.config/nvim/pack/minpac'))
     silent !git clone https://github.com/k-takata/minpac.git
                 \ ~/.config/nvim/pack/minpac/opt/minpac
@@ -78,6 +80,8 @@ set expandtab
 set hidden
 set ignorecase
 set inccommand=nosplit
+set list
+set listchars=tab:→\ ,trail:·,nbsp:␣
 set nojoinspaces
 set number
 set relativenumber
