@@ -24,6 +24,8 @@ if exists('*minpac#init')
         nmap <unique> <space>hs <Plug>GitGutterStageHunk
         nmap <unique> <space>hu <Plug>GitGutterUndoHunk
 
+    call minpac#add('chrisbra/csv.vim')
+
     call minpac#add('chriskempson/base16-vim')
 
     call minpac#add('christoomey/vim-sort-motion')
