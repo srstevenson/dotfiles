@@ -10,6 +10,7 @@
     autoCorrect = 1
 
 [merge]
+    conflictStyle = diff3
     ff = only
 
 [pager]
