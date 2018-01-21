@@ -72,7 +72,6 @@ if exists('*minpac#init')
         nnoremap <unique> <space>at <Plug>ALEToggle
 endif
 
-let g:filetype_m = 'octave'
 let g:is_posix = 1
 
 colorscheme base16-mexico-light
