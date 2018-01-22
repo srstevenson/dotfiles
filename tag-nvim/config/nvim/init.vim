@@ -72,7 +72,7 @@ endif
 
 let g:is_posix = 1
 
-colorscheme base16-mexico-light
+colorscheme base16-default-dark
 
 set colorcolumn=80
 set expandtab
