@@ -35,6 +35,9 @@ if exists('*minpac#init')
 
     call minpac#add('jamessan/vim-gnupg')
 
+    call minpac#add('sbdchd/neoformat')
+        nnoremap <unique> <space>nf :Neoformat<cr>
+
     call minpac#add('sheerun/vim-polyglot')
 
     call minpac#add('srstevenson/vim-picker')
