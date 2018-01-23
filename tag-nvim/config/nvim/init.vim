@@ -35,6 +35,8 @@ if exists('*minpac#init')
 
     call minpac#add('jamessan/vim-gnupg')
 
+    call minpac#add('roxma/nvim-completion-manager')
+
     call minpac#add('sbdchd/neoformat')
         nnoremap <unique> <space>nf :Neoformat<cr>
 
