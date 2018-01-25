@@ -20,7 +20,7 @@ if exists('*minpac#init')
         nnoremap <unique> <silent> <space>mu :MinpacUpgrade<cr>
 
     call minpac#add('airblade/vim-gitgutter')
-        let g:gitgutter_map_keys = 0
+        nmap <unique> <space>hp <Plug>GitGutterPreviewHunk
         nmap <unique> <space>hs <Plug>GitGutterStageHunk
         nmap <unique> <space>hu <Plug>GitGutterUndoHunk
 
