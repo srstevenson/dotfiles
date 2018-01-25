@@ -59,11 +59,11 @@ if exists('*minpac#init')
     call minpac#add('tpope/vim-eunuch')
 
     call minpac#add('tpope/vim-fugitive')
-        nnoremap <unique> <space>gb :Gblame<cr>
-        nnoremap <unique> <space>gc :Gcommit -v<cr>
-        nnoremap <unique> <space>gd :Gdiff<cr>
-        nnoremap <unique> <space>gs :Gstatus<cr>
-        nnoremap <unique> <space>gw :Gwrite<cr>
+        nnoremap <unique> <silent> <space>gb :Gblame<cr>
+        nnoremap <unique> <silent> <space>gc :Gcommit -v<cr>
+        nnoremap <unique> <silent> <space>gd :Gdiff<cr>
+        nnoremap <unique> <silent> <space>gs :Gstatus<cr>
+        nnoremap <unique> <silent> <space>gw :Gwrite<cr>
 
     call minpac#add('tpope/vim-rsi')
 
