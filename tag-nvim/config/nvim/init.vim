@@ -44,7 +44,7 @@ if exists('*minpac#init')
 
     call minpac#add('srstevenson/vim-picker')
         let g:picker_find_executable = 'fd'
-        let g:picker_find_flags = '--color=never'
+        let g:picker_find_flags = '--color never --type f'
         nmap <unique> <space>pb <Plug>PickerBuffer
         nmap <unique> <space>pe <Plug>PickerEdit
         nmap <unique> <space>ph <Plug>PickerHelp
