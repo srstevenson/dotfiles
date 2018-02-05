@@ -50,6 +50,8 @@ if exists('*minpac#init')
         nmap <unique> <space>pt <Plug>PickerTabedit
         nmap <unique> <space>pv <Plug>PickerVsplit
 
+    call minpac#add('srstevenson/vim-play')
+
     call minpac#add('srstevenson/vim-topiary')
 
     call minpac#add('tpope/vim-abolish')
