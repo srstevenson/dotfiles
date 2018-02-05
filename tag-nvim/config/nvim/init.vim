@@ -52,6 +52,8 @@ if exists('*minpac#init')
 
     call minpac#add('srstevenson/vim-topiary')
 
+    call minpac#add('tpope/vim-abolish')
+
     call minpac#add('tpope/vim-commentary')
 
     call minpac#add('tpope/vim-eunuch')
