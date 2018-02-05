@@ -2,14 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:17.10
+      - image: debian:testing-slim
     environment:
       DEBIAN_FRONTEND: noninteractive
     steps:
       - run: apt-get update -q
       - run: apt-get install -qq git python3-pip ruby shellcheck
       - run: gem install mdl
-      - run: python3 -m pip install vim-vint
+      - run: pip3 install vim-vint
       - checkout
       - run: grep -lR "#!/bin/sh" tag-* | xargs shellcheck
       - run: mdl .
