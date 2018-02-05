@@ -1,3 +1,4 @@
+---
 version: 2
 jobs:
   build:
@@ -9,8 +10,11 @@ jobs:
     steps:
       - run: apt-get update -q
       - run: apt-get install -qq curl git procps python3-pip ruby shellcheck
-      - run: curl -s https://apt.thoughtbot.com/thoughtbot.gpg.key | apt-key add -
-      - run: echo "deb http://apt.thoughtbot.com/debian/ stable main" > /etc/apt/sources.list.d/thoughtbot.list
+      - run: >
+          curl -s https://apt.thoughtbot.com/thoughtbot.gpg.key | apt-key add -
+      - run: >
+          echo "deb http://apt.thoughtbot.com/debian/ stable main" >
+          /etc/apt/sources.list.d/thoughtbot.list
       - run: apt-get update -q
       - run: apt-get install -qq rcm
       - run: gem install mdl
