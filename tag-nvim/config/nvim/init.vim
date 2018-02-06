@@ -35,6 +35,9 @@ if exists('*minpac#init')
 
     call minpac#add('jamessan/vim-gnupg')
 
+    call minpac#add('machakann/vim-highlightedyank')
+        let g:highlightedyank_highlight_duration = 250
+
     call minpac#add('roxma/nvim-completion-manager')
 
     call minpac#add('sbdchd/neoformat')
