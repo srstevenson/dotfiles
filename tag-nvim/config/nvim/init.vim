@@ -52,6 +52,8 @@ if exists('*minpac#init')
         nmap <unique> <space>ps <Plug>PickerSplit
         nmap <unique> <space>pt <Plug>PickerTabedit
         nmap <unique> <space>pv <Plug>PickerVsplit
+        nmap <unique> <space>pl <Plug>PickerLocationList
+        nmap <unique> <space>pq <Plug>PickerQuickfix
 
     call minpac#add('srstevenson/vim-play')
 
