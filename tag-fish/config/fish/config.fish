@@ -12,6 +12,7 @@ end
 set fish_greeting
 
 prepend_to_path ~/.local/bin
+prepend_to_path ~/bin
 
 set -gx VISUAL nvim
 set -gx EDITOR nvim
