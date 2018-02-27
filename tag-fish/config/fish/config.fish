@@ -21,6 +21,8 @@ set -gx LESS FimRX
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
 
+set -gx PIPSI_HOME ~/.local/share/virtualenvs
+
 abbr -a la ls -Ahl
 abbr -a ll ls -hl
 abbr -a ls ls -h
