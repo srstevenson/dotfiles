@@ -39,5 +39,5 @@ if test -r ~/.local/conda/etc/fish/conf.d/conda.fish
 end
 
 if set -q SSH_TTY; and not set -q TMUX; and status is-login; and type -q tmux
-    tmux attach; or tmux new
+    tmux attach-session; or tmux new-session
 end
