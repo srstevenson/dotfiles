@@ -9,7 +9,7 @@ function fish_prompt -d 'Write out the prompt'
     set_color normal
     __fish_git_prompt '(%s)'
 
-    if jobs > /dev/null
+    if jobs >/dev/null
         set_color purple
         echo -n '!'
         set_color normal
