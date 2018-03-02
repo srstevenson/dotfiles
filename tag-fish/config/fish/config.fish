@@ -35,9 +35,8 @@ if type -q jump
     source (jump shell fish | psub)
 end
 
-if test -r ~/.local/conda/etc/fish/conf.d/conda.fish
-    source ~/.local/conda/etc/fish/conf.d/conda.fish
-    conda activate base
+if type -q pyenv
+    source (pyenv init - | psub)
 end
 
 if set -q SSH_TTY
