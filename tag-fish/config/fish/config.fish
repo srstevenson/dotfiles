@@ -11,6 +11,7 @@ end
 
 set fish_greeting
 
+prepend_to_path ~/.cargo/bin
 prepend_to_path ~/Dropbox/bin
 prepend_to_path ~/.local/bin
 prepend_to_path ~/bin
