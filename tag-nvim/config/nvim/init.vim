@@ -26,8 +26,6 @@ if exists('*minpac#init')
 
     call minpac#add('chrisbra/csv.vim')
 
-    call minpac#add('chriskempson/base16-vim')
-
     call minpac#add('christoomey/vim-sort-motion')
         let g:sort_motion_flags = 'iu'
 
@@ -84,7 +82,7 @@ endif
 
 let g:is_posix = 1
 
-colorscheme base16-default-dark
+colorscheme mod8-ocean
 
 set colorcolumn=80
 set expandtab
