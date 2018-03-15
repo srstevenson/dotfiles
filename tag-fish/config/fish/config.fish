@@ -34,8 +34,8 @@ if type -q jump
     source (jump shell fish | psub)
 end
 
-if test -r ~/miniconda3/etc/fish/conf.d/conda.fish
-    source ~/miniconda3/etc/fish/conf.d/conda.fish
+if test -r ~/opt/conda/etc/fish/conf.d/conda.fish
+    source ~/opt/conda/etc/fish/conf.d/conda.fish
     conda activate base
 end
 
