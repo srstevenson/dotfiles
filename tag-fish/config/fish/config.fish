@@ -11,6 +11,7 @@ end
 
 set fish_greeting
 
+prepend_to_path ~/opt/texlive/2017/bin/x86_64-(uname -s | tr 'A-Z' 'a-z')
 prepend_to_path ~/.cargo/bin
 prepend_to_path ~/Dropbox/bin
 prepend_to_path ~/.local/bin
