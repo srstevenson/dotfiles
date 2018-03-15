@@ -2,7 +2,7 @@
 
 if not set -q TMPDIR
     set -gx TMPDIR /tmp/$LOGNAME
-    mkdir -p -m 700 $TMPDIR
+    mkdir -pm 700 $TMPDIR
 end
 
 if not status is-interactive
