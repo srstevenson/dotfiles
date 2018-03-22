@@ -29,8 +29,6 @@ if exists('*minpac#init')
     call minpac#add('christoomey/vim-sort-motion')
         let g:sort_motion_flags = 'iu'
 
-    call minpac#add('cmhamill/vim-jrnl')
-
     call minpac#add('jamessan/vim-gnupg')
 
     call minpac#add('machakann/vim-highlightedyank')
