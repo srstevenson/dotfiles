@@ -1,5 +1,13 @@
 # ~/.config/git/ignore
 
+# Emacs backup files.
+*~
+
+# Neovim swap files.
 .*.s[a-w][a-z]
+
+# Desktop Service Store on macOS.
 .DS_Store
+
+# Open files that have been unlinked on NFS.
 .nfs*
