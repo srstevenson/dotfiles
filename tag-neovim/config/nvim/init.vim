@@ -30,6 +30,7 @@ if exists('*minpac#init')
         let g:sort_motion_flags = 'iu'
 
     call minpac#add('jamessan/vim-gnupg')
+        let g:GPGDefaultRecipients = ['55DB46D0539AC4EF36E3D50E5CF675520A637578']
 
     call minpac#add('machakann/vim-highlightedyank')
         let g:highlightedyank_highlight_duration = 250
