@@ -13,7 +13,7 @@ jobs:
       - run: >
           curl -s https://apt.thoughtbot.com/thoughtbot.gpg.key | apt-key add -
       - run: >
-          echo "deb http://apt.thoughtbot.com/debian/ stable main" >
+          echo "deb https://apt.thoughtbot.com/debian/ stable main" >
           /etc/apt/sources.list.d/thoughtbot.list
       - run: apt-get update -q
       - run: apt-get install -qq rcm
