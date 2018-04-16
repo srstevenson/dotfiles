@@ -3,6 +3,9 @@
 [commit]
     gpgSign = true
 
+[diff]
+    colorMoved = true
+
 [fetch]
     prune = true
 
