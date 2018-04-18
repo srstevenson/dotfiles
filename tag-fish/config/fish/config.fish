@@ -20,7 +20,6 @@ set -gx EDITOR nvim
 set -gx LESS FimRX
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx PIPSI_HOME ~/.local/share/virtualenvs
 set -gx GOPATH $HOME
 set -gx GOBIN $HOME/bin
 
