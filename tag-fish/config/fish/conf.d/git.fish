@@ -8,7 +8,7 @@ abbr -a gci git commit -v
 abbr -a gco git checkout
 abbr -a gdc git diff --cached
 abbr -a gdi git diff
-abbr -a gfo git fetch origin
+abbr -a gfa git fetch --all
 abbr -a glg git log --graph
 abbr -a glo git log --format=glo --graph
 abbr -a gra git rebase --abort
