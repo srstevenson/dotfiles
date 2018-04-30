@@ -1,6 +1,6 @@
 # ~/.rcrc
 
 EXCLUDES="LICENCE README.md"
-TAGS="fish gem git gnupg npm nvim psql rcm tmux"
+TAGS="fish gem git gnupg npm nvim psql rcm tmux xmonad"
 
 # vim: ft=sh
