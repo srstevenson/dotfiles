@@ -8,4 +8,5 @@ import XMonad.Util.Run
 main = xmonad $ mateConfig
     { modMask = mod4Mask }
     `additionalKeysP`
-    [ ("M-S-l", safeSpawn "mate-screensaver-command" [ "--lock" ] ) ]
+    [ ("M-S-l", safeSpawn "mate-screensaver-command" [ "--lock" ] )
+    , ("<Print>", spawn "mate-screenshot" ) ]
