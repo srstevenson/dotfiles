@@ -15,7 +15,7 @@ srsModMask = mod4Mask
 
 srsManageHook = composeAll
     [ className =? "Enpass-Desktop" --> doShift "9"
-    , className =? "Firefox"        --> doShift "2"
+    , className =? "Firefox" --> doShift "2"
     ]
 
 srsAdditionalKeys =
