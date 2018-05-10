@@ -6,14 +6,19 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
 main = xmonad $ mateConfig
-    { modMask = mod4Mask
-    , manageHook = srsManageHook <+> manageHook mateConfig
+    { manageHook = srsManageHook <+> manageHook mateConfig
+    , modMask = srsModMask
     }
-    `additionalKeysP`
-    [ ("M-S-l", safeSpawn "mate-screensaver-command" [ "--lock" ] )
-    , ("<Print>", safeSpawnProg "mate-screenshot" ) ]
+    `additionalKeysP` srsAdditionalKeys
+
+srsModMask = mod4Mask
 
 srsManageHook = composeAll
     [ className =? "Enpass-Desktop" --> doShift "9"
     , className =? "Firefox"        --> doShift "2"
+    ]
+
+srsAdditionalKeys =
+    [ ("M-S-l", safeSpawn "mate-screensaver-command" [ "--lock" ] )
+    , ("<Print>", safeSpawnProg "mate-screenshot" )
     ]
