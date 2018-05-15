@@ -1,4 +1,4 @@
-# ~/.vintc.yaml
+# ~/.vintrc.yaml
 
 cmdargs:
   severity: style_problem
