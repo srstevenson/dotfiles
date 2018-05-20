@@ -1,10 +1,10 @@
-" ~/.config/nvim/colors/mod8-ocean.vim
+" ~/.config/nvim/colors/mod8-srs.vim
 
 highlight clear
 
 syntax reset
 
-let g:colors_name = 'mod8-ocean'
+let g:colors_name = 'mod8-srs'
 
 function <sid>highlight(group, ctermfg, ctermbg, attr)
     if a:ctermfg !=? ''
