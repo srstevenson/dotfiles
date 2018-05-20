@@ -1,4 +1,4 @@
 " ~/.config/nvim/after/ftplugin/crontab.vim
 
-setl backupcopy=yes
-setl commentstring=#\ %s
+setlocal backupcopy=yes
+setlocal commentstring=#\ %s
