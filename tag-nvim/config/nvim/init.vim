@@ -81,7 +81,7 @@ endif
 
 let g:is_posix = 1
 
-colorscheme mod8-ocean
+colorscheme mod8-srs
 
 set colorcolumn=80
 set expandtab
