@@ -35,11 +35,6 @@ if type -q jump
     source (jump shell fish | psub)
 end
 
-if test -r ~/opt/conda/etc/fish/conf.d/conda.fish
-    source ~/opt/conda/etc/fish/conf.d/conda.fish
-    conda activate base
-end
-
 if set -q SSH_TTY
     and not set -q TMUX
     and status is-login
