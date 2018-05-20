@@ -64,7 +64,7 @@ if exists('*minpac#init')
 
     call minpac#add('tpope/vim-fugitive')
         nnoremap <unique> <silent> <space>gb :Gblame<cr>
-        nnoremap <unique> <silent> <space>gc :Gcommit -v<cr>
+        nnoremap <unique> <silent> <space>gc :Gcommit<cr>
         nnoremap <unique> <silent> <space>gd :Gdiff<cr>
         nnoremap <unique> <silent> <space>gs :Gstatus<cr>
         nnoremap <unique> <silent> <space>gw :Gwrite<cr>

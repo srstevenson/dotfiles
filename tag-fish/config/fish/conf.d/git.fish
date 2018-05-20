@@ -3,8 +3,8 @@
 abbr -a gad git add
 abbr -a gap git add -p
 abbr -a gbr git branch
-abbr -a gca git commit --amend -v
-abbr -a gci git commit -v
+abbr -a gca git commit --amend
+abbr -a gci git commit
 abbr -a gco git checkout
 abbr -a gdc git diff --cached
 abbr -a gdi git diff
