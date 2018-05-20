@@ -25,6 +25,10 @@
 [pretty]
     glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d
 
+[status]
+    branch = true
+    short = true
+
 [transfer]
     fsckObjects = true
 
