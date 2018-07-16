@@ -8,12 +8,15 @@ function git-get -d 'Clone a Git repository into ~/src'
         case -l
             set host gitlab.com
             set repo $argv[2]
+        case -s
+            set host git.stevenson.io
+            set repo $argv[2]
         case '*'
             set host github.com
             set repo $argv[1]
     end
 
-    if string match -eq / $repo
+    if string match git.stevenson.io $host; or string match -eq / $repo
         set src git@$host:$repo.git
         set dest ~/src/$host/$repo
     else
