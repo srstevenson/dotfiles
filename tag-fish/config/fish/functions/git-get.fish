@@ -8,11 +8,11 @@ function git-get -d 'Clone a Git repository into ~/src'
         case -l
             set host gitlab.com
             set repo $argv[2]
-        case -s
-            set host git.stevenson.io
+        case '-h'
+            set host github.com
             set repo $argv[2]
         case '*'
-            set host github.com
+            set host git.stevenson.io
             set repo $argv[1]
     end
 
