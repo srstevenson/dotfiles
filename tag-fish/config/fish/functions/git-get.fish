@@ -16,7 +16,7 @@ function git-get -d 'Clone a Git repository into ~/src'
             set repo $argv[1]
     end
 
-    if string match git.stevenson.io $host; or string match -eq / $repo
+    if string match -q git.stevenson.io $host; or string match -eq / $repo
         set src git@$host:$repo.git
         set dest ~/src/$host/$repo
     else
