@@ -14,7 +14,7 @@ main = xmonad $ mateConfig
 srsModMask = mod4Mask
 
 srsManageHook = composeAll
-    [ className =? "Enpass-Desktop" --> doShift "9"
+    [ className =? "Enpass-Desktop" --> doShift "2"
     , className =? "Firefox" --> doShift "2"
     ]
 
