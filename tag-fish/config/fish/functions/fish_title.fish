@@ -2,7 +2,7 @@
 
 function fish_title -a command -d 'Write out the terminal title'
     prompt_hostname
-    echo -n ': '
+    echo -n ": "
 
     if test $_ = fish
         prompt_pwd
