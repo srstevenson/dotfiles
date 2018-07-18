@@ -1,6 +1,6 @@
 # ~/.config/fish/functions/git-get.fish
 
-function git-get -d 'Clone a Git repository into ~/src'
+function git-get -d "Clone a Git repository to the canonical path"
     switch "$argv[1]"
         case -b
             set host bitbucket.org
