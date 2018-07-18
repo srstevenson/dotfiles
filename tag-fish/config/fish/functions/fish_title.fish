@@ -1,6 +1,7 @@
 # ~/.config/fish/functions/fish_title.fish
 
 function fish_title -a command -d 'Write out the terminal title'
+    echo -ns $LOGNAME @
     prompt_hostname
     echo -n ": "
 
