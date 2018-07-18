@@ -29,8 +29,6 @@ abbr -a ls ls -h
 
 abbr -a cdd cd ~/dotfiles
 
-abbr -a amm amm --no-remote-logging
-
 if type -q jump
     source (jump shell fish | psub)
 end
