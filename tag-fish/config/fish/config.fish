@@ -27,7 +27,7 @@ abbr -a la ls -Ahl
 abbr -a ll ls -hl
 abbr -a ls ls -h
 
-abbr -a cdd cd ~/.dotfiles
+abbr -a cdd cd ~/dotfiles
 
 abbr -a amm amm --no-remote-logging
 
