@@ -25,7 +25,7 @@ function git-get -d "Clone a Git repository to the canonical path"
     end
 
     if test -d $dest
-        echo "$dest already exists" >&2
+        git -C $dest sync
     else
         git clone --recursive $src $dest
     end
