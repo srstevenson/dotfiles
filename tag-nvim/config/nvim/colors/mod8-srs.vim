@@ -80,6 +80,7 @@ call <sid>highlight('PMenuSel', s:cterm01, s:cterm04, '')
 call <sid>highlight('TabLine', s:cterm03, s:cterm01, 'none')
 call <sid>highlight('TabLineFill', s:cterm03, s:cterm01, 'none')
 call <sid>highlight('TabLineSel', s:cterm0B, s:cterm01, 'none')
+call <sid>highlight('EndOfBuffer', s:cterm00, '', '')
 
 call <sid>highlight('Boolean', s:cterm09, '', '')
 call <sid>highlight('Character', s:cterm08, '', '')
