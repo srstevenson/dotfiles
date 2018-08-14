@@ -50,8 +50,6 @@ if exists('*minpac#init')
         nmap <unique> <space>pl <Plug>PickerLocationList
         nmap <unique> <space>pq <Plug>PickerQuickfix
 
-    call minpac#add('srstevenson/vim-play')
-
     call minpac#add('srstevenson/vim-topiary')
 
     call minpac#add('tpope/vim-abolish')
