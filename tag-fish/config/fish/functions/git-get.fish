@@ -27,7 +27,7 @@ function git-get -d "Clone a Git repository to the canonical path"
     if test -d $dest
         git -C $dest sync
     else
-        git clone --recursive $src $dest
+        git clone --recurse-submodules $src $dest
     end
 
     cd $dest
