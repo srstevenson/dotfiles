@@ -50,7 +50,7 @@ abbr -a gss git stash save
 abbr -a gst git status
 
 if type -q jump
-    source (jump shell fish | psub)
+    jump shell fish | source -
 end
 
 if set -q SSH_TTY
