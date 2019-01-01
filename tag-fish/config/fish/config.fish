@@ -14,6 +14,7 @@ fish_hybrid_key_bindings
 set fish_greeting
 
 prepend_to_path ~/.cargo/bin
+prepend_to_path ~/.poetry/bin
 prepend_to_path ~/.local/bin
 prepend_to_path ~/bin
 
