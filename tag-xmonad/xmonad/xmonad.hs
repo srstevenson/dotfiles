@@ -6,7 +6,8 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
 main = xmonad $ desktopConfig
-    { modMask = mod4Mask }
+    { modMask = mod4Mask
+    , terminal = "alacritty" }
     `additionalKeysP` srsAdditionalKeys
 
 srsAdditionalKeys =
