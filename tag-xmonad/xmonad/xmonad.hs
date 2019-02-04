@@ -6,10 +6,8 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
 main = xmonad $ mateConfig
-    { modMask = srsModMask }
+    { modMask = mod4Mask }
     `additionalKeysP` srsAdditionalKeys
-
-srsModMask = mod4Mask
 
 srsAdditionalKeys =
     [ ("M-S-l", safeSpawn "mate-screensaver-command" [ "--lock" ] )
