@@ -1,11 +1,11 @@
 -- ~/.xmonad/xmonad.hs
 
 import XMonad
-import XMonad.Config.Mate
+import XMonad.Config.Desktop
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
-main = xmonad $ mateConfig
+main = xmonad $ desktopConfig
     { modMask = mod4Mask }
     `additionalKeysP` srsAdditionalKeys
 
