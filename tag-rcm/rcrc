@@ -3,6 +3,6 @@
 # shellcheck disable=SC2034
 DOTFILES_DIRS="$HOME/dotfiles"
 EXCLUDES="LICENCE README.md"
-TAGS="fish gem git gnupg npm nvim psql python rcm tmux"
+TAGS="fish git gnupg npm nvim psql python rcm tmux"
 
 # vim: ft=sh
