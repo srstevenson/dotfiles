@@ -7,15 +7,15 @@ syntax reset
 let g:colors_name = 'mod8-srs'
 
 function <sid>highlight(group, ctermfg, ctermbg, attr)
-    if a:ctermfg !=? ''
-        exec 'hi ' . a:group . ' ctermfg=' . a:ctermfg
-    endif
-    if a:ctermbg !=? ''
-        exec 'hi ' . a:group . ' ctermbg=' . a:ctermbg
-    endif
-    if a:attr !=? ''
-        exec 'hi ' . a:group . ' cterm=' . a:attr
-    endif
+  if a:ctermfg !=? ''
+    exec 'hi ' . a:group . ' ctermfg=' . a:ctermfg
+  endif
+  if a:ctermbg !=? ''
+    exec 'hi ' . a:group . ' ctermbg=' . a:ctermbg
+  endif
+  if a:attr !=? ''
+    exec 'hi ' . a:group . ' cterm=' . a:attr
+  endif
 endfunction
 
 let s:cterm00 = '00'
@@ -172,5 +172,5 @@ call <sid>highlight('SpellRare', s:cterm0B, 'NONE', 'undercurl')
 delfunction <sid>highlight
 
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm08 s:cterm09
-            \ s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
+      \ s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
 " unlet s:cterm05 s:cterm06 s:cterm07
