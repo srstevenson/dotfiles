@@ -1,38 +1,38 @@
 # ~/.config/git/config
 
 [commit]
-    gpgSign = true
-    verbose = true
+  gpgSign = true
+  verbose = true
 
 [diff]
-    colorMoved = true
+  colorMoved = true
 
 [fetch]
-    prune = true
+  prune = true
 
 [help]
-    autoCorrect = 1
+  autoCorrect = 1
 
 [merge]
-    conflictStyle = diff3
-    ff = only
+  conflictStyle = diff3
+  ff = only
 
 [pager]
-    diff = diff-highlight | less
-    log = diff-highlight | less
-    show = diff-highlight | less
+  diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
 
 [pretty]
-    glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d
+  glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d
 
 [status]
-    branch = true
-    short = true
+  branch = true
+  short = true
 
 [transfer]
-    fsckObjects = true
+  fsckObjects = true
 
 [user]
-    email = scott@stevenson.io
-    name = Scott Stevenson
-    signingKey = 55DB46D0539AC4EF36E3D50E5CF675520A637578
+  email = scott@stevenson.io
+  name = Scott Stevenson
+  signingKey = 55DB46D0539AC4EF36E3D50E5CF675520A637578
