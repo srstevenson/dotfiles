@@ -1,36 +1,30 @@
 # ~/.config/git/config
 
-[commit]
-  gpgSign = true
-  verbose = true
+[pull]
+  # Rebase the local branch on top of the fetched branch after
+  # pulling, instead of merging the fetched branch.
+  rebase = true
 
-[diff]
-  colorMoved = true
+[rebase]
+  # Automatically create a stash entry before rebasing, and apply it
+  # after the rebase.
+  autoStash = true
 
-[fetch]
-  prune = true
+[url "git@bitbucket.org:"]
+  # Rewrite Bitbucket URLs to push over SSH instead of HTTPS.
+  pushInsteadOf = "https://bitbucket.org/"
 
-[help]
-  autoCorrect = 1
+[url "git@git.sr.ht:"]
+  # Rewrite SourceHut URLs to push over SSH instead of HTTPS.
+  pushInsteadOf = "https://git.sr.ht/"
 
-[merge]
-  conflictStyle = diff3
-  ff = only
+[url "git@github.com:"]
+  # Rewrite GitHub URLs to push over SSH instead of HTTPS.
+  pushInsteadOf = "https://github.com/"
 
-[pager]
-  diff = diff-highlight | less
-  log = diff-highlight | less
-  show = diff-highlight | less
-
-[pretty]
-  glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d
-
-[status]
-  branch = true
-  short = true
-
-[transfer]
-  fsckObjects = true
+[url "git@gitlab.com:"]
+  # Rewrite GitLab URLs to push over SSH instead of HTTPS.
+  pushInsteadOf = "https://gitlab.com/"
 
 [user]
   email = scott@stevenson.io
