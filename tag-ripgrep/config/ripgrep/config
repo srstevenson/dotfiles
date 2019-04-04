@@ -1,0 +1,9 @@
+# ~/.config/ripgrep/config
+
+# Don't print lines longer than 1000 bytes. Only the number of matches
+# in such lines are printed.
+--max-columns=1000
+
+# Search case insensitively if the pattern is all lowercase, otherwise
+# search case sensitively.
+--smart-case
