@@ -1,7 +1,7 @@
-# Dotfiles
+# dotfiles
 
-To use these configuration files, first install [rcm]. Then checkout the
-repository and link the files into place with:
+These dotfiles are managed using [rcm][rcm]. To clone the repository and symlink
+the files into your home directory, run:
 
 ```sh
 git clone git@github.com:srstevenson/dotfiles.git "$HOME/dotfiles"
