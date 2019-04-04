@@ -1,0 +1,64 @@
+# ~/.bashrc
+
+if [[ $- != *i* ]]; then
+  return
+fi
+
+HISTFILESIZE=10000
+HISTSIZE=10000
+
+if [[ -r /usr/lib/git-core/git-sh-prompt ]]; then
+  . /usr/lib/git-core/git-sh-prompt
+elif [[ -r /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh ]]; then
+  . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+fi
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_STATESEPARATOR=""
+
+PS1='\u@\h:\w$(__git_ps1 "(%s)")\$ '
+
+case $TERM in screen*|xterm*)
+  PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
+esac
+
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export VISUAL="nvim"
+export LESS="FirSX"
+export GPG_TTY="$(tty)"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_GITHUB_API=1
+else
+  alias open="xdg-open"
+  alias pbcopy="xsel --clipboard --input"
+  alias pbpaste="xsel --clipboard --output"
+fi
+
+alias gad="git add"
+alias gap="git add --patch"
+alias gbr="git branch"
+alias gca="git commit --amend"
+alias gcb="git checkout -b"
+alias gci="git commit --verbose"
+alias gco="git checkout"
+alias gdc="git diff --cached"
+alias gdi="git diff"
+alias glg="git log"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias gri="git rebase --interactive"
+alias grs="git rebase --skip"
+alias gso="git show"
+alias gsp="git stash pop"
+alias gss="git stash save"
+alias gst="git status"
+
+if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
+  . "$HOME/anaconda3/etc/profile.d/conda.sh"
+  CONDA_CHANGEPS1=false conda activate
+fi
