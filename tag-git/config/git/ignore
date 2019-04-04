@@ -3,7 +3,7 @@
 # Emacs backup files.
 *~
 
-# {Neov,V}im swap files.
+# Neovim swap files.
 .*.s[a-w][a-z]
 
 # Desktop Service Store files on macOS.
