@@ -1,6 +1,0 @@
-# ~/.vintrc.yml
-
-cmdargs:
-  severity: style_problem
-  env:
-    neovim: true
