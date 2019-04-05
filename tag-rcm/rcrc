@@ -10,4 +10,4 @@ EXCLUDES="LICENCE README.md"
 # automatically linked only on OpenBSD hosts.
 HOSTNAME="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-TAGS="bash conda git gnupg neovim rcm ripgrep tmux"
+TAGS="bash git gnupg neovim python rcm ripgrep tmux"
