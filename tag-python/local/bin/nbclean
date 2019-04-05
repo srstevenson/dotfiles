@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -eu
+
+jq --indent 1 \
+  ' (.cells[] | select(has("outputs")) | .outputs) = []
+  | (.cells[] | select(has("execution_count")) | .execution_count) = null
+  | .cells[].metadata = {}
+  | .metadata = {}' < "${1:-/dev/stdin}" | sponge "${1:-/dev/stdout}"
