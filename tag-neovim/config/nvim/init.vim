@@ -11,6 +11,8 @@ set softtabstop=-1
 set spelllang=en_gb
 set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
+let g:is_posix = 1
+
 function! <sid>cleanup_whitespace() abort
   let l:view = winsaveview()
   %s/\s\+$//e
