@@ -1,5 +1,7 @@
 # ~/.bashrc
 
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
 if [[ $- != *i* ]]; then
   return
 fi
@@ -24,7 +26,6 @@ case $TERM in screen*|xterm*)
   PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
 esac
 
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export VISUAL="nvim"
 export LESS="FirSX"
 export GPG_TTY="$(tty)"
