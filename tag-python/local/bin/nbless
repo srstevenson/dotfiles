@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu
+
+jupyter nbconvert --stdout --to markdown "$1" 2>/dev/null | less
