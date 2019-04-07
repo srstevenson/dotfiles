@@ -5,6 +5,7 @@ syntax off
 set background=light
 set expandtab
 set nojoinspaces
+set path=**
 set scrolloff=3
 set shiftwidth=2
 set softtabstop=-1
