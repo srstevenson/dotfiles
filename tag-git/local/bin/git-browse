@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -eu
+
+URL="$(git remote get-url ${1:-origin})"
+URL="${URL#git\@}"  # Remove `git@` prefix
+URL="${URL%\.git}"  # Remove `.git` suffix
+URL="${URL/://}"    # Replace `:` in SSH URLs with `/`
+URL="https://$URL"
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  open "$URL"
+else
+  xdg-open "$URL"
+fi
