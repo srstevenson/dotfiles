@@ -20,10 +20,10 @@ GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_STATESEPARATOR=""
 
-PS1='\u@\h:\w$(__git_ps1 "(%s)")\$ '
+PS1='\h:\w$(__git_ps1 "(%s)")\$ '
 
 case $TERM in screen*|xterm*)
-  PS1="\[\e]0;\u@\h: \w\a\]$PS1" ;;
+  PS1="\[\e]0;\h: \w\a\]$PS1" ;;
 esac
 
 export VISUAL="nvim"
