@@ -1,5 +1,8 @@
 # ~/.config/git/config
 
+[pretty]
+  glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d%n
+
 [pull]
   # Rebase the local branch on top of the fetched branch after
   # pulling, instead of merging the fetched branch.
