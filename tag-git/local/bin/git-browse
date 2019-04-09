@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 
@@ -8,7 +8,7 @@ URL="${URL%\.git}"  # Remove `.git` suffix
 URL="${URL/://}"    # Replace `:` in SSH URLs with `/`
 URL="https://$URL"
 
-if [ "$(uname -s)" = "Darwin" ]; then
+if [[ "$OSTYPE" == darwin* ]]; then
   open "$URL"
 else
   xdg-open "$URL"
