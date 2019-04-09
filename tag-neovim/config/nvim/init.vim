@@ -33,3 +33,17 @@ augroup cleanup_whitespace
 augroup END
 
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
+
+function! <sid>replace_typographic_characters() abort
+  let l:map = {}
+  let l:map["–"] = "--"
+  let l:map["—"] = "---"
+  let l:map["‘"] = "'"
+  let l:map["’"] = "'"
+  let l:map["“"] = '"'
+  let l:map["”"] = '"'
+  let l:map["…"] = "..."
+  execute ":%substitute/".join(keys(l:map), '\|').'/\=l:map[submatch(0)]/ge'
+endfunction
+
+command! -bar ReplaceTypographicCharacters call <sid>replace_typographic_characters()
