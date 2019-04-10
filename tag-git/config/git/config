@@ -1,5 +1,8 @@
 # ~/.config/git/config
 
+[include]
+  path = ~/.config/git/local
+
 [pretty]
   glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d%n
 
@@ -12,6 +15,11 @@
   # Automatically create a stash entry before rebasing, and apply it
   # after the rebase.
   autoStash = true
+
+[sendemail]
+  smtpEncryption = ssl
+  smtpServer = smtp.fastmail.com
+  smtpServerPort = 465
 
 [url "git@bitbucket.org:"]
   # Rewrite Bitbucket URLs to push over SSH instead of HTTPS.
