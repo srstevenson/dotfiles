@@ -42,6 +42,7 @@ fi
 
 alias gad="git add"
 alias gap="git add --patch"
+alias gbd="git branch -d"
 alias gbr="git branch"
 alias gca="git commit --amend"
 alias gcb="git checkout -b"
