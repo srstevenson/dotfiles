@@ -8,3 +8,6 @@
 
 # Desktop Service Store files on macOS.
 .DS_Store
+
+# Open files that have been unlinked on NFS.
+.nfs*
