@@ -3,10 +3,11 @@
 set -eu
 
 URL="$(git remote get-url ${1:-origin})"
-URL="${URL#git\@}"  # Remove `git@` prefix
-URL="${URL%\.git}"  # Remove `.git` suffix
-URL="${URL/://}"    # Replace `:` in SSH URLs with `/`
-URL="https://$URL"
+URL="${URL#https://}"  # Remove https:// prefix
+URL="${URL#git\@}"     # Remove git@ prefix
+URL="${URL%\.git}"     # Remove .git suffix
+URL="${URL/://}"       # Replace : with / in SSH URLs
+URL="https://$URL"     # Add https:// prefix
 
 if [[ "$OSTYPE" == darwin* ]]; then
   open "$URL"
