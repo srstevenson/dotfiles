@@ -11,8 +11,8 @@ HISTSIZE=10000
 
 if [[ -r /usr/lib/git-core/git-sh-prompt ]]; then
   . /usr/lib/git-core/git-sh-prompt
-elif [[ -r /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh ]]; then
-  . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+elif [[ -r /usr/local/etc/bash_completion.d/git-prompt.sh ]]; then
+  . /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=1
