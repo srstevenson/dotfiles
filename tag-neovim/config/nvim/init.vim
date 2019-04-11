@@ -4,6 +4,7 @@ syntax off
 
 set background=light
 set expandtab
+set isfname-==
 set nojoinspaces
 set path=**
 set scrolloff=3
