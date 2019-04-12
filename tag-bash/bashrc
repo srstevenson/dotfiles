@@ -61,6 +61,8 @@ alias gsp="git stash pop"
 alias gss="git stash save"
 alias gst="git status"
 
+alias cds="cd ~/src/\$(find ~/src -name .git -execdir pwd \; | sed "s,$HOME/src/,," | fzy)"
+
 if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
   . "$HOME/anaconda3/etc/profile.d/conda.sh"
   CONDA_CHANGEPS1=false conda activate
