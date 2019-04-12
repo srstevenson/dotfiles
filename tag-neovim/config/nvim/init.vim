@@ -48,3 +48,7 @@ function! <sid>replace_typographic_characters() abort
 endfunction
 
 command! -bar ReplaceTypographicCharacters call <sid>replace_typographic_characters()
+command! -bar -bang Delete
+      \ let s:filename = fnamemodify(bufname(<q-args>), ':p') |
+      \ execute 'bdelete<bang>' |
+      \ call delete(s:filename)
