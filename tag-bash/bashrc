@@ -40,6 +40,13 @@ else
   alias pbpaste="xsel --clipboard --output"
 fi
 
+alias cea="conda activate"
+alias cec="conda create -n"
+alias ced="conda deactivate"
+alias cee="conda env export"
+alias cel="conda env list"
+alias cer="conda env remove -n"
+
 alias gad="git add"
 alias gap="git add --patch"
 alias gbd="git branch -d"
