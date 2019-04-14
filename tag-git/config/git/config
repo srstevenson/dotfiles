@@ -6,6 +6,8 @@
   autoCorrect = 2
 
 [include]
+  # Include host specific configuration external to dotfiles
+  # repository.
   path = ~/.config/git/local
 
 [pretty]
@@ -22,6 +24,8 @@
   autoStash = true
 
 [sendemail]
+  # Configure git-send-email(1) to send emails via FastMail using
+  # SMTP.
   smtpEncryption = ssl
   smtpServer = smtp.fastmail.com
   smtpServerPort = 465
