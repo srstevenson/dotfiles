@@ -9,6 +9,8 @@ URL="${URL%\.git}"     # Remove .git suffix
 URL="${URL/://}"       # Replace : with / in SSH URLs
 URL="https://$URL"     # Add https:// prefix
 
+echo "$URL"
+
 if [[ "$OSTYPE" == darwin* ]]; then
   open "$URL"
 else
