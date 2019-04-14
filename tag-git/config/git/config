@@ -1,5 +1,10 @@
 # ~/.config/git/config
 
+[help]
+  # Automatically correct and execute mistyped commands after waiting
+  # for 200 milliseconds.
+  autoCorrect = 2
+
 [include]
   path = ~/.config/git/local
 
