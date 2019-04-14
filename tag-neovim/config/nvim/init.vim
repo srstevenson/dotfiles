@@ -17,7 +17,9 @@ let g:is_posix = 1
 
 function! <sid>cleanup_whitespace() abort
   let l:view = winsaveview()
-  %s/\s\+$//e
+  if &filetype !=# 'mail'
+    %s/\s\+$//e
+  endif
   %s/\%^\n\+//e
   %s/\n\+\%$//e
   if &filetype ==# 'python'
