@@ -18,14 +18,14 @@ let g:is_posix = 1
 function! <sid>cleanup_whitespace() abort
   let l:view = winsaveview()
   if &filetype !=# 'mail'
-    %s/\s\+$//e
+    %substitute/\s\+$//e
   endif
-  %s/\%^\n\+//e
-  %s/\n\+\%$//e
+  %substitute/\%^\n\+//e
+  %substitute/\n\+\%$//e
   if &filetype ==# 'python'
-    %s/\n\{4,}/\r\r\r/e
+    %substitute/\n\{4,}/\r\r\r/e
   else
-    %s/\n\{3,}/\r\r/e
+    %substitute/\n\{3,}/\r\r/e
   endif
   call winrestview(l:view)
 endfunction
