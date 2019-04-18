@@ -2,7 +2,6 @@
 
 syntax off
 
-set background=light
 set expandtab
 set isfname-==
 set nojoinspaces
@@ -14,6 +13,8 @@ set spelllang=en_gb
 set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
 let g:is_posix = 1
+
+colorscheme base16
 
 function! <sid>cleanup_whitespace() abort
   let l:view = winsaveview()
