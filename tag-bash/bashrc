@@ -26,6 +26,7 @@ case $TERM in screen*|xterm*)
   PS1="\[\e]0;\h: \w\a\]$PS1" ;;
 esac
 
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export VISUAL="nvim"
 export LESS="FirSX"
 export GPG_TTY="$(tty)"
