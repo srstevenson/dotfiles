@@ -73,6 +73,7 @@ alias la="ls -Ahl"
 alias ll="ls -hl"
 alias ls="ls -h"
 
+alias cdd="cd ~/dotfiles"
 alias cds="cd ~/src/\$(find ~/src -name .git -execdir pwd \; | sed "s,$HOME/src/,," | fzy)"
 
 if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
