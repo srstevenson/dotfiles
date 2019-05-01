@@ -46,6 +46,7 @@ function! <sid>replace_typographic_characters() abort
   let l:map["’"] = "'"
   let l:map["“"] = '"'
   let l:map["”"] = '"'
+  let l:map["•"] = "*"
   let l:map["…"] = "..."
   execute ":%substitute/".join(keys(l:map), '\|').'/\=l:map[submatch(0)]/ge'
 endfunction
