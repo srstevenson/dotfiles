@@ -81,3 +81,7 @@ if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
   . "$HOME/anaconda3/etc/profile.d/conda.sh"
   CONDA_CHANGEPS1=false conda activate
 fi
+
+if [[ "$(tty)" == "/dev/tty1" ]]; then
+  exec sway
+fi
