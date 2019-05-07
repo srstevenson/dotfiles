@@ -1,7 +1,5 @@
 " ~/.config/nvim/init.vim
 
-syntax off
-
 packadd minpac
 
 call minpac#init()
@@ -22,7 +20,7 @@ set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 
 let g:is_posix = 1
 
-colorscheme base16
+colorscheme base16-muted
 
 nnoremap <silent> <c-l> :nohlsearch<cr><c-l>
 
