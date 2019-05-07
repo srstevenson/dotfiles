@@ -1,8 +1,8 @@
-" ~/.config/nvim/colors/base16.vim
+" ~/.config/nvim/colors/base16-muted.vim
 
 highlight clear
 syntax reset
-let g:colors_name = "base16"
+let g:colors_name = "base16-muted"
 
 let s:cterm00 = "00"
 let s:cterm01 = "10"
@@ -10,8 +10,8 @@ let s:cterm02 = "11"
 let s:cterm03 = "08"
 let s:cterm04 = "12"
 let s:cterm05 = "07"
-" let s:cterm06 = "13"
-" let s:cterm07 = "15"
+let s:cterm06 = "13"
+let s:cterm07 = "15"
 let s:cterm08 = "01"
 let s:cterm09 = "09"
 let s:cterm0A = "03"
@@ -78,36 +78,46 @@ call <sid>highlight("VisualNOS", s:cterm08, "", "")
 call <sid>highlight("WarningMsg", s:cterm08, "", "")
 call <sid>highlight("WildMenu", s:cterm08, "", "")
 
-call <sid>highlight("Boolean", s:cterm09, "", "")
-call <sid>highlight("Character", s:cterm08, "", "")
+call <sid>highlight("Boolean", s:cterm05, "", "")
+call <sid>highlight("Character", s:cterm05, "", "")
 call <sid>highlight("Comment", s:cterm03, "", "")
-call <sid>highlight("Conditional", s:cterm0E, "", "")
-call <sid>highlight("Constant", s:cterm09, "", "")
-call <sid>highlight("Define", s:cterm0E, "", "none")
-call <sid>highlight("Delimiter", s:cterm0F, "", "")
-call <sid>highlight("Float", s:cterm09, "", "")
-call <sid>highlight("Function", s:cterm0D, "", "")
-call <sid>highlight("Identifier", s:cterm08, "", "none")
-call <sid>highlight("Include", s:cterm0D, "", "")
-call <sid>highlight("Keyword", s:cterm0E, "", "")
-call <sid>highlight("Label", s:cterm0A, "", "")
-call <sid>highlight("Number", s:cterm09, "", "")
+call <sid>highlight("Conditional", s:cterm05, "", "")
+call <sid>highlight("Constant", s:cterm05, "", "")
+call <sid>highlight("Define", s:cterm05, "", "none")
+call <sid>highlight("Delimiter", s:cterm05, "", "")
+call <sid>highlight("Float", s:cterm05, "", "")
+call <sid>highlight("Function", s:cterm05, "", "")
+call <sid>highlight("Identifier", s:cterm05, "", "none")
+call <sid>highlight("Include", s:cterm05, "", "")
+call <sid>highlight("Keyword", s:cterm05, "", "")
+call <sid>highlight("Label", s:cterm05, "", "")
+call <sid>highlight("Number", s:cterm05, "", "")
 call <sid>highlight("Operator", s:cterm05, "", "none")
-call <sid>highlight("PreProc", s:cterm0A, "", "")
-call <sid>highlight("Repeat", s:cterm0A, "", "")
-call <sid>highlight("Special", s:cterm0C, "", "")
-call <sid>highlight("SpecialChar", s:cterm0F, "", "")
-call <sid>highlight("Statement", s:cterm08, "", "")
-call <sid>highlight("StorageClass", s:cterm0A, "", "")
-call <sid>highlight("String", s:cterm0B, "", "")
-call <sid>highlight("Structure", s:cterm0E, "", "")
-call <sid>highlight("Tag", s:cterm0A, "", "")
-call <sid>highlight("Todo", s:cterm0A, s:cterm01, "")
-call <sid>highlight("Type", s:cterm0A, "", "none")
-call <sid>highlight("Typedef", s:cterm0A, "", "")
+call <sid>highlight("PreProc", s:cterm05, "", "")
+call <sid>highlight("Repeat", s:cterm05, "", "")
+call <sid>highlight("Special", s:cterm05, "", "")
+call <sid>highlight("SpecialChar", s:cterm05, "", "")
+call <sid>highlight("Statement", s:cterm05, "", "")
+call <sid>highlight("StorageClass", s:cterm05, "", "")
+call <sid>highlight("String", s:cterm04, "", "")
+call <sid>highlight("Structure", s:cterm05, "", "")
+call <sid>highlight("Tag", s:cterm05, "", "")
+call <sid>highlight("Todo", s:cterm0A, "", "")
+call <sid>highlight("Type", s:cterm05, "", "none")
+call <sid>highlight("Typedef", s:cterm05, "", "")
+
+call <sid>highlight("DiffAdd", s:cterm0B, s:cterm01, "")
+call <sid>highlight("DiffAdded", s:cterm0B, s:cterm00, "")
+call <sid>highlight("DiffChange", s:cterm03, s:cterm01, "")
+call <sid>highlight("DiffDelete", s:cterm08, s:cterm01, "")
+call <sid>highlight("DiffFile", s:cterm08, s:cterm00, "")
+call <sid>highlight("DiffLine", s:cterm0D, s:cterm00, "")
+call <sid>highlight("DiffNewFile", s:cterm0B, s:cterm00, "")
+call <sid>highlight("DiffRemoved", s:cterm08, s:cterm00, "")
+call <sid>highlight("DiffText", s:cterm0D, s:cterm01, "")
 
 delfunction <sid>highlight
 
-unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm08
-      \ s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
-" unlet s:cterm06 s:cterm07
+unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06
+      \ s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D
+      \ s:cterm0E s:cterm0F
