@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ ! -d "$HOME/.config/nvim/pack/minpac/opt/minpac" ]]; then
+  git clone https://github.com/k-takata/minpac.git \
+    ~/.config/nvim/pack/minpac/opt/minpac
+fi
+
+nvim --headless +MinpacUpdateAndQuit
