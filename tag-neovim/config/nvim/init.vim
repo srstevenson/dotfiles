@@ -8,6 +8,7 @@ call minpac#add("srstevenson/vim-topiary")
 call minpac#add("tpope/vim-commentary")
 call minpac#add("tpope/vim-fugitive")
 
+set colorcolumn=80
 set expandtab
 set isfname-==
 set nojoinspaces
