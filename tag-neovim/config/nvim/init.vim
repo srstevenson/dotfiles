@@ -1,5 +1,7 @@
 " ~/.config/nvim/init.vim
 
+scriptencoding utf-8
+
 packadd minpac
 
 call minpac#init()
