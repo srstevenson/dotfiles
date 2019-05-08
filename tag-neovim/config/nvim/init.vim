@@ -42,5 +42,9 @@ command! -bar -bang Delete
       \ let s:filename = fnamemodify(bufname(<q-args>), ':p') |
       \ execute 'bdelete<bang>' |
       \ call delete(s:filename)
+command! -bar HighlightGroup
+      \ echo 'hi<' . synIDattr(synID(line('.'), col('.'), 1), 'name') . '> trans<'
+      \ . synIDattr(synID(line('.'), col('.'), 0), 'name') . '> lo<'
+      \ . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . '>'
 command! -bar MinpacUpdateAndQuit call minpac#update('', {'do': 'quit'})
 command! -bar ReplaceTypographicCharacters call <sid>replace_typographic_characters()
