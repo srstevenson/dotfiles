@@ -2,17 +2,25 @@
 
 set -eu
 
-URL="$(git remote get-url ${1:-origin})"
-URL="${URL#https://}"  # Remove https:// prefix
-URL="${URL#git\@}"     # Remove git@ prefix
-URL="${URL%\.git}"     # Remove .git suffix
-URL="${URL/://}"       # Replace : with / in SSH URLs
-URL="https://$URL"     # Add https:// prefix
+transform_url() {
+  url="${1#https://}"  # Remove https:// prefix
+  url="${url#git\@}"   # Remove git@ prefix
+  url="${url%\.git}"   # Remove .git suffix
+  url="${url/://}"     # Replace : with / in SSH URLs
+  url="https://$url"   # Add https:// prefix
+  echo "$url"
+}
 
-echo "$URL"
+open_url() {
+  if [[ "$OSTYPE" == darwin* ]]; then
+    open "$url"
+  else
+    xdg-open "$url"
+  fi
+}
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  open "$URL"
-else
-  xdg-open "$URL"
-fi
+for url in $(git remote get-url --all --push "${1:-origin}"); do
+  url="$(transform_url "$url")"
+  echo "$url"
+  open_url "$url"
+done
