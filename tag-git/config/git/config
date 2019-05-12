@@ -1,5 +1,12 @@
 # ~/.config/git/config
 
+[filter "lfs"]
+  # Enable Git Large File Storage extension.
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+
 [help]
   # Automatically correct and execute mistyped commands after waiting
   # for 200 milliseconds.
