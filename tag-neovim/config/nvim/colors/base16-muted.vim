@@ -116,6 +116,14 @@ call <sid>highlight('DiffNewFile', s:cterm0B, s:cterm00, '')
 call <sid>highlight('DiffRemoved', s:cterm08, s:cterm00, '')
 call <sid>highlight('DiffText', s:cterm0D, s:cterm01, '')
 
+call <sid>highlight('ALEErrorSign', s:cterm09, s:cterm01, '')
+call <sid>highlight('ALEVirtualTextError', s:cterm09, '', '')
+call <sid>highlight('ALEVirtualTextInfo', s:cterm09, '', '')
+call <sid>highlight('ALEVirtualTextStyleError', s:cterm09, '', '')
+call <sid>highlight('ALEVirtualTextStyleWarning', s:cterm09, '', '')
+call <sid>highlight('ALEVirtualTextWarning', s:cterm09, '', '')
+call <sid>highlight('ALEWarningSign', s:cterm09, s:cterm01, '')
+
 delfunction <sid>highlight
 
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06
