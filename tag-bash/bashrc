@@ -1,5 +1,7 @@
 # ~/.bashrc
 
+# shellcheck disable=SC1090,SC1091
+
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 if [[ $- != *i* ]]; then
@@ -29,8 +31,10 @@ esac
 export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export VISUAL="nvim"
 export LESS="FirSX"
-export GPG_TTY="$(tty)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+GPG_TTY="$(tty)"
+export GPG_TTY
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export HOMEBREW_NO_ANALYTICS=1
@@ -40,6 +44,8 @@ else
   alias pbcopy="xsel --clipboard --input"
   alias pbpaste="xsel --clipboard --output"
 fi
+
+alias cdd="cd ~/dotfiles"
 
 alias cea="conda activate"
 alias cec="conda create -n"
@@ -73,9 +79,6 @@ alias gsu="git stash push"
 alias la="ls -Ahl"
 alias ll="ls -hl"
 alias ls="ls -h"
-
-alias cdd="cd ~/dotfiles"
-alias cds="cd ~/src/\$(find ~/src -name .git -execdir pwd \; | sed "s,$HOME/src/,," | fzy)"
 
 if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
   . "$HOME/anaconda3/etc/profile.d/conda.sh"
