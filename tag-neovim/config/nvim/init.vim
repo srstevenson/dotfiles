@@ -6,6 +6,7 @@ packadd minpac
 
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('jamessan/vim-gnupg')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('w0rp/ale')
