@@ -116,6 +116,11 @@ call <sid>highlight('DiffNewFile', s:cterm0B, s:cterm00, '')
 call <sid>highlight('DiffRemoved', s:cterm08, s:cterm00, '')
 call <sid>highlight('DiffText', s:cterm0D, s:cterm01, '')
 
+call <sid>highlight('SpellBad', '', 52, '')
+call <sid>highlight('SpellCap', '', 52, '')
+call <sid>highlight('SpellLocal', '', 52, '')
+call <sid>highlight('SpellRare', '', 52, '')
+
 call <sid>highlight('markdownLinkText', s:cterm05, '', '')
 
 call <sid>highlight('ALEErrorSign', s:cterm09, s:cterm01, '')
