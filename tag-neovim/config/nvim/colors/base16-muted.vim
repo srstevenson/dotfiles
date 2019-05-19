@@ -116,6 +116,8 @@ call <sid>highlight('DiffNewFile', s:cterm0B, s:cterm00, '')
 call <sid>highlight('DiffRemoved', s:cterm08, s:cterm00, '')
 call <sid>highlight('DiffText', s:cterm0D, s:cterm01, '')
 
+call <sid>highlight('markdownLinkText', s:cterm05, '', '')
+
 call <sid>highlight('ALEErrorSign', s:cterm09, s:cterm01, '')
 call <sid>highlight('ALEVirtualTextError', s:cterm09, '', '')
 call <sid>highlight('ALEVirtualTextInfo', s:cterm09, '', '')
