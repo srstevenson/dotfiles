@@ -5,6 +5,7 @@ set fish_greeting
 set -g fish_user_paths ~/bin ~/.local/bin $fish_user_paths
 
 set -gx VISUAL nvim
+set -gx GPG_TTY (tty)
 
 abbr -a cea conda activate
 abbr -a cec conda create -n
