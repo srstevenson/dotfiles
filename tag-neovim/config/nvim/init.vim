@@ -13,11 +13,13 @@ call minpac#add('w0rp/ale')
 
 set colorcolumn=80
 set expandtab
+set ignorecase
 set isfname-==
 set nojoinspaces
 set path=**
 set scrolloff=3
 set shiftwidth=2
+set smartcase
 set softtabstop=-1
 set spelllang=en_gb
 set statusline=%<%f\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
