@@ -31,7 +31,7 @@
   autoStash = true
 
 [sendemail]
-  # Configure git-send-email(1) to send emails via FastMail using
+  # Configure git-send-email(1) to send emails via Fastmail using
   # SMTP.
   smtpEncryption = ssl
   smtpServer = smtp.fastmail.com
