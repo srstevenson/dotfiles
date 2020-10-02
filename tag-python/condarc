@@ -1,5 +1,0 @@
-# ~/.condarc
-
-# Choose the yes option whenever asked to proceed, such as when
-# installing.
-always_yes: true
