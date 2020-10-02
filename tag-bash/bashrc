@@ -47,13 +47,6 @@ fi
 
 alias cdd="cd ~/dotfiles"
 
-alias cea="conda activate"
-alias cec="conda create -n"
-alias ced="conda deactivate"
-alias cee="conda env export"
-alias cel="conda env list"
-alias cer="conda env remove -n"
-
 alias gad="git add"
 alias gap="git add --patch"
 alias gbd="git branch -d"
@@ -79,11 +72,6 @@ alias gsu="git stash push"
 alias la="ls -Ahl"
 alias ll="ls -hl"
 alias ls="ls -h"
-
-if [[ -r "$HOME/anaconda3/etc/profile.d/conda.sh" ]]; then
-  . "$HOME/anaconda3/etc/profile.d/conda.sh"
-  CONDA_CHANGEPS1=false conda activate
-fi
 
 if [[ "$(tty)" == "/dev/tty1" ]]; then
   exec sway
