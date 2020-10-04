@@ -1,7 +1,7 @@
 # ~/.config/git/config
 
 [pretty]
-  glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d%n
+  glo = %C(auto)%h %s %C(cyan)<%an> %C(green)(%ar)%C(auto)%d%n
 
 [user]
   email = scott@stevenson.io
