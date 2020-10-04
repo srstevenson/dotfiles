@@ -2,12 +2,4 @@
 
 DOTFILES_DIRS="$HOME/dotfiles"
 EXCLUDES="LICENCE README.md"
-
-# rcm doesn't provide a way to conditionally link dotfiles based on
-# operating system, but it does based on hostname. Therefore set
-# `HOSTNAME` to the lower cased operating system name, so that
-# dotfiles in, for example, the `host-openbsd` directory are
-# automatically linked only on OpenBSD hosts.
-HOSTNAME="$(uname -s | tr '[:upper:]' '[:lower:]')"
-
 TAGS="clang fish git gnupg neovim rcm ripgrep starship tmux"
