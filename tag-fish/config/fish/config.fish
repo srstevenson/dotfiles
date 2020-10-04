@@ -10,26 +10,26 @@ set -gx GPG_TTY (tty)
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -gx VISUAL nvim
 
-abbr -a gad git add
-abbr -a gap git add --patch
-abbr -a gbd git branch -d
-abbr -a gbr git branch
-abbr -a gca git commit --amend
-abbr -a gcb git checkout -b
-abbr -a gci git commit --verbose
-abbr -a gco git checkout
-abbr -a gdc git diff --cached
-abbr -a gdi git diff
-abbr -a glg git log --graph
-abbr -a glo git log --format=glo --graph
-abbr -a gra git rebase --abort
-abbr -a grc git rebase --continue
-abbr -a gri git rebase --interactive
-abbr -a grs git rebase --skip
-abbr -a gsd git stash drop
-abbr -a gso git show
-abbr -a gsp git stash pop
-abbr -a gst git status
-abbr -a gsu git stash push
+abbr -ag gad git add
+abbr -ag gap git add --patch
+abbr -ag gbd git branch -d
+abbr -ag gbr git branch
+abbr -ag gca git commit --amend
+abbr -ag gcb git checkout -b
+abbr -ag gci git commit --verbose
+abbr -ag gco git checkout
+abbr -ag gdc git diff --cached
+abbr -ag gdi git diff
+abbr -ag glg git log --graph
+abbr -ag glo git log --format=glo --graph
+abbr -ag gra git rebase --abort
+abbr -ag grc git rebase --continue
+abbr -ag gri git rebase --interactive
+abbr -ag grs git rebase --skip
+abbr -ag gsd git stash drop
+abbr -ag gso git show
+abbr -ag gsp git stash pop
+abbr -ag gst git status
+abbr -ag gsu git stash push
 
 type -q starship; and starship init fish | source
