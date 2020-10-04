@@ -31,7 +31,7 @@ abbr -ag gco git checkout
 abbr -ag gdi git diff
 abbr -ag gds git diff --staged
 abbr -ag glg git log --graph
-abbr -ag glo git log --format=glo --graph
+abbr -ag glo git log --format=dense --graph
 abbr -ag gra git rebase --abort
 abbr -ag grc git rebase --continue
 abbr -ag gri git rebase --interactive
