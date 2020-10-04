@@ -41,6 +41,7 @@ abbr -ag gsp git stash pop
 abbr -ag gst git status
 abbr -ag gsu git stash push
 
+type -q jump; and jump shell fish | source
 type -q starship; and starship init fish | source
 
 if set -q SSH_TTY; and not set -q TMUX
