@@ -10,4 +10,4 @@ EXCLUDES="LICENCE README.md"
 # automatically linked only on OpenBSD hosts.
 HOSTNAME="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-TAGS="clang fish git gnupg neovim python rcm ripgrep tmux"
+TAGS="clang fish git gnupg neovim python rcm ripgrep starship tmux"
