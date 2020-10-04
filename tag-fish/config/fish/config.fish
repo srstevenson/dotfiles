@@ -28,3 +28,5 @@ abbr -a gso git show
 abbr -a gsp git stash pop
 abbr -a gst git status
 abbr -a gsu git stash push
+
+type -q starship; and starship init fish | source
