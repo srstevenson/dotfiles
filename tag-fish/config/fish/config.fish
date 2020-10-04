@@ -7,6 +7,7 @@ set fish_greeting
 set -g fish_user_paths ~/bin ~/.local/bin
 
 set -gx GPG_TTY (tty)
+set -gx PIP_REQUIRE_VIRTUALENV true
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -gx VISUAL nvim
 
