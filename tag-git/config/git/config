@@ -1,59 +1,8 @@
 # ~/.config/git/config
 
-[filter "lfs"]
-  # Enable Git Large File Storage extension.
-  clean = git-lfs clean -- %f
-  process = git-lfs filter-process
-  required = true
-  smudge = git-lfs smudge -- %f
-
-[help]
-  # Automatically correct and execute mistyped commands after waiting
-  # for 200 milliseconds.
-  autoCorrect = 2
-
-[include]
-  # Include host specific configuration external to dotfiles
-  # repository.
-  path = ~/.config/git/local
-
 [pretty]
   glo = %C(auto)%h %s %C(cyan)%an %C(green)%ar%C(auto)%d%n
-
-[pull]
-  # Rebase the local branch on top of the fetched branch after
-  # pulling, instead of merging the fetched branch.
-  rebase = true
-
-[rebase]
-  # Automatically create a stash entry before rebasing, and apply it
-  # after the rebase.
-  autoStash = true
-
-[sendemail]
-  # Configure git-send-email(1) to send emails via Fastmail using
-  # SMTP.
-  smtpEncryption = ssl
-  smtpServer = smtp.fastmail.com
-  smtpServerPort = 465
-
-[url "git@bitbucket.org:"]
-  # Rewrite Bitbucket URLs to push over SSH instead of HTTPS.
-  pushInsteadOf = "https://bitbucket.org/"
-
-[url "git@git.sr.ht:"]
-  # Rewrite SourceHut URLs to push over SSH instead of HTTPS.
-  pushInsteadOf = "https://git.sr.ht/"
-
-[url "git@github.com:"]
-  # Rewrite GitHub URLs to push over SSH instead of HTTPS.
-  pushInsteadOf = "https://github.com/"
-
-[url "git@gitlab.com:"]
-  # Rewrite GitLab URLs to push over SSH instead of HTTPS.
-  pushInsteadOf = "https://gitlab.com/"
 
 [user]
   email = scott@stevenson.io
   name = Scott Stevenson
-  signingKey = 55DB46D0539AC4EF36E3D50E5CF675520A637578
