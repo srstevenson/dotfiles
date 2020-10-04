@@ -2,7 +2,7 @@
 
 set fish_greeting
 
-set -g fish_user_paths ~/bin ~/.local/bin $fish_user_paths
+set -g fish_user_paths ~/bin ~/.local/bin
 
 set -gx VISUAL nvim
 set -gx GPG_TTY (tty)
