@@ -6,8 +6,9 @@ set fish_greeting
 
 set -g fish_user_paths ~/bin ~/.local/bin
 
-set -gx VISUAL nvim
 set -gx GPG_TTY (tty)
+set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
+set -gx VISUAL nvim
 
 abbr -a gad git add
 abbr -a gap git add --patch
