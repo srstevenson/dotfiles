@@ -2,4 +2,4 @@
 
 DOTFILES_DIRS="$HOME/dotfiles"
 EXCLUDES="LICENCE README.md"
-TAGS="clang fish git gnupg neovim rcm ripgrep starship tmux"
+TAGS="fish git gnupg neovim rcm ripgrep starship tmux"
