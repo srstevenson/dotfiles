@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -eu
-
-jupyter nbconvert --stdout --to markdown "$1" 2>/dev/null |
-  prettier --parser=markdown --prose-wrap=always | less
