@@ -12,14 +12,18 @@ set -gx VISUAL nvim
 
 abbr -ag gad git add
 abbr -ag gap git add -p
+abbr -ag gbD git branch -D
 abbr -ag gbd git branch -d
+abbr -ag gbm git branch -m
 abbr -ag gbr git branch
-abbr -ag gca git commit --amend
+abbr -ag gca git commit --amend -v
+abbr -ag gcf git clean -dfx
 abbr -ag gcb git checkout -b
 abbr -ag gci git commit -v
+abbr -ag gcn git clean -dnx
 abbr -ag gco git checkout
-abbr -ag gdc git diff --cached
 abbr -ag gdi git diff
+abbr -ag gds git diff --staged
 abbr -ag glg git log --graph
 abbr -ag glo git log --format=glo --graph
 abbr -ag gra git rebase --abort
