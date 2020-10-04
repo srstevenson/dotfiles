@@ -10,6 +10,11 @@ set -gx GPG_TTY (tty)
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -gx VISUAL nvim
 
+abbr -ag la ls -Ahl
+abbr -ag ll ls -hl
+abbr -ag ls ls -h
+abbr -ag lt ls -Ahlrt
+
 abbr -ag gad git add
 abbr -ag gap git add -p
 abbr -ag gbD git branch -D
