@@ -11,12 +11,12 @@ set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 set -gx VISUAL nvim
 
 abbr -ag gad git add
-abbr -ag gap git add --patch
+abbr -ag gap git add -p
 abbr -ag gbd git branch -d
 abbr -ag gbr git branch
 abbr -ag gca git commit --amend
 abbr -ag gcb git checkout -b
-abbr -ag gci git commit --verbose
+abbr -ag gci git commit -v
 abbr -ag gco git checkout
 abbr -ag gdc git diff --cached
 abbr -ag gdi git diff
