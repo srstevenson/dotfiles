@@ -1,5 +1,7 @@
 # ~/.config/fish/config.fish
 
+status is-interactive; or exit
+
 set fish_greeting
 
 set -g fish_user_paths ~/bin ~/.local/bin
