@@ -9,6 +9,10 @@ format = "([$all_status$ahead_behind]($style) )"
 [line_break]
 disabled = true
 
+[python]
+python_binary = "python3"
+symbol = " "
+
 [username]
 disabled = true
 
@@ -74,9 +78,6 @@ symbol = " "
 
 [php]
 symbol = " "
-
-[python]
-symbol = " "
 
 [ruby]
 symbol = " "
