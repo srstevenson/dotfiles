@@ -1,12 +1,10 @@
 # ~/.config/starship.toml
 
 [cmd_duration]
-prefix = "in "
-style = "fg:bright-black"
+format = "[in $duration](bright-black) "
 
 [git_status]
-prefix = ""
-suffix = " "
+format = "([$all_status$ahead_behind]($style) )"
 
 [line_break]
 disabled = true
