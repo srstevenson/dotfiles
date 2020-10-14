@@ -16,6 +16,11 @@ set smartcase
 set softtabstop=-1
 set spelllang=en_gb
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  set grepformat^=%f:%l:%c:%m
+endif
+
 function! s:trim_whitespace() abort
   let l:view = winsaveview()
   %s/\s\+$//e
