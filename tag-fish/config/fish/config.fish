@@ -46,6 +46,10 @@ type -q direnv; and direnv hook fish | source
 type -q jump; and jump shell fish | source
 type -q starship; and starship init fish | source
 
+if test -e /var/run/reboot-required
+    cat /var/run/reboot-required
+end
+
 if set -q SSH_TTY; and not set -q TMUX
     tmux attach-session; or tmux new-session
 end
