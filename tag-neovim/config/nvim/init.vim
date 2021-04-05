@@ -1,43 +1,41 @@
 " ~/.config/nvim/init.vim
 
-syntax off
+packadd minpac
 
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('sbdchd/neoformat')
+call minpac#add('srstevenson/vim-topiary')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-eunuch')
+call minpac#add('tpope/vim-fugitive')
+
+let g:neoformat_enabled_python = ['isort', 'black']
+let g:neoformat_run_all_formatters = 1
+
+set autoread
 set background=light
-set colorcolumn=80
 set expandtab
 set ignorecase
-set isfname-==
-set list
 set nojoinspaces
 set path=**
 set scrolloff=4
-set shiftwidth=2
+set shiftwidth=4
 set smartcase
 set softtabstop=-1
 set spelllang=en_gb
 
 if executable('rg')
-  set grepprg=rg\ --vimgrep
-  set grepformat^=%f:%l:%c:%m
+    set grepprg=rg\ --vimgrep
+    set grepformat^=%f:%l:%c:%m
 endif
 
-function! s:trim_whitespace() abort
-  let l:view = winsaveview()
-  %s/\s\+$//e
-  %s/\%^\n\+//e
-  %s/\n\+\%$//e
-  if &filetype ==# 'python'
-    %s/\n\{4,}/\r\r\r/e
-  else
-    %s/\n\{3,}/\r\r/e
-  endif
-  call winrestview(l:view)
-endfunction
+colorscheme base16
 
 augroup init
-  autocmd!
-  autocmd BufWritePre * call s:trim_whitespace()
-  autocmd FileType gitcommit,markdown setlocal spell
+    autocmd!
+    autocmd BufWritePre * Neoformat
+    autocmd FileType gitcommit,markdown syntax enable | setlocal spell
 augroup END
 
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
