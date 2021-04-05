@@ -1,0 +1,69 @@
+# ~/.zshrc
+
+bindkey -e
+
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE="$HOME/.zsh_history"
+WORDCHARS="${WORDCHARS/\/}"
+
+precmd_set_title() {
+    if [[ "$TERM" =~ "(xterm|tmux).*" ]]; then
+        print -Pn "\e]0;%m: %~\a"
+    fi
+}
+
+preexec_set_title() {
+    if [[ "$TERM" =~ "(xterm|tmux).*" ]]; then
+        print -Pn "\e]0;%m: $2\a"
+    fi
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd precmd_set_title
+add-zsh-hook preexec preexec_set_title
+
+autoload -Uz compinit
+compinit
+
+zstyle ":completion:*" completer _expand _complete _match _ignored _correct _approximate
+zstyle ":completion:*" format "%F{yellow}Completing %d%f"
+zstyle ":completion:*" menu select
+zstyle ":completion:*" rehash true
+zstyle ":completion:*" verbose true
+
+export VISUAL="nvim"
+export LESS="FRX"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+alias la="ls -Alh --color=auto"
+alias ll="ls -lh --color=auto"
+alias ls="ls -h --color=auto"
+alias tree="tree -C"
+
+alias gad="git add"
+alias gap="git add --patch"
+alias gbm="git branch --move"
+alias gbr="git branch"
+alias gca="git commit --amend --verbose"
+alias gcf="git clean -d --force -x"
+alias gci="git commit --verbose"
+alias gcn="git clean -d --dry-run -x"
+alias gco="git checkout"
+alias gdi="git diff"
+alias gds="git diff --staged"
+alias glg="git log"
+alias gpf="git push --force-with-lease"
+alias gpl="git pull"
+alias gps="git push"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias gri="git rebase --interactive"
+alias grs="git rebase --skip"
+alias gst="git status"
+
+eval "$(starship init zsh)"
+
+if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
+    tmux attach-session || sleep 0.1 && tmux new-session
+fi
