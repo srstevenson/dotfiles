@@ -11,3 +11,6 @@
 
 # Open files that have been unlinked on NFS.
 .nfs*
+
+# Visual Studio Code configuration directories.
+.vscode/
