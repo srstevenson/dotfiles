@@ -1,8 +1,11 @@
 # ~/.config/git/config
 
-[pretty]
-  dense = %C(auto)%h %s %C(cyan)<%an> %C(green)(%ar)%C(auto)%d%n
+[init]
+    defaultBranch = main
+
+[pull]
+    ff = only
 
 [user]
-  email = scott@stevenson.io
-  name = Scott Stevenson
+    email = scott@stevenson.io
+    name = Scott Stevenson
