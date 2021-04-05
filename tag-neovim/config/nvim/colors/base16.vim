@@ -121,6 +121,10 @@ call <sid>highlight('SpellCap', '', 52, '')
 call <sid>highlight('SpellLocal', '', 52, '')
 call <sid>highlight('SpellRare', '', 52, '')
 
+call <sid>highlight('markdownCode', s:cterm0B, '', '')
+call <sid>highlight('markdownCodeBlock', s:cterm0B, '', '')
+call <sid>highlight('markdownError', s:cterm05, s:cterm00, '')
+call <sid>highlight('markdownHeadingDelimiter', s:cterm0D, '', '')
 call <sid>highlight('markdownLinkText', s:cterm05, '', '')
 
 delfunction <sid>highlight
