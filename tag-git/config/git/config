@@ -3,6 +3,9 @@
 [init]
     defaultBranch = main
 
+[pretty]
+    dense = %C(auto)%h %s %C(cyan)<%an> %C(green)(%ar)%C(auto)%d%n
+
 [pull]
     ff = only
 
