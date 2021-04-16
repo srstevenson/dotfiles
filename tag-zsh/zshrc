@@ -43,6 +43,7 @@ alias tree="tree -C"
 
 alias gad="git add"
 alias gap="git add --patch"
+alias gbd="git branch --delete"
 alias gbm="git branch --move"
 alias gbr="git branch"
 alias gca="git commit --amend --verbose"
