@@ -66,6 +66,7 @@ alias gsc="git switch --create"
 alias gst="git status"
 alias gsw="git switch"
 
+eval "$(jump shell zsh)"
 eval "$(starship init zsh)"
 
 if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
