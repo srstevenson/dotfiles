@@ -9,6 +9,9 @@
 [pull]
     ff = only
 
+[url "git@github.com:"]
+    pushInsteadOf = "https://github.com/"
+
 [user]
     email = scott@stevenson.io
     name = Scott Stevenson
