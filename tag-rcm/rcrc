@@ -3,4 +3,4 @@
 # shellcheck disable=SC2034
 DOTFILES_DIRS="$HOME/dotfiles"
 EXCLUDES="LICENCE README.md"
-TAGS="git kitty neovim npm rcm ripgrep tmux zsh"
+TAGS="git kitty npm nvim rcm ripgrep tmux zsh"
