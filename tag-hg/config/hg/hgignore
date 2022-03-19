@@ -1,0 +1,6 @@
+# ~/.config/hg/hgignore
+
+syntax: regexp
+
+# Neovim swap files.
+\..*\.s[a-w][a-z]
