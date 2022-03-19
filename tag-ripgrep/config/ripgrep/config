@@ -1,5 +1,5 @@
 # ~/.config/ripgrep/config
 
 --max-columns-preview
---max-columns=250
+--max-columns=150
 --smart-case
