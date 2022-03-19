@@ -1,6 +1,7 @@
 # ~/.zshenv
 
-. /etc/profile
-
 typeset -U path
-path=(~/bin ~/.local/bin ~/.poetry/bin /snap/bin $path)
+path=("$HOME/bin" "$HOME/.local/bin" "$HOME/.poetry/bin" $path)
+
+export VISUAL="nvim"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
