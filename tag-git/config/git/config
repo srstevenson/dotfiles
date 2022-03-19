@@ -1,17 +1,14 @@
 # ~/.config/git/config
 
+[user]
+    name = Scott Stevenson
+    email = scott@stevenson.io
+
 [init]
     defaultBranch = main
 
-[pretty]
-    dense = %C(auto)%h %s %C(cyan)<%an> %C(green)(%ar)%C(auto)%d%n
+[fetch]
+    prune = true
 
 [pull]
     ff = only
-
-[url "git@github.com:"]
-    pushInsteadOf = "https://github.com/"
-
-[user]
-    email = scott@stevenson.io
-    name = Scott Stevenson
