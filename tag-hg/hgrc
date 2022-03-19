@@ -1,0 +1,6 @@
+# ~/.hgrc
+
+[ui]
+username = Scott Stevenson <scott@stevenson.io>
+tweakdefaults = True
+ignore = ~/.config/hg/hgignore
