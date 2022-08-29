@@ -4,7 +4,7 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
 
-PROMPT="%m:%~%# "
+PROMPT="%F{green}%B%m%b%f:%F{blue}%B%~%b%f%# "
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd () { print -Pn "\e]0;%m: %~\a" }
