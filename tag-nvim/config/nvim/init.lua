@@ -2,6 +2,7 @@
 
 vim.o.expandtab = true
 vim.o.list = true
+vim.o.path = "**"
 vim.o.shiftwidth = 4
 vim.o.softtabstop = -1
 vim.o.spelllang = "en_gb"
