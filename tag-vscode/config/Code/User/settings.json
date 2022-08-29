@@ -1,4 +1,5 @@
 {
+  "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono'",
   "editor.formatOnSave": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
