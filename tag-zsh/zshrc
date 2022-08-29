@@ -1,10 +1,12 @@
 # ~/.zshrc
 
+if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    . "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
-
-PROMPT="%F{green}%B%m%b%f:%F{blue}%B%~%b%f%# "
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd () { print -Pn "\e]0;%m: %~\a" }
@@ -20,3 +22,6 @@ zstyle ":completion:*" rehash true
 zstyle ":completion:*:*:*:*:corrections" format "%F{yellow}Matches for %d (%e corrections):%f"
 zstyle ":completion:*:*:*:*:descriptions" format "%F{green}Matches for %d:%f"
 zstyle ":completion:*:warnings" format "%F{red}No matches for %d.%f"
+
+. "$HOME/.local/src/powerlevel10k/powerlevel10k.zsh-theme"
+. "$HOME/.p10k.zsh"
