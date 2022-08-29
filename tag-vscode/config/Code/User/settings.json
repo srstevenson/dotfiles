@@ -8,5 +8,8 @@
   "python.linting.flake8Enabled": true,
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.quickOpen"
+  ],
   "workbench.enableExperiments": false
 }
