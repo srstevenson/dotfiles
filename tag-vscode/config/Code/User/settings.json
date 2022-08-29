@@ -2,6 +2,9 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
   "workbench.enableExperiments": false
