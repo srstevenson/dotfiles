@@ -1,7 +1,7 @@
 # ~/.zshenv
 
 typeset -U path
-path=("$HOME/.local/bin" $path)
+path=("$HOME/bin" "$HOME/.local/bin" $path)
 
 export VISUAL="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
