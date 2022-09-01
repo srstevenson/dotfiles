@@ -7,6 +7,9 @@
   "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono'",
   "editor.formatOnSave": true,
   "editor.minimap.autohide": true,
+  "editor.rulers": [
+    80
+  ],
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
