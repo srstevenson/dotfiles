@@ -1,4 +1,9 @@
 {
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono'",
   "editor.formatOnSave": true,
   "editor.minimap.autohide": true,
