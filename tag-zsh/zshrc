@@ -23,5 +23,10 @@ zstyle ":completion:*:*:*:*:corrections" format "%F{yellow}Matches for %d (%e co
 zstyle ":completion:*:*:*:*:descriptions" format "%F{green}Matches for %d:%f"
 zstyle ":completion:*:warnings" format "%F{red}No matches for %d.%f"
 
+alias ls="lsd"
+alias ll="lsd -l"
+alias la="lsd -Al"
+alias lt="lsd --tree"
+
 . "$HOME/.local/src/powerlevel10k/powerlevel10k.zsh-theme"
 . "$HOME/.p10k.zsh"
