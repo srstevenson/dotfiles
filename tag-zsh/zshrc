@@ -32,3 +32,5 @@ alias lt="lsd --tree"
 
 . "$HOME/.local/src/powerlevel10k/powerlevel10k.zsh-theme"
 . "$HOME/.p10k.zsh"
+
+eval "$(jump shell zsh)"
