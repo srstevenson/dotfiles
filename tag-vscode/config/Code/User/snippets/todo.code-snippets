@@ -1,0 +1,7 @@
+{
+    "TODO comment": {
+        "prefix": "todo",
+        "body": "$LINE_COMMENT TODO(srstevenson): $0.",
+        "description": "Insert TODO comment"
+    }
+}
