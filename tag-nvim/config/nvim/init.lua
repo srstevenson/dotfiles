@@ -1,9 +1,11 @@
 -- ~/.config/nvim/init.lua
 
 vim.o.expandtab = true
+vim.o.ignorecase = true
 vim.o.list = true
 vim.o.path = "**"
 vim.o.shiftwidth = 4
+vim.o.smartcase = true
 vim.o.softtabstop = -1
 vim.o.spelllang = "en_gb"
 
