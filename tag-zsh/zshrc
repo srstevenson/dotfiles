@@ -4,6 +4,8 @@ if [[ -r "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     . "$HOME/.cache/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+setopt HIST_IGNORE_DUPS
+
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
