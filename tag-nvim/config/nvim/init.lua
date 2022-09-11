@@ -2,6 +2,7 @@
 
 vim.o.expandtab = true
 vim.o.ignorecase = true
+vim.o.linebreak = true
 vim.o.list = true
 vim.o.path = "**"
 vim.o.shiftwidth = 4
