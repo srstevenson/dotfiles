@@ -5,6 +5,7 @@ vim.o.ignorecase = true
 vim.o.linebreak = true
 vim.o.list = true
 vim.o.path = "**"
+vim.o.scrolloff = 4
 vim.o.shiftwidth = 4
 vim.o.smartcase = true
 vim.o.softtabstop = -1
