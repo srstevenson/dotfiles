@@ -10,6 +10,7 @@ vim.o.shiftwidth = 4
 vim.o.smartcase = true
 vim.o.softtabstop = -1
 vim.o.spelllang = "en_gb"
+vim.o.termguicolors = true
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
