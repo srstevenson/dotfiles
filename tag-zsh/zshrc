@@ -9,6 +9,7 @@ setopt HIST_IGNORE_DUPS
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=5000
 SAVEHIST=5000
+WORDCHARS="${WORDCHARS/\/}"
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd () { print -Pn "\e]0;%m: %~\a" }
