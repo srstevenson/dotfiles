@@ -13,7 +13,9 @@
   "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono'",
   "editor.formatOnSave": true,
   "editor.minimap.autohide": true,
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -22,6 +24,8 @@
   "python.linting.flake8Enabled": true,
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.quickOpen"
+  ],
   "workbench.enableExperiments": false
 }
