@@ -1,0 +1,8 @@
+{
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "redhat.telemetry.enabled": false,
+  "workbench.enableExperiments": false,
+  "telemetry.telemetryLevel": "off"
+}
