@@ -1,7 +1,4 @@
 # ~/.zshenv
 
-typeset -U path
-path=("$HOME/bin" "$HOME/.local/bin" "$HOME/.poetry/bin" $path)
-
 export VISUAL="nvim"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
