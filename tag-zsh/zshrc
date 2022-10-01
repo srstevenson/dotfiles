@@ -11,8 +11,18 @@ HISTSIZE=5000
 SAVEHIST=5000
 WORDCHARS="${WORDCHARS/\/}"
 
+print-short-pwd() {
+    setopt local_options extended_glob
+    local directory="${PWD/#$HOME/~}"
+    if [[ "$directory" == (#m)[/~] ]]; then
+        print "$MATCH"
+    else
+        print "${${${${(@j:/:M)${(@s:/:)directory}##.#?}:h}%/}//\%/%%}/${${directory:t}//\%/%%}"
+    fi
+}
+
 autoload -Uz add-zsh-hook
-add-zsh-hook precmd () { print -Pn "\e]0;%m: %~\a" }
+add-zsh-hook precmd () { print -Pn "\e]0;%m: $(print-short-pwd)\a" }
 add-zsh-hook preexec () { print -Pn "\e]0;%m: $2\a" }
 
 bindkey -e
