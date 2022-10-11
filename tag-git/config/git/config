@@ -23,3 +23,9 @@
 
 [rebase]
     autoSquash = true
+
+[pretty]
+    dense = %C(auto)%h %s (%C(cyan)%an%C(auto), %C(green)%ar%C(auto))%d
+
+[alias]
+    dl = log --format=dense --graph
