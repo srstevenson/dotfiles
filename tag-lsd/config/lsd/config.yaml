@@ -1,5 +1,3 @@
 # ~/.config/lsd/config.yaml
 
 date: relative
-icons:
-  when: never
