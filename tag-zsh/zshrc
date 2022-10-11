@@ -36,8 +36,6 @@ zstyle ":completion:*:*:*:*:corrections" format "%F{yellow}Matches for %d (%e co
 zstyle ":completion:*:*:*:*:descriptions" format "%F{green}Matches for %d:%f"
 zstyle ":completion:*:warnings" format "%F{red}No matches for %d.%f"
 
-alias cat="bat"
-alias less="bat"
 alias ls="lsd"
 alias ll="lsd -l"
 alias la="lsd -Al"
