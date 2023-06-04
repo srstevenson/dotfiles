@@ -1,9 +1,0 @@
-# ~/.zshenv
-
-typeset -U path
-path=("$HOME/bin" "$HOME/.local/bin" $path)
-
-export VISUAL="nvim"
-export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
-export BAT_STYLE="plain"
-export BAT_THEME="Visual Studio Dark+"
