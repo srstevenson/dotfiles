@@ -1,4 +1,0 @@
-# ~/.rcrc
-
-EXCLUDES="LICENCE README.md pyproject.toml"
-TAGS="git lsd nvim rcm ripgrep tmux vscode zsh"

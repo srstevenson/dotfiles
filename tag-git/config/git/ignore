@@ -1,4 +1,0 @@
-# ~/.config/git/ignore
-
-# Neovim swap files.
-.*.s[a-w][a-z]

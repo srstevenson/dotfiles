@@ -1,11 +1,14 @@
-# Dotfiles
+# dotfiles
 
-Configuration files for Unix-like systems, managed with [rcm][rcm]. To clone the
-repository and symlink the files into your home directory, run:
+This repository holds my configuration files, managed with Nix and home-manager.
+On a machine which has not yet been configured, install Nix:
 
-```sh
-git clone https://gitlab.com/srstevenson/dotfiles.git "$HOME/.dotfiles"
-env RCRC="$HOME/.dotfiles/tag-rcm/rcrc" rcup
-```
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
-[rcm]: https://thoughtbot.github.io/rcm/
+Clone this repository to the directory expected by home-manager:
+
+    git clone https://github.com/srstevenson/dotfiles.git ~/.config/home-manager
+
+Build and activate the home-manager configuration:
+
+    nix run home-manager/master switch
