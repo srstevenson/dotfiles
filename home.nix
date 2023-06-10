@@ -96,4 +96,19 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "Menlo";
+      size = 14;
+    };
+    settings = {
+      tab_bar_edge = "top";
+      tab_bar_style = "slant";
+      active_tab_font_style = "bold";
+      macos_show_window_title_in = "window";
+      macos_titlebar_color = "#f6f8fa";
+    };
+    theme = "GitHub Light";
+  };
 }
