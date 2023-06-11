@@ -118,6 +118,9 @@
         "horizontal"
         "vertical"
       ];
+      window_border_width = "3px";
+      active_border_color = "#1a7f37";
+      window_padding_width = "3";
     };
     theme = "GitHub Light";
   };
