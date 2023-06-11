@@ -77,7 +77,10 @@
     enable = true;
     userEmail = "scott@stevenson.io";
     userName = "Scott Stevenson";
-    extraConfig = { init.defaultBranch = "main"; };
+    extraConfig = {
+      commit.verbose = true;
+      init.defaultBranch = "main";
+    };
   };
 
   programs.helix = {
