@@ -122,8 +122,8 @@
         "horizontal"
         "vertical"
       ];
-      window_border_width = "3px";
-      window_padding_width = "3";
+      window_border_width = "4px";
+      window_padding_width = "4";
     };
     theme = "Catppuccin-Mocha";
   };
