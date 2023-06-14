@@ -124,6 +124,7 @@
       ];
       window_border_width = "4px";
       window_padding_width = "4";
+      macos_option_as_alt = "left";
     };
     theme = "Catppuccin-Mocha";
   };
