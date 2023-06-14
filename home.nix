@@ -93,6 +93,7 @@
           select = "underline";
         };
         file-picker.hidden = false;
+        line-number = "relative";
         soft-wrap.enable = true;
       };
       theme = "catppuccin_mocha";
