@@ -95,7 +95,7 @@
         file-picker.hidden = false;
         soft-wrap.enable = true;
       };
-      theme = "github_light";
+      theme = "catppuccin_mocha";
     };
   };
 
@@ -110,7 +110,11 @@
       tab_bar_style = "slant";
       active_tab_font_style = "bold";
       macos_show_window_title_in = "window";
-      macos_titlebar_color = "#f6f8fa";
+      active_tab_background = "#1e1e2e";
+      active_tab_foreground = "#cdd6f4";
+      inactive_tab_background = "#313244";
+      tab_bar_background = "#313244";
+      macos_titlebar_color = "#313244";
       enabled_layouts = builtins.concatStringsSep "," [
         "tall"
         "fat"
@@ -119,9 +123,8 @@
         "vertical"
       ];
       window_border_width = "3px";
-      active_border_color = "#1a7f37";
       window_padding_width = "3";
     };
-    theme = "GitHub Light";
+    theme = "Catppuccin-Mocha";
   };
 }
