@@ -98,6 +98,8 @@
         line-number = "relative";
         soft-wrap.enable = true;
       };
+      # Fix for https://github.com/helix-editor/helix/issues/6551
+      keys.insert."C-[" = "normal_mode";
       theme = "catppuccin_mocha";
     };
   };
