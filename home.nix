@@ -116,7 +116,8 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Menlo";
+      name = "JetBrains Mono";
+      package = pkgs.jetbrains-mono;
       size = 14;
     };
     settings = {
@@ -139,6 +140,7 @@
       window_border_width = "3px";
       window_padding_width = "3";
       macos_option_as_alt = "left";
+      modify_font = "cell_height -1px";
     };
     theme = "Catppuccin-Mocha";
   };
