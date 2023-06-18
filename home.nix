@@ -36,6 +36,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    pkgs.nil
     pkgs.nixfmt
   ];
 
