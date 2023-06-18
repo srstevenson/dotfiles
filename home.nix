@@ -108,6 +108,12 @@
             command = "black";
             args = [ "-" ];
           };
+          language-server = {
+            command = "pyright-langserver";
+            args = [ "--stdio" ];
+          };
+          # Config must be present even if empty for Pyright to function.
+          config = { };
         }
       ];
     };
