@@ -53,6 +53,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".streamlit/config.toml".text = ''
+      [browser]
+      gatherUsageStats = false
+    '';
   };
 
   # You can also manage environment variables but you will have to manually
