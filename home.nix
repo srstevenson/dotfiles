@@ -35,6 +35,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    pkgs.nixfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -86,6 +88,13 @@
 
   programs.helix = {
     enable = true;
+    languages = {
+      language = [{
+        name = "nix";
+        auto-format = true;
+        formatter.command = "nixfmt";
+      }];
+    };
     settings = {
       editor = {
         color-modes = true;
