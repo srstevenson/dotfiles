@@ -136,8 +136,8 @@
         "horizontal"
         "vertical"
       ];
-      window_border_width = "4px";
-      window_padding_width = "4";
+      window_border_width = "3px";
+      window_padding_width = "3";
       macos_option_as_alt = "left";
     };
     theme = "Catppuccin-Mocha";
