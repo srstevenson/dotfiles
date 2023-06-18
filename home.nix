@@ -95,11 +95,21 @@
   programs.helix = {
     enable = true;
     languages = {
-      language = [{
-        name = "nix";
-        auto-format = true;
-        formatter.command = "nixfmt";
-      }];
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter.command = "nixfmt";
+        }
+        {
+          name = "python";
+          auto-format = true;
+          formatter = {
+            command = "black";
+            args = [ "-" ];
+          };
+        }
+      ];
     };
     settings = {
       editor = {
