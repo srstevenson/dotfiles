@@ -167,4 +167,10 @@
     };
     theme = "Catppuccin-Mocha";
   };
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = [ "--max-columns-preview" "--max-columns=140" "--smart-case" ];
+  };
+
 }
