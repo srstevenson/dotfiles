@@ -177,4 +177,6 @@
     arguments = [ "--max-columns-preview" "--max-columns=140" "--smart-case" ];
   };
 
+  programs.starship.enable = true;
+
 }
