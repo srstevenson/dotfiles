@@ -43,6 +43,7 @@
     pkgs.nodePackages_latest.bash-language-server
     pkgs.nodePackages_latest.pyright
     pkgs.shellcheck
+    pkgs.taplo
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
