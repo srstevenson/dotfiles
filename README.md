@@ -1,7 +1,9 @@
 # dotfiles
 
-This repository holds my configuration files, managed with Nix and home-manager.
-On a machine which has not yet been configured, install Nix:
+This repository holds my configuration files, managed with
+[Nix](https://nixos.org/manual/nix/) and
+[home-manager](https://nix-community.github.io/home-manager/). On a machine
+which has not yet been configured, install Nix:
 
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
