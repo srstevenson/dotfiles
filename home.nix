@@ -96,6 +96,7 @@
       commit.verbose = true;
       init.defaultBranch = "main";
     };
+    ignores = [ ".DS_Store" ];
   };
 
   programs.helix = {
