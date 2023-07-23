@@ -113,7 +113,7 @@
           auto-format = true;
           formatter = {
             command = "black";
-            args = [ "-" ];
+            args = [ "-C" "-" ];
           };
           language-server = {
             command = "pyright-langserver";
