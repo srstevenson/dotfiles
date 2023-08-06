@@ -41,6 +41,7 @@
     pkgs.nil
     pkgs.nixfmt
     pkgs.nodePackages_latest.bash-language-server
+    pkgs.nodePackages_latest.prettier
     pkgs.nodePackages_latest.pyright
     pkgs.shellcheck
     pkgs.taplo
@@ -103,6 +104,14 @@
     enable = true;
     languages = {
       language = [
+        {
+          name = "markdown";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [ "--parser=markdown" "--stdin" ];
+          };
+        }
         {
           name = "nix";
           auto-format = true;
