@@ -135,7 +135,6 @@
     };
     settings = {
       editor = {
-        color-modes = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";
