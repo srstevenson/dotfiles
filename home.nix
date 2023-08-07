@@ -61,6 +61,12 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
+    "${config.xdg.configHome}/helix/themes/tommocha.toml".source =
+      files/config/helix/themes/tommocha.toml;
+
+    "${config.xdg.configHome}/kitty/tommocha.conf".source =
+      files/config/kitty/tommocha.conf;
+
     ".streamlit/config.toml".text = ''
       [browser]
       gatherUsageStats = false
@@ -146,7 +152,7 @@
       };
       # Fix for https://github.com/helix-editor/helix/issues/6551
       keys.insert."C-[" = "normal_mode";
-      theme = "catppuccin_mocha";
+      theme = "tommocha";
     };
   };
 
@@ -162,11 +168,6 @@
       tab_bar_style = "slant";
       active_tab_font_style = "bold";
       macos_show_window_title_in = "window";
-      active_tab_background = "#1e1e2e";
-      active_tab_foreground = "#cdd6f4";
-      inactive_tab_background = "#313244";
-      tab_bar_background = "#313244";
-      macos_titlebar_color = "#313244";
       enabled_layouts = builtins.concatStringsSep "," [
         "tall"
         "fat"
@@ -179,7 +180,7 @@
       macos_option_as_alt = "left";
       modify_font = "cell_height -1px";
     };
-    theme = "Catppuccin-Mocha";
+    extraConfig = "include ${config.xdg.configHome}/kitty/tommocha.conf";
   };
 
   programs.ripgrep = {
