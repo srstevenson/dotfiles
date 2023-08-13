@@ -43,6 +43,7 @@
     pkgs.nodePackages_latest.bash-language-server
     pkgs.nodePackages_latest.prettier
     pkgs.nodePackages_latest.pyright
+    pkgs.nodePackages_latest.yaml-language-server
     pkgs.shellcheck
     pkgs.taplo
   ];
@@ -136,6 +137,14 @@
           };
           # Config must be present even if empty for Pyright to function.
           config = { };
+        }
+        {
+          name = "yaml";
+          auto-format = true;
+          formatter = {
+            command = "prettier";
+            args = [ "--parser=yaml" "--stdin" ];
+          };
         }
       ];
     };
