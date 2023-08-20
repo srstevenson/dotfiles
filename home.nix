@@ -46,6 +46,7 @@
     pkgs.nodePackages_latest.yaml-language-server
     pkgs.shellcheck
     pkgs.taplo
+    pkgs.zf
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
