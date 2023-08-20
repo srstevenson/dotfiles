@@ -103,6 +103,7 @@
     userName = "Scott Stevenson";
     extraConfig = {
       commit.verbose = true;
+      fetch.prune = true;
       init.defaultBranch = "main";
     };
     ignores = [ ".DS_Store" ];
