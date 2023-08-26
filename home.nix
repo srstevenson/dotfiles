@@ -181,8 +181,8 @@
       active_tab_font_style = "bold";
       macos_show_window_title_in = "window";
       enabled_layouts = builtins.concatStringsSep "," [
-        "tall"
         "fat"
+        "tall"
         "grid"
         "horizontal"
         "vertical"
