@@ -142,6 +142,10 @@
           config = { };
         }
         {
+          name = "scala";
+          auto-format = true;
+        }
+        {
           name = "yaml";
           auto-format = true;
           formatter = {
