@@ -115,6 +115,10 @@
     languages = {
       language = [
         {
+          name = "go";
+          formatter.command = "goimports";
+        }
+        {
           name = "markdown";
           auto-format = true;
           formatter = {
