@@ -164,6 +164,7 @@
         };
         file-picker.hidden = false;
         line-number = "relative";
+        rulers = [ 80 ];
         soft-wrap.enable = true;
       };
       # Fix for https://github.com/helix-editor/helix/issues/6551
