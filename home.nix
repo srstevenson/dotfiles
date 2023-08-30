@@ -117,6 +117,7 @@
         {
           name = "go";
           formatter.command = "goimports";
+          config = { formatting.gofumpt = true; };
         }
         {
           name = "markdown";
