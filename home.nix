@@ -181,9 +181,9 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrains Mono";
-      package = pkgs.jetbrains-mono;
-      size = 14;
+      name = "Iosevka";
+      package = pkgs.iosevka;
+      size = 16;
     };
     settings = {
       tab_bar_edge = "top";
@@ -200,7 +200,6 @@
       window_border_width = "3px";
       window_padding_width = "3";
       macos_option_as_alt = "left";
-      modify_font = "cell_height -1px";
     };
     extraConfig = "include ${config.xdg.configHome}/kitty/tommocha.conf";
   };
