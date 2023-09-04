@@ -210,6 +210,26 @@
     arguments = [ "--max-columns-preview" "--max-columns=140" "--smart-case" ];
   };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = {
+      git_branch = {
+        format = "[$branch(:$remote_branch)]($style)";
+        truncation_length = 12;
+      };
+      git_status.format = "([$all_status$ahead_behind]($style)) ";
+      golang = {
+        format = "[($version )]($style)";
+        version_format = "go\${major}.\${minor}";
+      };
+      line_break.disabled = true;
+      nix_shell.format = "[\\(nix\\)]($style) ";
+      package.disabled = true;
+      python = {
+        format = "[(\${version} )(\\($virtualenv\\) )]($style)";
+        version_format = "py\${major}.\${minor}";
+      };
+    };
+  };
 
 }
