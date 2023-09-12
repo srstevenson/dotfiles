@@ -162,6 +162,7 @@
     };
     settings = {
       editor = {
+        bufferline = "multiple";
         cursor-shape = {
           insert = "bar";
           normal = "block";
