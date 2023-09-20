@@ -213,6 +213,10 @@
   programs.starship = {
     enable = true;
     settings = {
+      character = {
+        success_symbol = "[❫](bold green)";
+        error_symbol = "[❫](bold red)";
+      };
       git_branch = {
         format = "[$branch(:$remote_branch)]($style)";
         truncation_length = 12;
