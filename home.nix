@@ -215,20 +215,17 @@
   programs.starship = {
     enable = true;
     settings = {
-      git_branch = {
-        format = "[$branch(:$remote_branch)]($style)";
-        truncation_length = 12;
-      };
-      git_status.format = "([$all_status$ahead_behind]($style)) ";
+      git_branch = { format = "[$branch(:$remote_branch)]($style)"; };
+      git_status = { format = "([$all_status$ahead_behind]($style)) "; };
       golang = {
-        format = "[($version )]($style)";
+        symbol = "";
         version_format = "go\${major}.\${minor}";
       };
-      line_break.disabled = true;
-      nix_shell.format = "[\\(nix\\)]($style) ";
-      package.disabled = true;
+      line_break = { disabled = true; };
+      nix_shell = { format = "[\\(nix\\)]($style) "; };
+      package = { disabled = true; };
       python = {
-        format = "[(\${version} )(\\($virtualenv\\) )]($style)";
+        symbol = "";
         version_format = "py\${major}.\${minor}";
       };
     };
