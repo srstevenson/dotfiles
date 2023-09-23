@@ -70,11 +70,11 @@
     "${config.xdg.configHome}/helix/themes/tommocha.toml".source =
       files/config/helix/themes/tommocha.toml;
 
-    "${config.xdg.configHome}/kitty/jellow.conf".source =
-      files/config/kitty/jellow.conf;
+    "${config.xdg.configHome}/kitty/themes/jellow.conf".source =
+      files/config/kitty/themes/jellow.conf;
 
-    "${config.xdg.configHome}/kitty/tommocha.conf".source =
-      files/config/kitty/tommocha.conf;
+    "${config.xdg.configHome}/kitty/themes/tommocha.conf".source =
+      files/config/kitty/themes/tommocha.conf;
 
     ".streamlit/config.toml".text = ''
       [browser]
@@ -206,7 +206,7 @@
       macos_option_as_alt = "left";
       modify_font = "cell_height -1px";
     };
-    extraConfig = "include ${config.xdg.configHome}/kitty/jellow.conf";
+    extraConfig = "include ${config.xdg.configHome}/kitty/themes/jellow.conf";
   };
 
   programs.ripgrep = {
