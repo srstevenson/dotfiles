@@ -64,8 +64,14 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
+    "${config.xdg.configHome}/helix/themes/jellow.toml".source =
+      files/config/helix/themes/jellow.toml;
+
     "${config.xdg.configHome}/helix/themes/tommocha.toml".source =
       files/config/helix/themes/tommocha.toml;
+
+    "${config.xdg.configHome}/kitty/jellow.conf".source =
+      files/config/kitty/jellow.conf;
 
     "${config.xdg.configHome}/kitty/tommocha.conf".source =
       files/config/kitty/tommocha.conf;
@@ -172,7 +178,7 @@
       };
       # Fix for https://github.com/helix-editor/helix/issues/6551
       keys.insert."C-[" = "normal_mode";
-      theme = "tommocha";
+      theme = "jellow";
     };
   };
 
@@ -200,7 +206,7 @@
       macos_option_as_alt = "left";
       modify_font = "cell_height -1px";
     };
-    extraConfig = "include ${config.xdg.configHome}/kitty/tommocha.conf";
+    extraConfig = "include ${config.xdg.configHome}/kitty/jellow.conf";
   };
 
   programs.ripgrep = {
