@@ -1,0 +1,40 @@
+inherits = "jellybeans"
+
+"string.special" = "yellow"
+"diagnostic.hint" = { underline = { color = "light_purple", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue_accent", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow_accent", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red_error", style = "curl" } }
+
+"ui.background" = { bg = "base00" }
+"ui.virtual" = "base02"
+"ui.virtual.whitespace" = "base03"
+"ui.virtual.ruler" = { bg = "base01" }
+"ui.menu" = { fg = "base05", bg = "base01" }
+"ui.menu.selected" = { fg = "base01", bg = "base04" }
+"ui.linenr" = "base02"
+"ui.linenr.selected" = "base03"
+"ui.popup" = { bg = "base01" }
+"ui.window" = { bg = "base01" }
+"ui.selection" = { bg = "base02" }
+"ui.statusline" = { fg = "base04", bg = "base01" }
+"ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "base05", modifiers = ["reversed"] }
+"ui.text" = "base05"
+"ui.text.focus" = "base05"
+"ui.cursor.match" = { fg = "yellow", modifiers = ["underlined"] }
+"ui.help" = { fg = "base06", bg = "base01" }
+"ui.bufferline" = { fg = "base04", bg = "base00" }
+"ui.bufferline.active" = { fg = "base06", bg = "base01" }
+"ui.cursorline.primary" = { bg = "base01" }
+
+[palette]
+background = "#1d1f21"
+
+base00 = "#1d1f21"
+base01 = "#282a2e"
+base02 = "#373b41"
+base03 = "#969896"
+base04 = "#b4b7b4"
+base05 = "#c5c8c6"
+base06 = "#e0e0e0"
