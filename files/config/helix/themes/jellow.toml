@@ -1,6 +1,8 @@
 inherits = "jellybeans"
 
 "string.special" = "yellow"
+"variable.builtin" = "dark_green"
+
 "diagnostic.hint" = { underline = { color = "light_purple", style = "curl" } }
 "diagnostic.info" = { underline = { color = "blue_accent", style = "curl" } }
 "diagnostic.warning" = { underline = { color = "yellow_accent", style = "curl" } }
