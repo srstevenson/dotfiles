@@ -69,7 +69,7 @@
 "ui.statusline.insert" = { fg = "base01", bg = "green", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "base01", bg = "flamingo", modifiers = ["bold"] }
 "ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "base05", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "rosewater", modifiers = ["reversed"] }
 "ui.text" = "base05"
 "ui.text.focus" = "base05"
 "ui.cursor.match" = { fg = "yellow", modifiers = ["underlined"] }
