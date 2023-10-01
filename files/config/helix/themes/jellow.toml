@@ -20,6 +20,11 @@ inherits = "jellybeans"
 "ui.window" = { bg = "base01" }
 "ui.selection" = { bg = "base02" }
 "ui.statusline" = { fg = "base04", bg = "base01" }
+"ui.statusline.normal" = { fg = "base01", bg = "light_purple", modifiers = [
+  "bold",
+] }
+"ui.statusline.insert" = { fg = "base01", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base01", bg = "orange", modifiers = ["bold"] }
 "ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "rosewater", modifiers = ["reversed"] }
 "ui.text" = "base05"
