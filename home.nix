@@ -176,7 +176,7 @@
       };
       # Fix for https://github.com/helix-editor/helix/issues/6551
       keys.insert."C-[" = "normal_mode";
-      theme = "jellow";
+      theme = "tommocha";
     };
   };
 
@@ -204,7 +204,7 @@
       macos_option_as_alt = "left";
       modify_font = "cell_height -1px";
     };
-    extraConfig = "include ${config.xdg.configHome}/kitty/themes/jellow.conf";
+    extraConfig = "include ${config.xdg.configHome}/kitty/themes/tommocha.conf";
   };
 
   programs.ripgrep = {
