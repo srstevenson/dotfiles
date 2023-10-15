@@ -44,7 +44,6 @@
     pkgs.nodePackages_latest.prettier
     pkgs.nodePackages_latest.pyright
     pkgs.nodePackages_latest.yaml-language-server
-    pkgs.poetry
     pkgs.shellcheck
     pkgs.taplo
   ];
