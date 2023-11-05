@@ -118,11 +118,17 @@
   programs.helix = {
     enable = true;
     languages = {
+      language-server = {
+        gopls = { config.formatting.gofumpt = true; };
+        pyright = {
+          command = "pyright-langserver";
+          args = [ "--stdio" ];
+        };
+      };
       language = [
         {
           name = "go";
           formatter.command = "goimports";
-          config = { formatting.gofumpt = true; };
         }
         {
           name = "markdown";
@@ -144,12 +150,7 @@
             command = "black";
             args = [ "-C" "-" ];
           };
-          language-server = {
-            command = "pyright-langserver";
-            args = [ "--stdio" ];
-          };
-          # Config must be present even if empty for Pyright to function.
-          config = { };
+          language-servers = [{ name = "pyright"; }];
         }
         {
           name = "yaml";
