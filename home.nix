@@ -36,7 +36,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    pkgs.black
     pkgs.fd
     pkgs.nil
     pkgs.nixfmt
@@ -44,6 +43,7 @@
     pkgs.nodePackages_latest.prettier
     pkgs.nodePackages_latest.pyright
     pkgs.nodePackages_latest.yaml-language-server
+    pkgs.ruff
     pkgs.shellcheck
     pkgs.taplo
   ];
@@ -147,8 +147,8 @@
           name = "python";
           auto-format = true;
           formatter = {
-            command = "black";
-            args = [ "-C" "-" ];
+            command = "ruff";
+            args = [ "format" "-" ];
           };
           language-servers = [{ name = "pyright"; }];
         }
