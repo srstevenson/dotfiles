@@ -236,4 +236,6 @@
     };
   };
 
+  programs.zellij.enable = true;
+
 }
