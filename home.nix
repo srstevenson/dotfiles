@@ -43,7 +43,6 @@
     pkgs.nodePackages_latest.prettier
     pkgs.nodePackages_latest.pyright
     pkgs.nodePackages_latest.yaml-language-server
-    pkgs.ruff
     pkgs.shellcheck
     pkgs.taplo
   ];
@@ -211,6 +210,11 @@
   programs.ripgrep = {
     enable = true;
     arguments = [ "--max-columns-preview" "--max-columns=140" "--smart-case" ];
+  };
+
+  programs.ruff = {
+    enable = true;
+    settings.format.skip-magic-trailing-comma = true;
   };
 
   programs.starship = {
