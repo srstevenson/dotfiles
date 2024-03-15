@@ -9,4 +9,7 @@ url="${url#git@}"     # Remove `git@` prefix.
 url="${url/://}"      # Replace `:` between hostname and path with `/`.
 
 echo "https://$url"
-# open "https://$url"
+
+if command -v xdg-open >/dev/null; then
+  xdg-open "https://$url"
+fi
