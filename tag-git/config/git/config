@@ -13,6 +13,11 @@
 [merge]
     conflictStyle = zdiff3
 
+[pager]
+    diff = diff-highlight | less
+    log = diff-highlight | less
+    show = diff-highlight | less
+
 [push]
     autoSetupRemote = true
 
