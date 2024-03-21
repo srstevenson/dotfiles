@@ -3,8 +3,11 @@ if not status is-interactive
 end
 
 set fish_greeting
+
 fish_add_path -P ~/bin ~/.local/bin ~/.cargo/bin
+
 set -gx VISUAL hx
+set -gx DFT_BACKGROUND light
 
 starship init fish | source
 enable_transience
