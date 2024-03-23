@@ -1,3 +1,6 @@
+[alias]
+    sl = log --graph --pretty=format:'%C(auto)%h%d %s %C(blue)<%aE> %C(green)%ch%Creset'
+
 [branch]
     sort = -committerdate
 
