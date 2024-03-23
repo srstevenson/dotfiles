@@ -10,6 +10,9 @@
 [fetch]
     prune = true
 
+[help]
+    autoCorrect = 2
+
 [init]
     defaultBranch = main
 
