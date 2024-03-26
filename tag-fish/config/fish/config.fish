@@ -17,5 +17,5 @@ enable_transience
 # end
 
 if test -n "$SSH_CONNECTION" -a -z "$ZELLIJ" -a -z "$TMUX"
-    zellij attach -c
+    zellij attach -c main
 end
