@@ -1,0 +1,16 @@
+themes {
+    dorrow {
+        bg "#151515"       // base16-classic-dark
+        fg "#d0d0d0"       // base16-classic-dark
+        black "#202020"    // base16-classic-dark
+        white "#d0d0d0"    // base16-classic-dark
+        red "#cc6666"      // base16-tomorrow-night
+        green "#b5bd68"    // base16-tomorrow-night
+        blue "#81a2be"     // base16-tomorrow-night
+        yellow "#f0c674"   // base16-tomorrow-night
+        magenta "#b294bb"  // base16-tomorrow-night
+        orange "#de935f"   // base16-tomorrow-night
+        cyan "#8abeb7"     // base16-tomorrow-night
+    }
+}
+
