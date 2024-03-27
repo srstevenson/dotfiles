@@ -35,7 +35,7 @@ language-servers = ["pyright", "ruff"]
 [[language]]
 name = "toml"
 auto-format = true
-formatter = { command = "taplo", args = ["fmt", "-"] }
+formatter = { command = "taplo", args = ["format", "-"] }
 
 [[language]]
 name = "yaml"
