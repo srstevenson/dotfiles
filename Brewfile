@@ -1,0 +1,11 @@
+brew "bat"
+brew "fish"
+brew "git"
+brew "helix"
+brew "ripgrep"
+brew "starship"
+brew "zellij"
+
+cask "1password"
+cask "alacritty"
+cask "brave-browser"
