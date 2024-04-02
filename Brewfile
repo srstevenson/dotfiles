@@ -1,4 +1,5 @@
 brew "bat"
+brew "fd"
 brew "fish"
 brew "git"
 brew "helix"
