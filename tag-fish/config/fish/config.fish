@@ -4,6 +4,8 @@ end
 
 set fish_greeting
 
+test -d /opt/homebrew; and eval (/opt/homebrew/bin/brew shellenv fish)
+
 fish_add_path -P ~/bin ~/.local/bin ~/.cargo/bin
 
 set -gx VISUAL hx
