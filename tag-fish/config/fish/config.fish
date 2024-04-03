@@ -4,7 +4,7 @@ end
 
 set fish_greeting
 
-test -d /opt/homebrew; and eval (/opt/homebrew/bin/brew shellenv fish)
+test -d /opt/homebrew; and /opt/homebrew/bin/brew shellenv fish | source
 
 fish_add_path -P ~/bin ~/.local/bin ~/.cargo/bin
 
