@@ -10,7 +10,6 @@ test -d /opt/homebrew; and /opt/homebrew/bin/brew shellenv fish | source
 fish_add_path -P ~/bin ~/.local/bin ~/.cargo/bin
 
 set -gx VISUAL hx
-set -gx DFT_BACKGROUND light
 set -gx LESSHISTFILE /dev/null
 
 starship init fish | source
