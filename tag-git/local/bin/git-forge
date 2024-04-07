@@ -8,13 +8,14 @@ for remote in $(git remote); do
     url="${url#https://}" # Remove `https://` prefix.
     url="${url#git@}"     # Remove `git@` prefix.
     url="${url/://}"      # Replace `:` between hostname and path with `/`.
+    url="https://$url"    # Add `https://` prefix.
 
-    echo "https://$url"
+    echo "$url"
 
     if command -v xdg-open >/dev/null; then
-      xdg-open "https://$url"
+      xdg-open "$url"
     elif command -v open >/dev/null; then
-      open "https://$url"
+      open "$url"
     fi
   done
 done
