@@ -4,6 +4,7 @@ end
 
 set fish_greeting
 
+set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 set -gx HOMEBREW_NO_ANALYTICS 1
 test -d /opt/homebrew; and /opt/homebrew/bin/brew shellenv fish | source
 
