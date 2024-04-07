@@ -57,7 +57,8 @@ def import_file(dotfiles_dir: Path, source: Path, tag: str) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     source.rename(target)
     source.symlink_to(target)
-    print(f"{source} → {target}")
+    pretty_source = f"~/{source.relative_to(Path.home())}"
+    print(f"{FG_GREEN}imported{FG_RESET}: {pretty_source}")
 
 
 def parse_arguments() -> argparse.Namespace:
