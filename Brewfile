@@ -15,4 +15,5 @@ brew "shfmt"
 
 cask "1password"
 cask "alacritty"
+cask "anki"
 cask "brave-browser"
