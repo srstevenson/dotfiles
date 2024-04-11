@@ -13,6 +13,9 @@ brew "pyright"
 brew "ruff"
 brew "ruff-lsp"
 
+# Rust
+brew "rustup"
+
 # Shell
 brew "bash-language-server"
 brew "shellcheck"
