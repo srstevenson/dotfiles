@@ -8,17 +8,17 @@ brew "ripgrep"
 brew "starship"
 brew "zellij"
 
-# Python development
+# Python
 brew "pyright"
 brew "ruff"
 brew "ruff-lsp"
 
-# Shell development
+# Shell
 brew "bash-language-server"
 brew "shellcheck"
 brew "shfmt"
 
-# YAML development
+# YAML
 brew "prettier"
 
 cask "1password"
