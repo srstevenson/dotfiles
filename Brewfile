@@ -8,6 +8,9 @@ brew "ripgrep"
 brew "starship"
 brew "zellij"
 
+# Markdown
+brew "mdformat"
+
 # Python
 brew "pyright"
 brew "ruff"
