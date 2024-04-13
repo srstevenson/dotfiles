@@ -10,12 +10,12 @@ for remote in $(git remote); do
     url="${url/://}"      # Replace `:` between hostname and path with `/`.
     url="https://$url"    # Add `https://` prefix.
 
-    echo "$url"
-
-    if command -v xdg-open >/dev/null; then
-      xdg-open "$url"
-    elif command -v open >/dev/null; then
+    if [[ $(uname -s) == "Darwin" ]]; then
       open "$url"
+    elif command -v xdg-open >/dev/null; then
+      xdg-open "$url"
+    else
+      echo "$url"
     fi
   done
 done
