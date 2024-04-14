@@ -1,5 +1,5 @@
 keybinds {
-    unbind "Ctrl n" "Ctrl p"
+    unbind "Ctrl n" "Ctrl p" "Ctrl q"
 }
 
 plugins {
