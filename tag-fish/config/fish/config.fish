@@ -14,6 +14,9 @@ fish_add_path -P ~/bin ~/.local/bin ~/.cargo/bin
 set -gx VISUAL hx
 set -gx LESSHISTFILE /dev/null
 
+set -gx JUMP_HOME ~/.local/state/jump
+jump shell fish | source
+
 starship init fish | source
 enable_transience
 
