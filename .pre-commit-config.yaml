@@ -15,6 +15,11 @@ repos:
         args: ["--fix"]
       - id: ruff-format
 
+  - repo: https://github.com/nikaro/taplo-pre-commit
+    rev: 0.1.0
+    hooks:
+      - id: taplo-format
+
   - repo: https://github.com/cisagov/pre-commit-shfmt
     rev: v0.0.2
     hooks:
