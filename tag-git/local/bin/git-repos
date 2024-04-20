@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+find "$HOME/src" -type d -name .git -print |
+  sed -e "s#$HOME/src/##" -e "s#/\.git\$##"
