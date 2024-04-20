@@ -2,6 +2,14 @@
 background = "#151515"
 foreground = "#d0d0d0"
 
+[colors.hints.start]
+background = "#f0c674"
+foreground = "#151515"
+
+[colors.hints.end]
+background = "#b0b0b0"
+foreground = "#151515"
+
 [colors.normal]
 black = "#151515"
 white = "#d0d0d0"
