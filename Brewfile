@@ -10,6 +10,7 @@ brew "starship"
 brew "zellij"
 
 # Markdown
+brew "ltex-ls"
 brew "mdformat"
 
 # Python
