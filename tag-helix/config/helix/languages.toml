@@ -17,6 +17,10 @@ auto-format = true
 formatter = { command = "fish_indent" }
 
 [[language]]
+name = "git-commit"
+language-servers = ["ltex-ls"]
+
+[[language]]
 name = "lua"
 auto-format = true
 formatter = { command = "stylua", args = ["-"] }
