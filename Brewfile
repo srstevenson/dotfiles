@@ -25,6 +25,9 @@ brew "bash-language-server"
 brew "shellcheck"
 brew "shfmt"
 
+# TOML
+brew "taplo"
+
 # YAML
 brew "prettier"
 
