@@ -25,6 +25,7 @@ formatter = { command = "stylua", args = ["-"] }
 name = "markdown"
 auto-format = true
 formatter = { command = "mdformat", args = ["--wrap=80", "-"] }
+language-servers = ["ltex-ls"]
 
 [[language]]
 name = "python"
