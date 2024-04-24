@@ -68,6 +68,7 @@
 "ui.virtual.indent-guide" = "base01"
 "ui.virtual.inlay-hint" = "base03"
 "ui.virtual.ruler" = { bg = "base01" }
+"ui.virtual.whitespace" = "base03"
 "ui.window" = { bg = "base01" }
 
 [palette]
