@@ -1,4 +1,4 @@
-"attributes" = "base09"
+"attribute" = "base09"
 "comment" = { fg = "base03", modifiers = ["italic"] }
 "constant" = "base09"
 "constant.character.escape" = "base0C"
