@@ -67,8 +67,10 @@
 "ui.text.focus" = "base05"
 "ui.virtual.indent-guide" = "base01"
 "ui.virtual.inlay-hint" = "base03"
+"ui.virtual.jump-label" = { bg = "base0A", fg = "base00" }
 "ui.virtual.ruler" = { bg = "base01" }
 "ui.virtual.whitespace" = "base03"
+"ui.virtual.wrap" = "base03"
 "ui.window" = { bg = "base01" }
 
 [palette]
