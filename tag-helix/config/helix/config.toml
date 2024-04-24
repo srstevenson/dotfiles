@@ -2,7 +2,6 @@ theme = "dorrow"
 
 [editor]
 bufferline = "multiple"
-color-modes = true
 line-number = "relative"
 rulers = [80]
 true-color = true
