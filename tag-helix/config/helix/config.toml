@@ -20,3 +20,8 @@ display-messages = true
 
 [editor.soft-wrap]
 enable = true
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
