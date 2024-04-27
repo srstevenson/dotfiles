@@ -1,6 +1,7 @@
 brew "bat"
 brew "fd"
 brew "fish"
+brew "fzy"
 brew "git"
 brew "git-absorb"
 brew "helix"
