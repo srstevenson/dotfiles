@@ -39,6 +39,7 @@ brew "taplo"
 # YAML
 brew "prettier"
 
+# Casks
 cask "1password"
 cask "alacritty"
 cask "anki"
