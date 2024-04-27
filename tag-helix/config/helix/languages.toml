@@ -1,3 +1,7 @@
+[language-server.ltex-ls.config.ltex]
+language = "en-GB"
+disabledRules = { en-GB = ["OXFORD_SPELLING_Z_NOT_S"] }
+
 [language-server.pyright]
 command = "pyright-langserver"
 args = ["--stdio"]
