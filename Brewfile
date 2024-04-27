@@ -11,6 +11,11 @@ brew "ripgrep"
 brew "starship"
 brew "zellij"
 
+# Beancount
+brew "beancount"
+brew "beancount-language-server"
+brew "fava"
+
 # Markdown
 brew "ltex-ls"
 brew "mdformat"
