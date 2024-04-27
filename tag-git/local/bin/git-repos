@@ -1,6 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-set -euo pipefail
+import os
 
-find "$HOME/src" -type d -name .git -print |
-  sed -e "s#$HOME/src/##" -e "s#/\.git\$##" | sort
+SOURCE_ROOT = os.path.expanduser("~/src")
+
+
+def find_repos(directory: str) -> None:
+    with os.scandir(directory) as entries:
+        for entry in entries:
+            if entry.is_dir():
+                if os.path.exists(os.path.join(entry, ".git")):
+                    print(os.path.relpath(entry, start=SOURCE_ROOT))
+                else:
+                    find_repos(os.path.join(directory, entry))
+
+
+if __name__ == "__main__":
+    find_repos(SOURCE_ROOT)
