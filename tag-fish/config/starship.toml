@@ -1,4 +1,5 @@
 add_newline = false
+right_format = "$python"
 
 [cmd_duration]
 format = "[$duration]($style) "
@@ -22,7 +23,10 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+format = "[${symbol}(${version} )(\\($virtualenv\\) )]($style)"
+symbol = "py"
+version_format = '${major}.${minor}'
+style = "blue"
 
 [rust]
 disabled = true
