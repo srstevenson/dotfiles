@@ -22,8 +22,6 @@ formatter = { command = "fish_indent" }
 
 [[language]]
 name = "git-commit"
-auto-format = true
-formatter = { command = "fold", args = ["-s", "-w", "72"] }
 language-servers = ["ltex-ls"]
 
 [[language]]
