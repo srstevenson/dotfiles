@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+
+import argparse
+from pathlib import Path
+
+DOTFILES_DIR = Path.home().joinpath(".dotfiles")
+
+
+def add_dot_prefix(path: Path) -> Path:
+    return Path("." + path.parts[0], *path.parts[1:])
+
+
+def remove_dot_prefix(path: Path) -> Path:
+    return Path(path.parts[0].removeprefix("."), *path.parts[1:])
+
+
+def tag_dirs(dotfiles_dir: Path) -> list[Path]:
+    return sorted(
+        path
+        for path in dotfiles_dir.iterdir()
+        if path.is_dir() and path.name.startswith("tag-")
+    )
+
+
+def files_in_tag(tag_dir: Path) -> list[Path]:
+    return sorted(
+        path.relative_to(tag_dir) for path in tag_dir.rglob("*") if path.is_file()
+    )
+
+
+def symlink_file(tag_dir: Path, path: Path) -> None:
+    target = tag_dir.joinpath(path)
+    source = Path.home().joinpath(add_dot_prefix(path))
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.unlink(missing_ok=True)
+    source.symlink_to(target)
+    print(f"{source} → {target}")
+
+
+def symlink_files(dotfiles_dir: Path) -> None:
+    for tag_dir in tag_dirs(dotfiles_dir):
+        for path in files_in_tag(tag_dir):
+            symlink_file(tag_dir, path)
+
+
+def import_file(dotfiles_dir: Path, source: Path, tag: str) -> None:
+    source = source.resolve()
+    tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
+    target = tag_dir.joinpath(remove_dot_prefix(source.relative_to(Path.home())))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    source.rename(target)
+    source.symlink_to(target)
+    print(f"{source} → {target}")
+
+
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Manage dotfile symbolic links.",
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    symlink_parser = subparsers.add_parser(
+        "symlink",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        help="create symbolic links for dotfiles",
+    )
+    symlink_parser.add_argument(
+        "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
+    )
+
+    import_parser = subparsers.add_parser(
+        "import",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        help="import new dotfile",
+    )
+    import_parser.add_argument("path", type=Path, help="file to import")
+    import_parser.add_argument("-t", "--tag", required=True, help="tag to import to")
+    import_parser.add_argument(
+        "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_arguments()
+    if args.command == "import":
+        import_file(args.dir, args.path, args.tag)
+    else:
+        symlink_files(args.dir)
+
+
+if __name__ == "__main__":
+    main()

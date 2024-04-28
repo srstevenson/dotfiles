@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+url="$(git remote get-url origin)"
+url="${url%.git}"     # Remove `.git` suffix.
+url="${url#https://}" # Remove `https://` prefix.
+url="${url#git@}"     # Remove `git@` prefix.
+url="${url/://}"      # Replace `:` between hostname and path with `/`.
+
+echo "https://$url"
+# open "https://$url"
