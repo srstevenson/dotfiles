@@ -1,0 +1,18 @@
+theme = "dorrow"
+
+[editor]
+line-number = "relative"
+true-color = true
+rulers = [80]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true

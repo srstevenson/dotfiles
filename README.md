@@ -1,23 +1,27 @@
 # dotfiles
 
-This repository holds my configuration files, managed with [Nix] and
-[home-manager]. On a machine which has not yet been configured, install Nix:
+This repository contains my configuration files, managed using the `dfm` script
+contained within. After cloning this repository to `$HOME/.dotfiles`, symlink
+the dotfiles to the home directory with:
 
-[Nix]: https://nixos.org/manual/nix/
-[home-manager]: https://nix-community.github.io/home-manager/
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```bash
+$HOME/.dotfiles/tag-dfm/local/bin/dfm symlink
 ```
 
-Clone this repository to the directory expected by home-manager:
+This initial run will symlink `dfm` to `$HOME/.local/bin/dfm`, so it can be run
+without using the full path.
 
-```sh
-git clone https://github.com/srstevenson/dotfiles.git ~/.config/home-manager
+To import a dotfile into the repository and replace the original with a symlink,
+run:
+
+```bash
+dfm import -t <tag> <path>
 ```
 
-Build and activate the home-manager configuration:
+## pre-commit hooks
 
-```sh
-nix run home-manager/master switch
-```
+[pre-commit] is used to run formatters and linters before committing changes.
+Install pre-commit and dependencies with `pacman -Syu pre-commit shfmt` and add
+the pre-commit hooks to your local repository with `pre-commit install`.
+
+[pre-commit]: https://pre-commit.com/
