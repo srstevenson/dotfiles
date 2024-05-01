@@ -1,6 +1,6 @@
 themes {
     dorrow {
-        bg "#151515"       // base16-classic-dark
+        bg "#303030"       // base16-classic-dark
         fg "#d0d0d0"       // base16-classic-dark
         black "#202020"    // base16-classic-dark
         white "#d0d0d0"    // base16-classic-dark
