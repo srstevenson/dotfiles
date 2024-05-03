@@ -26,7 +26,7 @@ disabled = true
 format = "[${symbol}(${version} )(\\($virtualenv\\) )]($style)"
 symbol = "py"
 version_format = '${major}.${minor}'
-style = "blue"
+style = "bold blue"
 
 [rust]
 disabled = true
