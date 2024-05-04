@@ -13,8 +13,7 @@ format = "([$all_status$ahead_behind]($style)) "
 staged = "±"
 
 [hostname]
-format = "[$hostname]($style) "
-style = "bold fg:8"
+disabled = true
 
 [line_break]
 disabled = true
