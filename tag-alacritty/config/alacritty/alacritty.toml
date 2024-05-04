@@ -1,7 +1,7 @@
 import = ["~/.config/alacritty/themes/dorrow.toml"]
 
 [font]
-size = 16
+size = 17
 
 [window]
 decorations_theme_variant = "Dark"
