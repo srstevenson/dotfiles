@@ -1,6 +1,9 @@
 function fish_title
-    echo (set -q argv[1]; and echo $argv[1]; or prompt_pwd)
-
-    set -q ZELLIJ; and zellij action rename-tab \
-        (set -q argv[1]; and echo $argv[1]; or basename $SHELL)
+    if set -q argv[1]
+        echo $argv[1]
+        set -q ZELLIJ; and zellij action rename-tab (string split -f 1 " " $argv[1])
+    else
+        prompt_pwd
+        set -q ZELLIJ; and zellij action rename-tab fish
+    end
 end
