@@ -1,16 +1,17 @@
 themes {
     dorrow {
-        bg "#303030"       // base16-classic-dark
-        fg "#d0d0d0"       // base16-classic-dark
-        black "#202020"    // base16-classic-dark
-        white "#d0d0d0"    // base16-classic-dark
-        red "#cc6666"      // base16-tomorrow-night
-        green "#b5bd68"    // base16-tomorrow-night
-        blue "#81a2be"     // base16-tomorrow-night
-        yellow "#f0c674"   // base16-tomorrow-night
-        magenta "#b294bb"  // base16-tomorrow-night
-        orange "#de935f"   // base16-tomorrow-night
-        cyan "#8abeb7"     // base16-tomorrow-night
+        bg "#303030"
+        fg "#d0d0d0"
+        black "#202020"
+        white "#d0d0d0"
+
+        red "#cc6666"
+        green "#b5bd68"
+        blue "#81a2be"
+        yellow "#f0c674"
+        magenta "#b294bb"
+        orange "#de935f"
+        cyan "#8abeb7"
     }
 }
 
