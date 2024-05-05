@@ -1,6 +1,9 @@
 add_newline = false
 right_format = "$python"
 
+[cmake]
+disabled = true
+
 [cmd_duration]
 format = "[$duration]($style) "
 style = "dimmed"
