@@ -2,7 +2,7 @@
     autoStageIfNothingStaged = true
 
 [alias]
-    sl = log --graph --pretty=format:'%C(auto)%h%d %s %C(blue)%aE %C(green)%ah%Creset'
+    sl = log --branches --graph --format=format:'%C(auto)%h %C(green)%ah %C(blue)%aE%C(auto)%d%Creset%n%s%n'
 
 [branch]
     sort = -committerdate
