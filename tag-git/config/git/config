@@ -10,6 +10,17 @@
 [commit]
     verbose = true
 
+[core]
+    pager = delta
+
+[delta]
+    diff-highlight = true
+    hyperlinks = true
+    navigate = true
+
+[diff]
+    colorMoved = default
+
 [fetch]
     prune = true
 
@@ -19,13 +30,11 @@
 [init]
     defaultBranch = main
 
+[interactive]
+    diffFilter = delta
+
 [merge]
     conflictStyle = zdiff3
-
-[pager]
-    diff = diff-highlight | less
-    log = diff-highlight | less
-    show = diff-highlight | less
 
 [push]
     autoSetupRemote = true
