@@ -4,9 +4,6 @@
 [alias]
     sl = log --branches --graph --format=format:'%C(auto)%h %C(green)%ah %C(blue)%aE%C(auto)%d%Creset%n%s%n'
 
-[branch]
-    sort = -committerdate
-
 [commit]
     verbose = true
 
