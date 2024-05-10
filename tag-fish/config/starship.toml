@@ -35,6 +35,9 @@ disabled = true
 [package]
 disabled = true
 
+[rlang]
+disabled = true
+
 [rust]
 disabled = true
 
