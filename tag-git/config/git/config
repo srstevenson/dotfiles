@@ -1,5 +1,6 @@
 [absorb]
     autoStageIfNothingStaged = true
+    oneFixupPerCommit = true
 
 [alias]
     sl = log --branches --graph --format=format:'%C(auto)%h %C(green)%ah %C(blue)%aE%C(auto)%d%Creset%n%s%n'
