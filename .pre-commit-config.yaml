@@ -16,7 +16,7 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/nikaro/taplo-pre-commit
-    rev: 0.1.0
+    rev: 0.1.1
     hooks:
       - id: taplo-format
 
