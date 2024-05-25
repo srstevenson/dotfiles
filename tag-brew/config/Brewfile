@@ -9,6 +9,7 @@ brew "jump"
 brew "pre-commit"
 brew "ripgrep"
 brew "starship"
+brew "tmux"
 brew "zellij"
 
 # Beancount
