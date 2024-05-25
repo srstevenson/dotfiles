@@ -24,6 +24,9 @@ version_format = '${major}.${minor}'
 style = "bold blue"
 
 
+[c]
+disabled = true
+
 [cmake]
 disabled = true
 
