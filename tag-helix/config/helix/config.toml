@@ -5,6 +5,7 @@ bufferline = "multiple"
 line-number = "relative"
 rulers = [80]
 true-color = true
+undercurl = true
 
 [editor.cursor-shape]
 insert = "bar"
