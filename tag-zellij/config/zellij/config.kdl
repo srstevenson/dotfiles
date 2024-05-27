@@ -1,5 +1,5 @@
 keybinds {
-    unbind "Ctrl n" "Ctrl p" "Ctrl q"
+    unbind "Ctrl n" "Ctrl o" "Ctrl p" "Ctrl q"
 }
 
 // Toggle between having pane frames around the panes.
