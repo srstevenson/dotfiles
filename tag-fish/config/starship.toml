@@ -21,7 +21,7 @@ staged = "±"
 format = "[${symbol}(${version} )(\\($virtualenv\\) )]($style)"
 symbol = "py"
 version_format = '${major}.${minor}'
-style = "bold blue"
+style = "blue"
 
 
 [c]
