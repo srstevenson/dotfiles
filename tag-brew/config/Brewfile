@@ -1,5 +1,4 @@
 brew "age"
-brew "bat"
 brew "fd"
 brew "fish"
 brew "fzy"
