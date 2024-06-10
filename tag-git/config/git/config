@@ -12,9 +12,9 @@
     pager = delta
 
 [delta]
-    diff-highlight = true
     hyperlinks = true
     navigate = true
+    syntax-theme = base16
 
 [diff]
     colorMoved = default
@@ -29,7 +29,7 @@
     defaultBranch = main
 
 [interactive]
-    diffFilter = delta
+    diffFilter = delta --color-only
 
 [merge]
     conflictStyle = zdiff3
