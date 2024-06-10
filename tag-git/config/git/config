@@ -3,7 +3,7 @@
     oneFixupPerCommit = true
 
 [alias]
-    sl = log --branches --graph --format=format:'%C(auto)%h %C(green)%ah %C(blue)%aE%C(auto)%d%Creset%n%s%n' --stat=70
+    sl = log --branches --graph --format=format:'%C(auto)%h %C(green)%ah %C(blue)%aE%C(auto)%d%Creset%n%s%n'
 
 [commit]
     verbose = true
