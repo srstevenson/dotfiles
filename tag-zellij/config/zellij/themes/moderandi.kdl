@@ -1,0 +1,15 @@
+themes {
+    moderandi {
+        bg "#000000"
+        fg "#595959"
+        black "#c8c8c8"
+        white "#000000"
+        red "#a60000"
+        green "#006800"
+        blue "#0031a9"
+        yellow "#6f5500"
+        magenta "#721045"
+        orange "#808000"
+        cyan "#005e8b"
+    }
+}
