@@ -25,11 +25,6 @@ name = "git-commit"
 language-servers = ["ltex-ls"]
 
 [[language]]
-name = "lua"
-auto-format = true
-formatter = { command = "stylua", args = ["-"] }
-
-[[language]]
 name = "markdown"
 auto-format = true
 formatter = { command = "prettier", args = [
