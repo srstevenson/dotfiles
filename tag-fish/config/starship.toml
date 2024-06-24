@@ -5,9 +5,6 @@ right_format = "$python"
 format = "[$duration]($style) "
 style = "dimmed"
 
-[directory]
-truncation_length = 1
-
 [git_branch]
 format = "[$branch(:$remote_branch)]($style)"
 truncation_length = 25
