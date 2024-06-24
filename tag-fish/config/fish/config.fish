@@ -19,7 +19,3 @@ jump shell fish | source
 
 starship init fish | source
 enable_transience
-
-if test -n "$SSH_CONNECTION" -a -z "$ZELLIJ" -a -z "$TMUX"
-    zellij attach -c main
-end
