@@ -3,7 +3,7 @@ right_format = "$python"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "dimmed"
+style = "245"
 
 [git_branch]
 format = "[$branch(:$remote_branch)]($style)"
@@ -18,7 +18,7 @@ staged = "±"
 format = "[${symbol}(${version} )(\\($virtualenv\\) )]($style)"
 symbol = "py"
 version_format = '${major}.${minor}'
-style = "blue"
+style = "bold blue"
 
 
 [c]
