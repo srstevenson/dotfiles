@@ -1,0 +1,12 @@
+inherits = "modus_operandi"
+
+"ui.bufferline" = { fg = "fg-dim", bg = "bg-dim" }
+"ui.bufferline.active" = { fg = "fg-main", bg = "bg-main" }
+"ui.cursor" = { fg = "bg-main", bg = "bg-active" }
+"ui.gutter" = { bg = "bg-main" }
+"ui.linenr" = { fg = "bg-active" }
+"ui.linenr.selected" = { fg = "fg-alt" }
+"ui.statusline.normal" = { fg = "fg-mode-line-active" }
+"ui.virtual.jump-label" = { fg = "fg-main", bg = "bg-changed" }
+
+[palette]
