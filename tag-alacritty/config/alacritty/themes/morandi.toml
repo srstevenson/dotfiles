@@ -7,12 +7,12 @@ background = "#595959"
 text = "#ffffff"
 
 [colors.hints.start]
-background = "#ffdfa9"
-foreground = "#000000"
+background = "#6f5500"
+foreground = "#ffffff"
 
 [colors.hints.end]
-background = "#c4c4c4"
-foreground = "#000000"
+background = "#6f5500"
+foreground = "#ffffff"
 
 [colors.selection]
 background = "#bdbdbd"
