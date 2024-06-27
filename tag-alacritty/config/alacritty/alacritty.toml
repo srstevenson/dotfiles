@@ -1,4 +1,7 @@
-import = ["~/.config/alacritty/themes/moderandi.toml"]
+import = [
+  "~/.config/alacritty/themes/morandi.toml",
+  # "~/.config/alacritty/themes/movendi.toml",
+]
 
 [font]
 size = 17
