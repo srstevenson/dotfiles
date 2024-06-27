@@ -33,6 +33,9 @@ disabled = true
 [line_break]
 disabled = true
 
+[nodejs]
+disabled = true
+
 [ocaml]
 disabled = true
 
