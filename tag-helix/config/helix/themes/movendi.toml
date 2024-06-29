@@ -1,6 +1,6 @@
 inherits = "modus_vivendi"
 
-"ui.bufferline" = { fg = "fg-dim", bg = "bg-dim" }
+"ui.bufferline" = { fg = "fg-dim", bg = "bg-mode-line-inactive" }
 "ui.bufferline.active" = { fg = "fg-main", bg = "bg-main" }
 "ui.cursor" = { fg = "bg-main", bg = "bg-active" }
 "ui.gutter" = { bg = "bg-main" }
