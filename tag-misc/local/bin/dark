@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+sed -i "" -e "s/morandi/movendi/g" \
+  "$(realpath ~/.config/alacritty/alacritty.toml)" \
+  "$(realpath ~/.config/helix/config.toml)" \
+  "$(realpath ~/.config/kitty/kitty.conf)" \
+  "$(realpath ~/.config/tmux/tmux.conf)"
+
+if [[ -n "$TMUX" ]]; then
+  tmux source-file ~/.config/tmux/tmux.conf
+fi
