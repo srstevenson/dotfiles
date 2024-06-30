@@ -1,5 +1,4 @@
 theme = "morandi"
-# theme = "movendi"
 
 [editor]
 bufferline = "multiple"
