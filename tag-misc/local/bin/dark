@@ -11,3 +11,7 @@ sed -i "" -e "s/morandi/movendi/g" \
 if [[ -n "$TMUX" ]]; then
   tmux source-file ~/.config/tmux/tmux.conf
 fi
+
+if [[ -n "$KITTY_PID" ]]; then
+  kill -SIGUSR1 "$KITTY_PID"
+fi
