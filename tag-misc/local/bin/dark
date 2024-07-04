@@ -3,7 +3,6 @@
 set -eo pipefail
 
 sed -i "" -e "s/morandi/movendi/g" \
-  "$(realpath ~/.config/alacritty/alacritty.toml)" \
   "$(realpath ~/.config/helix/config.toml)" \
   "$(realpath ~/.config/kitty/kitty.conf)" \
   "$(realpath ~/.config/tmux/tmux.conf)"
