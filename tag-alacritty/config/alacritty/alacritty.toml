@@ -1,8 +1,0 @@
-import = ["~/.config/alacritty/themes/morandi.toml"]
-
-[font]
-size = 17
-
-[window]
-# decorations_theme_variant = "Dark"
-option_as_alt = "OnlyLeft"
