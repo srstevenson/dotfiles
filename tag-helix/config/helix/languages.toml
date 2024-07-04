@@ -25,6 +25,11 @@ name = "git-commit"
 language-servers = ["ltex-ls"]
 
 [[language]]
+name = "html"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser=html"] }
+
+[[language]]
 name = "markdown"
 auto-format = true
 formatter = { command = "prettier", args = [
@@ -38,6 +43,11 @@ name = "python"
 auto-format = true
 formatter = { command = "ruff", args = ["format", "-"] }
 language-servers = ["pyright", "ruff"]
+
+[[language]]
+name = "scss"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser=scss"] }
 
 [[language]]
 name = "toml"
