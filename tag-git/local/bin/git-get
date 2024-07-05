@@ -17,27 +17,27 @@ def matches_host(url: str, host: str) -> bool:
 
 def unpack_url(url: str) -> tuple[str, str]:
     if "@" in url:
-        host, proj = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)
+        host, repo = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)
     else:
-        host, proj = url.removeprefix("https://").split("/", maxsplit=1)
+        host, repo = url.removeprefix("https://").split("/", maxsplit=1)
 
-    return host, proj.lstrip("~").removesuffix(".git")
+    return host, repo.lstrip("~").removesuffix(".git")
 
 
 def main() -> None:
     args = parse_args()
 
     if matches_host(args.url, "github.com"):
-        host, proj = unpack_url(args.url)
-        url = f"git@{host}:{proj}.git"
+        host, repo = unpack_url(args.url)
+        url = f"git@{host}:{repo}.git"
     elif matches_host(args.url, "git.sr.ht"):
-        host, proj = unpack_url(args.url)
-        url = f"git@{host}:~{proj}"
+        host, repo = unpack_url(args.url)
+        url = f"git@{host}:~{repo}"
     else:
-        host, proj = unpack_url(args.url)
+        host, repo = unpack_url(args.url)
         url = args.url
 
-    subprocess.run(["git", "clone", url, Path.home().joinpath("src", host, proj)])
+    subprocess.run(["git", "clone", url, Path.home().joinpath("src", host, repo)])
 
 
 if __name__ == "__main__":
