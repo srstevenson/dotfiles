@@ -1,8 +1,8 @@
 # dotfiles
 
 This repository contains my configuration files, managed using the `dfm` script
-contained within. After cloning this repository to `$HOME/.dotfiles` and
-entering the directory, symlink the dotfiles into place with:
+contained within. After cloning this repository and entering the directory,
+symlink the dotfiles into place with:
 
 ```bash
 ./tag-dfm/local/bin/dfm symlink
