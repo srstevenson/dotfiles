@@ -1,4 +1,4 @@
-right_format = "$python"
+right_format = "$cmd_duration$python"
 
 
 [cmd_duration]
