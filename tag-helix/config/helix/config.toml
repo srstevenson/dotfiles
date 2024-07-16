@@ -2,7 +2,6 @@ theme = "morandi"
 
 [editor]
 bufferline = "multiple"
-color-modes = true
 line-number = "relative"
 rulers = [80]
 undercurl = true

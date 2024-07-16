@@ -7,4 +7,3 @@ inherits = "modus_vivendi"
 "ui.linenr" = { fg = "bg-active" }
 "ui.linenr.selected" = { fg = "fg-alt" }
 "ui.statusline" = { fg = "fg-mode-line-active", bg = "bg-mode-line-inactive" }
-"ui.statusline.normal" = { fg = "fg-mode-line-active" }
