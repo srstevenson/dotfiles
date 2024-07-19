@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -euo pipefail
 
 sed -i "" -e "s/morandi/movendi/g" \
   "$(realpath ~/.config/helix/config.toml)" \
   "$(realpath ~/.config/kitty/kitty.conf)" \
   "$(realpath ~/.config/tmux/tmux.conf)"
 
-if [[ -n "$TMUX" ]]; then
-  tmux source-file ~/.config/tmux/tmux.conf
-fi
-
-if [[ -n "$KITTY_PID" ]]; then
-  kill -SIGUSR1 "$KITTY_PID"
-fi
+reload-themes
