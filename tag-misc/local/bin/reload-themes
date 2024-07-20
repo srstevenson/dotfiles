@@ -2,7 +2,11 @@
 
 set -eo pipefail
 
-tmux source-file ~/.config/tmux/tmux.conf
+if [[ -n "$KITTY_PID" ]]; then
+  kill -SIGUSR1 "$KITTY_PID"
+fi
+
+tmux source-file ~/.config/tmux/tmux.conf &>/dev/null
 
 for session in $(tmux list-sessions -F "#{session_name}"); do
   for window in $(tmux list-windows -t "$session" -F "#{window_index}"); do
@@ -14,7 +18,3 @@ for session in $(tmux list-sessions -F "#{session_name}"); do
     done
   done
 done
-
-if [[ -n "$KITTY_PID" ]]; then
-  kill -SIGUSR1 "$KITTY_PID"
-fi
