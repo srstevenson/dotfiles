@@ -5,7 +5,7 @@ contained within. After cloning this repository and entering the directory,
 symlink the dotfiles into place with:
 
 ```bash
-./tag-dfm/local/bin/dfm symlink
+./tag-bin/local/bin/dfm symlink
 ```
 
 This initial run will symlink `dfm` to `$HOME/.local/bin/dfm`, so it can be run
