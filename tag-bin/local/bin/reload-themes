@@ -8,13 +8,9 @@ fi
 
 tmux source-file ~/.config/tmux/tmux.conf &>/dev/null
 
-for session in $(tmux list-sessions -F "#{session_name}"); do
-  for window in $(tmux list-windows -t "$session" -F "#{window_index}"); do
-    for pane in $(tmux list-panes -t "$session:$window" -F "#{pane_id}"); do
-      command=$(tmux list-panes -t "$session:$window" -F "#{pane_current_command}" -t "$pane")
-      if [[ "$command" == "hx" ]]; then
-        tmux send-keys -t "$pane" Escape Enter ":config-reload" Enter
-      fi
-    done
-  done
+for pane in $(tmux list-panes -a -F "#{pane_id}"); do
+  command=$(tmux list-panes -F "#{pane_current_command}" -t "$pane")
+  if [[ "$command" == "hx" ]]; then
+    tmux send-keys -t "$pane" Escape Enter ":config-reload" Enter
+  fi
 done
