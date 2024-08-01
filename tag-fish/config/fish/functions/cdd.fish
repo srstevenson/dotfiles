@@ -1,4 +1,8 @@
 function cdd
-    set -q argv[1]; and set query $argv[1]; or set query ""
+    if set -q argv[1]
+        set query $argv[1]
+    else
+        set query ""
+    end
     cd (find ~/Dropbox -type d -mindepth 1 | fzy -q $query)
 end
