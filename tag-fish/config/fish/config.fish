@@ -1,4 +1,6 @@
-status is-interactive; or return
+if not status is-interactive
+    return
+end
 
 set fish_greeting
 
