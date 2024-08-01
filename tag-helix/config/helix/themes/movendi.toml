@@ -1,7 +1,9 @@
 inherits = "modus_vivendi"
 
 "ui.bufferline" = { fg = "fg-dim", bg = "bg-mode-line-inactive" }
-"ui.bufferline.active" = { fg = "fg-main", bg = "bg-main" }
+"ui.bufferline.active" = { fg = "fg-main", bg = "bg-main", modifiers = [
+  "bold",
+] }
 "ui.cursor" = { fg = "bg-main", bg = "bg-active" }
 "ui.gutter" = { bg = "bg-main" }
 "ui.linenr" = { fg = "bg-active" }
