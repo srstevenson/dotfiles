@@ -4,6 +4,7 @@ brew "fish"
 brew "fzy"
 brew "helix"
 brew "jump"
+brew "ltex-ls"
 brew "pre-commit"
 brew "ripgrep"
 brew "starship"
@@ -19,24 +20,15 @@ brew "git"
 brew "git-absorb"
 brew "git-delta"
 
-# Markdown
-brew "ltex-ls"
-
-# Python
+# Programming
+brew "bash-language-server"
+brew "prettier"
 brew "pyright"
 brew "ruff"
 brew "ruff-lsp"
-
-# Shell
-brew "bash-language-server"
 brew "shellcheck"
 brew "shfmt"
-
-# TOML
 brew "taplo"
-
-# YAML
-brew "prettier"
 
 # Casks
 cask "1password"
