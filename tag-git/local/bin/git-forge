@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-for remote in $(git remote); do
-  for url in $(git remote get-url --all --push "$remote"); do
+git remote | while read -r remote; do
+  git remote get-url --all --push "$remote" | while read -r url; do
     url="${url%.git}"     # Remove `.git` suffix.
     url="${url#https://}" # Remove `https://` prefix.
     url="${url#git@}"     # Remove `git@` prefix.
