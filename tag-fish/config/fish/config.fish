@@ -4,10 +4,12 @@ end
 
 set fish_greeting
 
-set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
-set -gx HOMEBREW_BUNDLE_FILE_GLOBAL ~/.config/Brewfile
-set -gx HOMEBREW_NO_ANALYTICS 1
-test -d /opt/homebrew; and /opt/homebrew/bin/brew shellenv fish | source
+if test -d /opt/homebrew
+    /opt/homebrew/bin/brew shellenv fish | source
+    set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
+    set -gx HOMEBREW_BUNDLE_FILE_GLOBAL ~/.config/Brewfile
+    set -gx HOMEBREW_NO_ANALYTICS 1
+end
 
 fish_add_path -P ~/Dropbox/bin ~/.local/bin ~/.cargo/bin
 
