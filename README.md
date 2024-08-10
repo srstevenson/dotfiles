@@ -1,21 +1,21 @@
 # dotfiles
 
-This repository contains my configuration files, managed using the `dfm` script
-contained within. After cloning this repository and entering the directory,
-symlink the files into place with:
+This repository contains my configuration files, managed using the `dotfiles`
+script contained within. After cloning this repository and entering the
+directory, symlink the files into place with:
 
 ```bash
-./tag-bin/local/bin/dfm symlink
+./tag-bin/local/bin/dotfiles symlink
 ```
 
-This initial run will symlink `dfm` to `~/.local/bin/dfm`, so it can be run
-without using the full path.
+This initial run will symlink `dotfiles` to `~/.local/bin/dotfiles`, so it can
+be run without using the full path.
 
 To import a file into the repository and replace the original with a symlink,
 run:
 
 ```bash
-dfm import -t <tag> <path>
+dotfiles import -t <tag> <path>
 ```
 
 ## pre-commit hooks
