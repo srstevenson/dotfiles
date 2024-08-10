@@ -62,9 +62,7 @@ def import_file(dotfiles_dir: Path, source: Path, tag: str) -> None:
 
 
 def parse_arguments() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Manage dotfile symbolic links.",
-    )
+    parser = argparse.ArgumentParser(description="Dotfiles manager.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     symlink_parser = subparsers.add_parser(
