@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
 sed -i "" -e "s/morandi/movendi/g" \
   "$(realpath ~/.config/helix/config.toml)" \
   "$(realpath ~/.config/kitty/kitty.conf)" \
