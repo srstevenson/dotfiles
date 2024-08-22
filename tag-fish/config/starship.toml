@@ -26,6 +26,9 @@ disabled = true
 [cmake]
 disabled = true
 
+[docker_context]
+disabled = true
+
 [hostname]
 disabled = true
 
