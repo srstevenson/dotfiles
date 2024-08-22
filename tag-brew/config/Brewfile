@@ -29,6 +29,7 @@ brew "ruff"
 brew "shellcheck"
 brew "shfmt"
 brew "taplo"
+brew "uv"
 
 # Casks
 cask "1password"
