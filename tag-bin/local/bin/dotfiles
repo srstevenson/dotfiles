@@ -66,19 +66,13 @@ def parse_arguments() -> argparse.Namespace:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     symlink_parser = subparsers.add_parser(
-        "symlink",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="create symbolic links for dotfiles",
+        "symlink", help="create symbolic links for dotfiles"
     )
     symlink_parser.add_argument(
         "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
     )
 
-    import_parser = subparsers.add_parser(
-        "import",
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        help="import new dotfile",
-    )
+    import_parser = subparsers.add_parser("import", help="import new dotfile")
     import_parser.add_argument("path", type=Path, help="file to import")
     import_parser.add_argument("-t", "--tag", required=True, help="tag to import to")
     import_parser.add_argument(
