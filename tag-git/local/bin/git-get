@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from __future__ import annotations
+
 import argparse
 import subprocess
 from pathlib import Path
@@ -37,7 +39,9 @@ def main() -> None:
         host, repo = unpack_url(args.url)
         url = args.url
 
-    subprocess.run(["git", "clone", url, Path.home().joinpath("src", host, repo)])
+    subprocess.run(
+        ["git", "clone", url, Path.home().joinpath("src", host, repo)], check=False
+    )
 
 
 if __name__ == "__main__":
