@@ -16,6 +16,11 @@ repos:
         args: ["--fix"]
       - id: ruff-format
 
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.377
+    hooks:
+      - id: pyright
+
   - repo: https://github.com/nikaro/taplo-pre-commit
     rev: 0.1.1
     hooks:
