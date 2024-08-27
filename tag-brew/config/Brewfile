@@ -45,3 +45,6 @@ cask "spotify"
 cask "standard-notes"
 cask "uhk-agent"
 cask "whatsapp"
+
+# Fonts
+cask "font-jetbrains-mono"
