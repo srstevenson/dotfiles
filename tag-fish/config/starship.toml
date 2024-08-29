@@ -29,6 +29,9 @@ disabled = true
 [docker_context]
 disabled = true
 
+[haskell]
+disabled = true
+
 [hostname]
 disabled = true
 
@@ -48,6 +51,9 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[terraform]
 disabled = true
 
 [username]
