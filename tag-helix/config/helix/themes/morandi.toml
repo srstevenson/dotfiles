@@ -9,3 +9,4 @@ inherits = "modus_operandi"
 "ui.linenr" = { fg = "bg-active" }
 "ui.linenr.selected" = { fg = "fg-alt" }
 "ui.statusline" = { fg = "fg-mode-line-active", bg = "bg-mode-line-inactive" }
+"ui.virtual.inlay-hint" = { fg = "bg-active", modifiers = ["italic"] }
