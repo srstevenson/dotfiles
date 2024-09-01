@@ -31,6 +31,9 @@ brew "shfmt"
 brew "taplo"
 brew "uv"
 
+# Typesetting
+brew "typst"
+
 # Casks
 cask "1password"
 cask "1password-cli"
