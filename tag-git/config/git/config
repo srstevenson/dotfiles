@@ -1,6 +1,3 @@
-[absorb]
-    autoStageIfNothingStaged = true
-
 [commit]
     verbose = true
 
