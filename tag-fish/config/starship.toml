@@ -56,5 +56,8 @@ disabled = true
 [terraform]
 disabled = true
 
+[typst]
+disabled = true
+
 [username]
 disabled = true
