@@ -15,7 +15,6 @@ fish_add_path -P ~/Dropbox/bin ~/.local/bin ~/.cargo/bin
 
 set -gx VISUAL hx
 set -gx LESSHISTFILE /dev/null
-set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
 
 set -gx JUMP_HOME ~/.local/state/jump
