@@ -16,7 +16,6 @@ brew "fava"
 # Git
 brew "gh"
 brew "git"
-brew "git-absorb"
 brew "git-delta"
 
 # Programming
