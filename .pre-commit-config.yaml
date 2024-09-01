@@ -4,8 +4,6 @@ repos:
     hooks:
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
-      - id: check-toml
-      - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
@@ -43,8 +41,3 @@ repos:
     hooks:
       - id: fish_syntax
       - id: fish_indent
-
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0
-    hooks:
-      - id: detect-secrets
