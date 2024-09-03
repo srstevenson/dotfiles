@@ -53,6 +53,9 @@ disabled = true
 [rust]
 disabled = true
 
+[scala]
+disabled = true
+
 [terraform]
 disabled = true
 
