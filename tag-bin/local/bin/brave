@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+args=()
+
+while (($#)); do
+  case $1 in
+  -i)
+    args+=("--incognito")
+    ;;
+  *)
+    args+=("$1")
+    ;;
+  esac
+  shift
+done
+
+exec open -na "Brave Browser" --args "${args[@]}"
