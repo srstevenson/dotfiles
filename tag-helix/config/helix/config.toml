@@ -4,7 +4,7 @@ theme = "morandi"
 bufferline = "multiple"
 line-number = "relative"
 rulers = [80]
-undercurl = true         # Undercurl support in tmux is not detected.
+undercurl = true         # Undercurl support is not detected within tmux.
 
 [editor.cursor-shape]
 insert = "bar"
