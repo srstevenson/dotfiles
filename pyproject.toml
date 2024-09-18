@@ -1,12 +1,12 @@
 [tool.pyright]
 typeCheckingMode = "strict"
 
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+
 [tool.ruff.lint]
 ignore = ["COM812", "D", "PTH110", "PTH111", "PTH118", "S603", "S607", "T201"]
 select = ["ALL"]
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
-
-[tool.ruff.format]
-skip-magic-trailing-comma = true
