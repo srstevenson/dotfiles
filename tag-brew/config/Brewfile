@@ -46,7 +46,6 @@ cask "rectangle"
 cask "signal"
 cask "spotify"
 cask "standard-notes"
-cask "uhk-agent"
 cask "whatsapp"
 
 # Fonts
