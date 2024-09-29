@@ -16,4 +16,8 @@ while (($#)); do
   shift
 done
 
-exec open -na "Brave Browser" --args "${args[@]}"
+if ((${#args[@]} > 0)); then
+  exec open -na "Brave Browser" --args "${args[@]}"
+else
+  exec open -na "Brave Browser"
+fi
