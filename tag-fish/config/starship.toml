@@ -50,6 +50,9 @@ disabled = true
 [rlang]
 disabled = true
 
+[ruby]
+disabled = true
+
 [rust]
 disabled = true
 
