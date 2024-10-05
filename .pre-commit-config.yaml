@@ -8,14 +8,14 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.8
+    rev: v0.6.9
     hooks:
       - id: ruff
         args: ["--fix"]
       - id: ruff-format
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.382.post1
+    rev: v1.1.383
     hooks:
       - id: pyright
 
