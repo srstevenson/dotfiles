@@ -8,11 +8,6 @@ brew "ripgrep"
 brew "starship"
 brew "tmux"
 
-# Beancount
-brew "beancount"
-brew "beancount-language-server"
-brew "fava"
-
 # Git
 brew "gh"
 brew "git"
@@ -20,6 +15,7 @@ brew "git-delta"
 
 # Programming
 brew "bash-language-server"
+brew "beancount-language-server"
 brew "ltex-ls"
 brew "pre-commit"
 brew "prettier"
