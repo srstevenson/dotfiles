@@ -1,7 +1,7 @@
 function fish_title
     if set -q argv[1]
-        echo $argv[1]
+        echo $hostname: $argv[1]
     else
-        prompt_pwd
+        echo $hostname: (prompt_pwd)
     end
 end
