@@ -29,7 +29,7 @@ def unpack_url(url: str) -> tuple[str, str]:
 def main() -> None:
     args = parse_args()
 
-    if matches_host(args.url, "github.com"):
+    if matches_host(args.url, "github.com") or matches_host(args.url, "gitlab.com"):
         host, repo = unpack_url(args.url)
         url = f"git@{host}:{repo}.git"
     elif matches_host(args.url, "git.sr.ht"):
