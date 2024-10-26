@@ -31,10 +31,16 @@ def main() -> None:
 
     if matches_host(args.url, "github.com") or matches_host(args.url, "gitlab.com"):
         host, repo = unpack_url(args.url)
-        url = f"git@{host}:{repo}.git"
+        if repo.startswith("srstevenson/"):
+            url = f"git@{host}:{repo}.git"
+        else:
+            url = f"https://{host}/{repo}.git"
     elif matches_host(args.url, "git.sr.ht"):
         host, repo = unpack_url(args.url)
-        url = f"git@{host}:~{repo}"
+        if repo.startswith("srstevenson/"):
+            url = f"git@{host}:~{repo}"
+        else:
+            url = f"https://{host}/~{repo}"
     else:
         host, repo = unpack_url(args.url)
         url = args.url
