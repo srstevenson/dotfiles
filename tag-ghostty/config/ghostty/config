@@ -1,0 +1,5 @@
+font-size = 16
+macos-option-as-alt = left
+macos-titlebar-proxy-icon = hidden
+theme = catppuccin
+unfocused-split-opacity = 1

@@ -34,12 +34,8 @@ cask "anki"
 cask "brave-browser"
 cask "imageoptim"
 cask "keymapp"
-cask "kitty"
 cask "maestral"
 cask "signal"
 cask "spotify"
 cask "standard-notes"
 cask "whatsapp"
-
-# Fonts
-cask "font-jetbrains-mono"
