@@ -14,10 +14,10 @@ repos:
         args: ["--fix"]
       - id: ruff-format
 
-  - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.400
+  - repo: https://github.com/DetachHead/basedpyright-pre-commit-mirror
+    rev: 1.29.1
     hooks:
-      - id: pyright
+      - id: basedpyright
 
   - repo: https://github.com/ComPWA/taplo-pre-commit
     rev: v0.9.3
