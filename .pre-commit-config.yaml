@@ -35,9 +35,3 @@ repos:
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
-
-  - repo: https://github.com/hugoh/pre-commit-fish
-    rev: v1.2
-    hooks:
-      - id: fish_syntax
-      - id: fish_indent
