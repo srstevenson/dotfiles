@@ -1,10 +1,8 @@
-theme = "morandi"
+theme = "catppuccin"
 
 [editor]
 bufferline = "multiple"
 line-number = "relative"
-rulers = [80]
-undercurl = true         # Undercurl support is not detected within tmux.
 
 [editor.cursor-shape]
 insert = "bar"
@@ -13,9 +11,6 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
-
-[editor.lsp]
-display-inlay-hints = true
 
 [editor.soft-wrap]
 enable = true
