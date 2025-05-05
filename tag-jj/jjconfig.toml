@@ -1,0 +1,35 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Scott Stevenson"
+email = "scott@stevenson.io"
+
+[ui]
+default-command = "log"
+
+[git]
+push-bookmark-prefix = "srs/push-"
+
+[colors]
+"diff removed token" = { fg = "bright red", bg = "#300000", underline = false }
+"diff added token" = { fg = "bright green", bg = "#003000", underline = false }
+
+[fix.tools.ruff-check]
+command = ["ruff", "check", "--fix-only", "--stdin-filename=$path", "-"]
+patterns = ["glob:'**/*.py'"]
+
+[fix.tools.ruff-format]
+command = ["ruff", "format", "--stdin-filename=$path", "-"]
+patterns = ["glob:'**/*.py'"]
+
+[fix.tools.rustfmt]
+command = ["rustfmt", "--edition=2024", "--emit=stdout"]
+patterns = ["glob:'**/*.rs'"]
+
+[fix.tools.shfmt]
+command = ["shfmt", "--filename=$path", "--case-indent", "--indent=2", "-"]
+patterns = ["glob:'**/*.sh'"]
+
+[fix.tools.taplo]
+command = ["taplo", "format", "-"]
+patterns = ["glob:'**/*.toml'"]
