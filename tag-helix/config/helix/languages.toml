@@ -1,61 +1,39 @@
-[language-server.ltex-ls.config.ltex]
-language = "en-GB"
-disabledRules = { en-GB = ["OXFORD_SPELLING_Z_NOT_S"] }
+[language-server.taplo]
+# https://github.com/helix-editor/helix/issues/3897#issuecomment-2412358982
+config = { root_dir = [".git", ".jj", "*.toml"] }
 
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
-
+[language-server.typos]
+command = "typos-lsp"
 
 [[language]]
 name = "bash"
 auto-format = true
-formatter = { command = "shfmt", args = ["-i", "2"] }
-
-[[language]]
-name = "fish"
-auto-format = true
-formatter = { command = "fish_indent" }
+formatter = { command = "shfmt", args = ["--case-indent", "--indent=2", "-"] }
 
 [[language]]
 name = "git-commit"
-language-servers = ["ltex-ls"]
+language-servers = ["typos"]
 
 [[language]]
-name = "html"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=html"] }
+name = "jjdescription"
+language-servers = ["typos"]
 
 [[language]]
 name = "markdown"
-auto-format = true
-formatter = { command = "prettier", args = [
-  "--parser=markdown",
-  "--prose-wrap=always",
-] }
-language-servers = ["ltex-ls"]
+language-servers = ["typos"]
 
 [[language]]
 name = "python"
 auto-format = true
-formatter = { command = "ruff", args = ["format", "-"] }
-language-servers = ["pyright", "ruff"]
+language-servers = ["ruff", "basedpyright", "typos"]
 
 [[language]]
-name = "scss"
+name = "rust"
 auto-format = true
-formatter = { command = "prettier", args = ["--parser=scss"] }
+language-servers = ["rust-analyzer", "typos"]
 
 [[language]]
 name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["format", "-"] }
-
-[[language]]
-name = "yaml"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=yaml"] }
+language-servers = ["taplo", "typos"]
