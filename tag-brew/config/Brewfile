@@ -30,8 +30,6 @@ brew "uv"
 brew "typst"
 
 # Casks
-cask "1password"
-cask "1password-cli"
 cask "anki"
 cask "brave-browser"
 cask "imageoptim"
