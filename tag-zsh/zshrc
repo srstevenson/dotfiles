@@ -1,0 +1,76 @@
+_jj_change_id() {
+  local dir="$PWD"
+  while [[ -n "$dir" ]]; do
+    if [[ -d "$dir/.jj" ]]; then
+      jj log --color=never --ignore-working-copy --no-graph -r @ -T "concat(change_id.shortest(), ' ')"
+      return
+    fi
+    dir="${dir%/*}"
+  done
+}
+
+setopt PROMPT_SUBST
+PROMPT='%B%F{blue}%1~%f%b %B%F{magenta}$(_jj_change_id)%f%b%(1j.%F{8}^%j%f .)%(?.%F{green}.%F{red})❯%f '
+
+autoload -Uz add-zsh-hook
+zmodload zsh/datetime
+
+_preexec_duration() {
+  preexec_epochrealtime=$EPOCHREALTIME
+}
+add-zsh-hook preexec _preexec_duration
+
+_precmd_duration() {
+  if (( preexec_epochrealtime )); then
+    local -rF elapsed=$(( EPOCHREALTIME - preexec_epochrealtime ))
+    local -ri hours=$(( elapsed/3600 ))
+    local -ri mins=$(( (elapsed/60)%60 ))
+    local -rF secs=$(( elapsed%60 ))
+    if (( hours > 0 )); then
+      printf -v command_duration '%ih%im' $hours $mins
+    elif (( mins > 0 )); then
+      printf -v command_duration '%im%is' $mins $secs
+    elif (( secs >= 1 )); then
+      printf -v command_duration '%is' $secs
+    fi
+    unset preexec_epochrealtime
+  else
+    unset command_duration
+  fi
+}
+add-zsh-hook precmd _precmd_duration
+
+RPROMPT='%F{8}$command_duration%f'
+
+WORDCHARS="${WORDCHARS//\//}"
+
+export HOMEBREW_NO_ANALYTICS=1
+. <(/opt/homebrew/bin/brew shellenv zsh)
+
+path=(~/bin ~/.local/bin ~/.cargo/bin $path)
+
+export EDITOR="hx"
+export VISUAL="hx"
+export LESS="FRX"
+export MANWIDTH=80
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+
+autoload -U compinit
+compinit
+
+zstyle ":completion:*:corrections" format "%F{yellow}Matches for %d (%e errors):%f"
+zstyle ":completion:*:descriptions" format "%F{green}Matches for %d:%f"
+zstyle ":completion:*:messages" format "%F{purple}%d%f"
+zstyle ":completion:*:warnings" format "%F{red}No matches for %d.%f"
+zstyle ":completion:*" complete-options true
+zstyle ":completion:*" completer _extensions _complete _match _approximate
+zstyle ":completion:*" group-name ""
+zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
+zstyle ":completion:*" menu select
+zstyle ":completion:*" rehash true
+zstyle ":completion:*" use-cache on
+zstyle ":completion:*" verbose yes
+
+alias la="ls -AGhl"
+alias ll="ls -Ghl"
+alias ls="ls -Gh"
