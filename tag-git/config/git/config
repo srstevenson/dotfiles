@@ -34,4 +34,4 @@
     autoUpdate = true
     enabled = true
 [tag]
-    sort = version:refname
+    sort = -version:refname
