@@ -33,3 +33,7 @@ patterns = ["glob:'**/*.sh'"]
 [fix.tools.taplo]
 command = ["taplo", "format", "-"]
 patterns = ["glob:'**/*.toml'"]
+
+[fix.tools.yamlfmt]
+command = ["yamlfmt", "-in", "-"]
+patterns = ["glob:'**/*.yaml'", "glob:'**/*.yml'"]
