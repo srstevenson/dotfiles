@@ -37,3 +37,9 @@ name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["format", "-"] }
 language-servers = ["taplo", "typos"]
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = "yamlfmt", args = ["-in", "-"] }
+language-servers = ["typos"]
