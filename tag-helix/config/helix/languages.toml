@@ -20,6 +20,8 @@ language-servers = ["typos"]
 
 [[language]]
 name = "markdown"
+auto-format = true
+formatter = { command = "mdformat", args = ["--number", "-"] }
 language-servers = ["typos"]
 
 [[language]]
