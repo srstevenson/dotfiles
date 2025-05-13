@@ -66,7 +66,7 @@
 # "ui.background.separator"
 "ui.bufferline" = { fg = "overlay2", bg = "mantle" }
 "ui.bufferline.active" = { fg = "text", bg = "base" }
-"ui.bufferline.background" = { bg = "crust" }
+"ui.bufferline.background" = { bg = "mantle" }
 "ui.cursor" = { fg = "base", bg = "secondary_cursor" }
 "ui.cursor.insert" = { fg = "base", bg = "secondary_cursor_insert" }
 "ui.cursor.match" = { fg = "peach", modifiers = ["bold"] }
@@ -100,7 +100,7 @@
 "ui.selection" = { bg = "surface1" }
 # "ui.selection.primary"
 "ui.statusline" = { fg = "subtext1", bg = "mantle" }
-"ui.statusline.inactive" = { fg = "surface2", bg = "mantle" }
+"ui.statusline.inactive" = { fg = "overlay2", bg = "mantle" }
 "ui.statusline.insert" = { fg = "base", bg = "green", modifiers = ["bold"] }
 "ui.statusline.normal" = { fg = "base", bg = "rosewater", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "base", bg = "lavender", modifiers = ["bold"] }
@@ -108,9 +108,9 @@
 "ui.text" = { fg = "text" }
 "ui.text.directory" = { fg = "blue" }
 "ui.text.focus" = { fg = "text", bg = "surface0", modifiers = ["bold"] }
-"ui.text.inactive" = { fg = "overlay1", modifiers = ["italic"] }
+"ui.text.inactive" = { fg = "overlay2", modifiers = ["italic"] }
 # "ui.text.info"
-"ui.virtual" = { fg = "overlay0" }
+# "ui.virtual"
 "ui.virtual.indent-guide" = { fg = "surface0" }
 "ui.virtual.inlay-hint" = { fg = "surface1", bg = "mantle" }
 # "ui.virtual.inlay-hint.parameter"
@@ -119,7 +119,7 @@
 "ui.virtual.ruler" = { bg = "surface0" }
 "ui.virtual.whitespace" = { fg = "surface0" }
 "ui.virtual.wrap" = { fg = "surface0" }
-"ui.window" = { fg = "crust" }
+"ui.window" = { fg = "mantle" }
 
 [palette]
 rosewater = "#f5e0dc"
@@ -138,16 +138,16 @@ blue = "#89b4fa"
 lavender = "#b4befe"
 text = "#cdd6f4"
 subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
+# subtext0 = "#a6adc8"
 overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
+# overlay1 = "#7f849c"
+# overlay0 = "#6c7086"
+# surface2 = "#585b70"
 surface1 = "#45475a"
 surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
-crust = "#11111b"
+# crust = "#11111b"
 
 cursorline = "#2a2b3c"
 secondary_cursor = "#b5a6a8"
