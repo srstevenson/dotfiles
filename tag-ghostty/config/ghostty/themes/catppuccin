@@ -7,7 +7,7 @@ cursor-text = 1e1e2e
 selection-background = 313244
 selection-foreground = cdd6f4
 
-split-divider-color = 585b70
+split-divider-color = 45475a
 
 palette = 0=45475a
 palette = 1=f38ba8

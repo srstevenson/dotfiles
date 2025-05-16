@@ -119,7 +119,7 @@
 "ui.virtual.ruler" = { bg = "surface0" }
 "ui.virtual.whitespace" = { fg = "surface0" }
 "ui.virtual.wrap" = { fg = "surface0" }
-"ui.window" = { fg = "mantle" }
+"ui.window" = { fg = "surface1" }
 
 [palette]
 rosewater = "#f5e0dc"
