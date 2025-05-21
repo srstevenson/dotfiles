@@ -95,7 +95,7 @@
 # "ui.picker.header"
 # "ui.picker.header.column"
 # "ui.picker.header.column.active"
-"ui.popup" = { fg = "lavender", bg = "mantle" }
+"ui.popup" = { fg = "text", bg = "mantle" }
 # "ui.popup.info"
 "ui.selection" = { bg = "surface1" }
 # "ui.selection.primary"
