@@ -5,7 +5,7 @@ name = "Scott Stevenson"
 email = "scott@stevenson.io"
 
 [ui]
-default-command = "log"
+default-command = "status"
 
 [git]
 push-bookmark-prefix = "srs/push-"
