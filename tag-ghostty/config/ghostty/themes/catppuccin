@@ -1,8 +1,8 @@
-background = 1e1e2e
+background = 181825
 foreground = cdd6f4
 
 cursor-color = f5e0dc
-cursor-text = 1e1e2e
+cursor-text = 181825
 
 selection-background = 313244
 selection-foreground = cdd6f4
