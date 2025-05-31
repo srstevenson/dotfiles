@@ -11,8 +11,8 @@ default-command = "status"
 push-bookmark-prefix = "srs/push-"
 
 [colors]
-"diff removed token" = { fg = "bright red", bg = "#301e1e", underline = false }
-"diff added token" = { fg = "bright green", bg = "#1e301e", underline = false }
+"diff removed token" = { fg = "bright red", bg = "#301818", underline = false }
+"diff added token" = { fg = "bright green", bg = "#183018", underline = false }
 
 [fix.tools.mdformat]
 command = ["mdformat", "--number", "-"]
