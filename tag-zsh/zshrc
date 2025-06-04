@@ -45,7 +45,11 @@ RPROMPT='%F{8}$command_duration%f'
 WORDCHARS="${WORDCHARS//\//}"
 
 export HOMEBREW_NO_ANALYTICS=1
-. <(/opt/homebrew/bin/brew shellenv zsh)
+if [[ -d /opt/homebrew ]]; then
+  . <(/opt/homebrew/bin/brew shellenv zsh)
+elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
+  . <(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)
+fi
 
 path=(~/bin ~/.local/bin ~/.cargo/bin $path)
 
@@ -71,6 +75,12 @@ zstyle ":completion:*" rehash true
 zstyle ":completion:*" use-cache on
 zstyle ":completion:*" verbose yes
 
-alias la="ls -AGhl"
-alias ll="ls -Ghl"
-alias ls="ls -Gh"
+if ls --color -d . >/dev/null 2>&1; then
+  alias la="ls --color=auto -Ahl"
+  alias ll="ls --color=auto -hl"
+  alias ls="ls --color=auto -h"
+elif ls -Gd . >/dev/null 2>&1; then
+  alias la="ls -AGhl"
+  alias ll="ls -Ghl"
+  alias ls="ls -Gh"
+fi
