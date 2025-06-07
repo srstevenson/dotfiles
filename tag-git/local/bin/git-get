@@ -17,9 +17,32 @@ class Args(argparse.Namespace):
     url: str = ""
 
 
+def expand_url(url: str) -> str:
+    if url.startswith(("https://", "git@")):
+        return url
+
+    if "/" not in url:
+        return f"git@github.com:srstevenson/{url}.git"
+
+    head, tail = url.split("/", maxsplit=1)
+
+    if "." in head:
+        # Assume `head` is a hostname if it contains `.`.
+        return f"https://{head}/{tail}"
+
+    if head == "srstevenson":
+        return f"git@github.com:srstevenson/{tail}.git"
+
+    return f"https://github.com/{url}.git"
+
+
 def parse_args() -> Args:
     parser = argparse.ArgumentParser(description="Clone Git repository into ~/dev")
-    parser.add_argument("url", help="repository URL")
+    parser.add_argument(
+        "url",
+        type=expand_url,
+        help="repository URL or GitHub shorthand (`project` or `user/project`)",
+    )
     return parser.parse_args(namespace=Args())
 
 
@@ -31,7 +54,7 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
     )
 
 
-def unpack_url(url: str) -> tuple[str, str]:
+def unpack_host_and_path(url: str) -> tuple[str, str]:
     if "@" in url:
         host, repo = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)
     else:
@@ -43,24 +66,22 @@ def unpack_url(url: str) -> tuple[str, str]:
 def main() -> None:
     args = parse_args()
 
-    if matches_hosts(args.url, ["codeberg.org", "github.com", "gitlab.com"]):
-        host, repo = unpack_url(args.url)
-        if repo.startswith("srstevenson/"):
-            url = f"git@{host}:{repo}.git"
-        else:
-            url = f"https://{host}/{repo}.git"
-    elif matches_hosts(args.url, ["git.sr.ht"]):
-        host, repo = unpack_url(args.url)
-        if repo.startswith("srstevenson/"):
-            url = f"git@{host}:~{repo}"
-        else:
-            url = f"https://{host}/~{repo}"
-    else:
-        host, repo = unpack_url(args.url)
-        url = args.url
+    host, path = unpack_host_and_path(args.url)
+    url = args.url
+
+    if path.startswith("srstevenson/"):
+        if host in ["codeberg.org", "github.com", "gitlab.com"]:
+            url = f"git@{host}:{path}.git"
+        elif host == "git.sr.ht":
+            url = f"git@{host}:~{path}"
+    elif matches_hosts(args.url, ["codeberg.org", "github.com", "gitlab.com"]):
+        if not args.url.startswith("git@"):
+            url = f"https://{host}/{path}.git"
+    elif matches_hosts(args.url, ["git.sr.ht"]) and not args.url.startswith("git@"):
+        url = f"https://{host}/~{path}"
 
     subprocess.run(
-        ["git", "clone", url, Path.home().joinpath("dev", host, repo)], check=False
+        ["git", "clone", url, Path.home().joinpath("dev", host, path)], check=False
     )
 
 
