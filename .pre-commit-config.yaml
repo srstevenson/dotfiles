@@ -5,6 +5,8 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
       - id: end-of-file-fixer
+      - id: pretty-format-json
+        args: ["--autofix"]
       - id: trailing-whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.13
