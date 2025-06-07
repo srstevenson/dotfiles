@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import subprocess
+from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -11,10 +12,15 @@ if TYPE_CHECKING:
     from collections.abc import Iterable
 
 
-def parse_args() -> argparse.Namespace:
+@dataclass
+class Args(argparse.Namespace):
+    url: str = ""
+
+
+def parse_args() -> Args:
     parser = argparse.ArgumentParser(description="Clone Git repository into ~/src")
     parser.add_argument("url", help="repository URL")
-    return parser.parse_args()
+    return parser.parse_args(namespace=Args())
 
 
 def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
