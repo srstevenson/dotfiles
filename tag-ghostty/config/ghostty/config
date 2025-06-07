@@ -3,3 +3,4 @@ macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
 theme = catppuccin
 unfocused-split-opacity = 1
+keybind = shift+enter=text:\n
