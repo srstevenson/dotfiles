@@ -3,25 +3,31 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
+import filecmp
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Final
 
-FG_GREEN: Final = "\033[32m"
-FG_BLUE: Final = "\033[34m"
+FG_GREEN: Final = "\033[32;1m"
+FG_RED: Final = "\033[31;1m"
 FG_RESET: Final = "\033[0m"
-DOTFILES_DIR: Final = Path(__file__).resolve().parents[3]
+
+HOME_DIR: Final = Path.home()
+DEFAULT_DOTFILES_DIR: Final = HOME_DIR.joinpath(".dotfiles")
 
 
 def add_dot_prefix(path: Path) -> Path:
+    """Add a dot prefix to the first part of a path."""
     return Path("." + path.parts[0], *path.parts[1:])
 
 
 def remove_dot_prefix(path: Path) -> Path:
+    """Remove a dot prefix from the first part of a path."""
     return Path(path.parts[0].removeprefix("."), *path.parts[1:])
 
 
 def tag_dirs(dotfiles_dir: Path) -> list[Path]:
+    """Return a sorted list of the existing tag directories."""
     return sorted(
         path
         for path in dotfiles_dir.iterdir()
@@ -30,75 +36,346 @@ def tag_dirs(dotfiles_dir: Path) -> list[Path]:
 
 
 def files_in_tag(tag_dir: Path) -> list[Path]:
+    """Return a sorted list of files in a tag directory.
+
+    The paths returned are relative to the tag directory.
+    """
     return sorted(
         path.relative_to(tag_dir) for path in tag_dir.rglob("*") if path.is_file()
     )
 
 
-def symlink_file(tag_dir: Path, path: Path) -> None:
-    target = tag_dir.joinpath(path)
-    source = Path.home().joinpath(add_dot_prefix(path))
-    source.parent.mkdir(parents=True, exist_ok=True)
-    pretty_source = f"~/{source.relative_to(Path.home())}"
-    if source.is_symlink() and source.resolve() == target:
-        print(f"{FG_BLUE}existed{FG_RESET}: {pretty_source}")
-    else:
-        source.unlink(missing_ok=True)
-        source.symlink_to(target)
-        print(f"{FG_GREEN}created{FG_RESET}: {pretty_source}")
+def import_file(
+    dotfiles_dir: Path, source: Path, tag: str, *, dry_run: bool = False
+) -> None:
+    """
+    Import a dotfile into the dotfiles directory.
 
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        source: The source file to import.
+        tag: The tag to import to.
+        dry_run: If True, don't actually import the file.
+    """
+    source = source.absolute()
 
-def symlink_files(dotfiles_dir: Path) -> None:
-    for tag_dir in tag_dirs(dotfiles_dir):
-        for path in files_in_tag(tag_dir):
-            symlink_file(tag_dir, path)
+    if source.is_symlink():
+        print(f"{FG_RED}error{FG_RESET}: {source} is a symbolic link")
+        return
 
-
-def import_file(dotfiles_dir: Path, source: Path, tag: str) -> None:
     source = source.resolve()
+
+    if not source.is_relative_to(HOME_DIR):
+        print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
+        return
+
+    if not source.is_file():
+        print(f"{FG_RED}error{FG_RESET}: {source} is not a file")
+        return
+
+    path_in_home = source.relative_to(HOME_DIR)
+    if not path_in_home.parts[0].startswith("."):
+        print(f"{FG_RED}error{FG_RESET}: {source} is not a dotfile")
+        return
+
     tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
-    target = tag_dir.joinpath(remove_dot_prefix(source.relative_to(Path.home())))
+    target = tag_dir.joinpath(remove_dot_prefix(path_in_home))
+
+    if target.exists():
+        print(f"{FG_RED}error{FG_RESET}: {target} already exists")
+        return
+
+    tilde_source = f"~/{source.relative_to(HOME_DIR)}"
+    tagged_path = target.relative_to(dotfiles_dir)
+
+    if dry_run:
+        print(
+            f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        )
+        return
+
     target.parent.mkdir(parents=True, exist_ok=True)
     source.rename(target)
     source.symlink_to(target)
-    pretty_source = f"~/{source.relative_to(Path.home())}"
-    print(f"{FG_GREEN}imported{FG_RESET}: {pretty_source}")
+    print(
+        f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
+    )
+
+
+def import_files(
+    dotfiles_dir: Path, sources: list[Path], tag: str, *, dry_run: bool = False
+) -> None:
+    """Import multiple files into the dotfiles directory."""
+    for source in sources:
+        import_file(dotfiles_dir, source, tag, dry_run=dry_run)
+
+
+def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> None:
+    """
+    Unlink a dotfile from the dotfiles directory and move it back to the home directory.
+
+    This is the inverse of the import command.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        source: The source file in home directory to unlink.
+        dry_run: If True, don't actually unlink the file.
+    """
+    source = source.absolute()
+
+    if not source.is_relative_to(HOME_DIR):
+        print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
+        return
+
+    if not source.is_symlink():
+        print(f"{FG_RED}error{FG_RESET}: {source} is not a symbolic link")
+        return
+
+    dotfile_path = source.resolve()
+
+    if not dotfile_path.is_relative_to(dotfiles_dir):
+        print(
+            f"{FG_RED}error{FG_RESET}: {source} does not link to a file in dotfiles directory"
+        )
+        return
+
+    tilde_source = f"~/{source.relative_to(HOME_DIR)}"
+    dotfile_relative = dotfile_path.relative_to(dotfiles_dir)
+
+    if dry_run:
+        print(
+            f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
+        )
+        return
+
+    source.unlink()
+    source.parent.mkdir(parents=True, exist_ok=True)
+    dotfile_path.rename(source)
+
+    print(
+        f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
+    )
+
+
+def unlink_files(
+    dotfiles_dir: Path, sources: list[Path], *, dry_run: bool = False
+) -> None:
+    """Unlink multiple files from the dotfiles directory."""
+    for source in sources:
+        unlink_file(dotfiles_dir, source, dry_run=dry_run)
+
+
+def link_file(
+    dotfiles_dir: Path, tag_dir: Path, path: Path, *, dry_run: bool = False
+) -> None:
+    """
+    Link a dotfile from the dotfiles directory to the home directory.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        tag_dir: The tag directory.
+        path: The path within the tag directory.
+        dry_run: If True, don't actually link the file.
+    """
+    source = tag_dir.joinpath(path)
+    target = HOME_DIR.joinpath(add_dot_prefix(path))
+
+    tilde_target = f"~/{target.relative_to(HOME_DIR)}"
+    tagged_path = source.relative_to(dotfiles_dir)
+
+    if not target.exists():
+        if dry_run:
+            print(
+                f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+            )
+            return
+
+        if target.is_symlink():
+            # As target failed existence check, this is a broken symlink.
+            target.unlink()
+
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.symlink_to(source)
+        print(
+            f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        )
+
+    elif target.is_symlink() and target.resolve() == source:
+        print(
+            f"{FG_GREEN}linked (existing){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        )
+
+    elif target.is_file() and filecmp.cmp(source, target):
+        if dry_run:
+            print(
+                f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+            )
+            return
+
+        target.symlink_to(source)
+        print(
+            f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        )
+
+    else:
+        print(
+            f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        )
+
+
+def link_files(
+    dotfiles_dir: Path, tag: str | None = None, *, dry_run: bool = False
+) -> None:
+    """
+    Link dotfiles from the dotfiles directory to the home directory.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        tag: If provided, only link files from this tag.
+        dry_run: If True, don't actually link files.
+    """
+    dirs = tag_dirs(dotfiles_dir)
+
+    if tag:
+        tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
+        if tag_dir.is_dir():
+            dirs = [tag_dir]
+        else:
+            print(f"{FG_RED}error{FG_RESET}: tag '{tag}' not found")
+            return
+
+    for tag_dir in dirs:
+        for path in files_in_tag(tag_dir):
+            link_file(dotfiles_dir, tag_dir, path, dry_run=dry_run)
+
+
+def status(dotfiles_dir: Path) -> None:
+    """
+    List all dotfiles and their status.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+    """
+    for tag_dir in tag_dirs(dotfiles_dir):
+        for path in files_in_tag(tag_dir):
+            source = tag_dir.joinpath(path)
+            target = HOME_DIR.joinpath(add_dot_prefix(path))
+
+            tilde_target = f"~/{target.relative_to(HOME_DIR)}"
+            tagged_path = source.relative_to(dotfiles_dir)
+
+            if not target.exists():
+                print(
+                    f"{FG_RED}missing{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                )
+            elif target.is_symlink() and target.resolve() == source:
+                print(
+                    f"{FG_GREEN}linked{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                )
+            elif target.is_file() and filecmp.cmp(source, target):
+                print(
+                    f"{FG_RED}unlinked copy{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                )
+            else:
+                print(
+                    f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                )
 
 
 @dataclass
 class Args(argparse.Namespace):
+    dotfiles_dir: Path = Path()
     command: str = ""
-    dir: Path = Path()
-    path: Path = Path()
     tag: str = ""
+    paths: list[Path] = field(default_factory=list)
+    dry_run: bool = False
 
 
 def parse_arguments() -> Args:
-    parser = argparse.ArgumentParser(description="Dotfiles manager.")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    symlink_parser = subparsers.add_parser(
-        "symlink", help="create symbolic links for dotfiles"
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description="dotfiles manager",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    symlink_parser.add_argument(
-        "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
+    parser.add_argument(
+        "-d",
+        "--dotfiles-dir",
+        metavar="DIR",
+        type=Path,
+        default=DEFAULT_DOTFILES_DIR,
+        help="dotfiles directory",
     )
 
-    import_parser = subparsers.add_parser("import", help="import new dotfile")
-    import_parser.add_argument("path", type=Path, help="file to import")
-    import_parser.add_argument("-t", "--tag", required=True, help="tag to import to")
+    subparsers = parser.add_subparsers(
+        dest="command", required=True, help="subcommand to invoke"
+    )
+
+    import_parser = subparsers.add_parser(
+        "import", help="import dotfiles into the source directory"
+    )
     import_parser.add_argument(
-        "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
+        "-t", "--tag", required=True, help="tag to import dotfiles into"
     )
+    import_parser.add_argument(
+        "paths", metavar="PATH", type=Path, nargs="+", help="path(s) to import"
+    )
+    import_parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        help="show what would be done without making changes",
+    )
+
+    unlink_parser = subparsers.add_parser(
+        "unlink", help="unlink dotfiles and move them back to home directory"
+    )
+    unlink_parser.add_argument(
+        "paths", metavar="PATH", type=Path, nargs="+", help="path(s) to unlink"
+    )
+    unlink_parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        help="show what would be done without making changes",
+    )
+
+    link_parser = subparsers.add_parser(
+        "link", help="symlink dotfiles to home directory"
+    )
+    link_parser.add_argument("-t", "--tag", help="only link files from this tag")
+    link_parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        help="show what would be done without making changes",
+    )
+
+    subparsers.add_parser("status", help="list all dotfiles and their status")
+
     return parser.parse_args(namespace=Args())
 
 
 def main() -> None:
+    """Main function."""
     args = parse_arguments()
+
+    if not args.dotfiles_dir.exists():
+        args.dotfiles_dir.mkdir(parents=True, exist_ok=True)
+        print(
+            f"{FG_GREEN}info{FG_RESET}: created dotfiles directory {args.dotfiles_dir}"
+        )
+
     if args.command == "import":
-        import_file(args.dir, args.path, args.tag)
+        import_files(args.dotfiles_dir, args.paths, args.tag, dry_run=args.dry_run)
+    elif args.command == "unlink":
+        unlink_files(args.dotfiles_dir, args.paths, dry_run=args.dry_run)
+    elif args.command == "link":
+        link_files(args.dotfiles_dir, args.tag, dry_run=args.dry_run)
+    elif args.command == "status":
+        status(args.dotfiles_dir)
     else:
-        symlink_files(args.dir)
+        msg = f"unimplemented subcommand: {args.command}"
+        raise NotImplementedError(msg)
 
 
 if __name__ == "__main__":
