@@ -21,8 +21,8 @@ dotfiles import -t <tag> <path>
 ## pre-commit hooks
 
 [pre-commit] is used to run formatters and linters before committing changes.
-Install pre-commit and dependencies (with `pacman -Syu pre-commit shfmt` on Arch
-Linux and `brew install pre-commit shfmt` on macOS) and install the pre-commit
-hooks into your local repository with `pre-commit install`.
+Install pre-commit and dependencies (with `pacman -Syu pre-commit shfmt yamlfmt`
+on Arch Linux and `brew install pre-commit shfmt yamlfmt` on macOS) and install
+the pre-commit hooks into your local repository with `pre-commit install`.
 
 [pre-commit]: https://pre-commit.com/
