@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
@@ -64,7 +65,15 @@ def import_file(dotfiles_dir: Path, source: Path, tag: str) -> None:
     print(f"{FG_GREEN}imported{FG_RESET}: {pretty_source}")
 
 
-def parse_arguments() -> argparse.Namespace:
+@dataclass
+class Args(argparse.Namespace):
+    command: str = ""
+    dir: Path = Path()
+    path: Path = Path()
+    tag: str = ""
+
+
+def parse_arguments() -> Args:
     parser = argparse.ArgumentParser(description="Dotfiles manager.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -81,7 +90,7 @@ def parse_arguments() -> argparse.Namespace:
     import_parser.add_argument(
         "-d", "--dir", type=Path, default=DOTFILES_DIR, help="dotfiles directory"
     )
-    return parser.parse_args()
+    return parser.parse_args(namespace=Args())
 
 
 def main() -> None:

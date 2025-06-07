@@ -1,6 +1,6 @@
 [tool.basedpyright]
-# TODO(srstevenson): Adopt `recommended` mode.
-typeCheckingMode = "strict"
+typeCheckingMode = "recommended"
+reportUnusedCallResult = false
 
 [tool.ruff.format]
 skip-magic-trailing-comma = true
