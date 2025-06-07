@@ -18,7 +18,7 @@ class Args(argparse.Namespace):
 
 
 def parse_args() -> Args:
-    parser = argparse.ArgumentParser(description="Clone Git repository into ~/src")
+    parser = argparse.ArgumentParser(description="Clone Git repository into ~/dev")
     parser.add_argument("url", help="repository URL")
     return parser.parse_args(namespace=Args())
 
@@ -60,7 +60,7 @@ def main() -> None:
         url = args.url
 
     subprocess.run(
-        ["git", "clone", url, Path.home().joinpath("src", host, repo)], check=False
+        ["git", "clone", url, Path.home().joinpath("dev", host, repo)], check=False
     )
 
 

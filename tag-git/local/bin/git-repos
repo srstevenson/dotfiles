@@ -3,7 +3,7 @@
 import os
 from typing import Final
 
-SOURCE_ROOT: Final = os.path.expanduser("~/src")
+DEV_DIR: Final = os.path.expanduser("~/dev")
 
 
 def find_repos(directory: str) -> None:
@@ -11,10 +11,10 @@ def find_repos(directory: str) -> None:
         for entry in entries:
             if entry.is_dir():
                 if os.path.exists(os.path.join(entry, ".git")):
-                    print(os.path.relpath(entry, start=SOURCE_ROOT))
+                    print(os.path.relpath(entry, start=DEV_DIR))
                 else:
                     find_repos(os.path.join(directory, entry))
 
 
 if __name__ == "__main__":
-    find_repos(SOURCE_ROOT)
+    find_repos(DEV_DIR)
