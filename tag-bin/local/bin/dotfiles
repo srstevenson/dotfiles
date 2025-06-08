@@ -16,6 +16,11 @@ HOME_DIR: Final = Path.home()
 
 
 def dotfiles_dir() -> Path:
+    """Return the dotfiles directory path.
+
+    Checks the development directory first and returns it if it exists,
+    otherwise returns the default dotfiles directory.
+    """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
         return dev_dir
@@ -114,20 +119,27 @@ def import_file(
 def import_files(
     dotfiles_dir: Path, sources: list[Path], tag: str, *, dry_run: bool = False
 ) -> None:
-    """Import multiple files into the dotfiles directory."""
+    """Import multiple files into the dotfiles directory.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        sources: The source files to import.
+        tag: The tag to import to.
+        dry_run: If True, don't actually import the file.
+    """
     for source in sources:
         import_file(dotfiles_dir, source, tag, dry_run=dry_run)
 
 
 def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> None:
     """
-    Unlink a dotfile from the dotfiles directory and move it back to the home directory.
+    Unlink a dotfile and move it back to the home directory.
 
     This is the inverse of the import command.
 
     Args:
         dotfiles_dir: The dotfiles directory.
-        source: The source file in home directory to unlink.
+        source: The source file in the home directory to unlink.
         dry_run: If True, don't actually unlink the file.
     """
     source = source.absolute()
@@ -169,7 +181,13 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
 def unlink_files(
     dotfiles_dir: Path, sources: list[Path], *, dry_run: bool = False
 ) -> None:
-    """Unlink multiple files from the dotfiles directory."""
+    """Unlink multiple files from the dotfiles directory.
+
+    Args:
+        dotfiles_dir: The dotfiles directory.
+        sources: The source files in the home directory to unlink.
+        dry_run: If True, don't actually unlink the file.
+    """
     for source in sources:
         unlink_file(dotfiles_dir, source, dry_run=dry_run)
 
@@ -259,12 +277,7 @@ def link_files(
 
 
 def status(dotfiles_dir: Path) -> None:
-    """
-    List all dotfiles and their status.
-
-    Args:
-        dotfiles_dir: The dotfiles directory.
-    """
+    """List all dotfiles and their status."""
     for tag_dir in tag_dirs(dotfiles_dir):
         for path in files_in_tag(tag_dir):
             source = tag_dir.joinpath(path)
@@ -365,7 +378,7 @@ def parse_arguments() -> Args:
 
 
 def main() -> None:
-    """Main function."""
+    """Command line entrypoint."""
     args = parse_arguments()
 
     if not args.dotfiles_dir.exists():
