@@ -7,6 +7,10 @@ DEV_DIR: Final = os.path.expanduser("~/dev")
 
 
 def find_repos(directory: str) -> None:
+    """Recursively find Git repositories in given directory.
+
+    The path relative to `DEV_DIR` of each repository found is printed.
+    """
     with os.scandir(directory) as entries:
         for entry in entries:
             if entry.is_dir():
