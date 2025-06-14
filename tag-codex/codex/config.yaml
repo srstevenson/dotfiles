@@ -1,2 +1,2 @@
 provider: "openai"
-model: "o3-mini"
+model: "codex-mini-latest"

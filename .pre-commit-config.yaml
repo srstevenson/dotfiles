@@ -15,7 +15,7 @@ repos:
         args: ["--fix"]
       - id: ruff-format
   - repo: https://github.com/DetachHead/basedpyright-pre-commit-mirror
-    rev: 1.29.2
+    rev: 1.29.4
     hooks:
       - id: basedpyright
   - repo: https://github.com/ComPWA/taplo-pre-commit
