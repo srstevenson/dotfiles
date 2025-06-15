@@ -3,6 +3,7 @@
 "constant" = "peach"
 "constant.character" = "teal"
 "constant.character.escape" = "pink"
+# "constant.numeric"
 "constructor" = "sapphire"
 "function" = "blue"
 "function.macro" = "rosewater"
@@ -37,11 +38,12 @@
 "markup.link.label" = "sapphire"
 "markup.link.text" = "lavender"
 "markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
-"markup.list" = "teal"
+"markup.list" = "peach"
 "markup.list.checked" = "green"
 "markup.list.unchecked" = "overlay2"
 "markup.quote" = "pink"
 "markup.raw" = "green"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
 
 # "tabstop"
 
@@ -91,7 +93,7 @@
 "ui.linenr.selected" = { fg = "overlay2" }
 "ui.menu" = { fg = "subtext1", bg = "base" }
 # "ui.menu.scroll"
-"ui.menu.selected" = { fg = "base", bg = "overlay2", modifiers = ["bold"] }
+"ui.menu.selected" = { fg = "base", bg = "subtext1" }
 # "ui.picker.header"
 # "ui.picker.header.column"
 # "ui.picker.header.column.active"
@@ -101,13 +103,9 @@
 # "ui.selection.primary"
 "ui.statusline" = { fg = "subtext1", bg = "base" }
 "ui.statusline.inactive" = { fg = "overlay2", bg = "base" }
-"ui.statusline.insert" = { fg = "mantle", bg = "green", modifiers = ["bold"] }
-"ui.statusline.normal" = { fg = "mantle", bg = "rosewater", modifiers = [
-  "bold",
-] }
-"ui.statusline.select" = { fg = "mantle", bg = "lavender", modifiers = [
-  "bold",
-] }
+"ui.statusline.insert" = { fg = "mantle", bg = "green" }
+"ui.statusline.normal" = { fg = "mantle", bg = "rosewater" }
+"ui.statusline.select" = { fg = "mantle", bg = "lavender" }
 # "ui.statusline.separator"
 "ui.text" = { fg = "text" }
 "ui.text.directory" = { fg = "blue" }
