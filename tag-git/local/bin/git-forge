@@ -10,12 +10,11 @@ git remote | while read -r remote; do
     url="${url/://}"      # Replace `:` between hostname and path with `/`.
     url="https://$url"    # Add `https://` prefix.
 
+    echo "$url"
     if [[ "$OSTYPE" == darwin* ]]; then
       open "$url"
     elif command -v xdg-open >/dev/null; then
       xdg-open "$url"
-    else
-      echo "$url"
     fi
   done
 done
