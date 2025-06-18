@@ -1,6 +1,7 @@
 font-size = 18
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
+mouse-hide-while-typing = true
 theme = thalk
 unfocused-split-opacity = 1
 keybind = shift+enter=text:\n
