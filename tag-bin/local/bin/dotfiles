@@ -15,7 +15,7 @@ FG_RESET: Final = "\033[0m"
 HOME_DIR: Final = Path.home()
 
 
-def dotfiles_dir() -> Path:
+def default_dotfiles_dir() -> Path:
     """Return the dotfiles directory path.
 
     Checks the development directory first and returns it if it exists,
@@ -23,11 +23,8 @@ def dotfiles_dir() -> Path:
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
-        return dev_dir
-    return HOME_DIR.joinpath(".dotfiles")
-
-
-DEFAULT_DOTFILES_DIR: Final = dotfiles_dir()
+        return dev_dir.resolve()
+    return HOME_DIR.joinpath(".dotfiles").resolve()
 
 
 def add_dot_prefix(path: Path) -> Path:
@@ -227,7 +224,7 @@ def link_file(
             f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
 
-    elif target.is_symlink() and target.resolve() == source:
+    elif target.is_symlink() and target.resolve() == source.resolve():
         print(
             f"{FG_GREEN}linked (existing){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
@@ -290,7 +287,7 @@ def status(dotfiles_dir: Path) -> None:
                 print(
                     f"{FG_RED}missing{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
-            elif target.is_symlink() and target.resolve() == source:
+            elif target.is_symlink() and target.resolve() == source.resolve():
                 print(
                     f"{FG_GREEN}linked{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
@@ -306,7 +303,7 @@ def status(dotfiles_dir: Path) -> None:
 
 @dataclass
 class Args(argparse.Namespace):
-    dotfiles_dir: Path = Path()
+    dotfiles_dir: Path = field(default_factory=default_dotfiles_dir)
     command: str = ""
     tag: str = ""
     paths: list[Path] = field(default_factory=list)
@@ -323,8 +320,8 @@ def parse_arguments() -> Args:
         "-d",
         "--dotfiles-dir",
         metavar="DIR",
-        type=Path,
-        default=DEFAULT_DOTFILES_DIR,
+        type=lambda path: Path(path).resolve(),
+        default=default_dotfiles_dir(),
         help="dotfiles directory",
     )
 
