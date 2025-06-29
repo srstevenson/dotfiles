@@ -14,6 +14,10 @@ push-bookmark-prefix = "srs/push-"
 "diff removed token" = { fg = "bright red", bg = "#301818", underline = false }
 "diff added token" = { fg = "bright green", bg = "#183018", underline = false }
 
+[fix.tools.jq]
+command = ["jq", "."]
+patterns = ["glob:'**/*.json'"]
+
 [fix.tools.mdformat]
 command = ["mdformat", "--number", "-"]
 patterns = ["glob:'**/*.md'"]

@@ -19,6 +19,11 @@ name = "jjdescription"
 language-servers = ["typos"]
 
 [[language]]
+name = "json"
+auto-format = true
+formatter = { command = "jq", args = ["."] }
+
+[[language]]
 name = "markdown"
 auto-format = true
 formatter = { command = "mdformat", args = ["--number", "-"] }
