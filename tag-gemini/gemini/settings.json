@@ -1,0 +1,10 @@
+{
+  "preferredEditor": "vim",
+  "sandbox": true,
+  "selectedAuthType": "oauth-personal",
+  "telemetry": {
+    "enabled": false
+  },
+  "theme": "Default",
+  "usageStatisticsEnabled": false
+}
