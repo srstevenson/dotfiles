@@ -14,6 +14,10 @@ git_push_bookmark = '"srs/push-" ++ change_id.short()'
 "diff removed token" = { fg = "bright red", bg = "#301515", underline = false }
 "diff added token" = { fg = "bright green", bg = "#153015", underline = false }
 
+[fix.tools.bean-format]
+command = ["bean-format", "-"]
+patterns = ["glob:'**/*.bean'"]
+
 [fix.tools.clang-format]
 command = ["clang-format"]
 patterns = ["glob:'**/*.c'", "glob:'**/*.h'"]
