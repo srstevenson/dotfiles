@@ -7,8 +7,8 @@ email = "scott@stevenson.io"
 [ui]
 default-command = "status"
 
-[git]
-push-bookmark-prefix = "srs/push-"
+[templates]
+git_push_bookmark = '"srs/push-" ++ change_id.short()'
 
 [colors]
 "diff removed token" = { fg = "bright red", bg = "#301515", underline = false }
