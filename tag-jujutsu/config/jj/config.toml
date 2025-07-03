@@ -5,7 +5,7 @@ name = "Scott Stevenson"
 email = "scott@stevenson.io"
 
 [ui]
-default-command = "status"
+default-command = "log"
 
 [templates]
 git_push_bookmark = '"srs/push-" ++ change_id.short()'
