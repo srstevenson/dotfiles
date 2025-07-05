@@ -39,7 +39,7 @@ command = ["ruff", "format", "--stdin-filename=$path", "-"]
 patterns = ["glob:'**/*.py'"]
 
 [fix.tools.rustfmt]
-command = ["rustfmt", "--edition=2024", "--emit=stdout"]
+command = ["rustfmt", "--emit=stdout"]
 patterns = ["glob:'**/*.rs'"]
 
 [fix.tools.shfmt]
