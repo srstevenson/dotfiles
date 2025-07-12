@@ -26,7 +26,7 @@ patterns = ["glob:'**/*.c'", "glob:'**/*.h'"]
 command = ["jq", "."]
 patterns = ["glob:'**/*.json'"]
 
-[fix.tools.prettier]
+[fix.tools.prettier-markdown]
 command = [
   "prettier",
   "--parser=markdown",
@@ -34,6 +34,15 @@ command = [
   "--stdin-filepath=$path",
 ]
 patterns = ["glob:'**/*.md'"]
+
+[fix.tools.prettier-yaml]
+command = [
+  "prettier",
+  "--parser=yaml",
+  "--prose-wrap=always",
+  "--stdin-filepath=$path",
+]
+patterns = ["glob:'**/*.yaml'", "glob:'**/*.yml'"]
 
 [fix.tools.ruff-check]
 command = ["ruff", "check", "--fix-only", "--stdin-filename=$path", "-"]
@@ -54,7 +63,3 @@ patterns = ["glob:'**/*.sh'"]
 [fix.tools.taplo]
 command = ["taplo", "format", "-"]
 patterns = ["glob:'**/*.toml'"]
-
-[fix.tools.yamlfmt]
-command = ["yamlfmt", "-in", "-"]
-patterns = ["glob:'**/*.yaml'", "glob:'**/*.yml'"]
