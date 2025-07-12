@@ -1,37 +1,49 @@
 [user]
-    name = Scott Stevenson
-    email = scott@stevenson.io
+name = "Scott Stevenson"
+email = "scott@stevenson.io"
+
 [branch]
-    sort = -committerdate
+sort = "-committerdate"
+
 [commit]
-    verbose = true
+verbose = true
+
 [diff]
-    algorithm = histogram
-    colorMoved = plain
-    mnemonicPrefix = true
-    renames = true
+algorithm = "histogram"
+colorMoved = "plain"
+mnemonicPrefix = true
+renames = true
+
 [fetch]
-    all = true
-    prune = true
-    pruneTags = true
+all = true
+prune = true
+pruneTags = true
+
 [help]
-    autoCorrect = prompt
+autoCorrect = "prompt"
+
 [init]
-    defaultBranch = main
+defaultBranch = "main"
+
 [merge]
-    conflictStyle = zdiff3
+conflictStyle = "zdiff3"
+
 [pull]
-    rebase = true
+rebase = true
+
 [push]
-    autoSetupRemote = true
-    default = simple
-    followTags = true
+autoSetupRemote = true
+default = "simple"
+followTags = true
+
 [rebase]
-    autoSquash = true
-    autoStash = true
-    updateRefs = true
+autoSquash = true
+autoStash = true
+updateRefs = true
+
 [rerere]
-    autoUpdate = true
-    enabled = true
+autoUpdate = true
+enabled = true
+
 [tag]
-    sort = -version:refname
+sort = "-version:refname"
