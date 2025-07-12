@@ -51,7 +51,7 @@ elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
   . <(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)
 fi
 
-path=(~/bin ~/.local/bin ~/.cargo/bin $path)
+path=(~/dev/local/bin ~/.local/bin ~/.cargo/bin $path)
 
 export EDITOR="hx"
 export VISUAL="hx"
