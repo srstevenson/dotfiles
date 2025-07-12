@@ -3,5 +3,4 @@ macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
 theme = tomorrow
-unfocused-split-opacity = 1
 keybind = shift+enter=text:\n
