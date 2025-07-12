@@ -17,6 +17,6 @@ hidden = false
 enable = true
 
 [editor.whitespace.render]
-tab = "all"
 nbsp = "all"
 nnbsp = "all"
+tab = "all"
