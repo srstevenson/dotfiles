@@ -54,9 +54,7 @@ fi
 path=(~/dev/local/bin ~/.local/bin ~/.cargo/bin $path)
 
 export EDITOR="hx"
-export VISUAL="hx"
 export LESS="FRX"
-export MANWIDTH=80
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
 autoload -U compinit
