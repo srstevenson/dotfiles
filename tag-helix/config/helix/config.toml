@@ -4,6 +4,8 @@ theme = "tomorrow"
 bufferline = "multiple"
 line-number = "relative"
 rulers = [80]
+trim-final-newlines = true
+trim-trailing-whitespace = true
 
 [editor.cursor-shape]
 insert = "bar"
