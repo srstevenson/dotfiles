@@ -11,8 +11,8 @@ default-command = "log"
 git_push_bookmark = '"srs/push-" ++ change_id.short()'
 
 [colors]
-"diff removed token" = { fg = "bright red", bg = "#301515", underline = false }
-"diff added token" = { fg = "bright green", bg = "#153015", underline = false }
+"diff removed token" = { fg = "bright red", bg = "#301f21", underline = false }
+"diff added token" = { fg = "bright green", bg = "#1d3021", underline = false }
 
 [fix.tools.bean-format]
 command = ["bean-format", "-"]
