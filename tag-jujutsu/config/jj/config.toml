@@ -22,6 +22,10 @@ patterns = ["glob:'**/*.bean'"]
 command = ["clang-format"]
 patterns = ["glob:'**/*.c'", "glob:'**/*.h'"]
 
+[fix.tools.prettier-css]
+command = ["prettier", "--parser=css", "--stdin-filepath=$path"]
+patterns = ["glob:'**/*.css'"]
+
 [fix.tools.jq]
 command = ["jq", "."]
 patterns = ["glob:'**/*.json'"]
