@@ -121,7 +121,7 @@
 "ui.virtual.ruler" = { bg = "base01" }
 "ui.virtual.whitespace" = { fg = "base03" }
 "ui.virtual.wrap" = { fg = "base03" }
-"ui.window" = { bg = "base01" }
+"ui.window" = { fg = "base02" }
 
 [palette]
 base00 = "#1d1f21"
