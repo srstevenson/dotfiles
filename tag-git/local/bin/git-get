@@ -71,11 +71,7 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
     Returns:
         bool: True if URL is a HTTPS or SSH URL for any provided host.
     """
-    return any(
-        url.startswith(prefix)
-        for host in hosts
-        for prefix in (f"https://{host}/", f"git@{host}:")
-    )
+    return any(url.startswith((f"https://{host}/", f"git@{host}:")) for host in hosts)
 
 
 def unpack_host_and_path(url: str) -> tuple[str, str]:
