@@ -1,4 +1,5 @@
 {
+  "hideBanner": true,
   "preferredEditor": "vim",
   "sandbox": true,
   "selectedAuthType": "oauth-personal",
