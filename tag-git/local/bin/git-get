@@ -49,7 +49,11 @@ def expand_url(url: str) -> str:
 
 
 def parse_args() -> Args:
-    """Parse command-line arguments."""
+    """Parse command-line arguments.
+
+    Returns:
+        Args: Parsed arguments namespace with the expanded repository URL.
+    """
     parser = argparse.ArgumentParser(description="Clone Git repository into ~/dev")
     parser.add_argument(
         "url",
@@ -98,7 +102,7 @@ def unpack_host_and_path(url: str) -> tuple[str, str]:
 
 
 def main() -> None:
-    """Command line entrypoint."""
+    """Command-line entry point."""
     args = parse_args()
 
     host, path = unpack_host_and_path(args.url)
