@@ -1,4 +1,9 @@
 {
+  "contextFileName": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md"
+  ],
   "hideBanner": true,
   "preferredEditor": "vim",
   "sandbox": true,
