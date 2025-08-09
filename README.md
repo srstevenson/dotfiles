@@ -5,7 +5,7 @@ script contained within. Clone the repository, enter the directory, and symlink
 the files into place with:
 
 ```bash
-jj git clone https://github.com/srstevenson/dotfiles.git ~/.dotfiles
+jj git clone --colocate https://github.com/srstevenson/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./tag-bin/local/bin/dotfiles link
 ```
