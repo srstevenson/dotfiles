@@ -1,23 +1,42 @@
 # dotfiles
 
 This repository contains my configuration files, managed using the `dotfiles`
-script contained within. After cloning this repository and entering the
-directory, symlink the files into place with:
+script contained within. Clone the repository, enter the directory, and symlink
+the files into place with:
 
 ```bash
+jj git clone https://github.com/srstevenson/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ./tag-bin/local/bin/dotfiles link
 ```
 
-This initial run will symlink `dotfiles` to `~/.local/bin/dotfiles`, so it can
-be run without using the full path. The following subcommands are available:
+This first run will symlink the `dotfiles` script to `~/.local/bin/dotfiles` so
+it can be run without a full path in subsequent usage. The following subcommands
+are available:
 
-- `import`: import dotfiles into the source directory.
-- `unlink`: unlink dotfiles and move them back to home directory.
-- `link`: symlink dotfiles to home directory.
-- `status`: list all dotfiles and their status.
+- `dotfiles import`: import dotfiles into the source directory.
+- `dotfiles unlink`: unlink dotfiles and move them back to the home directory.
+- `dotfiles link`: symlink dotfiles to the home directory.
+- `dotfiles status`: list all dotfiles and their status.
 
 To view usage instructions and the available arguments for each subcommand, run:
 
 ```bash
 dotfiles <subcommand> --help
 ```
+
+By default, `dotfiles` will symlink files from
+`~/dev/github.com/srstevenson/dotfiles` if it exists, falling back to
+`~/.dotfiles` if it does not . You can override the directory explicitly with
+`--dotfiles-dir`:
+
+```bash
+dotfiles --dotfiles-dir ~/another/path status
+```
+
+If manually adding files instead of using the `import` subcommand, files in the
+dotfiles directory should be added under tag directories named `tag-<name>`.
+When linking, `dotfiles` adds a leading dot to the first path segment before
+symlinking the file to `$HOME`. For example,
+`tag-helix/config/helix/config.toml` will be symlinked to
+`~/.config/helix/config.toml`.
