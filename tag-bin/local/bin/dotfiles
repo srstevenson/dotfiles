@@ -16,10 +16,13 @@ HOME_DIR: Final = Path.home()
 
 
 def default_dotfiles_dir() -> Path:
-    """Return the dotfiles directory path.
+    """Compute the default dotfiles directory.
 
     Checks the development directory first and returns it if it exists,
-    otherwise returns the default dotfiles directory.
+    otherwise returns the default `~/.dotfiles` path.
+
+    Returns:
+        Path: Absolute path to the dotfiles directory to use.
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
@@ -28,17 +31,38 @@ def default_dotfiles_dir() -> Path:
 
 
 def add_dot_prefix(path: Path) -> Path:
-    """Add a dot prefix to the first part of a path."""
+    """Add a dot prefix to the first part of a path.
+
+    Args:
+        path: A path whose first part should be prefixed with a dot.
+
+    Returns:
+        Path: A new path with a leading `.` added to the first part.
+    """
     return Path("." + path.parts[0], *path.parts[1:])
 
 
 def remove_dot_prefix(path: Path) -> Path:
-    """Remove a dot prefix from the first part of a path."""
+    """Remove a leading dot from the first part of a path.
+
+    Args:
+        path: A path whose first part may start with a dot.
+
+    Returns:
+        Path: A new path with the leading `.` removed from the first part.
+    """
     return Path(path.parts[0].removeprefix("."), *path.parts[1:])
 
 
 def tag_dirs(dotfiles_dir: Path) -> list[Path]:
-    """Return a sorted list of the existing tag directories."""
+    """List tag directories within the dotfiles directory.
+
+    Args:
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+
+    Returns:
+        list[Path]: Sorted list of existing `tag-*/` directories.
+    """
     return sorted(
         path
         for path in dotfiles_dir.iterdir()
@@ -47,9 +71,15 @@ def tag_dirs(dotfiles_dir: Path) -> list[Path]:
 
 
 def files_in_tag(tag_dir: Path) -> list[Path]:
-    """Return a sorted list of files in a tag directory.
+    """List files contained in a tag directory.
 
     The paths returned are relative to the tag directory.
+
+    Args:
+        tag_dir: Path to a specific `tag-*/` directory.
+
+    Returns:
+        list[Path]: Sorted list of file paths relative to `tag_dir`.
     """
     return sorted(
         path.relative_to(tag_dir) for path in tag_dir.rglob("*") if path.is_file()
@@ -59,14 +89,16 @@ def files_in_tag(tag_dir: Path) -> list[Path]:
 def import_file(
     dotfiles_dir: Path, source: Path, tag: str, *, dry_run: bool = False
 ) -> None:
-    """
-    Import a dotfile into the dotfiles directory.
+    """Import a dotfile into the repository and replace it with a symlink.
+
+    Moves a file from the user's home directory into the appropriate `tag-<tag>`
+    directory and creates a symlink at the original location.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        source: The source file to import.
-        tag: The tag to import to.
-        dry_run: If True, don't actually import the file.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        source: Path to an existing file in `$HOME`.
+        tag: Tag name (without the `tag-` prefix) under which to store the file.
+        dry_run: If True, print intended actions without making changes.
     """
     source = source.absolute()
 
@@ -116,28 +148,27 @@ def import_file(
 def import_files(
     dotfiles_dir: Path, sources: list[Path], tag: str, *, dry_run: bool = False
 ) -> None:
-    """Import multiple files into the dotfiles directory.
+    """Import multiple files into the repository under a given tag.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        sources: The source files to import.
-        tag: The tag to import to.
-        dry_run: If True, don't actually import the file.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        sources: List of paths to files in `$HOME` to import.
+        tag: Tag name (without the `tag-` prefix) to import into.
+        dry_run: If True, print intended actions without making changes.
     """
     for source in sources:
         import_file(dotfiles_dir, source, tag, dry_run=dry_run)
 
 
 def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> None:
-    """
-    Unlink a dotfile and move it back to the home directory.
+    """Unlink a managed file and restore a regular file in `$HOME`.
 
-    This is the inverse of the import command.
+    This is the inverse of the `import` command.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        source: The source file in the home directory to unlink.
-        dry_run: If True, don't actually unlink the file.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        source: Path in `$HOME` to unlink (must currently be a symlink).
+        dry_run: If True, print intended actions without making changes.
     """
     source = source.absolute()
 
@@ -178,12 +209,12 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
 def unlink_files(
     dotfiles_dir: Path, sources: list[Path], *, dry_run: bool = False
 ) -> None:
-    """Unlink multiple files from the dotfiles directory.
+    """Unlink multiple managed files and restore them in `$HOME`.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        sources: The source files in the home directory to unlink.
-        dry_run: If True, don't actually unlink the file.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        sources: Paths in `$HOME` to unlink.
+        dry_run: If True, print intended actions without making changes.
     """
     for source in sources:
         unlink_file(dotfiles_dir, source, dry_run=dry_run)
@@ -192,14 +223,16 @@ def unlink_files(
 def link_file(
     dotfiles_dir: Path, tag_dir: Path, path: Path, *, dry_run: bool = False
 ) -> None:
-    """
-    Link a dotfile from the dotfiles directory to the home directory.
+    """Create or verify a symlink from the repo into `$HOME`.
+
+    Handles existing files, existing correct symlinks, identical unlinked files,
+    and divergent files, printing a status for each case.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        tag_dir: The tag directory.
-        path: The path within the tag directory.
-        dry_run: If True, don't actually link the file.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        tag_dir: Path to the `tag-*/` directory containing the source file.
+        path: Path relative to `tag_dir` representing the file to link.
+        dry_run: If True, print intended actions without making changes.
     """
     source = tag_dir.joinpath(path)
     target = HOME_DIR.joinpath(add_dot_prefix(path))
@@ -250,13 +283,12 @@ def link_file(
 def link_files(
     dotfiles_dir: Path, tag: str | None = None, *, dry_run: bool = False
 ) -> None:
-    """
-    Link dotfiles from the dotfiles directory to the home directory.
+    """Link one tag or all tags from the repository into `$HOME`.
 
     Args:
-        dotfiles_dir: The dotfiles directory.
-        tag: If provided, only link files from this tag.
-        dry_run: If True, don't actually link files.
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        tag: Optional tag name (without the `tag-` prefix) to restrict linking.
+        dry_run: If True, print intended actions without making changes.
     """
     dirs = tag_dirs(dotfiles_dir)
 
@@ -274,7 +306,11 @@ def link_files(
 
 
 def status(dotfiles_dir: Path) -> None:
-    """List all dotfiles and their status."""
+    """List all managed files and their status relative to `$HOME`.
+
+    Args:
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+    """
     for tag_dir in tag_dirs(dotfiles_dir):
         for path in files_in_tag(tag_dir):
             source = tag_dir.joinpath(path)
@@ -311,7 +347,11 @@ class Args(argparse.Namespace):
 
 
 def parse_arguments() -> Args:
-    """Parse command line arguments."""
+    """Parse command-line arguments.
+
+    Returns:
+        Args: Parsed arguments namespace including command and options.
+    """
     parser = argparse.ArgumentParser(
         description="dotfiles manager",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -375,7 +415,7 @@ def parse_arguments() -> Args:
 
 
 def main() -> None:
-    """Command line entrypoint."""
+    """Command-line entry point."""
     args = parse_arguments()
 
     if not args.dotfiles_dir.exists():
