@@ -17,9 +17,6 @@ deduplicate-links = false
 git-exclude = false
 hidden = false
 
-[editor.soft-wrap]
-enable = true
-
 [editor.whitespace.render]
 nbsp = "all"
 nnbsp = "all"
