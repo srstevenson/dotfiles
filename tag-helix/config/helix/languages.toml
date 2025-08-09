@@ -56,8 +56,5 @@ language-servers = ["taplo", "typos"]
 [[language]]
 name = "yaml"
 auto-format = true
-formatter = { command = "prettier", args = [
-  "--parser=yaml",
-  "--prose-wrap=always",
-] }
+formatter = { command = "prettier", args = ["--parser=yaml"] }
 language-servers = ["typos"]

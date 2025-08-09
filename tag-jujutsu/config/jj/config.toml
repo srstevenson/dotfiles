@@ -47,12 +47,7 @@ command = [
 patterns = ["glob:'**/*.md'"]
 
 [fix.tools.prettier-yaml]
-command = [
-  "prettier",
-  "--parser=yaml",
-  "--prose-wrap=always",
-  "--stdin-filepath=$path",
-]
+command = ["prettier", "--parser=yaml", "--stdin-filepath=$path"]
 patterns = ["glob:'**/*.yaml'", "glob:'**/*.yml'"]
 
 [fix.tools.ruff-check]
