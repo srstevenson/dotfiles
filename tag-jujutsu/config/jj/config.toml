@@ -29,10 +29,6 @@ git_push_bookmark = '"srs/push-" ++ change_id.short()'
 command = ["bean-format", "-"]
 patterns = ["glob:'**/*.bean'"]
 
-[fix.tools.clang-format]
-command = ["clang-format"]
-patterns = ["glob:'**/*.c'", "glob:'**/*.h'"]
-
 [fix.tools.prettier-css]
 command = ["prettier", "--parser=css", "--stdin-filepath=$path"]
 patterns = ["glob:'**/*.css'"]
