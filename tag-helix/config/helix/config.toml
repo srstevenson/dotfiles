@@ -13,8 +13,6 @@ normal = "block"
 select = "underline"
 
 [editor.file-picker]
-deduplicate-links = false
-git-exclude = false
 hidden = false
 
 [editor.whitespace.render]
