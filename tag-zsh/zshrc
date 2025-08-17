@@ -90,4 +90,9 @@ elif ls -Gd . >/dev/null 2>&1; then
   alias ls="ls -Gh"
 fi
 
+cdr() {
+  local repo="$(find-repos ~/dev | fzy)"
+  [[ -n "$repo" ]] && cd ~/dev/"$repo"
+}
+
 [[ -f .venv/bin/activate ]] && . .venv/bin/activate
