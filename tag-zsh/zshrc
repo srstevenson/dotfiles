@@ -44,12 +44,6 @@ RPROMPT='%F{8}$command_duration%f'
 
 WORDCHARS="${WORDCHARS//\//}"
 
-_chpwd_venv() {
-  [[ -n "$VIRTUAL_ENV" ]] && deactivate
-  [[ -f .venv/bin/activate ]] && . .venv/bin/activate
-}
-add-zsh-hook chpwd _chpwd_venv
-
 export HOMEBREW_NO_ANALYTICS=1
 if [[ -d /opt/homebrew ]]; then
   . <(/opt/homebrew/bin/brew shellenv zsh)
@@ -94,5 +88,3 @@ cdr() {
   local repo="$(find-repos ~/dev | fzy)"
   [[ -n "$repo" ]] && cd ~/dev/"$repo"
 }
-
-[[ -f .venv/bin/activate ]] && . .venv/bin/activate
