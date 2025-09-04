@@ -120,14 +120,7 @@ def main() -> None:
         url = f"https://{host}/~{path}"
 
     subprocess.run(
-        [
-            "jj",
-            "git",
-            "clone",
-            "--colocate",
-            url,
-            Path.home().joinpath("dev", host, path),
-        ],
+        ["jj", "git", "clone", url, Path.home().joinpath("dev", host, path)],
         check=False,
     )
 
