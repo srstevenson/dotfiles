@@ -74,15 +74,9 @@ zstyle ":completion:*" rehash true
 zstyle ":completion:*" use-cache on
 zstyle ":completion:*" verbose yes
 
-if ls --color -d . >/dev/null 2>&1; then
-  alias la="ls --color=auto -Ahl"
-  alias ll="ls --color=auto -hl"
-  alias ls="ls --color=auto -h"
-elif ls -Gd . >/dev/null 2>&1; then
-  alias la="ls -AGhl"
-  alias ll="ls -Ghl"
-  alias ls="ls -Gh"
-fi
+alias la="ls --color -Ahl"
+alias ll="ls --color -hl"
+alias ls="ls --color -h"
 
 cdr() {
   local repo="$(find-repos ~/dev | fzy)"
