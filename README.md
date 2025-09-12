@@ -34,9 +34,9 @@ By default, `dotfiles` will symlink files from
 dotfiles --dotfiles-dir ~/another/path status
 ```
 
-If manually adding files instead of using the `import` subcommand, files in the
-dotfiles directory should be added under tag directories named `tag-<name>`.
-When linking, `dotfiles` adds a leading dot to the first path segment before
-symlinking the file to `$HOME`. For example,
-`tag-helix/config/helix/config.toml` will be symlinked to
-`~/.config/helix/config.toml`.
+If manually importing existing dotfiles instead of using the `import`
+subcommand, files should be moved from the home directory into a new or existing
+tag directory named `tag-<name>`, and the leading dot removed. When linking,
+`dotfiles` adds a leading dot to the first path segment before symlinking the
+file to `$HOME`. For example, `tag-helix/config/helix/config.toml` will be
+symlinked to `~/.config/helix/config.toml`.
