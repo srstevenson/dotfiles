@@ -119,8 +119,8 @@
 # "ui.virtual.inlay-hint.type"
 "ui.virtual.jump-label" = { fg = "base0A", modifiers = ["bold"] }
 "ui.virtual.ruler" = { bg = "base01" }
-"ui.virtual.whitespace" = { fg = "base03" }
-"ui.virtual.wrap" = { fg = "base03" }
+"ui.virtual.whitespace" = { fg = "base02" }
+"ui.virtual.wrap" = { fg = "base02" }
 "ui.window" = { fg = "base02" }
 
 [palette]
