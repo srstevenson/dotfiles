@@ -79,6 +79,6 @@ alias ll="ls --color -hl"
 alias ls="ls --color -h"
 
 cdr() {
-  local repo="$(find-repos ~/dev | fzy)"
+  local repo="$(find-repos ~/dev | zf)"
   [[ -n "$repo" ]] && cd ~/dev/"$repo"
 }
