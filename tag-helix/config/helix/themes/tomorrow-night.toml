@@ -73,7 +73,7 @@
 "ui.cursor.insert" = { fg = "base0A", modifiers = ["reversed"] }
 "ui.cursor.match" = { fg = "base09", modifiers = ["bold"] }
 # "ui.cursor.normal"
-"ui.cursor.primary" = { fg = "base00", bg = "base09" }
+"ui.cursor.primary" = { fg = "base00", bg = "base05" }
 # "ui.cursor.primary.insert"
 # "ui.cursor.primary.normal"
 # "ui.cursor.primary.select"
