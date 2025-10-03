@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+from collections.abc import Iterable
+from dataclasses import dataclass
+
+
+@dataclass
+class Args(argparse.Namespace):
+    path: str = ""
+
+
+def is_repo(path: str) -> bool:
+    """Check if a directory is a Git or Jujutsu repository.
+
+    Args:
+        path: Path to directory to check.
+
+    Returns:
+        bool: True if directory contains a `.git` or `.jj` subdirectory.
+    """
+    return any(os.path.isdir(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH112
+
+
+def find_repos(path: str) -> Iterable[str]:
+    """Recursively find all Git and Jujutsu repositories in a directory tree.
+
+    Walks through the directory tree starting at the given path. When a
+    repository is found (identified by `.git` or `.jj` subdirectory), yields
+    its path and does not descend into it. Non-repository directories are
+    searched recursively.
+
+    Args:
+        path: Root directory to start searching from.
+
+    Yields:
+        str: Absolute paths to discovered repositories.
+    """
+    for child in os.scandir(path):
+        if child.is_dir():
+            if is_repo(child.path):
+                yield child.path
+            else:
+                yield from find_repos(child.path)
+
+
+def main() -> None:
+    """Command-line entry point."""
+    parser = argparse.ArgumentParser(
+        description="Find Git and Jujutsu repositories within a directory tree"
+    )
+    parser.add_argument("path", help="directory to search")
+    args = parser.parse_args(namespace=Args())
+
+    for repo_path in find_repos(args.path):
+        print(os.path.relpath(repo_path, start=args.path))
+
+
+if __name__ == "__main__":
+    main()
