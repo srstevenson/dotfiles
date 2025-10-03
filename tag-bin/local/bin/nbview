@@ -4,4 +4,4 @@ set -euo pipefail
 
 uvx --from=nbconvert jupyter nbconvert --stdout --to=markdown "$1" 2>/dev/null |
   npx -y prettier --parser=markdown --prose-wrap=always |
-  hx -
+  "$EDITOR" -
