@@ -93,7 +93,7 @@
 "ui.linenr.selected" = { fg = "base03", bg = "base00" }
 "ui.menu" = { fg = "base05", bg = "base01" }
 "ui.menu.scroll" = { fg = "base03", bg = "base01" }
-"ui.menu.selected" = { fg = "base01", bg = "base04" }
+"ui.menu.selected" = { fg = "base01", bg = "base0D", modifiers = ["bold"] }
 # "ui.picker.header"
 # "ui.picker.header.column"
 # "ui.picker.header.column.active"
