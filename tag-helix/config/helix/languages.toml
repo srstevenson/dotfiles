@@ -36,6 +36,7 @@ formatter = { command = "prettier", args = [
   "--prose-wrap=always",
 ] }
 language-servers = ["typos"]
+comment-tokens = ["-", "*", "- [ ]", ">"]
 
 [[language]]
 name = "python"
@@ -52,6 +53,11 @@ name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["format", "-"] }
 language-servers = ["taplo", "typos"]
+
+[[language]]
+name = "xit"
+language-servers = ["typos"]
+comment-tokens = ["[ ]"]
 
 [[language]]
 name = "yaml"
