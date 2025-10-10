@@ -1,4 +1,4 @@
-theme = "tomorrow-night"
+theme = "tomorrow-dark"
 
 [editor]
 rulers = [80]
