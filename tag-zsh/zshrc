@@ -78,6 +78,11 @@ alias la="ls --color -Ahl"
 alias ll="ls --color -hl"
 alias ls="ls --color -h"
 
+cdd() {
+  local dir="$(find ~/P*/ ~/D*/ ~/M*/ -type d -mindepth 1 | zf)"
+  [[ -n "$dir" ]] && cd "$dir"
+}
+
 cdr() {
   local repo="$(find-repos ~/dev | zf)"
   [[ -n "$repo" ]] && cd ~/dev/"$repo"
