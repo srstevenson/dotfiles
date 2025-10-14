@@ -21,14 +21,14 @@ def expand_url(url: str) -> str:
     """Expand a shorthand URL to a full clone URL.
 
     We check if the provided URL starts with `https://` or `git@`, which
-    indicate a full URL. Otherwise, expand GitHub `project` and `owner/project`
-    shorthands, and URLs missing schemes, to full clone URLs.
+    indicate a full remote URL. Otherwise, expand GitHub `project` and
+    `owner/project` shorthands, and URLs missing schemes, to full clone URLs.
 
     Args:
-        url: The input repository URL or GitHub shorthand.
+        url: The input remote URL or GitHub shorthand.
 
     Returns:
-        str: The expanded repository URL.
+        str: The expanded remote URL.
     """
     if url.startswith(("https://", "git@")):
         return url
@@ -52,24 +52,26 @@ def parse_args() -> Args:
     """Parse command-line arguments.
 
     Returns:
-        Args: Parsed arguments namespace with the expanded repository URL.
+        Args: Parsed arguments with the expanded remote URL.
     """
-    parser = argparse.ArgumentParser(description="Clone Git repository into ~/dev")
+    parser = argparse.ArgumentParser(
+        description="Clone Git repository with Jujutsu into ~/dev"
+    )
     parser.add_argument(
         "url",
         type=expand_url,
-        help="repository URL or GitHub shorthand (`project` or `user/project`)",
+        help="remote URL or GitHub shorthand (`project` or `user/project`)",
     )
     return parser.parse_args(namespace=Args())
 
 
 def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
-    """Check if a repository URL matches any of the specified Git hosts.
+    """Check if a remote URL matches any of the specified Git hosts.
 
     We check for both HTTPS and SSH clone URLs for each of the provided hosts.
 
     Args:
-        url: The repository URL to check.
+        url: The remote URL to check.
         hosts: A collection of host names.
 
     Returns:
@@ -79,16 +81,16 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
 
 
 def unpack_host_and_path(url: str) -> tuple[str, str]:
-    """Extract host and repository path from a Git URL.
+    """Extract host and repository path from a Git remote URL.
 
-    The Git repository URL can be either in SSH or HTTPS format. For SSH URLs
+    The Git remote URL can be either in SSH or HTTPS format. For SSH URLs
     (containing `@`), we split the URL appropriately to extract the host and
     repository path. For HTTPS URLs, the `https://` prefix is removed and the
     remainder is split on `/`. The repository path is normalised by removing any
     leading `~` character (for SourceHut URLs) and the trailing `.git` suffix.
 
     Args:
-        url: The full repository URL.
+        url: The full remote URL.
 
     Returns:
         tuple[str, str]: Tuple of host and repository path.
