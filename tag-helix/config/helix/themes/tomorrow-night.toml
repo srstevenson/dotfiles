@@ -1,5 +1,5 @@
 "attribute" = "base0A"
-"comment" = { fg = "base03", modifiers = ["italic"] }
+"comment" = { fg = "base03" }
 "constant" = "base09"
 "constant.character" = "base0C"
 "constant.character.escape" = "base0E"
@@ -110,7 +110,7 @@
 "ui.text" = "base05"
 "ui.text.directory" = { fg = "base0D" }
 "ui.text.focus" = { fg = "base05", modifiers = ["bold"] }
-"ui.text.inactive" = { fg = "base03", modifiers = ["italic"] }
+"ui.text.inactive" = { fg = "base03" }
 # "ui.text.info"
 # "ui.virtual"
 "ui.virtual.indent-guide" = { fg = "base03" }
