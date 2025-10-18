@@ -1,7 +1,3 @@
-[language-server.taplo]
-# https://github.com/helix-editor/helix/issues/3897#issuecomment-2412358982
-config = { root_dir = [".git", ".jj", "*.toml"] }
-
 [language-server.typos]
 command = "typos-lsp"
 
