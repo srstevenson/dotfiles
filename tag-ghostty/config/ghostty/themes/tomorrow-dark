@@ -1,27 +1,27 @@
-background = #181818
-foreground = #d3d3d3
+background = #191919
+foreground = #d4d4d4
 
-cursor-color = #d3d3d3
-cursor-text = #181818
+cursor-color = #d4d4d4
+cursor-text = #191919
 
-selection-background = #333333
-selection-foreground = #d3d3d3
+selection-background = #343434
+selection-foreground = #d4d4d4
 
-split-divider-color = #333333
+split-divider-color = #343434
 
-palette = 0=#181818
+palette = 0=#191919
 palette = 1=#cc6666
 palette = 2=#b5bd68
 palette = 3=#f0c674
 palette = 4=#81a2be
 palette = 5=#b294bb
 palette = 6=#8abeb7
-palette = 7=#d3d3d3
-palette = 8=#535353
+palette = 7=#d4d4d4
+palette = 8=#545454
 palette = 9=#cc6666
 palette = 10=#b5bd68
 palette = 11=#f0c674
 palette = 12=#81a2be
 palette = 13=#b294bb
 palette = 14=#8abeb7
-palette = 15=#f8f8f8
+palette = 15=#f9f9f9
