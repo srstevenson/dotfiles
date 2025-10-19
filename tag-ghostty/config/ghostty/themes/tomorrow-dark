@@ -1,13 +1,10 @@
 background = #191919
 foreground = #d4d4d4
 
-cursor-color = #d4d4d4
-cursor-text = #191919
+selection-background = #b4b4b4
+selection-foreground = #191919
 
-selection-background = #343434
-selection-foreground = #d4d4d4
-
-split-divider-color = #343434
+split-divider-color = #545454
 
 palette = 0=#191919
 palette = 1=#cc6666
