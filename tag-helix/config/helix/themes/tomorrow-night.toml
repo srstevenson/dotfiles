@@ -37,7 +37,7 @@
 "markup.italic" = { fg = "base08", modifiers = ["italic"] }
 "markup.link.label" = "base0D"
 "markup.link.text" = "base0E"
-"markup.link.url" = { fg = "base0D", modifiers = ["underlined"] }
+"markup.link.url" = { fg = "base0D", underline = { style = "line" } }
 "markup.list" = "base09"
 "markup.list.checked" = "base0B"
 "markup.list.unchecked" = "base04"
