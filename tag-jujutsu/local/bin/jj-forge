@@ -10,9 +10,5 @@ jj git remote list | while read -r name url; do
   url="https://$url"    # Add `https://` prefix.
 
   echo "$url"
-  if [[ "$OSTYPE" == darwin* ]]; then
-    open "$url"
-  elif command -v xdg-open >/dev/null; then
-    xdg-open "$url"
-  fi
+  open "$url"
 done
