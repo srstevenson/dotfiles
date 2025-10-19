@@ -1,6 +1,9 @@
 background = #191919
 foreground = #d4d4d4
 
+window-titlebar-background = #242424
+window-titlebar-foreground = #d4d4d4
+
 selection-background = #b4b4b4
 selection-foreground = #191919
 
