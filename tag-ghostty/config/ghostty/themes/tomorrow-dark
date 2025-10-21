@@ -1,9 +1,6 @@
 background = #191919
 foreground = #d4d4d4
 
-window-titlebar-background = #242424
-window-titlebar-foreground = #d4d4d4
-
 selection-background = #b4b4b4
 selection-foreground = #191919
 
@@ -25,3 +22,7 @@ palette = 12=#81a2be
 palette = 13=#b294bb
 palette = 14=#8abeb7
 palette = 15=#f9f9f9
+
+# Only used if `window-theme = ghostty`.
+window-titlebar-background = #242424
+window-titlebar-foreground = #d4d4d4
