@@ -1,16 +1,30 @@
 {
-  "contextFileName": [
-    "AGENTS.md",
-    "CLAUDE.md",
-    "GEMINI.md"
-  ],
-  "hideBanner": true,
-  "preferredEditor": "vim",
-  "sandbox": true,
-  "selectedAuthType": "oauth-personal",
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "GEMINI.md"
+    ]
+  },
+  "general": {
+    "preferredEditor": "vim"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
   "telemetry": {
     "enabled": false
   },
-  "theme": "Default",
-  "usageStatisticsEnabled": false
+  "tools": {
+    "sandbox": true
+  },
+  "ui": {
+    "hideBanner": true,
+    "theme": "Default"
+  }
 }
