@@ -7,8 +7,6 @@
 
 """Clone Git repositories with Jujutsu into ~/dev."""
 
-from __future__ import annotations
-
 import argparse
 import subprocess
 from dataclasses import dataclass
