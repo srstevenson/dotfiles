@@ -1,4 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# requires-python = ">=3.14"
+# dependencies = []
+# ///
+
+"""Clone Git repositories with Jujutsu into ~/dev."""
 
 from __future__ import annotations
 
@@ -14,6 +21,8 @@ if TYPE_CHECKING:
 
 @dataclass
 class Args(argparse.Namespace):
+    """Command-line arguments."""
+
     url: str = ""
 
 
@@ -29,6 +38,7 @@ def expand_url(url: str) -> str:
 
     Returns:
         str: The expanded remote URL.
+
     """
     if url.startswith(("https://", "git@")):
         return url
@@ -53,9 +63,10 @@ def parse_args() -> Args:
 
     Returns:
         Args: Parsed arguments with the expanded remote URL.
+
     """
     parser = argparse.ArgumentParser(
-        description="Clone Git repository with Jujutsu into ~/dev"
+        description="Clone Git repositories with Jujutsu into ~/dev"
     )
     parser.add_argument(
         "url",
@@ -76,6 +87,7 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
 
     Returns:
         bool: True if URL is a HTTPS or SSH URL for any provided host.
+
     """
     return any(url.startswith((f"https://{host}/", f"git@{host}:")) for host in hosts)
 
@@ -94,6 +106,7 @@ def unpack_host_and_path(url: str) -> tuple[str, str]:
 
     Returns:
         tuple[str, str]: Tuple of host and repository path.
+
     """
     if "@" in url:
         host, repo = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)
@@ -121,8 +134,8 @@ def main() -> None:
     elif matches_hosts(args.url, ["git.sr.ht"]) and not args.url.startswith("git@"):
         url = f"https://{host}/~{path}"
 
-    subprocess.run(
-        ["jj", "git", "clone", url, Path.home().joinpath("dev", host, path)],
+    subprocess.run(  # noqa: S603
+        ["jj", "git", "clone", url, Path.home().joinpath("dev", host, path)],  # noqa: S607
         check=False,
     )
 

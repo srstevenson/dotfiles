@@ -1,13 +1,25 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# requires-python = ">=3.14"
+# dependencies = []
+# ///
+
+"""Find Git and Jujutsu repositories within a directory tree."""
 
 import argparse
 import os
-from collections.abc import Iterable
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 
 @dataclass
 class Args(argparse.Namespace):
+    """Command-line arguments."""
+
     path: str = ""
 
 
@@ -19,8 +31,9 @@ def is_repo(path: str) -> bool:
 
     Returns:
         bool: True if directory contains a `.git` or `.jj` subdirectory.
+
     """
-    return any(os.path.isdir(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH112
+    return any(os.path.isdir(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH112, PTH118
 
 
 def find_repos(path: str) -> Iterable[str]:
@@ -36,6 +49,7 @@ def find_repos(path: str) -> Iterable[str]:
 
     Yields:
         str: Absolute paths to discovered repositories.
+
     """
     for child in os.scandir(path):
         if child.is_dir():
