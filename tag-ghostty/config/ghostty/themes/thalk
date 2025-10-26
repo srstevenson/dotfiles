@@ -1,12 +1,12 @@
-background = #191919
+background = #19191c
 foreground = #d4d4d4
 
 selection-background = #b4b4b4
-selection-foreground = #191919
+selection-foreground = #19191c
 
-split-divider-color = #545454
+split-divider-color = #545457
 
-palette = 0=#191919
+palette = 0=#19191c
 palette = 1=#cc6666
 palette = 2=#b5bd68
 palette = 3=#f0c674
@@ -14,7 +14,7 @@ palette = 4=#81a2be
 palette = 5=#b294bb
 palette = 6=#8abeb7
 palette = 7=#d4d4d4
-palette = 8=#545454
+palette = 8=#545457
 palette = 9=#cc6666
 palette = 10=#b5bd68
 palette = 11=#f0c674
@@ -24,5 +24,5 @@ palette = 14=#8abeb7
 palette = 15=#f9f9f9
 
 # Only used if `window-theme = ghostty`.
-window-titlebar-background = #242424
+window-titlebar-background = #242427
 window-titlebar-foreground = #d4d4d4

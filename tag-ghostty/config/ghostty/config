@@ -2,5 +2,5 @@ font-size = 16
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
-theme = tomorrow-dark
+theme = thalk
 keybind = shift+enter=text:\n

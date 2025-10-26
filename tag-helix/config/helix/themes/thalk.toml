@@ -124,10 +124,10 @@
 "ui.window" = { fg = "base02" }
 
 [palette]
-base00 = "#191919"
-base01 = "#242424"
-base02 = "#343434"
-base03 = "#545454"
+base00 = "#19191c"
+base01 = "#242427"
+base02 = "#343437"
+base03 = "#545457"
 base04 = "#b4b4b4"
 base05 = "#d4d4d4"
 base06 = "#e4e4e4"
