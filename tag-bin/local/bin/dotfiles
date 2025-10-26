@@ -286,6 +286,7 @@ def link_file(
             )
             return
 
+        target.unlink()
         target.symlink_to(source)
         print(
             f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
