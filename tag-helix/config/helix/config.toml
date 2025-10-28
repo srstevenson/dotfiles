@@ -1,6 +1,7 @@
 theme = "thalk"
 
 [editor]
+line-number = "relative"
 rulers = [80]
 trim-final-newlines = true
 trim-trailing-whitespace = true
