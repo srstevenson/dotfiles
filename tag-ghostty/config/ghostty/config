@@ -5,4 +5,16 @@ macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
 theme = thalk
 unfocused-split-opacity = 1
+
+keybind = ctrl+g>c=new_tab
+keybind = ctrl+g>n=next_tab
+keybind = ctrl+g>p=previous_tab
+
+keybind = ctrl+g>s=new_split:right
+keybind = ctrl+g>v=new_split:down
+keybind = ctrl+g>h=goto_split:left
+keybind = ctrl+g>j=goto_split:bottom
+keybind = ctrl+g>k=goto_split:top
+keybind = ctrl+g>l=goto_split:right
+
 keybind = shift+enter=text:\n
