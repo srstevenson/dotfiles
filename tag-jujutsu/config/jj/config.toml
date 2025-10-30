@@ -29,7 +29,3 @@ draft_commit_description = '''
   )
 '''
 git_push_bookmark = '"srs/push-" ++ change_id.short()'
-
-[fix.tools.bean-format]
-command = ["bean-format", "-"]
-patterns = ["glob:'**/*.bean'"]
