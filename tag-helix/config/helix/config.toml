@@ -1,7 +1,6 @@
 theme = "thalk"
 
 [editor]
-color-modes = true
 line-number = "relative"
 rulers = [80]
 trim-final-newlines = true
