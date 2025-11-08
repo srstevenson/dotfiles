@@ -12,10 +12,6 @@ auto-format = true
 formatter = { command = "prettier", args = ["--parser=css"] }
 
 [[language]]
-name = "git-commit"
-language-servers = ["typos"]
-
-[[language]]
 name = "jjdescription"
 language-servers = ["typos"]
 
