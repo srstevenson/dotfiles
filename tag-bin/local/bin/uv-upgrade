@@ -1,0 +1,94 @@
+#!/usr/bin/env -S uv run --script
+#
+# /// script
+# requires-python = ">=3.14"
+# dependencies = []
+# ///
+
+"""Update all dependencies in pyproject.toml with `uv add --upgrade`.
+
+This script must be run from a directory containing a pyproject.toml file.
+"""
+
+import os
+import re
+import subprocess
+import tomllib
+from pathlib import Path
+from typing import Final, cast
+
+PYPROJECT_TOML: Final = Path("pyproject.toml")
+
+
+def extract_package_name(dep_spec: str) -> str:
+    """Extract the package name from a dependency specification.
+
+    Parses a PEP 508 dependency specification string and extracts just the
+    package name, stripping away version constraints, extras, and markers.
+
+    Args:
+        dep_spec: A dependency specification string (e.g., "package>=1.0").
+
+    Returns:
+        str: The extracted package name, or the original string if no match.
+
+    """
+    match = re.match(r"^([a-zA-Z0-9_-]+)", dep_spec)
+    if match:
+        return match.group(1)
+    return dep_spec
+
+
+def update_deps(packages: list[str], *, dev: bool = False) -> None:
+    """Update dependencies using `uv add --upgrade`.
+
+    Runs the `uv add --upgrade` command for the specified packages, optionally
+    treating them as development dependencies.
+
+    Args:
+        packages: List of package names to update.
+        dev: If `True`, add `--dev` flag for development dependencies.
+
+    """
+    cmd = ["uv", "add", "--upgrade"]
+    if dev:
+        cmd.append("--dev")
+    cmd.extend(packages)
+
+    subprocess.run(cmd, check=True)  # noqa: S603
+
+
+def format_pyproject_toml() -> None:
+    """Format pyproject.toml with Taplo."""
+    subprocess.run(["taplo", "format", os.fspath(PYPROJECT_TOML)], check=True)  # noqa: S603, S607
+
+
+def main() -> None:
+    """Command-line entry point.
+
+    Reads `pyproject.toml` from the current directory, extracts all regular
+    and development dependencies, and updates them to their latest compatible
+    versions using `uv add --upgrade`.
+
+    """
+    with PYPROJECT_TOML.open("rb") as f:
+        data = tomllib.load(f)
+
+    deps = cast("list[str]", data.get("project", {}).get("dependencies", []))  # pyright: ignore[reportAny]
+    deps_packages = [extract_package_name(dep) for dep in deps]
+
+    dep_groups = cast("dict[str, list[str]]", data.get("dependency-groups", {}))
+    dev_deps = dep_groups.get("dev", [])
+    dev_deps_packages = [extract_package_name(dep) for dep in dev_deps]
+
+    if deps_packages:
+        update_deps(deps_packages, dev=False)
+
+    if dev_deps_packages:
+        update_deps(dev_deps_packages, dev=True)
+
+    format_pyproject_toml()
+
+
+if __name__ == "__main__":
+    main()
