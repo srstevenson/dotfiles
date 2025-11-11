@@ -22,7 +22,3 @@ palette = 12=#81a2be
 palette = 13=#b294bb
 palette = 14=#8abeb7
 palette = 15=#f9f9f9
-
-# Only used if `window-theme = ghostty`.
-window-titlebar-background = #242428
-window-titlebar-foreground = #d4d4d4
