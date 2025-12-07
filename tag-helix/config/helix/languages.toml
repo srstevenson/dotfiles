@@ -1,3 +1,7 @@
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
 [language-server.typos]
 command = "typos-lsp"
 
@@ -32,7 +36,7 @@ language-servers = ["typos"]
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ruff", "basedpyright", "typos"]
+language-servers = ["ty", "ruff", "basedpyright", "typos"]
 
 [[language]]
 name = "rust"
