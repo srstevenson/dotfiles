@@ -1,2 +1,0 @@
-file_opener = "none"
-project_doc_fallback_filenames = ["CLAUDE.md", "GEMINI.md"]
