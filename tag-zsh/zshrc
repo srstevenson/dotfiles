@@ -9,6 +9,7 @@ _jj_change_id() {
   done
 }
 
+setopt HIST_IGNORE_DUPS
 setopt PROMPT_SUBST
 PROMPT='%B%F{blue}%1~%f%b %B%F{magenta}$(_jj_change_id)%f%b%(1j.%F{8}^%j%f .)%(?.%F{green}.%F{red})❯%f '
 
