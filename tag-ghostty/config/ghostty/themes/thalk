@@ -1,12 +1,12 @@
-background = #19191d
+background = #19191b
 foreground = #d4d4d4
 
 selection-background = #b4b4b4
-selection-foreground = #19191d
+selection-foreground = #19191b
 
-split-divider-color = #545458
+split-divider-color = #343436
 
-palette = 0=#19191d
+palette = 0=#19191b
 palette = 1=#cc6666
 palette = 2=#b5bd68
 palette = 3=#f0c674
@@ -14,7 +14,7 @@ palette = 4=#81a2be
 palette = 5=#b294bb
 palette = 6=#8abeb7
 palette = 7=#d4d4d4
-palette = 8=#545458
+palette = 8=#545456
 palette = 9=#cc6666
 palette = 10=#b5bd68
 palette = 11=#f0c674
