@@ -80,7 +80,7 @@ alias ll="ls --color -hl"
 alias ls="ls --color -h"
 
 cdd() {
-  local dir="$(find ~/D*/ -type d | zf)"
+  local dir="$(bfs ~/D*/ -type d | zf)"
   [[ -n "$dir" ]] && cd "$dir"
 }
 
