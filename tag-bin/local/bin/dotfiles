@@ -277,7 +277,7 @@ def link_file(
             f"{FG_GREEN}linked (existing){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
 
-    elif target.is_file() and filecmp.cmp(source, target):
+    elif target.is_file() and filecmp.cmp(source, target, shallow=False):
         if dry_run:
             print(
                 f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
@@ -345,7 +345,7 @@ def status(dotfiles_dir: Path) -> None:
                 print(
                     f"{FG_GREEN}linked{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
-            elif target.is_file() and filecmp.cmp(source, target):
+            elif target.is_file() and filecmp.cmp(source, target, shallow=False):
                 print(
                     f"{FG_RED}unlinked copy{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
