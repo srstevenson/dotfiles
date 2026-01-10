@@ -27,7 +27,7 @@ def default_dotfiles_dir() -> Path:
     otherwise returns the default `~/.dotfiles` path.
 
     Returns:
-        Path: Absolute path to the dotfiles directory to use.
+        Absolute path to the dotfiles directory to use.
 
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
@@ -43,7 +43,7 @@ def add_dot_prefix(path: Path) -> Path:
         path: A path whose first part should be prefixed with a dot.
 
     Returns:
-        Path: A new path with a leading `.` added to the first part.
+        A new path with a leading `.` added to the first part.
 
     """
     return Path("." + path.parts[0], *path.parts[1:])
@@ -56,7 +56,7 @@ def remove_dot_prefix(path: Path) -> Path:
         path: A path whose first part may start with a dot.
 
     Returns:
-        Path: A new path with the leading `.` removed from the first part.
+        A new path with the leading `.` removed from the first part.
 
     """
     return Path(path.parts[0].removeprefix("."), *path.parts[1:])
@@ -69,7 +69,7 @@ def tag_dirs(dotfiles_dir: Path) -> list[Path]:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
 
     Returns:
-        list[Path]: Sorted list of existing `tag-*/` directories.
+        Sorted list of existing `tag-*/` directories.
 
     """
     return sorted(
@@ -88,7 +88,7 @@ def files_in_tag(tag_dir: Path) -> list[Path]:
         tag_dir: Path to a specific `tag-*/` directory.
 
     Returns:
-        list[Path]: Sorted list of file paths relative to `tag_dir`.
+        Sorted list of file paths relative to `tag_dir`.
 
     """
     return sorted(
@@ -370,7 +370,7 @@ def parse_arguments() -> Args:
     """Parse command-line arguments.
 
     Returns:
-        Args: Parsed arguments namespace including command and options.
+        Parsed arguments namespace including command and options.
 
     """
     parser = argparse.ArgumentParser(
