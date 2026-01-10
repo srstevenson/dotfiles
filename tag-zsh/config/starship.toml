@@ -1,5 +1,7 @@
 #:schema https://starship.rs/config-schema.json
 
+add_newline = false
+
 [git_branch]
 symbol = ""
 
@@ -13,4 +15,7 @@ disabled = true
 disabled = true
 
 [python]
+disabled = true
+
+[rust]
 disabled = true
