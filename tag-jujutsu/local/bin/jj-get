@@ -35,7 +35,7 @@ def expand_url(url: str) -> str:
         url: The input remote URL or GitHub shorthand.
 
     Returns:
-        str: The expanded remote URL.
+        The expanded remote URL.
 
     """
     if url.startswith(("https://", "git@")):
@@ -60,7 +60,7 @@ def parse_args() -> Args:
     """Parse command-line arguments.
 
     Returns:
-        Args: Parsed arguments with the expanded remote URL.
+        Parsed arguments with the expanded remote URL.
 
     """
     parser = argparse.ArgumentParser(
@@ -84,7 +84,7 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
         hosts: A collection of host names.
 
     Returns:
-        bool: True if URL is a HTTPS or SSH URL for any provided host.
+        True if URL is a HTTPS or SSH URL for any provided host.
 
     """
     return any(url.startswith((f"https://{host}/", f"git@{host}:")) for host in hosts)
@@ -103,7 +103,7 @@ def unpack_host_and_path(url: str) -> tuple[str, str]:
         url: The full remote URL.
 
     Returns:
-        tuple[str, str]: Tuple of host and repository path.
+        Tuple of host and repository path.
 
     """
     if "@" in url:
