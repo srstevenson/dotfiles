@@ -355,7 +355,7 @@ def status(dotfiles_dir: Path) -> None:
                 )
 
 
-@dataclass
+@dataclass(kw_only=True)
 class Args(argparse.Namespace):
     """Command-line arguments."""
 
