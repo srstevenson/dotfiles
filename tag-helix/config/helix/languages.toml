@@ -27,10 +27,7 @@ formatter = { command = "jq", args = ["."] }
 [[language]]
 name = "markdown"
 auto-format = true
-formatter = { command = "prettier", args = [
-  "--parser=markdown",
-  "--prose-wrap=always",
-] }
+formatter = { command = "prettier", args = ["--parser=markdown"] }
 language-servers = ["typos"]
 
 [[language]]
