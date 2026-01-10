@@ -9,6 +9,7 @@
 
 import argparse
 import filecmp
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Final
@@ -96,9 +97,9 @@ def files_in_tag(tag_dir: Path) -> list[Path]:
     )
 
 
-def import_file(
+def import_file(  # noqa: PLR0911
     dotfiles_dir: Path, source: Path, tag: str, *, dry_run: bool = False
-) -> None:
+) -> bool:
     """Import a dotfile into the repository and replace it with a symlink.
 
     Moves a file from the user's home directory into the appropriate `tag-<tag>`
@@ -110,34 +111,37 @@ def import_file(
         tag: Tag name (without the `tag-` prefix) under which to store the file.
         dry_run: If True, print intended actions without making changes.
 
+    Returns:
+        True if the file was imported successfully, False on error.
+
     """
     source = source.absolute()
 
     if source.is_symlink():
         print(f"{FG_RED}error{FG_RESET}: {source} is a symbolic link")
-        return
+        return False
 
     source = source.resolve()
 
     if not source.is_relative_to(HOME_DIR):
         print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
-        return
+        return False
 
     if not source.is_file():
         print(f"{FG_RED}error{FG_RESET}: {source} is not a file")
-        return
+        return False
 
     path_in_home = source.relative_to(HOME_DIR)
     if not path_in_home.parts[0].startswith("."):
         print(f"{FG_RED}error{FG_RESET}: {source} is not a dotfile")
-        return
+        return False
 
     tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
     target = tag_dir.joinpath(remove_dot_prefix(path_in_home))
 
     if target.exists():
         print(f"{FG_RED}error{FG_RESET}: {target} already exists")
-        return
+        return False
 
     tilde_source = f"~/{source.relative_to(HOME_DIR)}"
     tagged_path = target.relative_to(dotfiles_dir)
@@ -146,7 +150,7 @@ def import_file(
         print(
             f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
-        return
+        return True
 
     target.parent.mkdir(parents=True, exist_ok=True)
     source.rename(target)
@@ -154,11 +158,12 @@ def import_file(
     print(
         f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
     )
+    return True
 
 
 def import_files(
     dotfiles_dir: Path, sources: list[Path], tag: str, *, dry_run: bool = False
-) -> None:
+) -> bool:
     """Import multiple files into the repository under a given tag.
 
     Args:
@@ -167,12 +172,17 @@ def import_files(
         tag: Tag name (without the `tag-` prefix) to import into.
         dry_run: If True, print intended actions without making changes.
 
+    Returns:
+        True if all files were imported successfully, False if any failed.
+
     """
-    for source in sources:
-        import_file(dotfiles_dir, source, tag, dry_run=dry_run)
+    results = [
+        import_file(dotfiles_dir, source, tag, dry_run=dry_run) for source in sources
+    ]
+    return all(results)
 
 
-def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> None:
+def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> bool:
     """Unlink a managed file and restore a regular file in `$HOME`.
 
     This is the inverse of the `import` command.
@@ -182,16 +192,19 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
         source: Path in `$HOME` to unlink (must currently be a symlink).
         dry_run: If True, print intended actions without making changes.
 
+    Returns:
+        True if the file was unlinked successfully, False on error.
+
     """
     source = source.absolute()
 
     if not source.is_relative_to(HOME_DIR):
         print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
-        return
+        return False
 
     if not source.is_symlink():
         print(f"{FG_RED}error{FG_RESET}: {source} is not a symbolic link")
-        return
+        return False
 
     dotfile_path = source.resolve()
 
@@ -199,7 +212,7 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
         print(
             f"{FG_RED}error{FG_RESET}: {source} does not link to a file in dotfiles directory"
         )
-        return
+        return False
 
     tilde_source = f"~/{source.relative_to(HOME_DIR)}"
     dotfile_relative = dotfile_path.relative_to(dotfiles_dir)
@@ -208,7 +221,7 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
         print(
             f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
         )
-        return
+        return True
 
     source.unlink()
     source.parent.mkdir(parents=True, exist_ok=True)
@@ -217,11 +230,12 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> N
     print(
         f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
     )
+    return True
 
 
 def unlink_files(
     dotfiles_dir: Path, sources: list[Path], *, dry_run: bool = False
-) -> None:
+) -> bool:
     """Unlink multiple managed files and restore them in `$HOME`.
 
     Args:
@@ -229,14 +243,17 @@ def unlink_files(
         sources: Paths in `$HOME` to unlink.
         dry_run: If True, print intended actions without making changes.
 
+    Returns:
+        True if all files were unlinked successfully, False if any failed.
+
     """
-    for source in sources:
-        unlink_file(dotfiles_dir, source, dry_run=dry_run)
+    results = [unlink_file(dotfiles_dir, source, dry_run=dry_run) for source in sources]
+    return all(results)
 
 
 def link_file(
     dotfiles_dir: Path, tag_dir: Path, path: Path, *, dry_run: bool = False
-) -> None:
+) -> bool:
     """Create or verify a symlink from the repo into `$HOME`.
 
     Handles existing files, existing correct symlinks, identical unlinked files,
@@ -247,6 +264,9 @@ def link_file(
         tag_dir: Path to the `tag-*/` directory containing the source file.
         path: Path relative to `tag_dir` representing the file to link.
         dry_run: If True, print intended actions without making changes.
+
+    Returns:
+        True if the file is linked or was linked successfully, False if divergent.
 
     """
     source = tag_dir.joinpath(path)
@@ -260,7 +280,7 @@ def link_file(
             print(
                 f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
             )
-            return
+            return True
 
         if target.is_symlink():
             # As target failed existence check, this is a broken symlink.
@@ -271,40 +291,46 @@ def link_file(
         print(
             f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
+        return True
 
-    elif target.is_symlink() and target.resolve() == source.resolve():
+    if target.is_symlink() and target.resolve() == source.resolve():
         print(
             f"{FG_GREEN}linked (existing){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
+        return True
 
-    elif target.is_file() and filecmp.cmp(source, target, shallow=False):
+    if target.is_file() and filecmp.cmp(source, target, shallow=False):
         if dry_run:
             print(
                 f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
             )
-            return
+            return True
 
         target.unlink()
         target.symlink_to(source)
         print(
             f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
         )
+        return True
 
-    else:
-        print(
-            f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
-        )
+    print(
+        f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+    )
+    return False
 
 
 def link_files(
     dotfiles_dir: Path, tag: str | None = None, *, dry_run: bool = False
-) -> None:
+) -> bool:
     """Link one tag or all tags from the repository into `$HOME`.
 
     Args:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
         tag: Optional tag name (without the `tag-` prefix) to restrict linking.
         dry_run: If True, print intended actions without making changes.
+
+    Returns:
+        True if all files were linked successfully, False if any failed.
 
     """
     dirs = tag_dirs(dotfiles_dir)
@@ -315,20 +341,27 @@ def link_files(
             dirs = [tag_dir]
         else:
             print(f"{FG_RED}error{FG_RESET}: tag '{tag}' not found")
-            return
+            return False
 
-    for tag_dir in dirs:
-        for path in files_in_tag(tag_dir):
-            link_file(dotfiles_dir, tag_dir, path, dry_run=dry_run)
+    results = [
+        link_file(dotfiles_dir, tag_dir, path, dry_run=dry_run)
+        for tag_dir in dirs
+        for path in files_in_tag(tag_dir)
+    ]
+    return all(results)
 
 
-def status(dotfiles_dir: Path) -> None:
+def status(dotfiles_dir: Path) -> bool:
     """List all managed files and their status relative to `$HOME`.
 
     Args:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
 
+    Returns:
+        True if all files are properly linked, False otherwise.
+
     """
+    all_linked = True
     for tag_dir in tag_dirs(dotfiles_dir):
         for path in files_in_tag(tag_dir):
             source = tag_dir.joinpath(path)
@@ -341,6 +374,7 @@ def status(dotfiles_dir: Path) -> None:
                 print(
                     f"{FG_RED}missing{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
+                all_linked = False
             elif target.is_symlink() and target.resolve() == source.resolve():
                 print(
                     f"{FG_GREEN}linked{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
@@ -349,10 +383,13 @@ def status(dotfiles_dir: Path) -> None:
                 print(
                     f"{FG_RED}unlinked copy{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
+                all_linked = False
             else:
                 print(
                     f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
                 )
+                all_linked = False
+    return all_linked
 
 
 @dataclass(kw_only=True)
@@ -445,17 +482,23 @@ def main() -> None:
             f"{FG_GREEN}info{FG_RESET}: created dotfiles directory {args.dotfiles_dir}"
         )
 
+    success = True
     if args.command == "import":
-        import_files(args.dotfiles_dir, args.paths, args.tag, dry_run=args.dry_run)
+        success = import_files(
+            args.dotfiles_dir, args.paths, args.tag, dry_run=args.dry_run
+        )
     elif args.command == "unlink":
-        unlink_files(args.dotfiles_dir, args.paths, dry_run=args.dry_run)
+        success = unlink_files(args.dotfiles_dir, args.paths, dry_run=args.dry_run)
     elif args.command == "link":
-        link_files(args.dotfiles_dir, args.tag, dry_run=args.dry_run)
+        success = link_files(args.dotfiles_dir, args.tag, dry_run=args.dry_run)
     elif args.command == "status":
-        status(args.dotfiles_dir)
+        success = status(args.dotfiles_dir)
     else:
         msg = f"unimplemented subcommand: {args.command}"
         raise NotImplementedError(msg)
+
+    if not success:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
