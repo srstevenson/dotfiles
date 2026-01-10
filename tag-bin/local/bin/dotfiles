@@ -33,6 +33,7 @@ def default_dotfiles_dir() -> Path:
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
+        # Resolve to canonicalize path and follow any symlinks
         return dev_dir.resolve()
     return HOME_DIR.joinpath(".dotfiles").resolve()
 
@@ -121,6 +122,7 @@ def import_file(  # noqa: PLR0911
         print(f"{FG_RED}error{FG_RESET}: {source} is a symbolic link")
         return False
 
+    # Resolve after symlink check to get canonical path of the regular file
     source = source.resolve()
 
     if not source.is_relative_to(HOME_DIR):
