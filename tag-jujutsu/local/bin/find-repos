@@ -59,13 +59,23 @@ def find_repos(path: str) -> Iterable[str]:
                 yield from find_repos(child.path)
 
 
-def main() -> None:
-    """Command-line entry point."""
+def parse_args() -> Args:
+    """Parse command-line arguments.
+
+    Returns:
+        Parsed arguments namespace.
+
+    """
     parser = argparse.ArgumentParser(
         description="Find Git and Jujutsu repositories within a directory tree"
     )
     parser.add_argument("path", help="directory to search")
-    args = parser.parse_args(namespace=Args())
+    return parser.parse_args(namespace=Args())
+
+
+def main() -> None:
+    """Command-line entry point."""
+    args = parse_args()
 
     for repo_path in find_repos(args.path):
         print(os.path.relpath(repo_path, start=args.path))
