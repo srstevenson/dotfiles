@@ -32,7 +32,7 @@ def extract_package_name(dep_spec: str) -> str:
         The extracted package name, or the original string if no match.
 
     """
-    match = re.match(r"^([a-zA-Z0-9_-]+)", dep_spec)
+    match = re.match(r"^([a-zA-Z0-9][-a-zA-Z0-9._]*)", dep_spec)
     if match:
         return match.group(1)
     return dep_spec
