@@ -1,7 +1,6 @@
 #:schema https://starship.rs/config-schema.json
 
 [git_branch]
-only_attached = true
 symbol = ""
 
 [git_status]
