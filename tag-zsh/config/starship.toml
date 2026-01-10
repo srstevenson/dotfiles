@@ -2,6 +2,10 @@
 
 add_newline = false
 
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold dimmed white"
+
 [git_branch]
 symbol = ""
 
