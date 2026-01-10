@@ -30,7 +30,7 @@ def is_repo(path: str) -> bool:
         path: Path to directory to check.
 
     Returns:
-        bool: True if directory contains a `.git` or `.jj` subdirectory.
+        True if directory contains a `.git` or `.jj` subdirectory.
 
     """
     return any(os.path.isdir(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH112, PTH118
@@ -48,7 +48,7 @@ def find_repos(path: str) -> Iterable[str]:
         path: Root directory to start searching from.
 
     Yields:
-        str: Absolute paths to discovered repositories.
+        Absolute paths to discovered repositories.
 
     """
     for child in os.scandir(path):
