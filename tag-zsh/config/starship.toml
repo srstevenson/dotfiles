@@ -1,0 +1,17 @@
+#:schema https://starship.rs/config-schema.json
+
+[git_branch]
+only_attached = true
+symbol = ""
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
+[line_break]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
