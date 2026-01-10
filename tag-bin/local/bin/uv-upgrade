@@ -10,7 +10,6 @@
 This script must be run from a directory containing a pyproject.toml file.
 """
 
-import os
 import re
 import subprocess
 import tomllib
@@ -60,7 +59,7 @@ def update_deps(packages: list[str], *, dev: bool = False) -> None:
 
 def format_pyproject_toml() -> None:
     """Format pyproject.toml with Taplo."""
-    subprocess.run(["taplo", "format", os.fspath(PYPROJECT_TOML)], check=True)  # noqa: S603, S607
+    subprocess.run(["taplo", "format", PYPROJECT_TOML], check=True)  # noqa: S603, S607
 
 
 def main() -> None:
