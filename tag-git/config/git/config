@@ -1,6 +1,7 @@
 [user]
 name = "Scott Stevenson"
 email = "scott@stevenson.io"
+useConfigOnly = true
 
 [branch]
 sort = "-committerdate"
