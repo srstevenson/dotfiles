@@ -12,6 +12,12 @@ format = "[$branch(:$remote_branch)]($style) "
 [git_status]
 format = "([$all_status$ahead_behind]($style) )"
 
+[container]
+disabled = true
+
+[hostname]
+disabled = true
+
 [line_break]
 disabled = true
 
@@ -22,4 +28,7 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[username]
 disabled = true
