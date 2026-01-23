@@ -25,22 +25,22 @@
 "variable.builtin" = "base08"
 "variable.other.member" = "base0D"
 
-"markup.bold" = { fg = "base08", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
 "markup.heading.1" = "base08"
 "markup.heading.2" = "base09"
 "markup.heading.3" = "base0A"
 "markup.heading.4" = "base0B"
 "markup.heading.5" = "base0D"
 "markup.heading.6" = "base0C"
-"markup.italic" = { fg = "base08", modifiers = ["italic"] }
+"markup.italic" = { modifiers = ["italic"] }
 "markup.link.label" = "base0D"
-"markup.link.text" = "base0E"
+"markup.link.text" = "base0C"
 "markup.link.url" = { fg = "base0D", underline = { style = "line" } }
 "markup.list" = "base09"
 "markup.list.checked" = "base0B"
 "markup.list.unchecked" = "base04"
-"markup.quote" = "base0E"
-"markup.raw" = "base0B"
+"markup.quote" = "base04"
+"markup.raw" = "base04"
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 
 rainbow = ["base08", "base09", "base0A", "base0B", "base0C", "base0D"]
