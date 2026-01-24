@@ -15,10 +15,19 @@ format = "([$all_status$ahead_behind]($style) )"
 [container]
 disabled = true
 
+[haskell]
+disabled = true
+
 [hostname]
 disabled = true
 
+[java]
+disabled = true
+
 [line_break]
+disabled = true
+
+[ocaml]
 disabled = true
 
 [package]
@@ -28,6 +37,9 @@ disabled = true
 disabled = true
 
 [rust]
+disabled = true
+
+[scala]
 disabled = true
 
 [username]
