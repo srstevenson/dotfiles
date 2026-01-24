@@ -37,12 +37,12 @@ alias ll="ls --color -hl"
 alias ls="ls --color -h"
 
 cdd() {
-  local dir="$(bfs ~/D*/ -type d | zf)"
+  local dir="$(bfs ~/D*/ -type d | fzy)"
   [[ -n "$dir" ]] && cd "$dir"
 }
 
 cdr() {
-  local repo="$(find-repos ~/dev | zf)"
+  local repo="$(find-repos ~/dev | fzy)"
   [[ -n "$repo" ]] && cd ~/dev/"$repo"
 }
 
