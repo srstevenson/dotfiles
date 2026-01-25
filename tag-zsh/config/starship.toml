@@ -27,6 +27,9 @@ disabled = true
 [line_break]
 disabled = true
 
+[lua]
+disabled = true
+
 [ocaml]
 disabled = true
 
