@@ -5,6 +5,7 @@ set -euo pipefail
 jj git remote list | while read -r name url; do
   url="${url%.git}"     # Remove `.git` suffix.
   url="${url#https://}" # Remove `https://` prefix.
+  url="${url#ssh://}"   # Remove `ssh://` prefix.
   url="${url#git@}"     # Remove `git@` prefix.
   url="${url/://}"      # Replace `:` between hostname and path with `/`.
   url="https://$url"    # Add `https://` prefix.
