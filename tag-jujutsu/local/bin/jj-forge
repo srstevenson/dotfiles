@@ -10,6 +10,6 @@ jj git remote list | while read -r name url; do
   url="${url/://}"      # Replace `:` between hostname and path with `/`.
   url="https://$url"    # Add `https://` prefix.
 
-  echo "$url"
+  printf "%s\n" "$url"
   open "$url"
 done
