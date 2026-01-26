@@ -1,8 +1,11 @@
-background = #151515
 foreground = #d0d0d0
+background = #151515
 
-selection-background = #b0b0b0
 selection-foreground = #151515
+selection-background = #b0b0b0
+
+cursor-text = #151515
+cursor-color = #b0b0b0
 
 split-divider-color = #303030
 
