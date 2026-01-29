@@ -1,0 +1,73 @@
+[cursor.style]
+shape = "Beam"
+blinking = "On"
+
+[font]
+size = 15
+
+[font.normal]
+family = "JetBrains Mono NL"
+style = "Light"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+option_as_alt = "OnlyLeft"
+
+[colors.primary]
+foreground = "#d0d0d0"
+background = "#151515"
+dim_foreground = "#b0b0b0"
+
+[colors.cursor]
+cursor = "#b0b0b0"
+text = "#151515"
+
+[colors.search.matches]
+foreground = "#151515"
+background = "#de935f"
+
+[colors.search.focused_match]
+foreground = "#151515"
+background = "#f0c674"
+
+[colors.hints.start]
+foreground = "#151515"
+background = "#f0c674"
+
+[colors.hints.end]
+foreground = "#151515"
+background = "#f0c674"
+
+[colors.line_indicator]
+foreground = "#b0b0b0"
+background = "#202020"
+
+[colors.footer_bar]
+foreground = "#b0b0b0"
+background = "#202020"
+
+[colors.selection]
+foreground = "#151515"
+background = "#b0b0b0"
+
+[colors.normal]
+black = "#151515"
+red = "#cc6666"
+green = "#b5bd68"
+yellow = "#f0c674"
+blue = "#81a2be"
+magenta = "#b294bb"
+cyan = "#8abeb7"
+white = "#d0d0d0"
+
+[colors.bright]
+black = "#505050"
+red = "#cc6666"
+green = "#b5bd68"
+yellow = "#f0c674"
+blue = "#81a2be"
+magenta = "#b294bb"
+cyan = "#8abeb7"
+white = "#e0e0e0"
