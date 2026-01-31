@@ -38,6 +38,8 @@ def expand_url(url: str) -> str:
         The expanded remote URL.
 
     """
+    url = url.rstrip("/")
+
     if url.startswith(("https://", "git@")):
         return url
 
