@@ -7,7 +7,7 @@
     ]
   },
   "general": {
-    "preferredEditor": "vim"
+    "preferredEditor": "hx"
   },
   "privacy": {
     "usageStatisticsEnabled": false
