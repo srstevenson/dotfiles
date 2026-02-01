@@ -16,7 +16,10 @@ path=(~/dev/local/bin ~/.local/bin ~/.cargo/bin $path)
 export EDITOR="hx"
 export LESS="FRX"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
-export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+
+if command -v bitwarden-desktop &>/dev/null || [[ -d /Applications/Bitwarden.app ]]; then
+  export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+fi
 
 autoload -U compinit
 compinit
