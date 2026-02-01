@@ -21,6 +21,28 @@ FG_RESET: Final = "\033[0m"
 HOME_DIR: Final = Path.home()
 
 
+def print_error(message: str, prefix: str = "error") -> None:
+    """Print an error message with a red prefix.
+
+    Args:
+        message: The details of the error.
+        prefix: Optional prefix (e.g., `error`).
+
+    """
+    print(f"{FG_RED}{prefix}{FG_RESET}: {message}")
+
+
+def print_info(message: str, prefix: str = "info") -> None:
+    """Print an informational message with a green prefix.
+
+    Args:
+        message: The details of the message.
+        prefix: Optional prefix (e.g., `info`).
+
+    """
+    print(f"{FG_GREEN}{prefix}{FG_RESET}: {message}")
+
+
 def default_dotfiles_dir() -> Path:
     """Compute the default dotfiles directory.
 
@@ -119,47 +141,45 @@ def import_file(  # noqa: PLR0911
     source = source.absolute()
 
     if source.is_symlink():
-        print(f"{FG_RED}error{FG_RESET}: {source} is a symbolic link")
+        print_error(f"{source} is a symbolic link")
         return False
 
     # Resolve after symlink check to get canonical path of the regular file
     source = source.resolve()
 
     if not source.is_relative_to(HOME_DIR):
-        print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
+        print_error(f"{source} is not in home directory")
         return False
 
     if not source.is_file():
-        print(f"{FG_RED}error{FG_RESET}: {source} is not a file")
+        print_error(f"{source} is not a file")
         return False
 
     path_in_home = source.relative_to(HOME_DIR)
     if not path_in_home.parts[0].startswith("."):
-        print(f"{FG_RED}error{FG_RESET}: {source} is not a dotfile")
+        print_error(f"{source} is not a dotfile")
         return False
 
     tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
     target = tag_dir.joinpath(remove_dot_prefix(path_in_home))
 
     if target.exists():
-        print(f"{FG_RED}error{FG_RESET}: {target} already exists")
+        print_error(f"{target} already exists")
         return False
 
     tilde_source = f"~/{source.relative_to(HOME_DIR)}"
     tagged_path = target.relative_to(dotfiles_dir)
 
     if dry_run:
-        print(
-            f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        print_info(
+            f"{tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}", prefix="imported"
         )
         return True
 
     target.parent.mkdir(parents=True, exist_ok=True)
     source.rename(target)
     source.symlink_to(target)
-    print(
-        f"{FG_GREEN}imported{FG_RESET}: {tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}"
-    )
+    print_info(f"{tilde_source} {FG_GREEN}→{FG_RESET} {tagged_path}", prefix="imported")
     return True
 
 
@@ -201,27 +221,26 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> b
     source = source.absolute()
 
     if not source.is_relative_to(HOME_DIR):
-        print(f"{FG_RED}error{FG_RESET}: {source} is not in home directory")
+        print_error(f"{source} is not in home directory")
         return False
 
     if not source.is_symlink():
-        print(f"{FG_RED}error{FG_RESET}: {source} is not a symbolic link")
+        print_error(f"{source} is not a symbolic link")
         return False
 
     dotfile_path = source.resolve()
 
     if not dotfile_path.is_relative_to(dotfiles_dir):
-        print(
-            f"{FG_RED}error{FG_RESET}: {source} does not link to a file in dotfiles directory"
-        )
+        print_error(f"{source} does not link to a file in dotfiles directory")
         return False
 
     tilde_source = f"~/{source.relative_to(HOME_DIR)}"
     dotfile_relative = dotfile_path.relative_to(dotfiles_dir)
 
     if dry_run:
-        print(
-            f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
+        print_info(
+            f"{tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}",
+            prefix="unlinked",
         )
         return True
 
@@ -229,8 +248,8 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> b
     source.parent.mkdir(parents=True, exist_ok=True)
     dotfile_path.rename(source)
 
-    print(
-        f"{FG_GREEN}unlinked{FG_RESET}: {tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}"
+    print_info(
+        f"{tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}", prefix="unlinked"
     )
     return True
 
@@ -279,8 +298,9 @@ def link_file(
 
     if not target.exists():
         if dry_run:
-            print(
-                f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+            print_info(
+                f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                prefix="linked (created)",
             )
             return True
 
@@ -290,33 +310,37 @@ def link_file(
 
         target.parent.mkdir(parents=True, exist_ok=True)
         target.symlink_to(source)
-        print(
-            f"{FG_GREEN}linked (created){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        print_info(
+            f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+            prefix="linked (created)",
         )
         return True
 
     if target.is_symlink() and target.resolve() == source.resolve():
-        print(
-            f"{FG_GREEN}linked (existing){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        print_info(
+            f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+            prefix="linked (existing)",
         )
         return True
 
     if target.is_file() and filecmp.cmp(source, target, shallow=False):
         if dry_run:
-            print(
-                f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+            print_info(
+                f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                prefix="linked (unlinked copy)",
             )
             return True
 
         target.unlink()
         target.symlink_to(source)
-        print(
-            f"{FG_GREEN}linked (unlinked copy){FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+        print_info(
+            f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+            prefix="linked (unlinked copy)",
         )
         return True
 
-    print(
-        f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+    print_error(
+        f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}", prefix="divergent"
     )
     return False
 
@@ -342,7 +366,7 @@ def link_files(
         if tag_dir.is_dir():
             dirs = [tag_dir]
         else:
-            print(f"{FG_RED}error{FG_RESET}: tag '{tag}' not found")
+            print_error(f"tag '{tag}' not found")
             return False
 
     results = [
@@ -373,22 +397,26 @@ def status(dotfiles_dir: Path) -> bool:
             tagged_path = source.relative_to(dotfiles_dir)
 
             if not target.exists():
-                print(
-                    f"{FG_RED}missing{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                print_error(
+                    f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                    prefix="missing",
                 )
                 all_linked = False
             elif target.is_symlink() and target.resolve() == source.resolve():
-                print(
-                    f"{FG_GREEN}linked{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                print_info(
+                    f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                    prefix="linked",
                 )
             elif target.is_file() and filecmp.cmp(source, target, shallow=False):
-                print(
-                    f"{FG_RED}unlinked copy{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                print_error(
+                    f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                    prefix="unlinked copy",
                 )
                 all_linked = False
             else:
-                print(
-                    f"{FG_RED}divergent{FG_RESET}: {tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}"
+                print_error(
+                    f"{tilde_target} {FG_GREEN}→{FG_RESET} {tagged_path}",
+                    prefix="divergent",
                 )
                 all_linked = False
     return all_linked
@@ -480,9 +508,7 @@ def main() -> None:
 
     if not args.dotfiles_dir.exists():
         args.dotfiles_dir.mkdir(parents=True, exist_ok=True)
-        print(
-            f"{FG_GREEN}info{FG_RESET}: created dotfiles directory {args.dotfiles_dir}"
-        )
+        print_info(f"created dotfiles directory {args.dotfiles_dir}")
 
     success = True
     if args.command == "import":
