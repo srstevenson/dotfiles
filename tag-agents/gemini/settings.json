@@ -1,0 +1,30 @@
+{
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "GEMINI.md"
+    ]
+  },
+  "general": {
+    "preferredEditor": "vim"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "tools": {
+    "sandbox": true
+  },
+  "ui": {
+    "hideBanner": true,
+    "theme": "Default"
+  }
+}
