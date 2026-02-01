@@ -27,7 +27,6 @@ def print_error(message: str, prefix: str = "error") -> None:
     Args:
         message: The details of the error.
         prefix: Optional prefix (e.g., `error`).
-
     """
     print(f"{FG_RED}{prefix}{FG_RESET}: {message}")
 
@@ -38,7 +37,6 @@ def print_info(message: str, prefix: str = "info") -> None:
     Args:
         message: The details of the message.
         prefix: Optional prefix (e.g., `info`).
-
     """
     print(f"{FG_GREEN}{prefix}{FG_RESET}: {message}")
 
@@ -51,7 +49,6 @@ def default_dotfiles_dir() -> Path:
 
     Returns:
         Absolute path to the dotfiles directory to use.
-
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
@@ -68,7 +65,6 @@ def add_dot_prefix(path: Path) -> Path:
 
     Returns:
         A new path with a leading `.` added to the first part.
-
     """
     return Path("." + path.parts[0], *path.parts[1:])
 
@@ -81,7 +77,6 @@ def remove_dot_prefix(path: Path) -> Path:
 
     Returns:
         A new path with the leading `.` removed from the first part.
-
     """
     return Path(path.parts[0].removeprefix("."), *path.parts[1:])
 
@@ -94,7 +89,6 @@ def tag_dirs(dotfiles_dir: Path) -> list[Path]:
 
     Returns:
         Sorted list of existing `tag-*/` directories.
-
     """
     return sorted(
         path
@@ -113,7 +107,6 @@ def files_in_tag(tag_dir: Path) -> list[Path]:
 
     Returns:
         Sorted list of file paths relative to `tag_dir`.
-
     """
     return sorted(
         path.relative_to(tag_dir) for path in tag_dir.rglob("*") if path.is_file()
@@ -136,7 +129,6 @@ def import_file(  # noqa: PLR0911
 
     Returns:
         True if the file was imported successfully, False on error.
-
     """
     source = source.absolute()
 
@@ -196,7 +188,6 @@ def import_files(
 
     Returns:
         True if all files were imported successfully, False if any failed.
-
     """
     results = [
         import_file(dotfiles_dir, source, tag, dry_run=dry_run) for source in sources
@@ -216,7 +207,6 @@ def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> b
 
     Returns:
         True if the file was unlinked successfully, False on error.
-
     """
     source = source.absolute()
 
@@ -266,7 +256,6 @@ def unlink_files(
 
     Returns:
         True if all files were unlinked successfully, False if any failed.
-
     """
     results = [unlink_file(dotfiles_dir, source, dry_run=dry_run) for source in sources]
     return all(results)
@@ -288,7 +277,6 @@ def link_file(
 
     Returns:
         True if the file is linked or was linked successfully, False if divergent.
-
     """
     source = tag_dir.joinpath(path)
     target = HOME_DIR.joinpath(add_dot_prefix(path))
@@ -357,7 +345,6 @@ def link_files(
 
     Returns:
         True if all files were linked successfully, False if any failed.
-
     """
     dirs = tag_dirs(dotfiles_dir)
 
@@ -385,7 +372,6 @@ def status(dotfiles_dir: Path) -> bool:
 
     Returns:
         True if all files are properly linked, False otherwise.
-
     """
     all_linked = True
     for tag_dir in tag_dirs(dotfiles_dir):
@@ -438,7 +424,6 @@ def parse_arguments() -> Args:
 
     Returns:
         Parsed arguments namespace including command and options.
-
     """
     parser = argparse.ArgumentParser(
         description="Dotfiles manager",

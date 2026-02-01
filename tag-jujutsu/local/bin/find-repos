@@ -31,7 +31,6 @@ def is_repo(path: str) -> bool:
 
     Returns:
         True if directory contains a `.git` or `.jj` subdirectory.
-
     """
     return any(os.path.isdir(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH112, PTH118
 
@@ -49,7 +48,6 @@ def find_repos(path: str) -> Iterable[str]:
 
     Yields:
         Absolute paths to discovered repositories.
-
     """
     for child in os.scandir(path):
         if child.is_dir():
@@ -64,7 +62,6 @@ def parse_args() -> Args:
 
     Returns:
         Parsed arguments namespace.
-
     """
     parser = argparse.ArgumentParser(
         description="Find Git and Jujutsu repositories within a directory tree"

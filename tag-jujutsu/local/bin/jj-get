@@ -36,7 +36,6 @@ def expand_url(url: str) -> str:
 
     Returns:
         The expanded remote URL.
-
     """
     url = url.rstrip("/")
 
@@ -63,7 +62,6 @@ def parse_args() -> Args:
 
     Returns:
         Parsed arguments with the expanded remote URL.
-
     """
     parser = argparse.ArgumentParser(
         description="Clone Git repositories with Jujutsu into ~/dev"
@@ -87,7 +85,6 @@ def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
 
     Returns:
         True if URL is a HTTPS or SSH URL for any provided host.
-
     """
     return any(url.startswith((f"https://{host}/", f"git@{host}:")) for host in hosts)
 
@@ -106,7 +103,6 @@ def unpack_host_and_path(url: str) -> tuple[str, str]:
 
     Returns:
         Tuple of host and repository path.
-
     """
     if "@" in url:
         host, repo = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)

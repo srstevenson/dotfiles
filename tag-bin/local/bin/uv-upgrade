@@ -30,7 +30,6 @@ def extract_package_name(dep_spec: str) -> str:
 
     Returns:
         The extracted package name, or the original string if no match.
-
     """
     match = re.match(r"^([a-zA-Z0-9][-a-zA-Z0-9._]*)", dep_spec)
     if match:
@@ -47,7 +46,6 @@ def update_deps(packages: list[str], *, dev: bool = False) -> None:
     Args:
         packages: List of package names to update.
         dev: If `True`, add `--dev` flag for development dependencies.
-
     """
     cmd = ["uv", "add", "--upgrade"]
     if dev:
@@ -68,7 +66,6 @@ def main() -> None:
     Reads `pyproject.toml` from the current directory, extracts all regular
     and development dependencies, and updates them to their latest compatible
     versions using `uv add --upgrade`.
-
     """
     with PYPROJECT_TOML.open("rb") as f:
         data = tomllib.load(f)
