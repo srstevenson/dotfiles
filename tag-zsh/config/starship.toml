@@ -45,6 +45,9 @@ disabled = true
 [scala]
 disabled = true
 
+[typst]
+disabled = true
+
 [username]
 disabled = true
 
