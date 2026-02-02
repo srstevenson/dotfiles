@@ -1,0 +1,7 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+# Updates are managed via Homebrew.
+check_for_update_on_startup = false
+
+[feedback]
+enabled = false
