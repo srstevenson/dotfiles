@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "CLAUDE_CODE_HIDE_ACCOUNT_INFO": 1,
     "DISABLE_BUG_COMMAND": "1",
