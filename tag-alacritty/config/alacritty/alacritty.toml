@@ -6,7 +6,7 @@ blinking = "On"
 size = 15
 
 [font.normal]
-family = "JetBrains Mono NL"
+family = "Maple Mono Normal NF"
 style = "Light"
 
 [mouse]
