@@ -3,5 +3,6 @@ font-size = 15
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
+shell-integration-features = no-title
 theme = thalk
 unfocused-split-opacity = 1

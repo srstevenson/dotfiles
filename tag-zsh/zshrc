@@ -37,6 +37,19 @@ zstyle ":completion:*" rehash true
 zstyle ":completion:*" use-cache on
 zstyle ":completion:*" verbose yes
 
+autoload -U add-zsh-hook
+
+_precmd_title() {
+  print -Pn "\e]0;%m: %1~\a"
+}
+
+_preexec_title() {
+  print -Pn "\e]0;%m: %1~ — $2\a"
+}
+
+add-zsh-hook precmd _precmd_title
+add-zsh-hook preexec _preexec_title
+
 alias la="ls --color -Ahl"
 alias ll="ls --color -hl"
 alias ls="ls --color -h"
