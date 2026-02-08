@@ -25,6 +25,15 @@ auto-format = true
 formatter = { command = "jq", args = ["."] }
 
 [[language]]
+name = "lua"
+auto-format = true
+formatter = { command = "stylua", args = [
+  "--indent-type=Spaces",
+  "--indent-width=2",
+  "-",
+] }
+
+[[language]]
 name = "markdown"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser=markdown"] }
