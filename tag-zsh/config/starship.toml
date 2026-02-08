@@ -33,6 +33,9 @@ disabled = true
 [lua]
 disabled = true
 
+[nodejs]
+disabled = true
+
 [ocaml]
 disabled = true
 
