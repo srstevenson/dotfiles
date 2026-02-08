@@ -56,12 +56,12 @@ alias ls="ls --color -h"
 
 cdd() {
   local dir="$(bfs ~/D*/ -type d | fzy)"
-  [[ -n "$dir" ]] && cd "$dir"
+  [[ -d "$dir" ]] && cd "$dir"
 }
 
 cdr() {
   local repo="$(find-repos ~/dev | fzy)"
-  [[ -n "$repo" ]] && cd ~/dev/"$repo"
+  [[ -d ~/dev/"$repo" ]] && cd ~/dev/"$repo"
 }
 
 eval "$(starship init zsh)"
