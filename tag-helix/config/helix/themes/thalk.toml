@@ -43,8 +43,6 @@
 "markup.raw" = "base04"
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 
-rainbow = ["base08", "base09", "base0A", "base0B", "base0C", "base0D"]
-
 "error" = "base08"
 "hint" = "base0C"
 "info" = "base0D"
