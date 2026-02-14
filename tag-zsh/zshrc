@@ -1,3 +1,5 @@
+bindkey -e
+
 setopt HIST_IGNORE_DUPS
 
 HISTSIZE=10000
