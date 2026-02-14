@@ -3,6 +3,7 @@
 # Updates are managed via Homebrew.
 check_for_update_on_startup = false
 model = "gpt-5.3-codex"
+personality = "pragmatic"
 
 [feedback]
 enabled = false
