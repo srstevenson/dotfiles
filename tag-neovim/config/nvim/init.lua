@@ -16,7 +16,7 @@ vim.opt.spelllang = "en_gb"
 vim.opt.tabstop = 4
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("FileType-jjdescription", { clear = true }),
+  group = vim.api.nvim_create_augroup("filetype-jjdescription", { clear = true }),
   pattern = "jjdescription",
   callback = function()
     vim.opt_local.colorcolumn = { 50, 72 }
@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  group = vim.api.nvim_create_augroup("BufNewFile-BufRead-uv-run", { clear = true }),
+  group = vim.api.nvim_create_augroup("shebang-uv-run-python", { clear = true }),
   pattern = "*",
   callback = function(args)
     local line = vim.fn.getline(1)
@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("BufWritePre-whitespace", { clear = true }),
+  group = vim.api.nvim_create_augroup("buffer-trim-whitespace", { clear = true }),
   pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("TextYankPost-hl", { clear = true }),
+  group = vim.api.nvim_create_augroup("text-yank-highlight", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
