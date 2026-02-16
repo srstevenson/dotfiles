@@ -1,3 +1,6 @@
+[language-server.rledger-lsp]
+command = "rledger-lsp"
+
 [language-server.ty]
 command = "ty"
 args = ["server"]
@@ -9,6 +12,10 @@ command = "typos-lsp"
 name = "bash"
 auto-format = true
 formatter = { command = "shfmt", args = ["--case-indent", "--indent=2", "-"] }
+
+[[language]]
+name = "beancount"
+language-servers = ["rledger-lsp"]
 
 [[language]]
 name = "css"
