@@ -21,6 +21,10 @@ disabled = true
 [container]
 disabled = true
 
+[git_commit]
+# TODO(srstevenson): Show Jujutsu change ID instead.
+disabled = true
+
 [haskell]
 disabled = true
 
