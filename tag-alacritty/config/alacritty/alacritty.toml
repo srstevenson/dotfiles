@@ -9,6 +9,9 @@ size = 15
 family = "JetBrains Mono"
 style = "Light"
 
+[font.bold]
+style = "Medium"
+
 [mouse]
 hide_when_typing = true
 
