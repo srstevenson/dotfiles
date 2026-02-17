@@ -97,10 +97,10 @@
 "ui.window" = "base02"
 
 [palette]
-base00 = "#151515"
-base01 = "#202020"
-base02 = "#303030"
-base03 = "#505050"
+base00 = "#151519"
+base01 = "#202024"
+base02 = "#303034"
+base03 = "#505054"
 base04 = "#b0b0b0"
 base05 = "#d0d0d0"
 base06 = "#e0e0e0"

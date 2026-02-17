@@ -20,43 +20,43 @@ option_as_alt = "OnlyLeft"
 
 [colors.primary]
 foreground = "#d0d0d0"
-background = "#151515"
+background = "#151519"
 dim_foreground = "#b0b0b0"
 
 [colors.cursor]
 cursor = "#b0b0b0"
-text = "#151515"
+text = "#151519"
 
 [colors.search.matches]
-foreground = "#151515"
+foreground = "#151519"
 background = "#de935f"
 
 [colors.search.focused_match]
-foreground = "#151515"
+foreground = "#151519"
 background = "#f0c674"
 
 [colors.hints.start]
-foreground = "#151515"
+foreground = "#151519"
 background = "#f0c674"
 
 [colors.hints.end]
-foreground = "#151515"
+foreground = "#151519"
 background = "#f0c674"
 
 [colors.line_indicator]
 foreground = "#b0b0b0"
-background = "#202020"
+background = "#202024"
 
 [colors.footer_bar]
 foreground = "#b0b0b0"
-background = "#202020"
+background = "#202024"
 
 [colors.selection]
-foreground = "#151515"
+foreground = "#151519"
 background = "#b0b0b0"
 
 [colors.normal]
-black = "#151515"
+black = "#151519"
 red = "#cc6666"
 green = "#b5bd68"
 yellow = "#f0c674"
@@ -66,7 +66,7 @@ cyan = "#8abeb7"
 white = "#d0d0d0"
 
 [colors.bright]
-black = "#505050"
+black = "#505054"
 red = "#cc6666"
 green = "#b5bd68"
 yellow = "#f0c674"
