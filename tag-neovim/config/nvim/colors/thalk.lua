@@ -94,6 +94,8 @@ vim.api.nvim_set_hl(0, "WinSeparator", { fg = base02 })
 vim.api.nvim_set_hl(0, "lCursor", { fg = base00, bg = base04 })
 
 -- Diffs
+vim.api.nvim_set_hl(0, "Added", { fg = base0B })
+vim.api.nvim_set_hl(0, "Removed", { fg = base08 })
 vim.api.nvim_set_hl(0, "DiffAdd", { fg = base0B, bg = base01 })
 vim.api.nvim_set_hl(0, "DiffChange", { fg = base0D, bg = base01 })
 vim.api.nvim_set_hl(0, "DiffDelete", { fg = base08, bg = base01 })
