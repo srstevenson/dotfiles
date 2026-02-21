@@ -66,4 +66,9 @@ cdr() {
   [[ -d ~/dev/"$repo" ]] && cd ~/dev/"$repo"
 }
 
+o() {
+  local item="$(fd -c never -t f | fzy)"
+  [[ -n "$item" ]] && open "$item"
+}
+
 eval "$(starship init zsh)"
