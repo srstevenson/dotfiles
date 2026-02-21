@@ -25,6 +25,9 @@ disabled = true
 # TODO(srstevenson): Show Jujutsu change ID.
 disabled = true
 
+[golang]
+disabled = true
+
 [haskell]
 disabled = true
 
