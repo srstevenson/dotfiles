@@ -2,7 +2,7 @@ foreground = #d0d0d0
 background = #151519
 
 selection-foreground = #151519
-selection-background = #b0b0b0
+selection-background = #d0d0d0
 
 cursor-text = #151519
 cursor-color = #b0b0b0
