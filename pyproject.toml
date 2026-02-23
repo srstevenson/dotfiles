@@ -1,9 +1,3 @@
-[tool.basedpyright]
-pythonVersion = "3.14"
-typeCheckingMode = "recommended"
-reportImplicitStringConcatenation = false
-reportUnusedCallResult = false
-
 [tool.ruff]
 target-version = "py314"
 
@@ -19,3 +13,6 @@ split-on-trailing-comma = false
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.ty.rules]
+all = "error"

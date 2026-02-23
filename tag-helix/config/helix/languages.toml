@@ -52,7 +52,7 @@ language-servers = ["typos"]
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ty", "ruff", "basedpyright", "typos"]
+language-servers = ["ty", "ruff", "typos"]
 
 [[language]]
 name = "rust"

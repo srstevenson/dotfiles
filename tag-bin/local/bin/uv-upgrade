@@ -14,7 +14,7 @@ import re
 import subprocess
 import tomllib
 from pathlib import Path
-from typing import Final, cast
+from typing import Final
 
 PYPROJECT_TOML: Final = Path("pyproject.toml")
 
@@ -70,11 +70,10 @@ def main() -> None:
     with PYPROJECT_TOML.open("rb") as f:
         data = tomllib.load(f)
 
-    deps = cast("list[str]", data.get("project", {}).get("dependencies", []))  # pyright: ignore[reportAny]
+    deps = data.get("project", {}).get("dependencies", [])
     deps_packages = [extract_package_name(dep) for dep in deps]
 
-    dep_groups = cast("dict[str, list[str]]", data.get("dependency-groups", {}))
-    dev_deps = dep_groups.get("dev", [])
+    dev_deps = data.get("dependency-groups", {}).get("dev", [])
     dev_deps_packages = [extract_package_name(dep) for dep in dev_deps]
 
     if deps_packages:
