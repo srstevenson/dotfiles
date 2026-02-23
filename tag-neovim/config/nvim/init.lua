@@ -4,6 +4,7 @@ vim.opt.colorcolumn = { 80 }
 vim.opt.expandtab = true
 vim.opt.fillchars:append({ fold = " " })
 vim.opt.ignorecase = true
+vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "⍽" }
 vim.opt.number = true
