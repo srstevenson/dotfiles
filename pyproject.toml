@@ -1,12 +1,20 @@
 [tool.ruff]
+fix = true
 target-version = "py314"
 
 [tool.ruff.format]
+docstring-code-format = true
 skip-magic-trailing-comma = true
 
 [tool.ruff.lint]
-ignore = ["COM812", "E501", "T201"]
 select = ["ALL"]
+ignore = [
+  "COM812", # Trailing comma missing
+  "T201",   # print found
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
