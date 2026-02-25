@@ -1,13 +1,6 @@
 [language-server.rledger-lsp]
 command = "rledger-lsp"
 
-[language-server.ty]
-command = "ty"
-args = ["server"]
-
-[language-server.typos]
-command = "typos-lsp"
-
 [[language]]
 name = "bash"
 auto-format = true
@@ -19,26 +12,15 @@ language-servers = ["rledger-lsp"]
 
 [[language]]
 name = "css"
-auto-format = true
 formatter = { command = "prettier", args = ["--parser=css"] }
 
 [[language]]
-name = "jjdescription"
-language-servers = ["typos"]
-
-[[language]]
 name = "json"
-auto-format = true
 formatter = { command = "jq", args = ["."] }
 
 [[language]]
 name = "lua"
 auto-format = true
-formatter = { command = "stylua", args = [
-  "--indent-type=Spaces",
-  "--indent-width=2",
-  "-",
-] }
 
 [[language]]
 name = "markdown"
@@ -47,23 +29,14 @@ formatter = { command = "prettier", args = [
   "--parser=markdown",
   "--prose-wrap=always",
 ] }
-language-servers = ["typos"]
 
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["ty", "ruff", "typos"]
-
-[[language]]
-name = "rust"
-auto-format = true
-language-servers = ["rust-analyzer", "typos"]
 
 [[language]]
 name = "toml"
 auto-format = true
-formatter = { command = "taplo", args = ["format", "-"] }
-language-servers = ["taplo", "typos"]
 
 [[language]]
 name = "typst"
@@ -71,11 +44,6 @@ auto-format = true
 formatter = { command = "typstyle" }
 
 [[language]]
-name = "xit"
-language-servers = ["typos"]
-
-[[language]]
 name = "yaml"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser=yaml"] }
-language-servers = ["typos"]
