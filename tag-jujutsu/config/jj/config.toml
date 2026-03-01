@@ -26,4 +26,3 @@ git_push_bookmark = '"srs/push-" ++ change_id.short()'
 [aliases]
 forge = ["util", "exec", "--", "jj-forge"]
 get = ["util", "exec", "--", "jj-get"]
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
