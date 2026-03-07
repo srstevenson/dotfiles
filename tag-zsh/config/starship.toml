@@ -55,6 +55,9 @@ disabled = true
 [python]
 disabled = true
 
+[ruby]
+disabled = true
+
 [rust]
 disabled = true
 
