@@ -12,3 +12,6 @@ enabled = false
 
 [feedback]
 enabled = false
+
+[tui]
+theme = "ansi"
