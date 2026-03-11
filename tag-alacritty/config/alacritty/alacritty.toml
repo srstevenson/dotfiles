@@ -15,4 +15,5 @@ style = "Medium"
 hide_when_typing = true
 
 [window]
+decorations_theme_variant = "Dark"
 option_as_alt = "OnlyLeft"
