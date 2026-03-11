@@ -37,6 +37,9 @@ disabled = true
 [java]
 disabled = true
 
+[julia]
+disabled = true
+
 [line_break]
 disabled = true
 
