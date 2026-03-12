@@ -4,7 +4,6 @@ setopt HIST_IGNORE_DUPS
 
 HISTSIZE=10000
 SAVEHIST=10000
-WORDCHARS="${WORDCHARS//\//}"
 
 export HOMEBREW_NO_ANALYTICS=1
 if [[ -d /opt/homebrew ]]; then
