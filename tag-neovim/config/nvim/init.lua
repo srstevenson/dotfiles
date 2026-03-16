@@ -18,6 +18,7 @@ vim.opt.smartcase = true
 vim.opt.softtabstop = -1
 vim.opt.spelllang = "en_gb"
 vim.opt.tabstop = 4
+vim.opt.termguicolors = true
 
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("filetype-jjdescription", { clear = true }),
