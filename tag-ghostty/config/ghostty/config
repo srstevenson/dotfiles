@@ -7,13 +7,12 @@ shell-integration-features = no-title
 theme = thalk
 unfocused-split-opacity = 1
 
-keybind = ctrl+b=activate_key_table_once:nav
-keybind = nav/c=new_tab
-keybind = nav/n=next_tab
-keybind = nav/p=previous_tab
-keybind = nav/s=new_split:down
-keybind = nav/v=new_split:right
-keybind = nav/h=goto_split:left
-keybind = nav/j=goto_split:down
-keybind = nav/k=goto_split:up
-keybind = nav/l=goto_split:right
+keybind = ctrl+b>c=new_tab
+keybind = ctrl+b>n=next_tab
+keybind = ctrl+b>p=previous_tab
+keybind = ctrl+b>s=new_split:down
+keybind = ctrl+b>v=new_split:right
+keybind = ctrl+b>h=goto_split:left
+keybind = ctrl+b>j=goto_split:down
+keybind = ctrl+b>k=goto_split:up
+keybind = ctrl+b>l=goto_split:right
