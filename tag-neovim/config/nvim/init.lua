@@ -1,6 +1,7 @@
 vim.cmd.colorscheme("thalk")
 
 vim.opt.colorcolumn = { 80 }
+vim.opt.confirm = true
 vim.opt.expandtab = true
 vim.opt.grepprg = "rg --vimgrep --hidden --glob=!.git"
 vim.opt.ignorecase = true
