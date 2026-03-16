@@ -17,6 +17,8 @@ vim.opt.shiftwidth = 4
 vim.opt.smartcase = true
 vim.opt.softtabstop = -1
 vim.opt.spelllang = "en_gb"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 
