@@ -15,8 +15,8 @@ local base0D = "#81a2be"
 local base0E = "#b294bb"
 local base0F = "#d59680"
 
-vim.cmd("highlight clear")
-vim.cmd("syntax reset")
+vim.cmd.highlight("clear")
+vim.cmd.syntax("reset")
 
 vim.g.colors_name = "thalk"
 
