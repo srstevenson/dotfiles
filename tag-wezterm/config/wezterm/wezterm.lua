@@ -14,9 +14,13 @@ config.window_frame = {
 
 config.default_cursor_style = "BlinkingBar"
 config.hide_tab_bar_if_only_one_tab = true
-config.native_macos_fullscreen_mode = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_tab_index_in_tab_bar = false
+
+if wezterm.target_triple:find("darwin") then
+  config.native_macos_fullscreen_mode = true
+  config.quit_when_all_windows_are_closed = false
+end
 
 config.leader = { mods = "CTRL", key = "b" }
 config.keys = {
