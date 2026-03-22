@@ -4,7 +4,10 @@ font-family = JetBrains Mono
 font-size = 16
 
 mouse-hide-while-typing = true
+window-theme = ghostty
 shell-integration-features = no-title
+
+gtk-titlebar-style = tabs
 
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
