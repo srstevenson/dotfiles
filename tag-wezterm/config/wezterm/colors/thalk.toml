@@ -1,14 +1,11 @@
 [colors]
 foreground = "#d0d0d0"
 background = "#151515"
-
 selection_fg = "#151515"
 selection_bg = "#d0d0d0"
-
 cursor_fg = "#151515"
 cursor_bg = "#b0b0b0"
 cursor_border = "#b0b0b0"
-
 ansi = [
   "#151515",
   "#cc6666",

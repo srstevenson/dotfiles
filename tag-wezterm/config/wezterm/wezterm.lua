@@ -7,6 +7,11 @@ config.font_size = 16
 
 config.color_scheme = "thalk"
 
+config.window_frame = {
+  active_titlebar_bg = "#202020",
+  inactive_titlebar_bg = "#202020",
+}
+
 config.default_cursor_style = "BlinkingBar"
 config.hide_tab_bar_if_only_one_tab = true
 config.native_macos_fullscreen_mode = true
