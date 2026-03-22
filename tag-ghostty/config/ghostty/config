@@ -5,7 +5,6 @@ macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
 shell-integration-features = no-title
 theme = thalk
-unfocused-split-opacity = 1
 
 keybind = ctrl+b>c=new_tab
 keybind = ctrl+b>n=next_tab
