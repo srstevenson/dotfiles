@@ -17,3 +17,8 @@ hide_when_typing = true
 [window]
 decorations_theme_variant = "Dark"
 option_as_alt = "OnlyLeft"
+
+[[keyboard.bindings]]
+mods = "Command"
+key = "Enter"
+action = "ToggleFullscreen"
