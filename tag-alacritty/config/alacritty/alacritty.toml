@@ -2,7 +2,7 @@
 import = ["themes/thalk.toml"]
 
 [font]
-size = 15
+size = 16
 
 [font.normal]
 family = "JetBrains Mono"
