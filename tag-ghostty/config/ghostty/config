@@ -1,10 +1,14 @@
+theme = thalk
+
 font-family = JetBrains Mono
 font-size = 16
-macos-option-as-alt = left
-macos-titlebar-proxy-icon = hidden
+
 mouse-hide-while-typing = true
 shell-integration-features = no-title
-theme = thalk
+
+macos-option-as-alt = left
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = tabs
 
 keybind = ctrl+b>c=new_tab
 keybind = ctrl+b>n=next_tab
