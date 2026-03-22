@@ -30,6 +30,7 @@ config.keys = {
   { mods = "LEADER", key = "j", action = wezterm.action.ActivatePaneDirection("Down") },
   { mods = "LEADER", key = "k", action = wezterm.action.ActivatePaneDirection("Up") },
   { mods = "LEADER", key = "l", action = wezterm.action.ActivatePaneDirection("Right") },
+  { mods = "LEADER", key = "z", action = wezterm.action.TogglePaneZoomState },
 }
 
 return config
