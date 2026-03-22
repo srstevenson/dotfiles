@@ -20,7 +20,7 @@ vim.cmd.syntax("reset")
 
 vim.g.colors_name = "thalk"
 
--- Core UI
+-- UI
 vim.api.nvim_set_hl(0, "Bold", { bold = true })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = base01 })
 vim.api.nvim_set_hl(0, "ComplMatchIns", { fg = base0A, bg = base01, bold = true })
