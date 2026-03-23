@@ -7,11 +7,8 @@ mouse-hide-while-typing = true
 window-theme = ghostty
 shell-integration-features = no-title
 
-gtk-titlebar-style = tabs
-
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
 
 keybind = ctrl+b>c=new_tab
 keybind = ctrl+b>n=next_tab
