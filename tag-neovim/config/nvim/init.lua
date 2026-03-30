@@ -13,7 +13,7 @@ vim.opt.number = true
 vim.opt.path:append("**")
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
 vim.opt.softtabstop = -1
