@@ -18,6 +18,9 @@ disabled = true
 [c]
 disabled = true
 
+[cmake]
+disabled = true
+
 [container]
 disabled = true
 
