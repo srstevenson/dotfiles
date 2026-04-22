@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("thalk")
+vim.cmd.colorscheme("chalk")
 
 vim.opt.colorcolumn = { 80 }
 vim.opt.confirm = true
