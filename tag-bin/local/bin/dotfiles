@@ -495,7 +495,6 @@ def main() -> None:
         args.dotfiles_dir.mkdir(parents=True, exist_ok=True)
         print_info(f"created dotfiles directory {args.dotfiles_dir}")
 
-    success = True
     if args.command == "import":
         success = import_files(
             args.dotfiles_dir, args.paths, args.tag, dry_run=args.dry_run
