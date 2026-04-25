@@ -1,6 +1,7 @@
 theme = chalk
 
 font-family = JetBrains Mono
+font-feature = -calt
 font-size = 16
 
 mouse-hide-while-typing = true
