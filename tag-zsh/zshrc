@@ -8,8 +8,6 @@ SAVEHIST=10000
 export HOMEBREW_NO_ANALYTICS=1
 if [[ -d /opt/homebrew ]]; then
   . <(/opt/homebrew/bin/brew shellenv zsh)
-elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  . <(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)
 fi
 
 path=(~/dev/local/bin ~/.local/bin ~/.cargo/bin $path)
