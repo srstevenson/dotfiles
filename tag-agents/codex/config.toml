@@ -10,5 +10,8 @@ enabled = false
 [feedback]
 enabled = false
 
-[tui]
-theme = "ansi"
+[otel]
+exporter = "none"
+log_user_prompt = false
+metrics_exporter = "none"
+trace_exporter = "none"
