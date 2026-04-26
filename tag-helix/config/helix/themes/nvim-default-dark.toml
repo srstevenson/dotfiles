@@ -1,0 +1,121 @@
+"attribute" = "LightCyan"
+"comment" = "LightGrey4"
+"constant" = "LightGrey2"
+"constant.character" = "LightGreen"
+"constant.character.escape" = "LightCyan"
+"constructor" = "LightBlue"
+"function" = "LightCyan"
+"function.macro" = "LightGrey2"
+"keyword" = "LightGrey2"
+"label" = "LightCyan"
+"namespace" = "LightBlue"
+"operator" = "LightGrey2"
+"punctuation" = "LightGrey2"
+"punctuation.special" = "LightCyan"
+"special" = "LightCyan"
+"string" = "LightGreen"
+"string.regexp" = "LightCyan"
+"string.special" = "LightCyan"
+"string.special.symbol" = "LightBlue"
+"tag" = "LightCyan"
+"type" = "LightGrey2"
+"type.builtin" = "LightGrey2"
+"type.enum.variant" = "LightBlue"
+"variable" = "LightGrey2"
+"variable.builtin" = "LightGrey2"
+"variable.other.member" = "LightBlue"
+
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading.1" = "LightGrey2"
+"markup.heading.2" = "LightGrey2"
+"markup.heading.3" = "LightGrey2"
+"markup.heading.4" = "LightGrey2"
+"markup.heading.5" = "LightGrey2"
+"markup.heading.6" = "LightGrey2"
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.label" = "LightCyan"
+"markup.link.text" = "LightGrey2"
+"markup.link.url" = { fg = "LightBlue", underline = { style = "line" } }
+"markup.list" = "LightCyan"
+"markup.list.checked" = "LightGreen"
+"markup.list.unchecked" = "LightGrey4"
+"markup.quote" = "LightGrey4"
+"markup.raw" = "LightGreen"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+
+"error" = "LightRed"
+"hint" = "LightBlue"
+"info" = "LightCyan"
+"warning" = "LightYellow"
+
+"diagnostic" = { underline = { color = "LightGrey4", style = "curl" } }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"diagnostic.error" = { underline = { color = "LightRed", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "LightBlue", style = "curl" } }
+"diagnostic.info" = { underline = { color = "LightCyan", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.warning" = { underline = { color = "LightYellow", style = "curl" } }
+
+"diff.delta" = "LightCyan"
+"diff.minus" = "LightRed"
+"diff.plus" = "LightGreen"
+
+"ui.background" = { bg = "DarkGrey2" }
+"ui.bufferline" = { fg = "LightGrey3", bg = "DarkGrey3" }
+"ui.bufferline.active" = { fg = "LightGrey2", bg = "DarkGrey4" }
+"ui.bufferline.background" = { bg = "DarkGrey2" }
+"ui.cursor" = { fg = "DarkGrey2", bg = "LightGrey2" }
+"ui.cursor.match" = { fg = "LightGrey2", modifiers = ["bold"] }
+"ui.cursor.primary" = { fg = "DarkGrey2", bg = "LightGrey2" }
+"ui.cursor.select" = { fg = "DarkGrey2", bg = "LightYellow" }
+"ui.gutter" = { bg = "DarkGrey2" }
+"ui.help" = { fg = "LightGrey2", bg = "DarkGrey1" }
+"ui.linenr" = { fg = "DarkGrey4", bg = "DarkGrey2" }
+"ui.linenr.selected" = { fg = "LightGrey2" }
+"ui.menu" = { fg = "LightGrey2", bg = "DarkGrey3" }
+"ui.menu.scroll" = { fg = "DarkGrey4", bg = "DarkGrey3" }
+"ui.menu.selected" = { fg = "LightGrey2", bg = "DarkGrey4", modifiers = [
+  "bold",
+] }
+"ui.popup" = { bg = "DarkGrey1" }
+"ui.selection" = { bg = "DarkGrey4" }
+"ui.selection.primary" = { bg = "DarkGrey4" }
+"ui.statusline" = { fg = "LightGrey2", bg = "DarkGrey3" }
+"ui.statusline.inactive" = { fg = "DarkGrey4", bg = "DarkGrey3" }
+"ui.statusline.insert" = { fg = "DarkGrey2", bg = "LightGreen" }
+"ui.statusline.normal" = { fg = "LightGrey2", bg = "DarkGrey3" }
+"ui.statusline.select" = { fg = "DarkGrey2", bg = "LightYellow" }
+"ui.text" = "LightGrey2"
+"ui.text.directory" = "LightCyan"
+"ui.text.focus" = { fg = "LightGrey2", modifiers = ["bold"] }
+"ui.text.inactive" = "LightGrey4"
+"ui.virtual" = "DarkGrey4"
+"ui.virtual.indent-guide" = "DarkGrey4"
+"ui.virtual.inlay-hint" = "LightGrey4"
+"ui.virtual.jump-label" = { fg = "LightYellow", modifiers = ["bold"] }
+"ui.virtual.ruler" = { bg = "DarkGrey3" }
+"ui.virtual.whitespace" = "DarkGrey4"
+"ui.virtual.wrap" = "DarkGrey4"
+"ui.window" = "DarkGrey4"
+
+[palette]
+DarkGrey1 = "#07080d"
+DarkGrey2 = "#14161b"
+DarkGrey3 = "#2c2e33"
+DarkGrey4 = "#4f5258"
+DarkRed = "#590008"
+DarkGreen = "#005523"
+DarkYellow = "#6b5300"
+DarkBlue = "#004c73"
+DarkCyan = "#007373"
+DarkMagenta = "#470045"
+LightGrey1 = "#eef1f8"
+LightGrey2 = "#e0e2ea"
+LightGrey3 = "#c4c6cd"
+LightGrey4 = "#9b9ea4"
+LightRed = "#ffc0b9"
+LightGreen = "#b3f6c0"
+LightYellow = "#fce094"
+LightBlue = "#a6dbff"
+LightCyan = "#8cf8f7"
+LightMagenta = "#ffcaff"
