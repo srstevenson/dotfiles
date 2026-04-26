@@ -81,6 +81,18 @@ def remove_dot_prefix(path: Path) -> Path:
     return Path(path.parts[0].removeprefix("."), *path.parts[1:])
 
 
+def normalise_tag(tag: str) -> str:
+    """Normalise a tag name by removing an optional `tag-` prefix.
+
+    Args:
+        tag: Tag name, with or without the `tag-` prefix.
+
+    Returns:
+        Tag name without the `tag-` prefix.
+    """
+    return tag.removeprefix("tag-")
+
+
 def tag_dirs(dotfiles_dir: Path) -> list[Path]:
     """List tag directories within the dotfiles directory.
 
@@ -124,7 +136,7 @@ def import_file(  # noqa: PLR0911
     Args:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
         source: Path to an existing file in `$HOME`.
-        tag: Tag name (without the `tag-` prefix) under which to store the file.
+        tag: Tag name, with or without the `tag-` prefix, under which to store the file.
         dry_run: If True, print intended actions without making changes.
 
     Returns:
@@ -156,7 +168,7 @@ def import_file(  # noqa: PLR0911
         print_error(f"{source} is not a dotfile")
         return False
 
-    tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
+    tag_dir = dotfiles_dir.joinpath(f"tag-{normalise_tag(tag)}")
     target = tag_dir.joinpath(remove_dot_prefix(path_in_home))
 
     if target.exists():
@@ -187,7 +199,7 @@ def import_files(
     Args:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
         sources: List of paths to files in `$HOME` to import.
-        tag: Tag name (without the `tag-` prefix) to import into.
+        tag: Tag name, with or without the `tag-` prefix, to import into.
         dry_run: If True, print intended actions without making changes.
 
     Returns:
@@ -344,7 +356,7 @@ def link_files(
 
     Args:
         dotfiles_dir: Absolute path to the root of the dotfiles repository.
-        tag: Optional tag name (without the `tag-` prefix) to restrict linking.
+        tag: Optional tag name, with or without the `tag-` prefix, to restrict linking.
         dry_run: If True, print intended actions without making changes.
 
     Returns:
@@ -353,7 +365,7 @@ def link_files(
     dirs = tag_dirs(dotfiles_dir)
 
     if tag:
-        tag_dir = dotfiles_dir.joinpath(f"tag-{tag}")
+        tag_dir = dotfiles_dir.joinpath(f"tag-{normalise_tag(tag)}")
         if tag_dir.is_dir():
             dirs = [tag_dir]
         else:
@@ -468,7 +480,11 @@ def parse_arguments() -> Args:
         "import", help="import dotfiles into the source directory"
     )
     import_parser.add_argument(
-        "-t", "--tag", required=True, help="tag to import dotfiles into"
+        "-t",
+        "--tag",
+        required=True,
+        type=normalise_tag,
+        help="tag to import dotfiles into (optional tag- prefix is ignored)",
     )
     import_parser.add_argument(
         "paths", metavar="PATH", type=Path, nargs="+", help="path(s) to import"
@@ -496,7 +512,12 @@ def parse_arguments() -> Args:
     link_parser = subparsers.add_parser(
         "link", help="symlink dotfiles to home directory"
     )
-    link_parser.add_argument("-t", "--tag", help="only link files from this tag")
+    link_parser.add_argument(
+        "-t",
+        "--tag",
+        type=normalise_tag,
+        help="only link files from this tag (optional tag- prefix is ignored)",
+    )
     link_parser.add_argument(
         "-n",
         "--dry-run",
