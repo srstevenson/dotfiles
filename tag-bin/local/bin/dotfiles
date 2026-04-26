@@ -65,8 +65,32 @@ def add_dot_prefix(path: Path) -> Path:
 
     Returns:
         A new path with a leading `.` added to the first part.
+
+    Raises:
+        ValueError: If the first part of `path` already starts with a dot.
     """
+    if path.parts[0].startswith("."):
+        msg = f"path already starts with a dot: {path}"
+        raise ValueError(msg)
     return Path("." + path.parts[0], *path.parts[1:])
+
+
+def validate_tag_path(dotfiles_dir: Path, tag_dir: Path, path: Path) -> bool:
+    """Validate that a tag path follows repository naming conventions.
+
+    Args:
+        dotfiles_dir: Absolute path to the root of the dotfiles repository.
+        tag_dir: Path to the `tag-*/` directory containing the file.
+        path: Path relative to `tag_dir` representing the file.
+
+    Returns:
+        True if the path is valid, False otherwise.
+    """
+    if path.parts[0].startswith("."):
+        tagged_path = tag_dir.joinpath(path).relative_to(dotfiles_dir)
+        print_error(f"{tagged_path} starts with a dot")
+        return False
+    return True
 
 
 def remove_dot_prefix(path: Path) -> Path:
@@ -294,6 +318,9 @@ def link_file(
     Returns:
         True if the file is linked or was linked successfully, False if divergent.
     """
+    if not validate_tag_path(dotfiles_dir, tag_dir, path):
+        return False
+
     source = tag_dir.joinpath(path)
     target = HOME_DIR.joinpath(add_dot_prefix(path))
 
@@ -406,6 +433,10 @@ def status(dotfiles_dir: Path) -> bool:
     for tag_dir in dirs:
         for path in files_in_tag(tag_dir):
             found_files = True
+            if not validate_tag_path(dotfiles_dir, tag_dir, path):
+                all_linked = False
+                continue
+
             source = tag_dir.joinpath(path)
             target = HOME_DIR.joinpath(add_dot_prefix(path))
 
