@@ -359,11 +359,18 @@ def link_files(
         else:
             print_error(f"tag '{tag}' not found")
             return False
+    elif not dirs:
+        print_error(f"no tag directories found in {dotfiles_dir}")
+        return False
+
+    files = [(tag_dir, path) for tag_dir in dirs for path in files_in_tag(tag_dir)]
+    if not files:
+        print_error("no dotfiles found to link")
+        return False
 
     results = [
         link_file(dotfiles_dir, tag_dir, path, dry_run=dry_run)
-        for tag_dir in dirs
-        for path in files_in_tag(tag_dir)
+        for tag_dir, path in files
     ]
     return all(results)
 
@@ -377,9 +384,16 @@ def status(dotfiles_dir: Path) -> bool:
     Returns:
         True if all files are properly linked, False otherwise.
     """
+    dirs = tag_dirs(dotfiles_dir)
+    if not dirs:
+        print_error(f"no tag directories found in {dotfiles_dir}")
+        return False
+
     all_linked = True
-    for tag_dir in tag_dirs(dotfiles_dir):
+    found_files = False
+    for tag_dir in dirs:
         for path in files_in_tag(tag_dir):
+            found_files = True
             source = tag_dir.joinpath(path)
             target = HOME_DIR.joinpath(add_dot_prefix(path))
 
@@ -409,6 +423,10 @@ def status(dotfiles_dir: Path) -> bool:
                     prefix="divergent",
                 )
                 all_linked = False
+    if not found_files:
+        print_error("no dotfiles found")
+        return False
+
     return all_linked
 
 
