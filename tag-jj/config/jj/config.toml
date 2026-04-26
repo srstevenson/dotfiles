@@ -14,7 +14,7 @@ bookmark-advance-to = "@-"
 
 [templates]
 draft_commit_description = "builtin_draft_commit_description_with_diff"
-git_push_bookmark = '"srstevenson/push-" ++ change_id.short()'
+git_push_bookmark = '"srs/push-" ++ change_id.short()'
 
 [aliases]
 forge = ["util", "exec", "--", "jj-forge"]
