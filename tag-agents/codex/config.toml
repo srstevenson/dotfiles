@@ -3,6 +3,7 @@
 commit_attribution = ""
 model = "gpt-5.5"
 model_reasoning_effort = "medium"
+web_search = "live"
 
 [analytics]
 enabled = false
