@@ -28,7 +28,7 @@ def print_error(message: str, prefix: str = "error") -> None:
         message: The details of the error.
         prefix: Optional prefix (e.g., `error`).
     """
-    print(f"{FG_RED}{prefix}{FG_RESET}: {message}")
+    print(f"{FG_RED}{prefix}{FG_RESET}: {message}", file=sys.stderr)
 
 
 def print_info(message: str, prefix: str = "info") -> None:
