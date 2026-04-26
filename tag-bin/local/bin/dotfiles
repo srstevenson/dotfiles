@@ -496,8 +496,15 @@ def main() -> None:
     args = parse_arguments()
 
     if not args.dotfiles_dir.exists():
-        args.dotfiles_dir.mkdir(parents=True, exist_ok=True)
-        print_info(f"created dotfiles directory {args.dotfiles_dir}")
+        if args.command == "import":
+            args.dotfiles_dir.mkdir(parents=True, exist_ok=True)
+            print_info(f"created dotfiles directory {args.dotfiles_dir}")
+        else:
+            print_error(f"dotfiles directory {args.dotfiles_dir} does not exist")
+            sys.exit(1)
+    elif not args.dotfiles_dir.is_dir():
+        print_error(f"dotfiles directory {args.dotfiles_dir} is not a directory")
+        sys.exit(1)
 
     if args.command == "import":
         success = import_files(
