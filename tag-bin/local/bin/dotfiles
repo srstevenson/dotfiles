@@ -139,6 +139,10 @@ def import_file(  # noqa: PLR0911
     # Resolve after symlink check to get canonical path of the regular file
     source = source.resolve()
 
+    if source.is_relative_to(dotfiles_dir.resolve()):
+        print_error(f"{source} is in dotfiles directory")
+        return False
+
     if not source.is_relative_to(HOME_DIR):
         print_error(f"{source} is not in home directory")
         return False
