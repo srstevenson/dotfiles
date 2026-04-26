@@ -57,7 +57,7 @@ cdd() {
 }
 
 cdr() {
-  local repo="$(find-repos ~/dev | fzy)"
+  local repo="$(git find-repos ~/dev | fzy)"
   [[ -d ~/dev/"$repo" ]] && cd ~/dev/"$repo"
 }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Find Git and Jujutsu repositories within a directory tree."""
+"""Find Git repositories within a directory tree."""
 
 import argparse
 import os
@@ -19,24 +19,24 @@ class Args(argparse.Namespace):
 
 
 def is_repo(path: str) -> bool:
-    """Check if a directory is a Git or Jujutsu repository.
+    """Check if a directory is a Git repository.
 
     Args:
         path: Path to directory to check.
 
     Returns:
-        True if directory contains a `.git` or `.jj` subdirectory.
+        True if directory contains a `.git` subdirectory.
     """
-    return any(os.path.exists(os.path.join(path, d)) for d in (".git", ".jj"))  # noqa: PTH110, PTH118
+    return os.path.exists(os.path.join(path, ".git"))  # noqa: PTH110, PTH118
 
 
 def find_repos(path: str) -> Iterable[str]:
-    """Recursively find all Git and Jujutsu repositories in a directory tree.
+    """Recursively find all Git repositories in a directory tree.
 
     Walks through the directory tree starting at the given path. When a
-    repository is found (identified by `.git` or `.jj` subdirectory), yields
-    its path and does not descend into it. Non-repository directories are
-    searched recursively.
+    repository is found (identified by a `.git` subdirectory), yields its
+    path and does not descend into it. Non-repository directories are searched
+    recursively.
 
     Args:
         path: Root directory to start searching from.
@@ -59,7 +59,7 @@ def parse_args() -> Args:
         Parsed arguments namespace.
     """
     parser = argparse.ArgumentParser(
-        description="Find Git and Jujutsu repositories within a directory tree"
+        description="Find Git repositories within a directory tree"
     )
     parser.add_argument("path", help="directory to search")
     return parser.parse_args(namespace=Args())

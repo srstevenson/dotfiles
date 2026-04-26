@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Clone Git repositories with Jujutsu into ~/dev."""
+"""Clone Git repositories with into ~/dev."""
 
 import argparse
 import subprocess
@@ -59,7 +59,7 @@ def parse_args() -> Args:
         Parsed arguments with the expanded remote URL.
     """
     parser = argparse.ArgumentParser(
-        description="Clone Git repositories with Jujutsu into ~/dev"
+        description="Clone Git repositories with into ~/dev"
     )
     parser.add_argument(
         "url",
@@ -126,7 +126,7 @@ def main() -> None:
         url = f"https://{host}/~{path}"
 
     subprocess.run(  # noqa: S603
-        ["jj", "git", "clone", url, Path.home().joinpath("dev", host, path)],  # noqa: S607
+        ["git", "clone", url, Path.home().joinpath("dev", host, path)],  # noqa: S607
         check=False,
     )
 
