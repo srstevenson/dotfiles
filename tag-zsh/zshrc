@@ -18,23 +18,26 @@ export EDITOR="hx"
 export LESS="FRX"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
-zstyle ":completion:*:corrections" format "%F{yellow}Matches for %d (%e errors):%f"
-zstyle ":completion:*:descriptions" format "%F{green}Matches for %d:%f"
-zstyle ":completion:*:messages" format "%F{purple}%d%f"
-zstyle ":completion:*:warnings" format "%F{red}No matches for %d.%f"
-zstyle ":completion:*" complete-options true
-zstyle ":completion:*" completer _extensions _complete _match _approximate
-zstyle ":completion:*" group-name ""
-zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
-zstyle ":completion:*" menu select
-zstyle ":completion:*" rehash true
-zstyle ":completion:*" use-cache on
-zstyle ":completion:*" verbose yes
 
 autoload -U add-zsh-hook
+zstyle ':completion:*:corrections' format '%F{yellow}Matches for %d (%e errors):%f'
+zstyle ':completion:*:descriptions' format '%F{green}Matches for %d:%f'
+zstyle ':completion:*:messages' format '%F{purple}%d%f'
+zstyle ':completion:*:warnings' format '%F{red}No matches for %d.%f'
+
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' verbose yes
+
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:manuals' separate-sections true
 
 _precmd_title() {
   print -Pn "\e]0;%m: %1~\a"
