@@ -1,7 +1,6 @@
 theme = "chalk"
 
 [editor]
-bufferline = "multiple"
 line-number = "relative"
 rulers = [80]
 trim-final-newlines = true
@@ -14,12 +13,6 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
-
-[editor.lsp]
-display-progress-messages = true
-
-[editor.soft-wrap]
-enable = true
 
 [editor.whitespace.render]
 nbsp = "all"
