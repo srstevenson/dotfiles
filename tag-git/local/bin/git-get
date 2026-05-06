@@ -46,8 +46,8 @@ def expand_url(url: str) -> str:
         # Assume `head` is a hostname if it contains `.`.
         return f"https://{head}/{tail}"
 
-    if head == "srstevenson":
-        return f"git@github.com:srstevenson/{tail}.git"
+    if head in ("srstevenson", "helsing-ai", "kraken-build"):
+        return f"git@github.com:{head}/{tail}.git"
 
     return f"https://github.com/{url}.git"
 
