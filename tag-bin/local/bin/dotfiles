@@ -296,7 +296,7 @@ def unlink_files(
     return all(results)
 
 
-def link_file(
+def link_file(  # noqa: PLR0911
     dotfiles_dir: Path, tag_dir: Path, path: Path, *, dry_run: bool = False
 ) -> bool:
     """Create or verify a symlink from the repo into `$HOME`.
