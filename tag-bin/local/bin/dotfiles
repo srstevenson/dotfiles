@@ -47,7 +47,7 @@ def default_dotfiles_dir() -> Path:
     """
     dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
     if dev_dir.exists():
-        # Resolve to canonicalize path and follow any symlinks
+        # Resolve to canonicalise path and follow any symlinks
         return dev_dir.resolve()
     return HOME_DIR.joinpath(".dotfiles").resolve()
 
