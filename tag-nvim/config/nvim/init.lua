@@ -1,5 +1,13 @@
+-- Plugins --------------------------------------------------------------------
+vim.pack.add({
+  "https://github.com/juniorsundar/refer.nvim",
+  "https://github.com/neovim/nvim-lspconfig",
+})
+
+-- Colorscheme ----------------------------------------------------------------
 vim.cmd.colorscheme("chalk")
 
+-- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }
 vim.opt.confirm = true
 vim.opt.expandtab = true
@@ -8,9 +16,7 @@ vim.opt.ignorecase = true
 vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "⍽" }
-vim.opt.mouse = "a"
 vim.opt.number = true
-vim.opt.path:append("**")
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
 vim.opt.shiftwidth = 2
@@ -20,46 +26,74 @@ vim.opt.softtabstop = -1
 vim.opt.spelllang = "en_gb"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.tabstop = 4
-vim.opt.termguicolors = true
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("filetype-jjdescription", { clear = true }),
-  pattern = "jjdescription",
-  callback = function()
-    vim.opt_local.colorcolumn = { 50, 72 }
-    vim.opt_local.spell = true
-  end,
-})
+-- Keymaps --------------------------------------------------------------------
+vim.keymap.set({ "n", "v" }, "<space>y", '"+y')
+vim.keymap.set("n", "<space>p", '"+p')
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  group = vim.api.nvim_create_augroup("shebang-uv-run-python", { clear = true }),
-  pattern = "*",
-  callback = function(args)
-    local line = vim.fn.getline(1)
-    if line:match("^#!") and line:match("uv%s+run") then
-      vim.bo[args.buf].filetype = "python"
-    end
-  end,
-})
-
+-- Autocmds -------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("buffer-trim-whitespace", { clear = true }),
   pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
-    vim.cmd([[ keepjumps keeppatterns %s/\s\+$//e ]])
-    vim.cmd([[ keepjumps keeppatterns %s/\n\+\%$//e ]])
+    vim.cmd([[ %s/\s\+$//e ]])
+    vim.cmd([[ %s/\n\+\%$//e ]])
     vim.fn.winrestview(view)
   end,
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("text-yank-highlight", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
+-- Diagnostics ----------------------------------------------------------------
+vim.diagnostic.config({
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "●",
+      [vim.diagnostic.severity.HINT] = "●",
+      [vim.diagnostic.severity.INFO] = "●",
+      [vim.diagnostic.severity.WARN] = "●",
+    },
+  },
+  virtual_text = {
+    current_line = true,
+    source = "if_many",
+    virt_text_pos = "eol_right_align",
+  },
+})
+
+-- Picker ---------------------------------------------------------------------
+require("refer").setup()
+require("refer").setup_ui_select()
+
+vim.keymap.set("n", "<space>f", "<Cmd>Refer Files<CR>")
+vim.keymap.set("n", "<space>b", "<Cmd>Refer Buffers<CR>")
+vim.keymap.set("n", "<space>/", "<Cmd>Refer Grep<CR>")
+
+-- LSP ------------------------------------------------------------------------
+vim.lsp.enable({ "ruff", "ty" })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+    vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "gd", "<Cmd>Refer Definitions<CR>", opts)
+    vim.keymap.set("n", "gi", "<Cmd>Refer Implementations<CR>", opts)
+    vim.keymap.set("n", "gr", "<Cmd>Refer References<CR>", opts)
+    vim.keymap.set("n", "gs", "<Cmd>Refer Symbols<CR>", opts)
+    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = args.buf,
+      callback = function()
+        vim.lsp.buf.format({ async = false })
+      end,
+    })
+  end,
+})
