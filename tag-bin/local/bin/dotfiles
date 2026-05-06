@@ -230,72 +230,6 @@ def import_files(
     return all(results)
 
 
-def unlink_file(dotfiles_dir: Path, source: Path, *, dry_run: bool = False) -> bool:
-    """Unlink a managed file and restore a regular file in `$HOME`.
-
-    This is the inverse of the `import` command.
-
-    Args:
-        dotfiles_dir: Absolute path to the root of the dotfiles repository.
-        source: Path in `$HOME` to unlink (must currently be a symlink).
-        dry_run: If True, print intended actions without making changes.
-
-    Returns:
-        True if the file was unlinked successfully, False on error.
-    """
-    source = source.absolute()
-
-    if not source.is_relative_to(HOME_DIR):
-        print_error(f"{source} is not in home directory")
-        return False
-
-    if not source.is_symlink():
-        print_error(f"{source} is not a symbolic link")
-        return False
-
-    dotfile_path = source.resolve()
-
-    if not dotfile_path.is_relative_to(dotfiles_dir):
-        print_error(f"{source} does not link to a file in dotfiles directory")
-        return False
-
-    tilde_source = f"~/{source.relative_to(HOME_DIR)}"
-    dotfile_relative = dotfile_path.relative_to(dotfiles_dir)
-
-    if dry_run:
-        print_info(
-            f"{tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}",
-            prefix="unlinked",
-        )
-        return True
-
-    source.unlink()
-    source.parent.mkdir(parents=True, exist_ok=True)
-    dotfile_path.rename(source)
-
-    print_info(
-        f"{tilde_source} {FG_GREEN}←{FG_RESET} {dotfile_relative}", prefix="unlinked"
-    )
-    return True
-
-
-def unlink_files(
-    dotfiles_dir: Path, sources: list[Path], *, dry_run: bool = False
-) -> bool:
-    """Unlink multiple managed files and restore them in `$HOME`.
-
-    Args:
-        dotfiles_dir: Absolute path to the root of the dotfiles repository.
-        sources: Paths in `$HOME` to unlink.
-        dry_run: If True, print intended actions without making changes.
-
-    Returns:
-        True if all files were unlinked successfully, False if any failed.
-    """
-    results = [unlink_file(dotfiles_dir, source, dry_run=dry_run) for source in sources]
-    return all(results)
-
-
 def link_file(  # noqa: PLR0911
     dotfiles_dir: Path, tag_dir: Path, path: Path, *, dry_run: bool = False
 ) -> bool:
@@ -522,19 +456,6 @@ def parse_arguments() -> Args:
         help="show what would be done without making changes",
     )
 
-    unlink_parser = subparsers.add_parser(
-        "unlink", help="unlink dotfiles and move them back to home directory"
-    )
-    unlink_parser.add_argument(
-        "paths", metavar="PATH", type=Path, nargs="+", help="path(s) to unlink"
-    )
-    unlink_parser.add_argument(
-        "-n",
-        "--dry-run",
-        action="store_true",
-        help="show what would be done without making changes",
-    )
-
     link_parser = subparsers.add_parser(
         "link", help="symlink dotfiles to home directory"
     )
@@ -575,8 +496,6 @@ def main() -> None:
         success = import_files(
             args.dotfiles_dir, args.paths, args.tag, dry_run=args.dry_run
         )
-    elif args.command == "unlink":
-        success = unlink_files(args.dotfiles_dir, args.paths, dry_run=args.dry_run)
     elif args.command == "link":
         success = link_files(args.dotfiles_dir, args.tag, dry_run=args.dry_run)
     elif args.command == "status":
