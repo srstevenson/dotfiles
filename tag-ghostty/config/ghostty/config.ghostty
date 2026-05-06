@@ -1,13 +1,22 @@
-theme = chalk
-
-font-family = JetBrains Mono
-font-feature = -calt
-font-size = 16
-
+# Appearance ------------------------------------------------------------------
 mouse-hide-while-typing = true
-shell-integration-features = no-title
+theme = chalk
 unfocused-split-opacity = 1
 window-theme = ghostty
 
+# Font ------------------------------------------------------------------------
+font-feature = -calt
+font-size = 16
+
+# Keybinds --------------------------------------------------------------------
+keybind = ctrl+shift+up=goto_split:up
+keybind = ctrl+shift+down=goto_split:down
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right
+
+# Shell integration -----------------------------------------------------------
+shell-integration-features = no-title
+
+# macOS -----------------------------------------------------------------------
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
