@@ -29,6 +29,7 @@ vim.opt.splitright = true
 
 -- Keymaps --------------------------------------------------------------------
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y')
+vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>")
 vim.keymap.set("n", "<space>p", '"+p')
 
 -- Autocmds -------------------------------------------------------------------
@@ -73,6 +74,8 @@ require("refer").setup_ui_select()
 vim.keymap.set("n", "<space>f", "<Cmd>Refer Files<CR>")
 vim.keymap.set("n", "<space>b", "<Cmd>Refer Buffers<CR>")
 vim.keymap.set("n", "<space>/", "<Cmd>Refer Grep<CR>")
+vim.keymap.set("n", "<space>?", "<Cmd>Refer Commands<CR>")
+vim.keymap.set("n", "<space>h", "<Cmd>Refer Help<CR>")
 
 -- LSP ------------------------------------------------------------------------
 vim.lsp.enable({ "ruff", "ty" })
