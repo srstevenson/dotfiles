@@ -20,6 +20,24 @@ vim.cmd.syntax("reset")
 
 vim.g.colors_name = "tomorrow-classic"
 
+-- Terminal colours
+vim.g.terminal_color_0 = base00
+vim.g.terminal_color_1 = base08
+vim.g.terminal_color_2 = base0B
+vim.g.terminal_color_3 = base0A
+vim.g.terminal_color_4 = base0D
+vim.g.terminal_color_5 = base0E
+vim.g.terminal_color_6 = base0C
+vim.g.terminal_color_7 = base05
+vim.g.terminal_color_8 = base03
+vim.g.terminal_color_9 = base08
+vim.g.terminal_color_10 = base0B
+vim.g.terminal_color_11 = base0A
+vim.g.terminal_color_12 = base0D
+vim.g.terminal_color_13 = base0E
+vim.g.terminal_color_14 = base0C
+vim.g.terminal_color_15 = base07
+
 -- UI
 vim.api.nvim_set_hl(0, "Bold", { bold = true })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = base01 })
