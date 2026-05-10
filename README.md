@@ -15,7 +15,6 @@ it can be run without a full path in subsequent usage. The following subcommands
 are available:
 
 - `dotfiles import`: import dotfiles into the source directory.
-- `dotfiles unlink`: unlink dotfiles and move them back to the home directory.
 - `dotfiles link`: symlink dotfiles to the home directory.
 - `dotfiles status`: list all dotfiles and their status.
 
@@ -23,23 +22,10 @@ Tags are stored as directories named `tag-<name>`. Commands that accept `--tag`
 accept either the bare tag name (for example, `zsh`) or the full directory name
 (for example, `tag-zsh`).
 
-Be careful with `dotfiles unlink`: it removes the symlink from the home
-directory and moves the managed file out of this repository back into the home
-directory. It does not leave a copy behind in the repository.
-
 To view usage instructions and the available arguments for each subcommand, run:
 
 ```bash
 dotfiles <subcommand> --help
-```
-
-By default, `dotfiles` will symlink files from
-`~/dev/github.com/srstevenson/dotfiles` if it exists, falling back to
-`~/.dotfiles` if it does not. You can override the directory explicitly with
-`--dotfiles-dir`:
-
-```bash
-dotfiles --dotfiles-dir ~/another/path status
 ```
 
 If manually importing existing dotfiles instead of using the `import`
