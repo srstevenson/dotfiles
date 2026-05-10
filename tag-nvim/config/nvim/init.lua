@@ -5,7 +5,7 @@ vim.pack.add({
 })
 
 -- Colorscheme ----------------------------------------------------------------
-vim.cmd.colorscheme("tomorrow-classic")
+vim.cmd.colorscheme("warm-burnout-dark")
 
 -- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }
