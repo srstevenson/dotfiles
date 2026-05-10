@@ -5,7 +5,7 @@ vim.pack.add({
 })
 
 -- Colorscheme ----------------------------------------------------------------
-vim.cmd.colorscheme("thalk")
+vim.cmd.colorscheme("tomorrow-classic")
 
 -- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }

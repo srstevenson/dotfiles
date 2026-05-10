@@ -9,27 +9,27 @@ cursor-color = #9b9ea4
 
 split-divider-color = #4f5258
 
-# black
+# Black
 palette = 0=#07080d
 palette = 8=#4f5258
-# red
+# Red
 palette = 1=#ffc0b9
 palette = 9=#ffc0b9
-# green
+# Green
 palette = 2=#b3f6c0
 palette = 10=#b3f6c0
-# yellow
+# Yellow
 palette = 3=#fce094
 palette = 11=#fce094
-# blue
+# Blue
 palette = 4=#a6dbff
 palette = 12=#a6dbff
-# magenta
+# Magenta
 palette = 5=#ffcaff
 palette = 13=#ffcaff
-# cyan
+# Cyan
 palette = 6=#8cf8f7
 palette = 14=#8cf8f7
-# white
+# White
 palette = 7=#eef1f8
 palette = 15=#eef1f8

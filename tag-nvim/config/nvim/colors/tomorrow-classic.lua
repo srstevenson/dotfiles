@@ -13,12 +13,12 @@ local base0B = "#b5bd68"
 local base0C = "#8abeb7"
 local base0D = "#81a2be"
 local base0E = "#b294bb"
-local base0F = "#b88d7c"
+local base0F = "#a3685a"
 
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
 
-vim.g.colors_name = "thalk"
+vim.g.colors_name = "tomorrow-classic"
 
 -- UI
 vim.api.nvim_set_hl(0, "Bold", { bold = true })
