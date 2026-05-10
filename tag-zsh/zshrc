@@ -65,7 +65,7 @@ cdr() {
 }
 
 o() {
-  local item="$(fd -c never -t f -I | fzy)"
+  local item="$(rg --files | fzy)"
   [[ -n "$item" ]] && open "$item"
 }
 
