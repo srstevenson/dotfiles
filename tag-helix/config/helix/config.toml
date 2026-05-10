@@ -1,4 +1,4 @@
-theme = "chalk"
+theme = "thalk"
 
 [editor]
 line-number = "relative"
