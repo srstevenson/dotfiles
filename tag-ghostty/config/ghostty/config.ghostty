@@ -1,6 +1,6 @@
 # Appearance ------------------------------------------------------------------
 mouse-hide-while-typing = true
-theme = thalk
+theme = tomorrow-classic
 unfocused-split-opacity = 1
 window-theme = ghostty
 
