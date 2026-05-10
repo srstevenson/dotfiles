@@ -36,20 +36,13 @@ def print_info(message: str, prefix: str = "info") -> None:
     print(f"{FG_GREEN}{prefix}{FG_RESET}: {message}")
 
 
-def default_dotfiles_dir() -> Path:
-    """Compute the default dotfiles directory.
-
-    Checks the development directory first and returns it if it exists,
-    otherwise returns the default `~/.dotfiles` path.
+def find_dotfiles_dir() -> Path:
+    """Find the dotfiles directory.
 
     Returns:
-        Absolute path to the dotfiles directory to use.
+        Absolute path to the dotfiles directory.
     """
-    dev_dir = HOME_DIR.joinpath("dev", "github.com", "srstevenson", "dotfiles")
-    if dev_dir.exists():
-        # Resolve to canonicalise path and follow any symlinks
-        return dev_dir.resolve()
-    return HOME_DIR.joinpath(".dotfiles").resolve()
+    return Path(__file__).resolve().parents[3]
 
 
 def add_dot_prefix(path: Path) -> Path:
@@ -406,7 +399,7 @@ def status(dotfiles_dir: Path) -> bool:
 class Args(argparse.Namespace):
     """Command-line arguments."""
 
-    dotfiles_dir: Path = field(default_factory=default_dotfiles_dir)
+    dotfiles_dir: Path = field(default_factory=find_dotfiles_dir)
     command: str = ""
     tag: str = ""
     paths: list[Path] = field(default_factory=list)
@@ -428,7 +421,7 @@ def parse_arguments() -> Args:
         "--dotfiles-dir",
         metavar="DIR",
         type=lambda path: Path(path).resolve(),
-        default=default_dotfiles_dir(),
+        default=find_dotfiles_dir(),
         help="dotfiles directory",
     )
 
