@@ -50,11 +50,6 @@ def update_deps(packages: list[str], *, dev: bool = False) -> None:
     subprocess.run(cmd, check=True)  # noqa: S603
 
 
-def format_pyproject_toml() -> None:
-    """Format pyproject.toml with Taplo."""
-    subprocess.run(["taplo", "format", PYPROJECT_TOML], check=True)  # noqa: S603, S607
-
-
 def main() -> None:
     """Command-line entry point.
 
@@ -76,8 +71,6 @@ def main() -> None:
 
     if dev_deps_packages:
         update_deps(dev_deps_packages, dev=True)
-
-    format_pyproject_toml()
 
 
 if __name__ == "__main__":
