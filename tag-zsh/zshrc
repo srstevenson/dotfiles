@@ -1,59 +1,92 @@
-bindkey -e
+# Shell options ---------------------------------------------------------------
+setopt EXTENDED_GLOB
+setopt INTERACTIVE_COMMENTS
+setopt PROMPT_SUBST
 
+WORDCHARS=${WORDCHARS//\/}
+
+# History ---------------------------------------------------------------------
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY_TIME
 
+HISTFILE="$HOME/.local/state/zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 
-WORDCHARS=${WORDCHARS//\//}
+# Environment -----------------------------------------------------------------
+typeset -U path
+path=(~/bin ~/.local/bin ~/.cargo/bin /opt/homebrew/bin(N) $path)
 
-export HOMEBREW_NO_ANALYTICS=1
-if [[ -d /opt/homebrew ]]; then
-  . <(/opt/homebrew/bin/brew shellenv zsh)
-fi
-
-path=(~/dev/local/bin ~/.local/bin ~/.cargo/bin $path)
-
-export EDITOR="hx"
+export EDITOR="nvim"
 export LESS="FRX"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
+export HOMEBREW_NO_ANALYTICS="1"
 
+# Title -----------------------------------------------------------------------
+autoload -Uz add-zsh-hook
+
+_precmd_title() { print -Pn '\e]0;%m: %~\a' }
+add-zsh-hook precmd _precmd_title
+
+_preexec_title() { print -Pn '\e]0;%m: $2\a' }
+add-zsh-hook preexec _preexec_title
+
+# Keybindings -----------------------------------------------------------------
+bindkey -e
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Completion ------------------------------------------------------------------
 autoload -Uz compinit
 compinit
 
-
-autoload -U add-zsh-hook
 zstyle ':completion:*:corrections' format '%F{yellow}Matches for %d (%e errors):%f'
 zstyle ':completion:*:descriptions' format '%F{green}Matches for %d:%f'
 zstyle ':completion:*:messages' format '%F{purple}%d%f'
 zstyle ':completion:*:warnings' format '%F{red}No matches for %d.%f'
 
+zstyle ':completion:*' cache-path "$HOME/.cache/zcompcache"
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select=2
+zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' verbose yes
 
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:manuals' separate-sections true
+# Prompt ----------------------------------------------------------------------
+autoload -Uz add-zsh-hook vcs_info
+add-zsh-hook precmd vcs_info
 
-_precmd_title() {
-  print -Pn "\e]0;%m: %1~\a"
++vi-git-stashed() {
+  if git rev-parse --verify --quiet refs/stash >/dev/null; then
+    hook_com[misc]+='%F{red}%B$%b%f'
+  fi
 }
 
-_preexec_title() {
-  print -Pn "\e]0;%m: %1~ — $2\a"
++vi-git-untracked() {
+  if [[ -n $(git ls-files --others --exclude-standard 2>/dev/null) ]]; then
+    hook_com[unstaged]+='%F{red}%B?%b%f'
+  fi
 }
 
-add-zsh-hook precmd _precmd_title
-add-zsh-hook preexec _preexec_title
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats ' %F{magenta}%B%b%%b%f%c%u%m'
+zstyle ':vcs_info:*' actionformats ' %F{magenta}%B%b%%b%f|%a%c%u%m'
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}%B!%b%f'
+zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
+zstyle ':vcs_info:git+set-message:*' hooks git-stashed git-untracked
 
-alias la="ls --color -Ahl"
-alias ll="ls --color -hl"
-alias ls="ls --color -h"
+PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
 
+# Functions -------------------------------------------------------------------
 cdd() {
   local dir="$(bfs ~/D*/ -type d | fzy)"
   [[ -d "$dir" ]] && cd "$dir"
@@ -69,4 +102,7 @@ o() {
   [[ -n "$item" ]] && open "$item"
 }
 
-eval "$(starship init zsh)"
+# Aliases ---------------------------------------------------------------------
+alias ls="ls --color -h"
+alias ll="ls --color -hl"
+alias la="ls --color -Ahl"
