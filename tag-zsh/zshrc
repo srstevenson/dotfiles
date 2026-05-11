@@ -60,6 +60,8 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' verbose yes
 
+source <(COMPLETE=zsh jj)
+
 # Prompt ----------------------------------------------------------------------
 autoload -Uz add-zsh-hook vcs_info
 add-zsh-hook precmd vcs_info
