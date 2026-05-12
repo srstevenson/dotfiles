@@ -122,7 +122,7 @@ warning = { fg = "warn" }
 "ui.debug.active" = { fg = "accent" }
 "ui.debug.breakpoint" = { fg = "error" }
 "ui.gutter" = { bg = "bg" }
-"ui.gutter.selected" = { bg = "bg-highlight" }
+"ui.gutter.selected" = { bg = "bg" }
 "ui.help" = { fg = "fg", bg = "bg-float" }
 "ui.highlight" = { bg = "bg-highlight" }
 "ui.highlight.frameline" = { bg = "bg-highlight" }
