@@ -99,7 +99,7 @@ cdr() {
   [[ -d ~/dev/"$repo" ]] && cd ~/dev/"$repo"
 }
 
-o() {
+opf() {
   local item="$(rg --files | fzy)"
   [[ -n "$item" ]] && open "$item"
 }
