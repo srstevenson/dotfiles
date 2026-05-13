@@ -62,7 +62,7 @@ vim.diagnostic.config({
   },
   virtual_text = {
     current_line = true,
-    source = "if_many",
+    source = true,
     virt_text_pos = "eol_right_align",
   },
 })
