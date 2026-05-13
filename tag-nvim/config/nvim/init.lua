@@ -68,7 +68,7 @@ vim.diagnostic.config({
 })
 
 -- Picker ---------------------------------------------------------------------
-require("refer").setup()
+require("refer").setup({ max_height_percent = 0.1, min_height = 10, min_query_len = 0 })
 require("refer").setup_ui_select()
 
 vim.keymap.set("n", "<space>f", "<Cmd>Refer Files<CR>")
