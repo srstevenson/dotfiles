@@ -126,7 +126,13 @@ def main() -> None:
         url = f"https://{host}/~{path}"
 
     subprocess.run(  # noqa: S603
-        ["git", "clone", url, Path.home().joinpath("dev", host, path)],  # noqa: S607
+        [  # noqa: S607
+            "git",
+            "clone",
+            "--recurse-submodules",
+            url,
+            Path.home().joinpath("dev", host, path),
+        ],
         check=False,
     )
 
