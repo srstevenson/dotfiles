@@ -1,15 +1,5 @@
-[[language]]
-name = "bash"
-auto-format = true
-formatter = { command = "shfmt", args = ["--case-indent", "--indent=2", "-"] }
-
-[[language]]
-name = "css"
-formatter = { command = "prettier", args = ["--parser=css"] }
-
-[[language]]
-name = "json"
-formatter = { command = "jq", args = ["."] }
+[language-server]
+rumdl = { command = "rumdl", args = ["server"] }
 
 [[language]]
 name = "lua"
@@ -18,25 +8,8 @@ auto-format = true
 [[language]]
 name = "markdown"
 auto-format = true
-formatter = { command = "prettier", args = [
-  "--parser=markdown",
-  "--prose-wrap=always",
-] }
+language-servers = ["rumdl"]
 
 [[language]]
 name = "python"
 auto-format = true
-
-[[language]]
-name = "toml"
-auto-format = true
-
-[[language]]
-name = "typst"
-auto-format = true
-formatter = { command = "typstyle" }
-
-[[language]]
-name = "yaml"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=yaml"] }
