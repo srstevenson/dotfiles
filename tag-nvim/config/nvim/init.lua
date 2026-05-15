@@ -78,7 +78,7 @@ vim.keymap.set("n", "<space>?", "<Cmd>Refer Commands<CR>")
 vim.keymap.set("n", "<space>h", "<Cmd>Refer Help<CR>")
 
 -- LSP ------------------------------------------------------------------------
-vim.lsp.enable({ "lua_ls", "ruff", "ty", "rumdl" })
+vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "taplo", "ty" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)

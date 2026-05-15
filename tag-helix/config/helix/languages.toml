@@ -13,3 +13,7 @@ language-servers = ["rumdl"]
 [[language]]
 name = "python"
 auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true
