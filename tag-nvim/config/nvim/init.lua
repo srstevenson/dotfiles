@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 -- Plugins --------------------------------------------------------------------
 vim.pack.add({
   "https://github.com/juniorsundar/refer.nvim",
