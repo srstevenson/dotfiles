@@ -1,10 +1,12 @@
--- Palette (alpha values pre-blended against bg = #1a1510)
+---@diagnostic disable: undefined-global
+
 local bg = "#1a1510"
 local bg_dim = "#14120f"
 local bg_float = "#1f1d17"
 local bg_highlight = "#222018"
 local bg_visual = "#363a3a"
 local bg_search = "#4c4126"
+---@diagnostic disable-next-line: unused-local
 local bg_search_dim = "#2f2719"
 
 local fg = "#bfbdb6"
@@ -51,7 +53,9 @@ local diff_delete = "#34201d"
 local diff_text = "#303e4c"
 
 local border = "#26211c"
+---@diagnostic disable-next-line: unused-local
 local indent_guide = "#3e3933"
+---@diagnostic disable-next-line: unused-local
 local indent_guide_active = "#726c65"
 local whitespace = "#746f67"
 
