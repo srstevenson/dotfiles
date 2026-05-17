@@ -30,7 +30,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Find Git repositories in a directory tree"
     )
-    parser.add_argument("path", help="directory to search")
+    parser.add_argument(
+        "path",
+        nargs="?",
+        default=os.path.expanduser("~/dev"),  # noqa: PTH111
+        help="directory to search",
+    )
     args = parser.parse_args()
 
     for repo_path in find_repos(args.path):
