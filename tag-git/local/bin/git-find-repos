@@ -19,8 +19,8 @@ def find_repos(path: str) -> Iterable[str]:
     Yields:
         Absolute paths to discovered repositories.
     """
-    for dirpath, dirnames, _ in os.walk(path):
-        if ".git" in dirnames:
+    for dirpath, dirnames, filenames in os.walk(path):
+        if ".git" in dirnames or ".git" in filenames:
             yield dirpath
             dirnames.clear()
 
