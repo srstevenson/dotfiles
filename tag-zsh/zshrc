@@ -96,8 +96,8 @@ cdd() {
 }
 
 cdr() {
-  local repo="$(git-find-repos ~/dev | fzy)"
-  [[ -d ~/dev/"$repo" ]] && cd ~/dev/"$repo"
+  local repo="$(git-find-repos | fzy)"
+  [[ -d ~/Projects/"$repo" ]] && cd ~/Projects/"$repo"
 }
 
 opf() {

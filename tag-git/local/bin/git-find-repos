@@ -33,7 +33,7 @@ def main() -> None:
     parser.add_argument(
         "path",
         nargs="?",
-        default=os.path.expanduser("~/dev"),  # noqa: PTH111
+        default=os.path.expanduser("~/Projects"),  # noqa: PTH111
         help="directory to search",
     )
     args = parser.parse_args()
