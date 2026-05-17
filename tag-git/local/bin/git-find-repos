@@ -4,39 +4,14 @@
 
 import argparse
 import os
-from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
 
 
-@dataclass(kw_only=True)
-class Args(argparse.Namespace):
-    """Command-line arguments."""
-
-    path: str = ""
-
-
-def is_repo(path: str) -> bool:
-    """Check if a directory is a Git repository.
-
-    Args:
-        path: Path to directory to check.
-
-    Returns:
-        True if directory contains a `.git` subdirectory.
-    """
-    return os.path.exists(os.path.join(path, ".git"))  # noqa: PTH110, PTH118
-
-
 def find_repos(path: str) -> Iterable[str]:
-    """Recursively find all Git repositories in a directory tree.
-
-    Walks through the directory tree starting at the given path. When a
-    repository is found (identified by a `.git` subdirectory), yields its
-    path and does not descend into it. Non-repository directories are searched
-    recursively.
+    """Find all Git repositories in a directory tree.
 
     Args:
         path: Root directory to start searching from.
@@ -44,30 +19,19 @@ def find_repos(path: str) -> Iterable[str]:
     Yields:
         Absolute paths to discovered repositories.
     """
-    for child in os.scandir(path):
-        if child.is_dir():
-            if is_repo(child.path):
-                yield child.path
-            else:
-                yield from find_repos(child.path)
-
-
-def parse_args() -> Args:
-    """Parse command-line arguments.
-
-    Returns:
-        Parsed arguments namespace.
-    """
-    parser = argparse.ArgumentParser(
-        description="Find Git repositories within a directory tree"
-    )
-    parser.add_argument("path", help="directory to search")
-    return parser.parse_args(namespace=Args())
+    for dirpath, dirnames, _ in os.walk(path):
+        if ".git" in dirnames:
+            yield dirpath
+            dirnames.clear()
 
 
 def main() -> None:
     """Command-line entry point."""
-    args = parse_args()
+    parser = argparse.ArgumentParser(
+        description="Find Git repositories in a directory tree"
+    )
+    parser.add_argument("path", help="directory to search")
+    args = parser.parse_args()
 
     for repo_path in find_repos(args.path):
         print(os.path.relpath(repo_path, start=args.path))
