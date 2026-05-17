@@ -57,6 +57,7 @@ zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select=2
+zstyle ':completion:*' rehash yes
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' verbose yes
 
