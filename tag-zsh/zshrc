@@ -110,3 +110,6 @@ opf() {
 alias ls="ls --color -h"
 alias ll="ls --color -hl"
 alias la="ls --color -Ahl"
+
+# Local configuration ---------------------------------------------------------
+[[ -r "$HOME/.config/zsh/local.zsh" ]] && . "$HOME/.config/zsh/local.zsh"
