@@ -61,7 +61,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' verbose true
 
-(( $+commands[jj] )) && source <(COMPLETE=zsh jj)
+(( $+commands[jj] )) && . <(COMPLETE=zsh jj)
 
 # Prompt ----------------------------------------------------------------------
 autoload -Uz add-zsh-hook vcs_info
