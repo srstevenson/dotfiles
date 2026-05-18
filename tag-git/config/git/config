@@ -47,3 +47,6 @@ enabled = true
 
 [tag]
 sort = "-version:refname"
+
+[include]
+path = ~/.config/git/local.config
