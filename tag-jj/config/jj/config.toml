@@ -12,6 +12,18 @@ diff-formatter = ["difft", "--color=always", "$left", "$right"]
 [revsets]
 bookmark-advance-to = "@-"
 
+[template-aliases]
+"slugify(str)" = '''
+  truncate_end(
+    30,
+    str.first_line()
+      .lower()
+      .replace(regex:'[^[[:alnum:]].]', '-')
+      .replace(regex:'-{2,}', '-')
+      .replace(regex:'(^-+|-+$)', '')
+  )
+'''
+
 [templates]
 draft_commit_description = "builtin_draft_commit_description_with_diff"
-git_push_bookmark = '"srs/push-" ++ change_id.short()'
+git_push_bookmark = '"srs/" ++ slugify(description)'
