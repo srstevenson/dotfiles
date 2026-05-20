@@ -90,7 +90,7 @@ vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>")
 vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>")
 
 -- LSP ------------------------------------------------------------------------
-vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "taplo", "ty" })
+vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
