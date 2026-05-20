@@ -1,4 +1,4 @@
-"attribute" = { fg = "func", modifiers = ["italic"] }
+"attribute" = { fg = "func" }
 "comment" = { fg = "comment", modifiers = ["italic"] }
 "comment.block" = { fg = "comment", modifiers = ["italic"] }
 "comment.block.documentation" = { fg = "comment", modifiers = ["italic"] }
@@ -12,7 +12,7 @@
 "constant.numeric" = { fg = "number" }
 "constant.numeric.float" = { fg = "number" }
 "constant.numeric.integer" = { fg = "number" }
-"constructor" = { fg = "type", modifiers = ["italic"] }
+"constructor" = { fg = "type" }
 "function" = { fg = "func" }
 "function.builtin" = { fg = "member" }
 "function.macro" = { fg = "decorator" }
@@ -38,7 +38,7 @@
 "punctuation.bracket" = { fg = "fg" }
 "punctuation.delimiter" = { fg = "fg-dim" }
 "punctuation.special" = { fg = "keyword" }
-"special" = { fg = "decorator", modifiers = ["italic"] }
+"special" = { fg = "decorator" }
 "string" = { fg = "string" }
 "string.regexp" = { fg = "regex" }
 "string.special" = { fg = "regex" }
@@ -47,12 +47,12 @@
 "string.special.url" = { fg = "tag", modifiers = ["underlined"] }
 "tag" = { fg = "tag", modifiers = ["bold"] }
 "tag.builtin" = { fg = "tag", modifiers = ["bold"] }
-"type" = { fg = "type", modifiers = ["italic"] }
-"type.builtin" = { fg = "type", modifiers = ["italic"] }
+"type" = { fg = "type" }
+"type.builtin" = { fg = "type" }
 "type.enum.variant" = { fg = "regex" }
-"type.parameter" = { fg = "type", modifiers = ["italic"] }
+"type.parameter" = { fg = "type" }
 "variable" = { fg = "fg" }
-"variable.builtin" = { fg = "tag", modifiers = ["italic"] }
+"variable.builtin" = { fg = "tag" }
 "variable.other.member" = { fg = "member" }
 "variable.parameter" = { fg = "number" }
 
