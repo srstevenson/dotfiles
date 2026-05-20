@@ -72,6 +72,14 @@ vim.diagnostic.config({
 })
 
 -- Telescope ------------------------------------------------------------------
+require("telescope").setup({
+  defaults = {
+    mappings = { i = { ["<esc>"] = require("telescope.actions").close } }
+  },
+  extensions = {
+    ["ui-select"] = { require("telescope.themes").get_dropdown() }
+  }
+})
 require("telescope").load_extension("ui-select")
 
 vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>")
