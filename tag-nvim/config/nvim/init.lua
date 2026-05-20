@@ -2,8 +2,10 @@
 
 -- Plugins --------------------------------------------------------------------
 vim.pack.add({
-  "https://github.com/juniorsundar/refer.nvim",
   "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
 })
 
 -- Colorscheme ----------------------------------------------------------------
@@ -69,15 +71,15 @@ vim.diagnostic.config({
   },
 })
 
--- Picker ---------------------------------------------------------------------
-require("refer").setup({ max_height_percent = 0.1, min_height = 10, min_query_len = 0 })
-require("refer").setup_ui_select()
+-- Telescope ------------------------------------------------------------------
+require("telescope").load_extension("ui-select")
 
-vim.keymap.set("n", "<space>f", "<Cmd>Refer Files<CR>")
-vim.keymap.set("n", "<space>b", "<Cmd>Refer Buffers<CR>")
-vim.keymap.set("n", "<space>/", "<Cmd>Refer Grep<CR>")
-vim.keymap.set("n", "<space>?", "<Cmd>Refer Commands<CR>")
-vim.keymap.set("n", "<space>h", "<Cmd>Refer Help<CR>")
+vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>")
+vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>")
+vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>")
+vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>")
+vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>")
 
 -- LSP ------------------------------------------------------------------------
 vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "taplo", "ty" })
@@ -86,13 +88,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local opts = { buffer = args.buf }
     vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", opts)
+    vim.keymap.set("n", "<space>D", "<Cmd>Telescope diagnostics<CR>", opts)
     vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "gd", "<Cmd>Refer Definitions<CR>", opts)
-    vim.keymap.set("n", "gi", "<Cmd>Refer Implementations<CR>", opts)
-    vim.keymap.set("n", "gr", "<Cmd>Refer References<CR>", opts)
-    vim.keymap.set("n", "gs", "<Cmd>Refer Symbols<CR>", opts)
-    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
+    vim.keymap.set("n", "<space>S", "<Cmd>Telescope lsp_workspace_symbols<CR>", opts)
+    vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
+    vim.keymap.set("n", "gi", "<Cmd>Telescope lsp_implementations<CR>", opts)
+    vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", opts)
+    vim.keymap.set("n", "gy", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = args.buf,
