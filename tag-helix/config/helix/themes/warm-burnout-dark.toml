@@ -18,19 +18,19 @@
 "function.macro" = { fg = "decorator" }
 "function.method" = { fg = "func" }
 "function.special" = { fg = "decorator" }
-"keyword" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control.conditional" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control.exception" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control.import" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control.repeat" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.control.return" = { fg = "keyword", modifiers = ["bold"] }
+"keyword" = { fg = "keyword" }
+"keyword.control" = { fg = "keyword" }
+"keyword.control.conditional" = { fg = "keyword" }
+"keyword.control.exception" = { fg = "keyword" }
+"keyword.control.import" = { fg = "keyword" }
+"keyword.control.repeat" = { fg = "keyword" }
+"keyword.control.return" = { fg = "keyword" }
 "keyword.directive" = { fg = "keyword" }
-"keyword.function" = { fg = "keyword", modifiers = ["bold"] }
+"keyword.function" = { fg = "keyword" }
 "keyword.operator" = { fg = "operator" }
-"keyword.storage" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.storage.modifier" = { fg = "keyword", modifiers = ["bold"] }
-"keyword.storage.type" = { fg = "keyword", modifiers = ["bold"] }
+"keyword.storage" = { fg = "keyword" }
+"keyword.storage.modifier" = { fg = "keyword" }
+"keyword.storage.type" = { fg = "keyword" }
 "label" = { fg = "keyword" }
 "namespace" = { fg = "string" }
 "operator" = { fg = "operator" }
@@ -45,8 +45,8 @@
 "string.special.path" = { fg = "string" }
 "string.special.symbol" = { fg = "string" }
 "string.special.url" = { fg = "tag", modifiers = ["underlined"] }
-"tag" = { fg = "tag", modifiers = ["bold"] }
-"tag.builtin" = { fg = "tag", modifiers = ["bold"] }
+"tag" = { fg = "tag" }
+"tag.builtin" = { fg = "tag" }
 "type" = { fg = "type" }
 "type.builtin" = { fg = "type" }
 "type.enum.variant" = { fg = "regex" }
