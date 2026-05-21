@@ -1,46 +1,41 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-"""Find Git repositories within a directory tree."""
+# Find Git repositories within a directory tree.
 
-import argparse
-import os
-from typing import TYPE_CHECKING
+set -euo pipefail
 
-if TYPE_CHECKING:
-    from collections.abc import Iterable
+shopt -s nullglob
 
+walk() {
+  local dir=$1 rel=${2-} entry name
 
-def find_repos(path: str) -> Iterable[str]:
-    """Find all Git repositories in a directory tree.
+  if [[ -e $dir/.git ]]; then
+    printf '%s\n' "${rel:-.}"
+    return
+  fi
 
-    Args:
-        path: Root directory to start searching from.
+  for entry in "$dir"/*/; do
+    entry=${entry%/}
+    [[ -L $entry ]] && continue
+    name=${entry##*/}
 
-    Yields:
-        Absolute paths to discovered repositories.
-    """
-    for dirpath, dirnames, filenames in os.walk(path):
-        if ".git" in dirnames or ".git" in filenames:
-            yield dirpath
-            dirnames.clear()
+    case $name in
+      .venv | target) continue ;;
+    esac
 
+    walk "$entry" "${rel:+$rel/}$name"
+  done
+}
 
-def main() -> None:
-    """Command-line entry point."""
-    parser = argparse.ArgumentParser(
-        description="Find Git repositories in a directory tree"
-    )
-    parser.add_argument(
-        "path",
-        nargs="?",
-        default=os.path.expanduser("~/Projects"),  # noqa: PTH111
-        help="directory to search",
-    )
-    args = parser.parse_args()
+main() {
+  local path=${1:-$HOME/Projects}
 
-    for repo_path in find_repos(args.path):
-        print(os.path.relpath(repo_path, start=args.path))
+  if [[ ! -d $path ]]; then
+    printf 'error: %s is not a directory\n' "$path" >&2
+    return 1
+  fi
 
+  walk "$path"
+}
 
-if __name__ == "__main__":
-    main()
+main "$@"
