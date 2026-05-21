@@ -20,8 +20,7 @@ bookmark-advance-to = "@-"
       .lower()
       .replace(regex:'[^[[:alnum:]].]', '-')
       .replace(regex:'-{2,}', '-')
-      .replace(regex:'(^-+|-+$)', '')
-  )
+  ).replace(regex:'(^-+|[.-]+$)', '')
 '''
 
 [templates]
