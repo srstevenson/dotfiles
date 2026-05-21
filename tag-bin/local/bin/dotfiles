@@ -32,8 +32,7 @@ def find_dotfiles_dir() -> Path:
 def add_dot_prefix(path: Path) -> Path:
     """Add a dot prefix to the first part of a path."""
     if path.parts[0].startswith("."):
-        msg = f"path already starts with a dot: {path}"
-        raise ValueError(msg)
+        raise ValueError(f"path already starts with a dot: {path}")
     return Path("." + path.parts[0], *path.parts[1:])
 
 

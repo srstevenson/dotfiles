@@ -6,7 +6,9 @@ skip-magic-trailing-comma = true
 select = ["ALL"]
 ignore = [
   "COM812", # Trailing comma missing
+  "EM102",  # f-string in exception
   "T201",   # print found
+  "TRY003", # message outside exception class
 ]
 
 [tool.ruff.lint.isort]
