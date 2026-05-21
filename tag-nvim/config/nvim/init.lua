@@ -47,6 +47,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "jjdescription", "markdown" },
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.hl.on_yank()
