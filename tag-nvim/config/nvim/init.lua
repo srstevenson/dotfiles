@@ -80,9 +80,6 @@ vim.diagnostic.config({
 
 -- Telescope ------------------------------------------------------------------
 require("telescope").setup({
-  defaults = {
-    mappings = { i = { ["<esc>"] = require("telescope.actions").close } }
-  },
   extensions = {
     ["ui-select"] = { require("telescope.themes").get_dropdown() }
   }
