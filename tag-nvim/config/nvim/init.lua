@@ -80,8 +80,12 @@ vim.diagnostic.config({
 
 -- Telescope ------------------------------------------------------------------
 require("telescope").setup({
+  defaults = {
+    layout_config = { prompt_position = "top" },
+    sorting_strategy = "ascending",
+  },
   extensions = {
-    ["ui-select"] = { require("telescope.themes").get_dropdown() }
+    ["ui-select"] = { require("telescope.themes").get_dropdown() },
   }
 })
 require("telescope").load_extension("ui-select")
