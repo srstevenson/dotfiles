@@ -88,7 +88,7 @@ zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
 zstyle ':vcs_info:git+set-message:*' hooks git-stashed git-untracked
 
 PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
-[[ -n "$SSH_CONNECTION" ]] && RPROMPT='%F{magenta}%n%f%F{8}@%f%F{cyan}%m%f'
+[[ -n "$SSH_CONNECTION" ]] && RPROMPT='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
 
 # Functions -------------------------------------------------------------------
 cdd() {
