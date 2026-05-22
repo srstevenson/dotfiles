@@ -14,13 +14,12 @@ bookmark-advance-to = "@-"
 
 [template-aliases]
 "slugify(str)" = '''
-  truncate_end(
-    30,
-    str.first_line()
-      .lower()
-      .replace(regex:'[^[[:alnum:]].]', '-')
-      .replace(regex:'-{2,}', '-')
-  ).replace(regex:'(^-+|[.-]+$)', '')
+  str.first_line()
+    .lower()
+    .replace(regex:'[^[[:alnum:]].]', '-')
+    .replace(regex:'-{2,}', '-')
+    .substr(0, 30)
+    .replace(regex:'(^-+|[.-]+$)', '')
 '''
 
 [templates]
