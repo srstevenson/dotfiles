@@ -67,6 +67,12 @@ zstyle ':completion:*' verbose true
 autoload -Uz add-zsh-hook vcs_info
 add-zsh-hook precmd vcs_info
 
++vi-git-truncate-branch() {
+  if (( ${#hook_com[branch]} > 25 )); then
+    hook_com[branch]="${hook_com[branch]:0:24}…"
+  fi
+}
+
 +vi-git-stashed() {
   if git rev-parse --verify --quiet refs/stash >/dev/null; then
     hook_com[misc]+='%F{red}%B$%b%f'
@@ -85,7 +91,7 @@ zstyle ':vcs_info:*' formats ' %F{magenta}%B%b%%b%f%c%u%m'
 zstyle ':vcs_info:*' actionformats ' %F{magenta}%B%b%%b%f|%a%c%u%m'
 zstyle ':vcs_info:*' unstagedstr '%F{yellow}%B!%b%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
-zstyle ':vcs_info:git+set-message:*' hooks git-stashed git-untracked
+zstyle ':vcs_info:git+set-message:*' hooks git-truncate-branch git-stashed git-untracked
 
 PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
 [[ -n "$SSH_CONNECTION" ]] && RPROMPT='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
