@@ -61,7 +61,9 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' verbose true
 
-(( $+commands[jj] )) && . <(COMPLETE=zsh jj)
+if (( $+commands[jj] )); then
+  . <(COMPLETE=zsh jj)
+fi
 
 # Prompt ----------------------------------------------------------------------
 autoload -Uz add-zsh-hook vcs_info
@@ -94,7 +96,10 @@ zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
 zstyle ':vcs_info:git+set-message:*' hooks git-truncate-branch git-stashed git-untracked
 
 PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
-[[ -n "$SSH_CONNECTION" ]] && RPROMPT='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+  RPROMPT='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
+fi
 
 # Functions -------------------------------------------------------------------
 cdd() {
