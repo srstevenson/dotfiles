@@ -6,8 +6,7 @@ local base02 = "#303030"
 local base03 = "#505050"
 local base04 = "#b0b0b0"
 local base05 = "#d0d0d0"
----@diagnostic disable-next-line: unused-local
-local base06 = "#e0e0e0"
+-- local base06 = "#e0e0e0"
 local base07 = "#f5f5f5"
 local base08 = "#cc6666"
 local base09 = "#de935f"
@@ -16,8 +15,7 @@ local base0B = "#b5bd68"
 local base0C = "#8abeb7"
 local base0D = "#81a2be"
 local base0E = "#b294bb"
----@diagnostic disable-next-line: unused-local
-local base0F = "#a3685a"
+-- local base0F = "#a3685a"
 
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
