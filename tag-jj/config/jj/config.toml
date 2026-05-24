@@ -16,10 +16,10 @@ bookmark-advance-to = "@-"
 "slugify(str)" = '''
   str.first_line()
     .lower()
-    .replace(regex:'[^[[:alnum:]].]', '-')
+    .replace(regex:'[^[[:alnum:]]]', '-')
     .replace(regex:'-{2,}', '-')
     .substr(0, 30)
-    .replace(regex:'(^-+|[.-]+$)', '')
+    .replace(regex:'(^-+|-+$)', '')
 '''
 
 [templates]
