@@ -112,7 +112,7 @@ cdr() {
   [[ -d ~/Projects/"$repo" ]] && cd ~/Projects/"$repo"
 }
 
-opf() {
+fop() {
   local item="$(rg --files | fzy)"
   [[ -n "$item" ]] && open "$item"
 }
