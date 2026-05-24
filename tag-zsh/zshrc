@@ -109,7 +109,7 @@ cdd() {
 
 cdr() {
   local repo="$(git-find-repos | fzy)"
-  [[ -d ~/Projects/"$repo" ]] && cd ~/Projects/"$repo"
+  [[ -d "$HOME/Projects/$repo" ]] && cd "$HOME/Projects/$repo"
 }
 
 fop() {
