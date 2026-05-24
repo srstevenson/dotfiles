@@ -97,8 +97,36 @@ zstyle ':vcs_info:git+set-message:*' hooks git-truncate-branch git-stashed git-u
 
 PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
 
-if [[ -n "$SSH_CONNECTION" ]]; then
-  RPROMPT='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
+zmodload zsh/datetime
+
+_preexec_duration() {
+  typeset -g preexec_epochrealtime=$EPOCHREALTIME
+}
+add-zsh-hook preexec _preexec_duration
+
+_precmd_duration() {
+  unset command_duration
+  [[ -v preexec_epochrealtime ]] || return
+  local -rF elapsed=$((EPOCHREALTIME - preexec_epochrealtime))
+  local -ri hours=$((elapsed / 3600))
+  local -ri mins=$(((elapsed / 60) % 60))
+  local -ri secs=$((elapsed % 60))
+  local formatted
+  if ((hours)); then
+    printf -v formatted '%ih%im' $hours $mins
+  elif ((mins)); then
+    printf -v formatted '%im%is' $mins $secs
+  elif ((secs >= 1)); then
+    printf -v formatted '%is' $secs
+  fi
+  [[ -n $formatted ]] && command_duration="%F{8}%B${formatted}%b%f "
+  unset preexec_epochrealtime
+}
+add-zsh-hook precmd _precmd_duration
+
+RPROMPT='$command_duration'
+if [[ -n $SSH_CONNECTION ]]; then
+  RPROMPT+='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
 fi
 
 # Functions -------------------------------------------------------------------
