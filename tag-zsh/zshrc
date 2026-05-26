@@ -126,7 +126,7 @@ add-zsh-hook precmd _precmd_duration
 
 RPROMPT='$command_duration'
 if [[ -n $SSH_CONNECTION ]]; then
-  RPROMPT+='%F{magenta}%B%n%b%f%F{8}@%f%F{cyan}%B%m%b%f'
+  RPROMPT+='%F{magenta}%B%m%b%f'
 fi
 
 # Functions -------------------------------------------------------------------
