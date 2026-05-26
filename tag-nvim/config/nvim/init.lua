@@ -32,9 +32,9 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Keymaps --------------------------------------------------------------------
-vim.keymap.set({ "n", "v" }, "<space>y", '"+y')
-vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>")
-vim.keymap.set("n", "<space>p", '"+p')
+vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
+vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
 
 -- Autocmds -------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -92,12 +92,12 @@ require("telescope").setup({
 })
 require("telescope").load_extension("ui-select")
 
-vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>")
-vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>")
-vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>")
-vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>")
-vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>")
-vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>")
+vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
+vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>", { desc = "Find jumplist entries" })
+vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
+vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>", { desc = "Find commands" })
+vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
 
 -- LSP ------------------------------------------------------------------------
 vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
@@ -106,22 +106,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
 
-    local opts = { buffer = args.buf }
-    vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", opts)
-    vim.keymap.set("n", "<space>D", "<Cmd>Telescope diagnostics<CR>", opts)
-    vim.keymap.set("n", "<space>i", function()
+    local function map(lhs, rhs, desc)
+      vim.keymap.set("n", lhs, rhs, { buffer = args.buf, desc = desc })
+    end
+
+    map("<space>a", vim.lsp.buf.code_action, "Perform a code action")
+    map("<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", "Find buffer diagnostics")
+    map("<space>D", "<Cmd>Telescope diagnostics<CR>", "Find workspace diagnostics")
+    map("<space>i", function()
       local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = args.buf })
       vim.lsp.inlay_hint.enable(not enabled, { bufnr = args.buf })
-    end, opts)
-    vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
-    vim.keymap.set("n", "<space>S", "<Cmd>Telescope lsp_workspace_symbols<CR>", opts)
-    vim.keymap.set("n", "gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
-    vim.keymap.set("n", "gi", "<Cmd>Telescope lsp_implementations<CR>", opts)
-    vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", opts)
-    vim.keymap.set("n", "gy", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
+    end, "Toggle inlay hints")
+    map("<space>k", vim.lsp.buf.hover, "Display info about symbol")
+    map("<space>r", vim.lsp.buf.rename, "Rename symbol")
+    map("<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", "Find document symbols")
+    map("<space>S", "<Cmd>Telescope lsp_workspace_symbols<CR>", "Find workspace symbols")
+    map("gd", "<Cmd>Telescope lsp_definitions<CR>", "Go to definition")
+    map("gi", "<Cmd>Telescope lsp_implementations<CR>", "Go to implementation")
+    map("gr", "<Cmd>Telescope lsp_references<CR>", "Find references")
+    map("gy", "<Cmd>Telescope lsp_type_definitions<CR>", "Go to type definition")
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = args.buf,
