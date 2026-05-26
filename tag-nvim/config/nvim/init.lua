@@ -104,10 +104,16 @@ vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
+    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+
     local opts = { buffer = args.buf }
     vim.keymap.set("n", "<space>a", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", opts)
     vim.keymap.set("n", "<space>D", "<Cmd>Telescope diagnostics<CR>", opts)
+    vim.keymap.set("n", "<space>i", function()
+      local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = args.buf })
+      vim.lsp.inlay_hint.enable(not enabled, { bufnr = args.buf })
+    end, opts)
     vim.keymap.set("n", "<space>k", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
