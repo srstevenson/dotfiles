@@ -49,8 +49,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "jjdescription", "markdown" },
-  callback = function()
-    vim.opt_local.spell = true
+  callback = function(args)
+    if vim.bo[args.buf].buftype ~= "nofile" then
+      vim.opt_local.spell = true
+    end
   end,
 })
 
