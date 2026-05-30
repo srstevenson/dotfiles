@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-"""Dotfiles manager."""
-
 import argparse
 import filecmp
 import sys
