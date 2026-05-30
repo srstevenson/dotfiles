@@ -85,6 +85,7 @@ require("telescope").setup({
   defaults = {
     layout_config = { prompt_position = "top" },
     sorting_strategy = "ascending",
+    mappings = { i = { ["<esc>"] = require("telescope.actions").close } },
   },
   extensions = {
     ["ui-select"] = { require("telescope.themes").get_dropdown() },
