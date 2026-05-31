@@ -103,6 +103,12 @@ vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find h
 -- LSP ------------------------------------------------------------------------
 vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
+vim.keymap.set("n", "<space>i", function()
+  local enable = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+  vim.lsp.inlay_hint.enable(enable, { bufnr = 0 })
+  vim.notify("Inlay hints " .. (enable and "enabled" or "disabled"))
+end, { desc = "Toggle inlay hints" })
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
@@ -114,10 +120,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<space>a", vim.lsp.buf.code_action, "Perform a code action")
     map("<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", "Find buffer diagnostics")
     map("<space>D", "<Cmd>Telescope diagnostics<CR>", "Find workspace diagnostics")
-    map("<space>i", function()
-      local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = args.buf })
-      vim.lsp.inlay_hint.enable(not enabled, { bufnr = args.buf })
-    end, "Toggle inlay hints")
     map("<space>k", vim.lsp.buf.hover, "Display info about symbol")
     map("<space>r", vim.lsp.buf.rename, "Rename symbol")
     map("<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", "Find document symbols")
