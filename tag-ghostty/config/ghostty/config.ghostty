@@ -1,6 +1,6 @@
 # Appearance ------------------------------------------------------------------
 mouse-hide-while-typing = true
-theme = warm-burnout-dark
+theme = dark:warm-burnout-dark,light:warm-burnout-light
 unfocused-split-opacity = 1
 window-theme = ghostty
 
