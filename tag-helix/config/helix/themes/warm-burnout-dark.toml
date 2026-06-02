@@ -151,9 +151,9 @@ warning = { fg = "warn" }
 "ui.text.info" = { fg = "fg-dim" }
 "ui.virtual" = { fg = "fg-gutter" }
 "ui.virtual.indent-guide" = { fg = "fg-gutter" }
-"ui.virtual.inlay-hint" = { fg = "fg-gutter" }
-"ui.virtual.inlay-hint.parameter" = { fg = "fg-gutter" }
-"ui.virtual.inlay-hint.type" = { fg = "fg-gutter", modifiers = ["italic"] }
+"ui.virtual.inlay-hint" = { fg = "fg-gutter", bg = "bg-float" }
+"ui.virtual.inlay-hint.parameter" = { fg = "fg-gutter", bg = "bg-float" }
+"ui.virtual.inlay-hint.type" = { fg = "fg-gutter", bg = "bg-float" }
 "ui.virtual.jump-label" = { fg = "accent", modifiers = ["bold"] }
 "ui.virtual.ruler" = { bg = "bg-highlight" }
 "ui.virtual.whitespace" = { fg = "fg-gutter" }
