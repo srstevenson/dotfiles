@@ -6,7 +6,6 @@ local bg_float = "#1f1d17"
 local bg_highlight = "#222018"
 local bg_visual = "#363a3a"
 local bg_search = "#4c4126"
--- local bg_search_dim = "#2f2719"
 
 local fg = "#bfbdb6"
 local fg_dim = "#ada69c"
@@ -52,10 +51,9 @@ local diff_delete = "#34201d"
 local diff_text = "#303e4c"
 
 local border = "#26211c"
--- local indent_guide = "#3e3933"
--- local indent_guide_active = "#726c65"
 local whitespace = "#746f67"
 
+vim.opt.background = "dark"
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
 
