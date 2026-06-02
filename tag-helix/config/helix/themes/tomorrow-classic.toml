@@ -89,7 +89,7 @@
 "ui.text.inactive" = "base03"
 "ui.virtual" = "base04"
 "ui.virtual.indent-guide" = "base03"
-"ui.virtual.inlay-hint" = "base03"
+"ui.virtual.inlay-hint" = { fg = "base03", bg = "base01" }
 "ui.virtual.jump-label" = { fg = "base0A", modifiers = ["bold"] }
 "ui.virtual.ruler" = { bg = "base01" }
 "ui.virtual.whitespace" = "base02"
