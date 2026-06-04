@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 import webbrowser
 from urllib.parse import urlencode
 
@@ -13,7 +14,9 @@ def main() -> None:
 
     params = {"q": " ".join(args.query)}
     url = f"https://html.duckduckgo.com/html/?{urlencode(params)}"
-    webbrowser.open(url)
+    print(url)
+    if "SSH_CONNECTION" not in os.environ:
+        webbrowser.open(url)
 
 
 if __name__ == "__main__":
