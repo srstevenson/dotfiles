@@ -1,14 +1,6 @@
 ---@diagnostic disable: undefined-global
 
--- Plugins --------------------------------------------------------------------
-vim.pack.add({
-  "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
-  "https://github.com/nvim-telescope/telescope.nvim",
-})
-
--- Colorscheme ----------------------------------------------------------------
+-- Colourscheme ---------------------------------------------------------------
 vim.cmd.colorscheme("warm-burnout-dark")
 
 -- Options --------------------------------------------------------------------
@@ -31,10 +23,23 @@ vim.opt.spelllang = "en_gb"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Keymaps --------------------------------------------------------------------
-vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
-vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
-vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
+-- Diagnostics ----------------------------------------------------------------
+vim.diagnostic.config({
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "●",
+      [vim.diagnostic.severity.HINT] = "●",
+      [vim.diagnostic.severity.INFO] = "●",
+      [vim.diagnostic.severity.WARN] = "●",
+    },
+  },
+  virtual_text = {
+    current_line = true,
+    source = true,
+    virt_text_pos = "eol_right_align",
+  },
+})
 
 -- Autocmds -------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -62,50 +67,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Diagnostics ----------------------------------------------------------------
-vim.diagnostic.config({
-  severity_sort = true,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "●",
-      [vim.diagnostic.severity.HINT] = "●",
-      [vim.diagnostic.severity.INFO] = "●",
-      [vim.diagnostic.severity.WARN] = "●",
-    },
-  },
-  virtual_text = {
-    current_line = true,
-    source = true,
-    virt_text_pos = "eol_right_align",
-  },
-})
-
--- Telescope ------------------------------------------------------------------
-require("telescope").setup({
-  defaults = {
-    layout_config = { prompt_position = "top" },
-    sorting_strategy = "ascending",
-    mappings = { i = { ["<esc>"] = require("telescope.actions").close } },
-  },
-  pickers = {
-    find_files = {
-      find_command = { "rg", "--files", "--hidden", "--glob=!.git" },
-    },
-  },
-  extensions = {
-    ["ui-select"] = { require("telescope.themes").get_dropdown() },
-  },
-})
-require("telescope").load_extension("ui-select")
-
-vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
-vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>", { desc = "Find jumplist entries" })
-vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>", { desc = "Find commands" })
-vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
-
 -- LSP ------------------------------------------------------------------------
+vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
 vim.keymap.set("n", "<space>i", function()
@@ -140,3 +103,39 @@ vim.api.nvim_create_autocmd("LspAttach", {
     })
   end,
 })
+
+-- Keymaps --------------------------------------------------------------------
+vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
+vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
+
+-- Telescope ------------------------------------------------------------------
+vim.pack.add({
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
+})
+
+require("telescope").setup({
+  defaults = {
+    layout_config = { prompt_position = "top" },
+    sorting_strategy = "ascending",
+    mappings = { i = { ["<esc>"] = require("telescope.actions").close } },
+  },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob=!.git" },
+    },
+  },
+  extensions = {
+    ["ui-select"] = { require("telescope.themes").get_dropdown() },
+  },
+})
+require("telescope").load_extension("ui-select")
+
+vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
+vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>", { desc = "Find jumplist entries" })
+vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
+vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>", { desc = "Find commands" })
+vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
