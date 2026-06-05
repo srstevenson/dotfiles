@@ -87,9 +87,14 @@ require("telescope").setup({
     sorting_strategy = "ascending",
     mappings = { i = { ["<esc>"] = require("telescope.actions").close } },
   },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
+    },
+  },
   extensions = {
     ["ui-select"] = { require("telescope.themes").get_dropdown() },
-  }
+  },
 })
 require("telescope").load_extension("ui-select")
 
