@@ -58,6 +58,7 @@ end
 vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
 
 vim.api.nvim_create_autocmd("FocusGained", {
+  group = vim.api.nvim_create_augroup("UserColourscheme", { clear = true }),
   callback = function()
     vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
   end,
@@ -65,6 +66,7 @@ vim.api.nvim_create_autocmd("FocusGained", {
 
 -- Buffers --------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("UserTrimWhitespace", { clear = true }),
   pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
@@ -75,6 +77,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("UserSpell", { clear = true }),
   pattern = { "gitcommit", "jjdescription", "markdown" },
   callback = function(args)
     if vim.bo[args.buf].buftype ~= "nofile" then
@@ -84,6 +87,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("UserHighlightYank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
@@ -100,6 +104,7 @@ vim.keymap.set("n", "<space>i", function()
 end, { desc = "Toggle inlay hints" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true }),
   callback = function(args)
     local function map(lhs, rhs, desc)
       vim.keymap.set("n", lhs, rhs, { buffer = args.buf, desc = desc })
