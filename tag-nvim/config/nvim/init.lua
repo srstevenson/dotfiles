@@ -47,8 +47,8 @@ local function in_dark_mode()
 
   if vim.fn.executable("gsettings") == 1 then
     local result = vim
-      .system({ "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" }, { text = true })
-      :wait()
+        .system({ "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" }, { text = true })
+        :wait()
     return result.code ~= 0 or result.stdout:find("prefer%-dark") ~= nil
   end
 
