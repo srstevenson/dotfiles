@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("FocusGained", {
   end,
 })
 
--- Autocmds -------------------------------------------------------------------
+-- Buffers --------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
@@ -126,7 +126,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- Keymaps --------------------------------------------------------------------
+-- Clipboard ------------------------------------------------------------------
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
 vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
