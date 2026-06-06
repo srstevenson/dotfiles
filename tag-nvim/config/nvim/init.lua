@@ -1,8 +1,5 @@
 ---@diagnostic disable: undefined-global
 
--- Colourscheme ---------------------------------------------------------------
-vim.cmd.colorscheme("warm-burnout-dark")
-
 -- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }
 vim.opt.confirm = true
@@ -39,6 +36,31 @@ vim.diagnostic.config({
     source = true,
     virt_text_pos = "eol_right_align",
   },
+})
+
+-- Colourscheme ---------------------------------------------------------------
+local function in_dark_mode()
+  if vim.fn.has("mac") == 1 then
+    local result = vim.system({ "defaults", "read", "-g", "AppleInterfaceStyle" }, { text = true }):wait()
+    return vim.trim(result.stdout) == "Dark"
+  end
+
+  if vim.fn.executable("gsettings") == 1 then
+    local result = vim
+      .system({ "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" }, { text = true })
+      :wait()
+    return result.code ~= 0 or result.stdout:find("prefer%-dark") ~= nil
+  end
+
+  return true
+end
+
+vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
+
+vim.api.nvim_create_autocmd("FocusGained", {
+  callback = function()
+    vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
+  end,
 })
 
 -- Autocmds -------------------------------------------------------------------
