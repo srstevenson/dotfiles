@@ -57,14 +57,18 @@ local function in_dark_mode()
   return true
 end
 
-vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
-
 vim.api.nvim_create_autocmd("FocusGained", {
   group = user_autocmds,
   callback = function()
-    vim.cmd.colorscheme(in_dark_mode() and "warm-burnout-dark" or "warm-burnout-light")
+    local background = in_dark_mode() and "dark" or "light"
+    if vim.opt.background ~= background then
+      vim.opt.background = background
+    end
   end,
 })
+
+vim.o.background = in_dark_mode() and "dark" or "light"
+vim.cmd.colorscheme("warm-burnout")
 
 -- Buffers --------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
