@@ -30,7 +30,22 @@ export HOMEBREW_NO_ANALYTICS="1"
 # Title -----------------------------------------------------------------------
 autoload -Uz add-zsh-hook
 
-_precmd_title() { print -Pn '\e]0;%m: %~\a' }
+_collapse_pwd() {
+  local current_pwd=${(D)PWD}
+
+  if [[ $current_pwd == [/~] ]]; then
+    print -r -- $current_pwd
+    return
+  fi
+
+  local abbreviated=${(j:/:M)${(s:/:)current_pwd}##.#?}
+  local parents=${${abbreviated:h}%/}
+  local leaf=${current_pwd:t}
+
+  print -r -- "${parents//\%/%%}/${leaf//\%/%%}"
+}
+
+_precmd_title() { print -Pn '\e]0;%m: $(_collapse_pwd)\a' }
 add-zsh-hook precmd _precmd_title
 
 _preexec_title() { print -Pn '\e]0;%m: $2\a' }
