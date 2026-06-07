@@ -122,10 +122,12 @@ add-zsh-hook preexec _preexec_duration
 _precmd_duration() {
   unset command_duration
   [[ -v preexec_epochrealtime ]] || return
+
   local -rF elapsed=$((EPOCHREALTIME - preexec_epochrealtime))
   local -ri hours=$((elapsed / 3600))
   local -ri mins=$(((elapsed / 60) % 60))
   local -ri secs=$((elapsed % 60))
+
   local formatted
   if ((hours)); then
     printf -v formatted '%ih%im' $hours $mins
@@ -134,6 +136,7 @@ _precmd_duration() {
   elif ((secs >= 1)); then
     printf -v formatted '%is' $secs
   fi
+
   [[ -n $formatted ]] && command_duration="%F{8}%B${formatted}%b%f "
   unset preexec_epochrealtime
 }
