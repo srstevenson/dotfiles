@@ -61,8 +61,8 @@ vim.api.nvim_create_autocmd("FocusGained", {
   group = user_autocmds,
   callback = function()
     local background = in_dark_mode() and "dark" or "light"
-    if vim.opt.background ~= background then
-      vim.opt.background = background
+    if vim.o.background ~= background then
+      vim.o.background = background
     end
   end,
 })
