@@ -1,81 +1,220 @@
 ---@diagnostic disable: undefined-global
 
-local bg = "#f5ede0"
-local bg_dim = "#ede6da"
-local bg_float = "#f0e8dc"
-local bg_highlight = "#e2dace"
-local bg_visual = "#dadcd6"
-local bg_search = "#e0c890"
+local palettes = {
+  dark = {
+    bg = "#1a1510",
+    bg_dim = "#14120f",
+    bg_float = "#1f1d17",
+    bg_highlight = "#222018",
+    bg_visual = "#363a3a",
+    bg_search = "#4c4126",
+    color_column = "#222018",
 
-local fg = "#3a3630"
-local fg_dim = "#5c5750"
-local fg_gutter = "#8a8070"
-local fg_gutter_active = "#6a6258"
+    fg = "#bfbdb6",
+    fg_dim = "#ada69c",
+    fg_gutter = "#746f67",
+    fg_gutter_active = "#a59f96",
 
-local comment = "#544c40"
-local cursor = "#8a6600"
-local accent = "#b8522e"
+    comment = "#b4a89c",
+    cursor = "#f5c56e",
+    accent = "#b8522e",
 
-local keyword = "#924800"
-local func = "#855700"
-local string_c = "#4d5c1a"
-local type_c = "#285464"
-local operator = "#8f4418"
-local number = "#7e4060"
-local constant = "#7e4060"
-local tag = "#8e4632"
-local attribute = "#855700"
-local property = "#74501c"
-local member = "#883850"
-local library_func = "#883850"
-local parameter = "#7e4060"
-local regex = "#286a48"
-local decorator = "#7a5a1c"
-local variable_lang = "#8e4632"
-local punctuation = "#3a3630"
-local punctuation_dim = "#5c5750"
-local interpolation = "#924800"
+    keyword = "#ff8f40",
+    func = "#ffb454",
+    string_c = "#b4bc78",
+    type_c = "#90aec0",
+    operator = "#f29668",
+    number = "#d4a8b8",
+    constant = "#d4a8b8",
+    tag = "#dc9e92",
+    attribute = "#ffb454",
+    property = "#deb074",
+    member = "#ec9878",
+    library_func = "#ec9878",
+    parameter = "#d4a8b8",
+    regex = "#96b898",
+    decorator = "#e6c08a",
+    variable_lang = "#dc9e92",
+    punctuation = "#bfbdb6",
+    punctuation_dim = "#a6a49d",
+    interpolation = "#ff8f40",
 
-local error_c = "#b03434"
-local warn = "#b8522e"
-local info = "#285464"
-local hint = "#544c40"
+    error_c = "#f49090",
+    warn = "#b8522e",
+    info = "#90aec0",
+    hint = "#b4a89c",
 
-local added = "#226414"
-local modified = "#2868a0"
-local deleted = "#c43040"
+    added = "#70bf56",
+    modified = "#73b8ff",
+    deleted = "#f26d78",
 
-local diff_add = "#d2d6be"
-local diff_change = "#d3d7d5"
-local diff_delete = "#edcec6"
-local diff_text = "#c2ccd0"
+    diff_add = "#242a19",
+    diff_change = "#25292d",
+    diff_delete = "#34201d",
+    diff_text = "#303e4c",
 
-local border = "#ddd6ca"
-local whitespace = "#a09888"
+    border = "#26211c",
+    whitespace = "#746f67",
 
-vim.opt.background = "light"
+    terminal = {
+      "#23211b",
+      "#f06b73",
+      "#70bf56",
+      "#fdb04c",
+      "#4fbfff",
+      "#d0a1ff",
+      "#93e2c8",
+      "#c7c7c7",
+      "#686868",
+      "#f07178",
+      "#aad94c",
+      "#ffb454",
+      "#59c2ff",
+      "#d2a6ff",
+      "#95e6cb",
+      "#ffffff",
+    },
+  },
+  light = {
+    bg = "#f5ede0",
+    bg_dim = "#ede6da",
+    bg_float = "#f0e8dc",
+    bg_highlight = "#e2dace",
+    bg_visual = "#dadcd6",
+    bg_search = "#e0c890",
+    color_column = "#ede6da",
+
+    fg = "#3a3630",
+    fg_dim = "#5c5750",
+    fg_gutter = "#8a8070",
+    fg_gutter_active = "#6a6258",
+
+    comment = "#544c40",
+    cursor = "#8a6600",
+    accent = "#b8522e",
+
+    keyword = "#924800",
+    func = "#855700",
+    string_c = "#4d5c1a",
+    type_c = "#285464",
+    operator = "#8f4418",
+    number = "#7e4060",
+    constant = "#7e4060",
+    tag = "#8e4632",
+    attribute = "#855700",
+    property = "#74501c",
+    member = "#883850",
+    library_func = "#883850",
+    parameter = "#7e4060",
+    regex = "#286a48",
+    decorator = "#7a5a1c",
+    variable_lang = "#8e4632",
+    punctuation = "#3a3630",
+    punctuation_dim = "#5c5750",
+    interpolation = "#924800",
+
+    error_c = "#b03434",
+    warn = "#b8522e",
+    info = "#285464",
+    hint = "#544c40",
+
+    added = "#226414",
+    modified = "#2868a0",
+    deleted = "#c43040",
+
+    diff_add = "#d2d6be",
+    diff_change = "#d3d7d5",
+    diff_delete = "#edcec6",
+    diff_text = "#c2ccd0",
+
+    border = "#ddd6ca",
+    whitespace = "#a09888",
+
+    terminal = {
+      "#3a3630",
+      "#b82820",
+      "#2d6a14",
+      "#8a6000",
+      "#2060a0",
+      "#8a3090",
+      "#146858",
+      "#c0b8aa",
+      "#686868",
+      "#c83028",
+      "#3a7a20",
+      "#9a7008",
+      "#2870b0",
+      "#9a38a0",
+      "#208870",
+      "#faf6f0",
+    },
+  },
+}
+
+local palette = palettes[vim.o.background] or palettes.dark
+
+local bg = palette.bg
+local bg_dim = palette.bg_dim
+local bg_float = palette.bg_float
+local bg_highlight = palette.bg_highlight
+local bg_visual = palette.bg_visual
+local bg_search = palette.bg_search
+
+local fg = palette.fg
+local fg_dim = palette.fg_dim
+local fg_gutter = palette.fg_gutter
+local fg_gutter_active = palette.fg_gutter_active
+
+local comment = palette.comment
+local cursor = palette.cursor
+local accent = palette.accent
+
+local keyword = palette.keyword
+local func = palette.func
+local string_c = palette.string_c
+local type_c = palette.type_c
+local operator = palette.operator
+local number = palette.number
+local constant = palette.constant
+local tag = palette.tag
+local attribute = palette.attribute
+local property = palette.property
+local member = palette.member
+local library_func = palette.library_func
+local parameter = palette.parameter
+local regex = palette.regex
+local decorator = palette.decorator
+local variable_lang = palette.variable_lang
+local punctuation = palette.punctuation
+local punctuation_dim = palette.punctuation_dim
+local interpolation = palette.interpolation
+
+local error_c = palette.error_c
+local warn = palette.warn
+local info = palette.info
+local hint = palette.hint
+
+local added = palette.added
+local modified = palette.modified
+local deleted = palette.deleted
+
+local diff_add = palette.diff_add
+local diff_change = palette.diff_change
+local diff_delete = palette.diff_delete
+local diff_text = palette.diff_text
+
+local border = palette.border
+local whitespace = palette.whitespace
+
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
 
-vim.g.colors_name = "warm-burnout-light"
+vim.g.colors_name = "warm-burnout"
 
 -- Terminal colors
-vim.g.terminal_color_0 = "#3a3630"
-vim.g.terminal_color_1 = "#b82820"
-vim.g.terminal_color_2 = "#2d6a14"
-vim.g.terminal_color_3 = "#8a6000"
-vim.g.terminal_color_4 = "#2060a0"
-vim.g.terminal_color_5 = "#8a3090"
-vim.g.terminal_color_6 = "#146858"
-vim.g.terminal_color_7 = "#c0b8aa"
-vim.g.terminal_color_8 = "#686868"
-vim.g.terminal_color_9 = "#c83028"
-vim.g.terminal_color_10 = "#3a7a20"
-vim.g.terminal_color_11 = "#9a7008"
-vim.g.terminal_color_12 = "#2870b0"
-vim.g.terminal_color_13 = "#9a38a0"
-vim.g.terminal_color_14 = "#208870"
-vim.g.terminal_color_15 = "#faf6f0"
+for index, colour in ipairs(palette.terminal) do
+  vim.g["terminal_color_" .. (index - 1)] = colour
+end
 
 -- Editor UI
 vim.api.nvim_set_hl(0, "Normal", { fg = fg, bg = bg })
@@ -91,7 +230,7 @@ vim.api.nvim_set_hl(0, "CursorColumn", { bg = bg_highlight })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = fg_gutter_active })
 vim.api.nvim_set_hl(0, "LineNr", { fg = fg_gutter })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = fg_gutter, bg = bg })
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = bg_dim })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = palette.color_column })
 vim.api.nvim_set_hl(0, "Folded", { fg = comment, bg = bg_float })
 vim.api.nvim_set_hl(0, "FoldColumn", { fg = fg_gutter })
 vim.api.nvim_set_hl(0, "VertSplit", { fg = border })
