@@ -5,6 +5,7 @@ unfocused-split-opacity = 1
 window-theme = ghostty
 
 # Font ------------------------------------------------------------------------
+font-family = JetBrains Mono
 font-size = 16
 
 # Shell integration -----------------------------------------------------------
