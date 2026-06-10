@@ -76,10 +76,6 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' verbose true
 
-if (( $+commands[jj] )); then
-  . <(COMPLETE=zsh jj)
-fi
-
 # Prompt ----------------------------------------------------------------------
 autoload -Uz vcs_info
 add-zsh-hook precmd vcs_info
@@ -162,6 +158,13 @@ opf() {
   local item="$(rg --files | fzy)"
   [[ -n "$item" ]] && open "$item"
 }
+
+_jj_lazy() {
+  unfunction _jj_lazy
+  . <(COMPLETE=zsh jj)
+  "$_comps[jj]" "$@"
+}
+compdef _jj_lazy jj
 
 # Aliases ---------------------------------------------------------------------
 alias ls="ls --color -h"
