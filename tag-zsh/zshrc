@@ -110,7 +110,7 @@ zstyle ':vcs_info:*' unstagedstr '%F{yellow}%B!%b%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
 zstyle ':vcs_info:git+set-message:*' hooks git-truncate-branch git-stashed git-untracked
 
-PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_} %(?:%F{green}:%F{red})❯%f '
+PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_}%(1j. %F{yellow}✦%f.) %(?:%F{green}:%F{red})❯%f '
 
 zmodload zsh/datetime
 
