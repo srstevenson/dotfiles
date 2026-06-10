@@ -92,7 +92,7 @@ add-zsh-hook precmd vcs_info
 
 +vi-git-stashed() {
   if git rev-parse --verify --quiet refs/stash >/dev/null; then
-    hook_com[misc]+='%F{red}%B$%b%f'
+    hook_com[misc]+='%F{red}%B≡%b%f'
   fi
 }
 
