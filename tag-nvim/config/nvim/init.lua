@@ -139,8 +139,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Clipboard ------------------------------------------------------------------
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
-vim.keymap.set("n", "<space>p", '"+p', { desc = "Paste from system clipboard" })
 
 -- Telescope ------------------------------------------------------------------
 vim.pack.add({
