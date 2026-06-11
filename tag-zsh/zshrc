@@ -45,10 +45,10 @@ _collapse_pwd() {
   print -r -- "${parents//\%/%%}/${leaf//\%/%%}"
 }
 
-_precmd_title() { print -Pn '\e]0;%m: $(_collapse_pwd)\a' }
+_precmd_title() { print -Pn "\e]0;${SSH_CONNECTION:+%m: }$(_collapse_pwd)\a" }
 add-zsh-hook precmd _precmd_title
 
-_preexec_title() { print -Pn "\e]0;%m: ${2//\%/%%}\a" }
+_preexec_title() { print -Pn "\e]0;${SSH_CONNECTION:+%m: }${2//\%/%%}\a" }
 add-zsh-hook preexec _preexec_title
 
 # Keybindings -----------------------------------------------------------------
