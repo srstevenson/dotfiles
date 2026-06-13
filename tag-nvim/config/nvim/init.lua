@@ -157,7 +157,7 @@ vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboa
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
 
--- Telescope ------------------------------------------------------------------
+-- telescope.nvim -------------------------------------------------------------
 vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/nvim-telescope/telescope-ui-select.nvim",
