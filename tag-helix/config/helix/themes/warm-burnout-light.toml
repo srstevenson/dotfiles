@@ -138,8 +138,8 @@ warning = { fg = "warn" }
 "ui.popup.info" = { fg = "fg", bg = "bg-float" }
 "ui.selection" = { bg = "bg-selection" }
 "ui.selection.primary" = { bg = "bg-selection" }
-"ui.statusline" = { fg = "fg-dim", bg = "bg-dim" }
-"ui.statusline.inactive" = { fg = "fg-gutter", bg = "bg-dim" }
+"ui.statusline" = { fg = "fg-dim", bg = "bg-highlight" }
+"ui.statusline.inactive" = { fg = "fg-gutter", bg = "bg-highlight" }
 "ui.statusline.insert" = { fg = "bg", bg = "added", modifiers = ["bold"] }
 "ui.statusline.normal" = { fg = "bg", bg = "accent", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "bg", bg = "keyword", modifiers = ["bold"] }
@@ -155,7 +155,7 @@ warning = { fg = "warn" }
 "ui.virtual.inlay-hint.parameter" = { fg = "fg-gutter", bg = "bg-float" }
 "ui.virtual.inlay-hint.type" = { fg = "fg-gutter", bg = "bg-float" }
 "ui.virtual.jump-label" = { fg = "accent", modifiers = ["bold"] }
-"ui.virtual.ruler" = { bg = "bg-dim" }
+"ui.virtual.ruler" = { bg = "bg-highlight" }
 "ui.virtual.whitespace" = { fg = "fg-gutter" }
 "ui.virtual.wrap" = { fg = "fg-gutter" }
 "ui.window" = { fg = "bg-highlight" }
