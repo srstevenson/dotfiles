@@ -8,7 +8,6 @@ local palettes = {
     bg_highlight = "#222018",
     bg_visual = "#363a3a",
     bg_search = "#4c4126",
-    color_column = "#222018",
 
     fg = "#bfbdb6",
     fg_dim = "#ada69c",
@@ -82,7 +81,6 @@ local palettes = {
     bg_highlight = "#e2dace",
     bg_visual = "#dadcd6",
     bg_search = "#e0c890",
-    color_column = "#ede6da",
 
     fg = "#3a3630",
     fg_dim = "#5c5750",
@@ -230,13 +228,13 @@ vim.api.nvim_set_hl(0, "CursorColumn", { bg = bg_highlight })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = fg_gutter_active })
 vim.api.nvim_set_hl(0, "LineNr", { fg = fg_gutter })
 vim.api.nvim_set_hl(0, "SignColumn", { fg = fg_gutter, bg = bg })
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = palette.color_column })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = bg_highlight })
 vim.api.nvim_set_hl(0, "Folded", { fg = comment, bg = bg_float })
 vim.api.nvim_set_hl(0, "FoldColumn", { fg = fg_gutter })
 vim.api.nvim_set_hl(0, "VertSplit", { fg = border })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = border })
-vim.api.nvim_set_hl(0, "StatusLine", { fg = fg_dim, bg = bg_dim })
-vim.api.nvim_set_hl(0, "StatusLineNC", { fg = fg_gutter, bg = bg_dim })
+vim.api.nvim_set_hl(0, "StatusLine", { fg = fg_dim, bg = bg_highlight })
+vim.api.nvim_set_hl(0, "StatusLineNC", { fg = fg_gutter, bg = bg_highlight })
 vim.api.nvim_set_hl(0, "TabLine", { fg = fg_dim, bg = bg_dim })
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = fg, bg = bg })
 vim.api.nvim_set_hl(0, "TabLineFill", { bg = bg_dim })
