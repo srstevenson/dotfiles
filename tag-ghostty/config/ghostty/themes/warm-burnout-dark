@@ -7,7 +7,7 @@ selection-background = #33393a
 cursor-text = #1a1510
 cursor-color = #f5c56e
 
-split-divider-color = #26211c
+split-divider-color = #746f67
 
 # Black
 palette = 0=#23211b
