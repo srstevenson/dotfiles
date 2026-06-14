@@ -185,5 +185,4 @@ vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>", { desc = "Find 
 vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>", { desc = "Find jumplist entries" })
 vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-vim.keymap.set("n", "<space>?", "<Cmd>Telescope commands<CR>", { desc = "Find commands" })
 vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
