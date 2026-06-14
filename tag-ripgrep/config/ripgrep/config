@@ -1,4 +1,8 @@
+# Follow symlinks when searching.
 --follow
+# Preview lines longer than column limit.
 --max-columns-preview
+# Truncate matching lines after 120 bytes.
 --max-columns=120
+# Search case insensitively if pattern is lowercase.
 --smart-case
