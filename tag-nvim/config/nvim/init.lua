@@ -143,12 +143,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("gr", "<Cmd>Telescope lsp_references<CR>", "Find references")
     map("gy", "<Cmd>Telescope lsp_type_definitions<CR>", "Go to type definition")
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = args.buf,
-      callback = function()
-        vim.lsp.buf.format({ id = client.id, async = false })
-      end,
-    })
+    if client:supports_method("textDocument/formatting", args.buf) then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ id = client.id, async = false })
+        end,
+      })
+    end
   end,
 })
 
