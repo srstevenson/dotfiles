@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
 -- Options --------------------------------------------------------------------
