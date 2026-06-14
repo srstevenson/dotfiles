@@ -4,6 +4,7 @@ local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true
 
 -- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }
+vim.opt.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
 vim.opt.confirm = true
 vim.opt.expandtab = true
 vim.opt.grepprg = "rg --vimgrep --hidden --glob=!.git"
@@ -142,6 +143,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("gi", "<Cmd>Telescope lsp_implementations<CR>", "Go to implementation")
     map("gr", "<Cmd>Telescope lsp_references<CR>", "Find references")
     map("gy", "<Cmd>Telescope lsp_type_definitions<CR>", "Go to type definition")
+
+    if client:supports_method("textDocument/completion", args.buf) then
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+    end
 
     if client:supports_method("textDocument/formatting", args.buf) then
       vim.api.nvim_create_autocmd("BufWritePre", {
