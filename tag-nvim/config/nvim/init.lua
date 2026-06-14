@@ -53,12 +53,12 @@ local function dark_mode_cmd()
   end
 end
 
-local function sync_background(async)
+local function set_background(async)
   local cmd, parse = dark_mode_cmd()
   local apply = function(dark)
-    local bg = dark and "dark" or "light"
-    if vim.o.background ~= bg then
-      vim.o.background = bg
+    local background = dark and "dark" or "light"
+    if vim.o.background ~= background then
+      vim.o.background = background
     end
   end
   if not cmd then
@@ -75,11 +75,11 @@ end
 vim.api.nvim_create_autocmd("FocusGained", {
   group = user_autocmds,
   callback = function()
-    sync_background(true)
+    set_background(true)
   end,
 })
 
-sync_background(false)
+set_background(false)
 vim.cmd.colorscheme("warm-burnout")
 
 -- Buffers --------------------------------------------------------------------
