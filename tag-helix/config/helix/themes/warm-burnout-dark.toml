@@ -44,7 +44,7 @@
 "string.special" = { fg = "regex" }
 "string.special.path" = { fg = "string" }
 "string.special.symbol" = { fg = "string" }
-"string.special.url" = { fg = "tag", modifiers = ["underlined"] }
+"string.special.url" = { fg = "tag", underline = { style = "line" } }
 "tag" = { fg = "tag" }
 "tag.builtin" = { fg = "tag" }
 "type" = { fg = "type" }
@@ -69,7 +69,7 @@
 "markup.link" = { fg = "tag" }
 "markup.link.label" = { fg = "info" }
 "markup.link.text" = { fg = "info" }
-"markup.link.url" = { fg = "tag", modifiers = ["underlined"] }
+"markup.link.url" = { fg = "tag", underline = { style = "line" } }
 "markup.list" = { fg = "func" }
 "markup.list.checked" = { fg = "added" }
 "markup.list.numbered" = { fg = "func" }
