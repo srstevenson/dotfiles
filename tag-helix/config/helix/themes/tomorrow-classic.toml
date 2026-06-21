@@ -1,9 +1,9 @@
 "attribute" = { fg = "base0A" }
 "comment" = { fg = "base04", modifiers = ["italic"] }
-"comment.block" = { fg = "base04" }
-"comment.block.documentation" = { fg = "base04" }
-"comment.line" = { fg = "base04" }
-"comment.line.documentation" = { fg = "base04" }
+"comment.block" = { fg = "base04", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "base04", modifiers = ["italic"] }
+"comment.line" = { fg = "base04", modifiers = ["italic"] }
+"comment.line.documentation" = { fg = "base04", modifiers = ["italic"] }
 "constant" = { fg = "base09" }
 "constant.builtin" = { fg = "base09" }
 "constant.builtin.boolean" = { fg = "base09" }
