@@ -6,7 +6,7 @@ local base02 = "#303030"
 local base03 = "#505050"
 local base04 = "#b0b0b0"
 local base05 = "#d0d0d0"
--- local base06 = "#e0e0e0"
+local base06 = "#e0e0e0"
 local base07 = "#f5f5f5"
 local base08 = "#cc6666"
 local base09 = "#de935f"
@@ -63,7 +63,7 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = base02, bg = base01 })
 vim.api.nvim_set_hl(0, "FloatFooter", { fg = base04, bg = base01 })
 vim.api.nvim_set_hl(0, "FloatShadow", { bg = base01 })
 vim.api.nvim_set_hl(0, "FloatShadowThrough", { bg = base00 })
-vim.api.nvim_set_hl(0, "FloatTitle", { fg = base0D, bg = base01, bold = true })
+vim.api.nvim_set_hl(0, "FloatTitle", { fg = base06, bg = base01, bold = true })
 vim.api.nvim_set_hl(0, "FoldColumn", { fg = base03, bg = base00 })
 vim.api.nvim_set_hl(0, "Folded", { fg = base04, bg = base01 })
 vim.api.nvim_set_hl(0, "Ignore", { fg = base00 })
@@ -74,7 +74,7 @@ vim.api.nvim_set_hl(0, "LineNrAbove", { fg = base03 })
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = base03 })
 vim.api.nvim_set_hl(0, "Macro", { fg = base09 })
 vim.api.nvim_set_hl(0, "MatchParen", { fg = base09, bg = base01, bold = true })
-vim.api.nvim_set_hl(0, "ModeMsg", { fg = base0B, bold = true })
+vim.api.nvim_set_hl(0, "ModeMsg", { fg = base06, bold = true })
 vim.api.nvim_set_hl(0, "MoreMsg", { fg = base0B })
 vim.api.nvim_set_hl(0, "MsgArea", { fg = base05, bg = base00 })
 vim.api.nvim_set_hl(0, "MsgSeparator", { fg = base02, bg = base00 })
@@ -103,12 +103,12 @@ vim.api.nvim_set_hl(0, "StatusLineTermNC", { fg = base03, bg = base01 })
 vim.api.nvim_set_hl(0, "Substitute", { fg = base01, bg = base0A })
 vim.api.nvim_set_hl(0, "TabLine", { fg = base04, bg = base01 })
 vim.api.nvim_set_hl(0, "TabLineFill", { fg = base04, bg = base01 })
-vim.api.nvim_set_hl(0, "TabLineSel", { fg = base04, bg = base00 })
+vim.api.nvim_set_hl(0, "TabLineSel", { fg = base06, bg = base00 })
 vim.api.nvim_set_hl(0, "TermCursor", { fg = base00, bg = base04 })
 vim.api.nvim_set_hl(0, "Title", { fg = base08, bold = true })
 vim.api.nvim_set_hl(0, "Visual", { bg = base02 })
 vim.api.nvim_set_hl(0, "Whitespace", { fg = base02 })
-vim.api.nvim_set_hl(0, "WinBar", { fg = base04, bg = base01 })
+vim.api.nvim_set_hl(0, "WinBar", { fg = base06, bg = base01 })
 vim.api.nvim_set_hl(0, "WinBarNC", { fg = base03, bg = base01 })
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = base02 })
 vim.api.nvim_set_hl(0, "lCursor", { fg = base00, bg = base04 })
