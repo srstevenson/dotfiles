@@ -1,9 +1,9 @@
 "attribute" = { fg = "func" }
-"comment" = { fg = "comment" }
-"comment.block" = { fg = "comment" }
-"comment.block.documentation" = { fg = "comment" }
-"comment.line" = { fg = "comment" }
-"comment.line.documentation" = { fg = "comment" }
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.block" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "comment", modifiers = ["italic"] }
+"comment.line" = { fg = "comment", modifiers = ["italic"] }
+"comment.line.documentation" = { fg = "comment", modifiers = ["italic"] }
 "constant" = { fg = "number" }
 "constant.builtin" = { fg = "number" }
 "constant.builtin.boolean" = { fg = "number" }
