@@ -140,9 +140,9 @@ warning = { fg = "warn" }
 "ui.selection.primary" = { bg = "bg-selection" }
 "ui.statusline" = { fg = "fg-dim", bg = "bg-highlight" }
 "ui.statusline.inactive" = { fg = "fg-gutter", bg = "bg-highlight" }
-"ui.statusline.insert" = { fg = "bg", bg = "added", modifiers = ["bold"] }
-"ui.statusline.normal" = { fg = "bg", bg = "accent", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "bg", bg = "keyword", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "added", bg = "bg-highlight" }
+"ui.statusline.normal" = { fg = "fg-dim", bg = "bg-highlight" }
+"ui.statusline.select" = { fg = "keyword", bg = "bg-highlight" }
 "ui.statusline.separator" = { fg = "fg-gutter" }
 "ui.text" = { fg = "fg" }
 "ui.text.directory" = { fg = "func" }
