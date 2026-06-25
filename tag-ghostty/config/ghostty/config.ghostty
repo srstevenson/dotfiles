@@ -1,22 +1,17 @@
-# Appearance ------------------------------------------------------------------
+font-family = JetBrains Mono
+font-size = 16
+
 mouse-hide-while-typing = true
 theme = dark:warm-burnout-dark,light:warm-burnout-light
 unfocused-split-opacity = 1
 window-theme = ghostty
 
-# Font ------------------------------------------------------------------------
-font-family = JetBrains Mono
-font-size = 16
-
-# Shell integration -----------------------------------------------------------
 shell-integration-features = no-title
 
-# Keybinds --------------------------------------------------------------------
-keybind = ctrl+shift+up=goto_split:up
+macos-option-as-alt = left
+macos-titlebar-proxy-icon = hidden
+
 keybind = ctrl+shift+down=goto_split:down
 keybind = ctrl+shift+left=goto_split:left
 keybind = ctrl+shift+right=goto_split:right
-
-# macOS -----------------------------------------------------------------------
-macos-option-as-alt = left
-macos-titlebar-proxy-icon = hidden
+keybind = ctrl+shift+up=goto_split:up
