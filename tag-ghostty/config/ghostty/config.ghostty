@@ -2,7 +2,7 @@ font-family = JetBrains Mono
 font-size = 16
 
 mouse-hide-while-typing = true
-theme = dark:warm-burnout-dark,light:warm-burnout-light
+theme = tomorrow-classic
 unfocused-split-opacity = 1
 window-theme = ghostty
 
