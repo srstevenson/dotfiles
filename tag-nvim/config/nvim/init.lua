@@ -40,47 +40,7 @@ vim.diagnostic.config({
 })
 
 -- Colourscheme ---------------------------------------------------------------
-local function dark_mode_cmd()
-  if vim.fn.has("mac") == 1 then
-    return { "defaults", "read", "-g", "AppleInterfaceStyle" }, function(result)
-      return vim.trim(result.stdout) == "Dark"
-    end
-  end
-  if vim.fn.executable("gsettings") == 1 then
-    return { "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" }, function(result)
-      return result.code ~= 0 or result.stdout:find("prefer%-dark") ~= nil
-    end
-  end
-end
-
-local function set_background(async)
-  local cmd, parse = dark_mode_cmd()
-  local apply = function(dark)
-    local background = dark and "dark" or "light"
-    if vim.o.background ~= background then
-      vim.o.background = background
-    end
-  end
-  if not cmd then
-    apply(true)
-  elseif async then
-    vim.system(cmd, { text = true }, vim.schedule_wrap(function(result)
-      apply(parse(result))
-    end))
-  else
-    apply(parse(vim.system(cmd, { text = true }):wait()))
-  end
-end
-
-vim.api.nvim_create_autocmd("FocusGained", {
-  group = user_autocmds,
-  callback = function()
-    set_background(true)
-  end,
-})
-
-set_background(false)
-vim.cmd.colorscheme("warm-burnout")
+vim.cmd.colorscheme("tomorrow-classic")
 
 -- Buffers --------------------------------------------------------------------
 vim.api.nvim_create_autocmd("BufWritePre", {
