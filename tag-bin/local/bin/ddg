@@ -5,6 +5,20 @@ import os
 import webbrowser
 from urllib.parse import urlencode
 
+DUCKDUCKGO_PARAMS = {
+    "kac": "-1",
+    "kae": "-1",
+    "k1": "-1",
+    "kaj": "m",
+    "kat": "-1",
+    "kak": "-1",
+    "kax": "-1",
+    "kaq": "-1",
+    "kao": "-1",
+    "kau": "-1",
+    "kpsb": "-1",
+}
+
 
 def main() -> None:
     """Open DuckDuckGo search for a query in the browser."""
@@ -13,7 +27,8 @@ def main() -> None:
     args = parser.parse_args()
 
     params = {"q": " ".join(args.query)}
-    url = f"https://html.duckduckgo.com/html/?{urlencode(params)}"
+    params.update(DUCKDUCKGO_PARAMS)
+    url = f"https://duckduckgo.com/?{urlencode(params)}"
     print(url)
     if "SSH_CONNECTION" not in os.environ:
         webbrowser.open(url)
