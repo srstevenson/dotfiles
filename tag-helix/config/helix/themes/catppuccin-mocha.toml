@@ -128,11 +128,11 @@ hint = { fg = "teal" }
 "ui.highlight.frameline" = { bg = "surface1", modifiers = ["bold"] }
 "ui.linenr" = { fg = "surface1" }
 "ui.linenr.selected" = { fg = "lavender" }
-"ui.menu" = { fg = "overlay2", bg = "surface0" }
+"ui.menu" = { fg = "text", bg = "surface0" }
 "ui.menu.scroll" = { fg = "overlay2", bg = "surface0" }
 "ui.menu.selected" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
-"ui.picker.header" = { fg = "overlay2", bg = "surface0", modifiers = ["bold"] }
-"ui.picker.header.column" = { fg = "overlay2", bg = "surface0" }
+"ui.picker.header" = { fg = "text", bg = "surface0", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "text", bg = "surface0" }
 "ui.picker.header.column.active" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
 "ui.popup" = { fg = "text", bg = "surface0" }
 "ui.popup.info" = { fg = "text", bg = "surface0" }
