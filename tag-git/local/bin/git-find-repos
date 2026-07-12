@@ -19,10 +19,6 @@ walk() {
     [[ -L $entry ]] && continue
     name=${entry##*/}
 
-    case $name in
-      .venv | target) continue ;;
-    esac
-
     walk "$entry" "${rel:+$rel/}$name"
   done
 }
