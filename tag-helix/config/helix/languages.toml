@@ -2,10 +2,6 @@
 rumdl = { command = "rumdl", args = ["server"] }
 
 [[language]]
-name = "lua"
-auto-format = true
-
-[[language]]
 name = "markdown"
 auto-format = true
 language-servers = ["rumdl"]
