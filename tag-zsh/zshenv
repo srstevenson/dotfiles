@@ -1,3 +1,0 @@
-# Disable save/restore mechanism in Terminal.app. This must be set before
-# /etc/zshrc is sourced, hence here in .zshenv and not in .zshrc.
-SHELL_SESSIONS_DISABLE=1
