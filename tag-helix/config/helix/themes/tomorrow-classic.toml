@@ -102,7 +102,7 @@
 "warning" = { fg = "base0A" }
 
 "ui.background" = { bg = "base00" }
-"ui.background.separator" = { fg = "base00" }
+"ui.background.separator" = { fg = "base05", bg = "base00" }
 "ui.bufferline" = { fg = "base04", bg = "base01" }
 "ui.bufferline.active" = { fg = "base06", bg = "base00" }
 "ui.bufferline.background" = { bg = "base01" }
