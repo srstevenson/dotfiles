@@ -1,4 +1,5 @@
-local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+-- Colourscheme ---------------------------------------------------------------
+vim.cmd.colorscheme("tomorrow-classic")
 
 -- Options --------------------------------------------------------------------
 vim.opt.colorcolumn = { 80 }
@@ -39,10 +40,9 @@ vim.diagnostic.config({
   },
 })
 
--- Colourscheme ---------------------------------------------------------------
-vim.cmd.colorscheme("tomorrow-classic")
-
 -- Buffers --------------------------------------------------------------------
+local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = user_autocmds,
   pattern = "*",
