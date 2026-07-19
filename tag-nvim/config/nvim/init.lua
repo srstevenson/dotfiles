@@ -91,16 +91,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     map("<space>a", vim.lsp.buf.code_action, "Perform a code action")
-    map("<space>d", "<Cmd>Telescope diagnostics bufnr=0<CR>", "Find buffer diagnostics")
-    map("<space>D", "<Cmd>Telescope diagnostics<CR>", "Find workspace diagnostics")
+    map("<space>d", Snacks.picker.diagnostics_buffer, "Find buffer diagnostics")
+    map("<space>D", Snacks.picker.diagnostics, "Find workspace diagnostics")
     map("<space>k", vim.lsp.buf.hover, "Display info about symbol")
     map("<space>r", vim.lsp.buf.rename, "Rename symbol")
-    map("<space>s", "<Cmd>Telescope lsp_document_symbols<CR>", "Find document symbols")
-    map("<space>S", "<Cmd>Telescope lsp_workspace_symbols<CR>", "Find workspace symbols")
-    map("gd", "<Cmd>Telescope lsp_definitions<CR>", "Go to definition")
-    map("gi", "<Cmd>Telescope lsp_implementations<CR>", "Go to implementation")
-    map("gr", "<Cmd>Telescope lsp_references<CR>", "Find references")
-    map("gy", "<Cmd>Telescope lsp_type_definitions<CR>", "Go to type definition")
+    map("<space>s", Snacks.picker.lsp_symbols, "Find document symbols")
+    map("<space>S", Snacks.picker.lsp_workspace_symbols, "Find workspace symbols")
+    map("gd", Snacks.picker.lsp_definitions, "Go to definition")
+    map("gi", Snacks.picker.lsp_implementations, "Go to implementation")
+    map("gr", Snacks.picker.lsp_references, "Find references")
+    map("gy", Snacks.picker.lsp_type_definitions, "Go to type definition")
 
     if client:supports_method("textDocument/completion", args.buf) then
       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
@@ -122,32 +122,15 @@ vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboa
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
 
--- telescope.nvim -------------------------------------------------------------
-vim.pack.add({
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
-  "https://github.com/nvim-telescope/telescope.nvim",
-})
+-- snacks.nvim ----------------------------------------------------------------
+vim.pack.add({ "https://github.com/folke/snacks.nvim" })
+require("snacks").setup()
 
-require("telescope").setup({
-  defaults = {
-    layout_config = { prompt_position = "top" },
-    sorting_strategy = "ascending",
-    mappings = { i = { ["<esc>"] = require("telescope.actions").close } },
-  },
-  pickers = {
-    find_files = {
-      find_command = { "rg", "--files", "--hidden", "--glob=!.git" },
-    },
-  },
-  extensions = {
-    ["ui-select"] = { require("telescope.themes").get_dropdown() },
-  },
-})
-require("telescope").load_extension("ui-select")
-
-vim.keymap.set("n", "<space>f", "<Cmd>Telescope find_files<CR>", { desc = "Find files" })
-vim.keymap.set("n", "<space>b", "<Cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<space>j", "<Cmd>Telescope jumplist<CR>", { desc = "Find jumplist entries" })
-vim.keymap.set("n", "<space>/", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-vim.keymap.set("n", "<space>h", "<Cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
+vim.keymap.set("n", "<space>f", function()
+  Snacks.picker.files({ hidden = true })
+end, { desc = "Find files" })
+vim.keymap.set("n", "<space>b", Snacks.picker.buffers, { desc = "Find buffers" })
+vim.keymap.set("n", "<space>j", Snacks.picker.jumps, { desc = "Find jumplist entries" })
+vim.keymap.set("n", "<space>/", Snacks.picker.grep, { desc = "Live grep" })
+vim.keymap.set("n", "<space>?", Snacks.picker.commands, { desc = "Find commands" })
+vim.keymap.set("n", "<space>h", Snacks.picker.help, { desc = "Find help tags" })
