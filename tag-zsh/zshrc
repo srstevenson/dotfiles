@@ -22,7 +22,7 @@ SAVEHIST=10000
 typeset -U path
 path=(~/bin ~/.local/bin ~/.cargo/bin /opt/homebrew/bin(N) $path)
 
-export EDITOR="nvim"
+export EDITOR="hx"
 export LESS="FRX"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 export HOMEBREW_NO_ANALYTICS="1"
