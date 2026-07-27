@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- LSP ------------------------------------------------------------------------
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
-vim.lsp.enable({ "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
+vim.lsp.enable({ "fish_lsp", "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
 vim.keymap.set("n", "<space>i", function()
   local enable = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
