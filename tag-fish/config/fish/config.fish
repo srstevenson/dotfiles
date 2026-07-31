@@ -1,5 +1,9 @@
 fish_add_path /opt/homebrew/bin ~/.local/bin
 
-if status is-interactive
-    set -g fish_greeting
+if not status is-interactive
+    return
 end
+
+set -g fish_greeting
+
+set -gx VISUAL hx
