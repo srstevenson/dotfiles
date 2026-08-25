@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Find Git repositories within a directory tree.
-
 set -euo pipefail
 
 shopt -s nullglob
