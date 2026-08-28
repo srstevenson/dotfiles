@@ -1,4 +1,4 @@
-fish_add_path -P /opt/homebrew/bin ~/.local/bin
+fish_add_path -P ~/bin ~/.local/bin /opt/homebrew/bin
 
 if not status is-interactive
     return
