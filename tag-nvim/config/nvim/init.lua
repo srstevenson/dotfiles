@@ -1,7 +1,7 @@
--- Colourscheme ---------------------------------------------------------------
+-- Colourscheme
 vim.cmd.colorscheme("tomorrow-classic")
 
--- Options --------------------------------------------------------------------
+-- Options
 vim.opt.colorcolumn = { 80 }
 vim.opt.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
 vim.opt.confirm = true
@@ -22,7 +22,7 @@ vim.opt.spelllang = "en_gb"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Diagnostics ----------------------------------------------------------------
+-- Diagnostics
 vim.diagnostic.config({
   severity_sort = true,
   signs = {
@@ -40,7 +40,7 @@ vim.diagnostic.config({
   },
 })
 
--- Buffers --------------------------------------------------------------------
+-- Buffers
 local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- LSP ------------------------------------------------------------------------
+-- LSP
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 vim.lsp.enable({ "fish_lsp", "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
@@ -117,12 +117,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- Clipboard ------------------------------------------------------------------
+-- Clipboard
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
 
--- snacks.nvim ----------------------------------------------------------------
+-- snacks.nvim
 vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 require("snacks").setup()
 
