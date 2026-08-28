@@ -1,11 +1,11 @@
-# Shell options ---------------------------------------------------------------
+# Shell options
 setopt EXTENDED_GLOB
 setopt INTERACTIVE_COMMENTS
 setopt PROMPT_SUBST
 
 WORDCHARS=${WORDCHARS//\/}
 
-# History ---------------------------------------------------------------------
+# History
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
@@ -18,7 +18,7 @@ HISTFILE="$HOME/.local/state/zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Environment -----------------------------------------------------------------
+# Environment
 typeset -U path
 path=(~/bin ~/.local/bin ~/.cargo/bin /opt/homebrew/bin(N) $path)
 
@@ -27,7 +27,7 @@ export LESS="FRX"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 export HOMEBREW_NO_ANALYTICS="1"
 
-# Title -----------------------------------------------------------------------
+# Title
 autoload -Uz add-zsh-hook
 
 _collapse_pwd() {
@@ -51,14 +51,14 @@ add-zsh-hook precmd _precmd_title
 _preexec_title() { print -Pn "\e]0;${2//\%/%%}\a" }
 add-zsh-hook preexec _preexec_title
 
-# Keybindings -----------------------------------------------------------------
+# Keybindings
 bindkey -e
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^g' edit-command-line
 
-# Completion ------------------------------------------------------------------
+# Completion
 autoload -Uz compinit
 compinit
 
@@ -76,7 +76,7 @@ zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' verbose true
 
-# Prompt ----------------------------------------------------------------------
+# Prompt
 autoload -Uz vcs_info
 add-zsh-hook precmd vcs_info
 
@@ -134,7 +134,7 @@ add-zsh-hook precmd _precmd_duration
 
 RPROMPT='$command_duration'
 
-# Functions -------------------------------------------------------------------
+# Functions
 cdd() {
   local dir="$(bfs ~/D*/ -type d | fzy)"
   [[ -d "$dir" ]] && cd "$dir"
@@ -157,12 +157,12 @@ _jj_lazy() {
 }
 compdef _jj_lazy jj
 
-# Aliases ---------------------------------------------------------------------
+# Aliases
 alias ls="ls --color -h"
 alias ll="ls --color -hl"
 alias la="ls --color -Ahl"
 
-# Local configuration ---------------------------------------------------------
+# Local configuration
 if [[ -r "$HOME/.config/zsh/local.zsh" ]]; then
   . "$HOME/.config/zsh/local.zsh"
 fi
