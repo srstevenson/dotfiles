@@ -12,6 +12,6 @@ git remote | while read -r remote; do
     url="https://$url"    # Add `https://` prefix.
 
     printf "%s\n" "$url"
-    [[ -z "${SSH_CONNECTION:-}" ]] && open "$url"
+    open "$url"
   done
 done

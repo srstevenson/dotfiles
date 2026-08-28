@@ -45,10 +45,10 @@ _collapse_pwd() {
   print -r -- "${parents//\%/%%}/${leaf//\%/%%}"
 }
 
-_precmd_title() { print -Pn "\e]0;${SSH_CONNECTION:+%m: }$(_collapse_pwd)\a" }
+_precmd_title() { print -Pn "\e]0;$(_collapse_pwd)\a" }
 add-zsh-hook precmd _precmd_title
 
-_preexec_title() { print -Pn "\e]0;${SSH_CONNECTION:+%m: }${2//\%/%%}\a" }
+_preexec_title() { print -Pn "\e]0;${2//\%/%%}\a" }
 add-zsh-hook preexec _preexec_title
 
 # Keybindings -----------------------------------------------------------------
@@ -133,9 +133,6 @@ _precmd_duration() {
 add-zsh-hook precmd _precmd_duration
 
 RPROMPT='$command_duration'
-if [[ -n $SSH_CONNECTION ]]; then
-  RPROMPT+='%F{magenta}%B%m%b%f'
-fi
 
 # Functions -------------------------------------------------------------------
 cdd() {
