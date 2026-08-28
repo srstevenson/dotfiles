@@ -6,6 +6,7 @@ skip-magic-trailing-comma = true
 select = ["ALL"]
 ignore = [
   "COM812", # Trailing comma missing
+  "CPY",    # flake8-copyright
   "D100",   # Module docstring
   "EM102",  # f-string in exception
   "T201",   # print found
