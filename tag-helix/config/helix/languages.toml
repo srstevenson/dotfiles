@@ -2,6 +2,10 @@
 rumdl = { command = "rumdl", args = ["server"] }
 
 [[language]]
+name = "json"
+formatter = { command = "jq", args = ["."] }
+
+[[language]]
 name = "markdown"
 auto-format = true
 language-servers = ["rumdl"]
