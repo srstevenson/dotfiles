@@ -4,6 +4,8 @@ if not status is-interactive
     return
 end
 
+fish_config theme choose none
+
 set -g fish_greeting
 
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/config
