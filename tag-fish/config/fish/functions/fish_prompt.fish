@@ -26,9 +26,9 @@ function fish_prompt -d 'Write out the prompt'
         echo -ns ' ' (set_color --bold brblack) '&' $normal
     end
 
-    set -l prompt_color red
-    if test $last_status -eq 0
-        set prompt_color green
+    set -l prompt_color green
+    if test $last_status -ne 0
+        set prompt_color red
     end
     echo -ns ' ' (set_color $prompt_color) '❯' $normal ' '
 end
