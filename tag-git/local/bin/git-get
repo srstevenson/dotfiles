@@ -74,6 +74,9 @@ def main() -> None:
     elif matches_hosts(args.url, ["git.sr.ht"]) and not args.url.startswith("git@"):
         url = f"https://{host}/~{path}"
 
+    path = Path(path)
+    path = path.with_name(path.name.lstrip("."))
+
     subprocess.run(  # noqa: S603
         [  # noqa: S607
             "git",
