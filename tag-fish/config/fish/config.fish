@@ -1,8 +1,6 @@
 fish_add_path -P ~/bin ~/.local/bin /opt/homebrew/bin
 
-if not status is-interactive
-    return
-end
+status is-interactive; or return
 
 fish_config theme choose none
 
