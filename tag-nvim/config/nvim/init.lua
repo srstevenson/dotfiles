@@ -1,4 +1,3 @@
--- Colourscheme
 vim.cmd.colorscheme("tomorrow-classic")
 
 -- Options
