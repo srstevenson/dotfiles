@@ -40,6 +40,8 @@ vim.diagnostic.config({
 })
 
 -- Keymappings
+vim.keymap.set({ "n", "v" }, "j", "gj", { silent = true })
+vim.keymap.set({ "n", "v" }, "k", "gk", { silent = true })
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 
