@@ -42,7 +42,6 @@ vim.diagnostic.config({
 -- Keymappings
 vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
-vim.keymap.set("n", "<space>Y", "<Cmd>%y+<CR>", { desc = "Yank buffer to system clipboard" })
 
 -- Buffers
 local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
