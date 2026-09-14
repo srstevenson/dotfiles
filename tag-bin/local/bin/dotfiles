@@ -152,7 +152,7 @@ def link_file(
             target.unlink()
             target.symlink_to(source)
             info(f"{tilde_target} -> {tagged_path}", prefix="linked (unlinked copy)")
-            return
+        return
 
     error(f"{tilde_target} -> {tagged_path}", prefix="divergent")
 
