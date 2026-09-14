@@ -100,13 +100,11 @@ def import_file(
     tilde_source = f"~/{source.relative_to(HOME_DIR)}"
     tagged_path = target.relative_to(dotfiles_dir)
 
-    if dry_run:
-        info(f"{tilde_source} -> {tagged_path}", prefix="imported")
-    else:
+    if not dry_run:
         target.parent.mkdir(parents=True, exist_ok=True)
         source.rename(target)
         source.symlink_to(target)
-        info(f"{tilde_source} -> {tagged_path}", prefix="imported")
+    info(f"{tilde_source} -> {tagged_path}", prefix="imported")
 
 
 def import_files(
@@ -128,16 +126,13 @@ def link_file(
     tagged_path = source.relative_to(dotfiles_dir)
 
     if not target.exists():
-        if dry_run:
-            info(f"{tilde_target} -> {tagged_path}", prefix="linked (created)")
-            return
+        if not dry_run:
+            if target.is_symlink():
+                # As target failed existence check, this is a broken symlink.
+                target.unlink()
 
-        if target.is_symlink():
-            # As target failed existence check, this is a broken symlink.
-            target.unlink()
-
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.symlink_to(source)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.symlink_to(source)
         info(f"{tilde_target} -> {tagged_path}", prefix="linked (created)")
         return
 
@@ -146,12 +141,10 @@ def link_file(
         return
 
     if target.is_file() and filecmp.cmp(source, target, shallow=False):
-        if dry_run:
-            info(f"{tilde_target} -> {tagged_path}", prefix="linked (unlinked copy)")
-        else:
+        if not dry_run:
             target.unlink()
             target.symlink_to(source)
-            info(f"{tilde_target} -> {tagged_path}", prefix="linked (unlinked copy)")
+        info(f"{tilde_target} -> {tagged_path}", prefix="linked (unlinked copy)")
         return
 
     error(f"{tilde_target} -> {tagged_path}", prefix="divergent")
