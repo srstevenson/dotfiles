@@ -150,13 +150,6 @@ opf() {
   [[ -n "$item" ]] && open "$item"
 }
 
-_jj_lazy() {
-  unfunction _jj_lazy
-  . <(COMPLETE=zsh jj)
-  "$_comps[jj]" "$@"
-}
-compdef _jj_lazy jj
-
 # Aliases
 alias ls="ls --color -h"
 alias ll="ls --color -hl"
