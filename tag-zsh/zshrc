@@ -64,13 +64,11 @@ zstyle ':completion:*:descriptions' format '%F{green}Matches for %d:%f'
 zstyle ':completion:*:messages' format '%F{purple}%d%f'
 zstyle ':completion:*:warnings' format '%F{red}No matches for %d.%f'
 
-zstyle ':completion:*' cache-path "$HOME/.cache/zcompcache"
 zstyle ':completion:*' completer _extensions _complete _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' rehash true
-zstyle ':completion:*' use-cache true
 
 # Prompt
 autoload -Uz vcs_info
