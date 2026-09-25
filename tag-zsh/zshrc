@@ -149,6 +149,6 @@ opf() {
 }
 
 # Aliases
-alias ls="ls --color -h"
-alias ll="ls --color -hl"
-alias la="ls --color -Ahl"
+alias ls="ls --color=auto -h"
+alias ll="ls --color=auto -hl"
+alias la="ls --color=auto -Ahl"
