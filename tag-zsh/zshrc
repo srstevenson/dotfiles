@@ -72,7 +72,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' verbose true
 
 # Prompt
 autoload -Uz vcs_info
