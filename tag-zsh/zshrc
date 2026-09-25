@@ -161,8 +161,3 @@ compdef _jj_lazy jj
 alias ls="ls --color -h"
 alias ll="ls --color -hl"
 alias la="ls --color -Ahl"
-
-# Local configuration
-if [[ -r "$HOME/.config/zsh/local.zsh" ]]; then
-  . "$HOME/.config/zsh/local.zsh"
-fi
