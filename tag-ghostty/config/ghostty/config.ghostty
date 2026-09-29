@@ -3,7 +3,7 @@ font-feature = -calt
 font-size = 16
 
 mouse-hide-while-typing = true
-theme = tomorrow-classic
+theme = tomorrow-fleet
 unfocused-split-opacity = 1
 window-theme = ghostty
 

@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("tomorrow-classic")
+vim.cmd.colorscheme("tomorrow-fleet")
 
 -- Options
 vim.opt.colorcolumn = { 80 }
