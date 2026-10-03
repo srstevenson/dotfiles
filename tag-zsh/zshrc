@@ -139,6 +139,11 @@ cdr() {
   [[ -n "$repo" && -d "$HOME/Projects/$repo" ]] && cd "$HOME/Projects/$repo"
 }
 
+cds() {
+  local dir="$(printf '%s\n' ~/Sessions/*(/N:t) | fzy)"
+  [[ -n "$dir" && -d "$HOME/Sessions/$dir" ]] && cd "$HOME/Sessions/$dir"
+}
+
 mks() {
   local dir
   dir=$(make-session "$@") || return
