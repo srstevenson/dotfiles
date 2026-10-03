@@ -130,17 +130,17 @@ RPROMPT='$command_duration'
 
 # Functions
 cdd() {
-  local dir="$(bfs ~/D*/ -type d | fzy)"
+  local dir="$(bfs ~/D*/ -type d | zf)"
   [[ -d "$dir" ]] && cd "$dir"
 }
 
 cdr() {
-  local repo="$(git-find-repos | fzy)"
+  local repo="$(git-find-repos | zf)"
   [[ -n "$repo" && -d "$HOME/Projects/$repo" ]] && cd "$HOME/Projects/$repo"
 }
 
 cds() {
-  local dir="$(printf '%s\n' ~/Sessions/*(/N:t) | fzy)"
+  local dir="$(printf '%s\n' ~/Sessions/*(/N:t) | zf -p)"
   [[ -n "$dir" && -d "$HOME/Sessions/$dir" ]] && cd "$HOME/Sessions/$dir"
 }
 
@@ -151,7 +151,7 @@ mks() {
 }
 
 opf() {
-  local item="$(rg --files | fzy)"
+  local item="$(rg --files | zf)"
   [[ -n "$item" ]] && open "$item"
 }
 
