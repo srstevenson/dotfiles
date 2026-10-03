@@ -1,3 +1,7 @@
+[tool.ruff]
+target-version = "py39"
+extend-include = ["tag-bin/local/bin/dotfiles", "tag-git/local/bin/git-get"]
+
 [tool.ruff.format]
 docstring-code-format = true
 skip-magic-trailing-comma = true
@@ -19,5 +23,11 @@ split-on-trailing-comma = false
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.ty.environment]
+python-version = "3.9"
+
 [tool.ty.rules]
 all = "error"
+
+[tool.ty.src]
+include = ["tag-bin/local/bin/dotfiles", "tag-git/local/bin/git-get"]
