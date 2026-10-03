@@ -21,15 +21,11 @@ walk() {
   done
 }
 
-main() {
-  local path=${1:-$HOME/Projects}
+path=${1:-$HOME/Projects}
 
-  if [[ ! -d $path ]]; then
-    printf 'error: %s is not a directory\n' "$path" >&2
-    return 1
-  fi
+if [[ ! -d $path ]]; then
+  printf 'error: %s is not a directory\n' "$path" >&2
+  exit 1
+fi
 
-  walk "$path"
-}
-
-main "$@"
+walk "$path"
