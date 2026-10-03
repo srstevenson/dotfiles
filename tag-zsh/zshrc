@@ -139,6 +139,12 @@ cdr() {
   [[ -n "$repo" && -d "$HOME/Projects/$repo" ]] && cd "$HOME/Projects/$repo"
 }
 
+mks() {
+  local dir
+  dir=$(make-session "$@") || return
+  cd "$dir"
+}
+
 opf() {
   local item="$(rg --files | fzy)"
   [[ -n "$item" ]] && open "$item"

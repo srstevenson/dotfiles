@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+  printf 'usage: %s NAME...\n' "${0##*/}" >&2
+  exit 1
+fi
+
+slug=$(printf '%s' "$*" | tr '[:upper:]' '[:lower:]' | tr -cs '[:alnum:]' '-')
+slug=${slug#-}
+slug=${slug%-}
+
+if [[ -z $slug ]]; then
+  printf 'error: session slug is empty\n' >&2
+  exit 1
+fi
+
+path=$HOME/Sessions/$(date +%F)-$slug
+if [[ -e $path ]]; then
+  printf 'error: directory already exists: %s\n' "$path" >&2
+  exit 1
+fi
+
+git init --quiet "$path"
+printf '%s\n' "$path"
