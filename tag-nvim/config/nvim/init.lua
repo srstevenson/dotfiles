@@ -46,11 +46,10 @@ vim.keymap.set({ "n", "v" }, "<space>y", '"+y', { desc = "Yank to system clipboa
 vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clipboard" })
 
 -- Buffers
-local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", { clear = true })
+local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", {})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = user_autocmds,
-  pattern = "*",
   callback = function()
     local view = vim.fn.winsaveview()
     vim.cmd([[ %s/\s\+$//e ]])
@@ -109,7 +108,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = args.buf,
         callback = function()
-          vim.lsp.buf.format({ id = client.id, async = false })
+          vim.lsp.buf.format({ id = client.id })
         end,
       })
     end
