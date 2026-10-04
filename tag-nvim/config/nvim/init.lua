@@ -50,11 +50,19 @@ local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", {})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = user_autocmds,
-  callback = function()
-    local view = vim.fn.winsaveview()
-    vim.cmd([[ %s/\s\+$//e ]])
-    vim.cmd([[ %s/\n\+\%$//e ]])
-    vim.fn.winrestview(view)
+  callback = function(args)
+    local formatters = vim.lsp.get_clients({
+      bufnr = args.buf, method = "textDocument/formatting",
+    })
+
+    if #formatters > 0 then
+      vim.lsp.buf.format({ bufnr = args.buf })
+    else
+      local view = vim.fn.winsaveview()
+      vim.cmd([[ %s/\s\+$//e ]])
+      vim.cmd([[ %s/\n\+\%$//e ]])
+      vim.fn.winrestview(view)
+    end
   end,
 })
 
@@ -102,15 +110,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client:supports_method("textDocument/completion", args.buf) then
       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end
-
-    if client:supports_method("textDocument/formatting", args.buf) then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({ id = client.id })
-        end,
-      })
     end
   end,
 })
