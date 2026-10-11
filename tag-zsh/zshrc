@@ -32,6 +32,7 @@ _collapse_pwd() {
 
   if [[ $current_pwd != [/~] ]]; then
     local abbreviated=${(j:/:M)${(s:/:)current_pwd}##.#?}
+    [[ $current_pwd == /* ]] && abbreviated="/$abbreviated"
     current_pwd="${${abbreviated:h}%/}/${current_pwd:t}"
   fi
 
