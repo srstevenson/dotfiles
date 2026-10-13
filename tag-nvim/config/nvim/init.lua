@@ -58,7 +58,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       vim.lsp.buf.format({ bufnr = args.buf })
     else
       local view = vim.fn.winsaveview()
-      vim.cmd([[ %s/\s\+$//e ]])
+      if vim.bo[args.buf].filetype == "mail" then
+        vim.cmd([[ v/^-- $/s/\s\+$//e ]])
+      else
+        vim.cmd([[ %s/\s\+$//e ]])
+      end
       vim.cmd([[ %s/\n\+\%$//e ]])
       vim.fn.winrestview(view)
     end
