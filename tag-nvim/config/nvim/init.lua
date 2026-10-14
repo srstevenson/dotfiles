@@ -119,7 +119,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- snacks.nvim
 vim.pack.add({ "https://github.com/folke/snacks.nvim" })
-require("snacks").setup()
+require("snacks").setup({
+  picker = {
+    icons = {
+      files = { enabled = false },
+    },
+  },
+})
 
 vim.keymap.set("n", "<space>f", function()
   Snacks.picker.files({ hidden = true })
