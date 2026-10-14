@@ -47,6 +47,7 @@
 "string.special.url" = { fg = "base0D", underline = { style = "line" } }
 "tag" = { fg = "base0D" }
 "tag.builtin" = { fg = "base0D" }
+"tabstop" = { fg = "base0A", bg = "base02", modifiers = ["bold"] }
 "type" = { fg = "base0A" }
 "type.builtin" = { fg = "base0E" }
 "type.enum.variant" = { fg = "base0C" }
@@ -75,11 +76,13 @@
 "markup.list.numbered" = { fg = "base09" }
 "markup.list.unchecked" = { fg = "base04" }
 "markup.list.unnumbered" = { fg = "base09" }
+"markup.normal" = { fg = "base05" }
 "markup.quote" = { fg = "base04", modifiers = ["italic"] }
 "markup.raw" = { fg = "base04" }
 "markup.raw.block" = { fg = "base04" }
 "markup.raw.inline" = { fg = "base04" }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.underline" = { underline = { style = "line" } }
 
 "diff.delta" = { fg = "base0D" }
 "diff.delta.gutter" = { fg = "base0D" }
