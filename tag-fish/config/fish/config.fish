@@ -1,8 +1,8 @@
+# Run `fish_config theme save none` once per machine to persist theme.
+
 fish_add_path -P ~/bin ~/.local/bin /opt/homebrew/bin
 
 status is-interactive; or return
-
-fish_config theme choose none
 
 set -g fish_greeting
 
