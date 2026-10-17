@@ -117,6 +117,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- mini.diff
+vim.pack.add({ "https://github.com/nvim-mini/mini.diff" })
+require("mini.diff").setup({
+  view = {
+    style = "sign",
+    signs = { add = "▍", change = "▍", delete = "▁" },
+  },
+})
+
 -- snacks.nvim
 vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 require("snacks").setup({
