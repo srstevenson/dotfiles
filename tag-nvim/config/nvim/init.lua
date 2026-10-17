@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("FileType", {
   group = user_autocmds,
-  pattern = { "gitcommit", "jjdescription", "mail", "markdown" },
+  pattern = { "gitcommit", "jjdescription", "mail", "markdown", "xit" },
   callback = function(args)
     if vim.bo[args.buf].buftype ~= "nofile" then
       vim.opt_local.spell = true
