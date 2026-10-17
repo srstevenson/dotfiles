@@ -55,6 +55,10 @@ bindkey '^g' edit-command-line
 autoload -Uz compinit
 compinit
 
+if [[ -f $_comp_dumpfile && ( ! -f $_comp_dumpfile.zwc || $_comp_dumpfile -nt $_comp_dumpfile.zwc ) ]]; then
+  zcompile "$_comp_dumpfile"
+fi
+
 zstyle ':completion:*:corrections' format '%F{yellow}Matches for %d (%e errors):%f'
 zstyle ':completion:*:descriptions' format '%F{green}Matches for %d:%f'
 zstyle ':completion:*:messages' format '%F{purple}%d%f'
