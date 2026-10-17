@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.cmd.colorscheme("tomorrow-fleet")
 
 -- Options
