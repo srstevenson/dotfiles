@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+"""Search DuckDuckGo in the browser."""
+
+import argparse
+import webbrowser
+from urllib.parse import urlencode
+
+PARAMS = {
+    "k1": "-1",  # Hide adverts.
+    "kak": "-1",  # Hide browser installation instructions.
+    "kao": "-1",  # Hide homepage privacy tips.
+    "kaq": "-1",  # Hide privacy newsletter sign-up forms.
+    "kau": "-1",  # Disable feedback requests.
+    "kax": "-1",  # Hide reminders to add DuckDuckGo to the browser.
+    "kbe": "0",  # Disable Search Assist's AI-generated answers.
+    "kbg": "-1",  # Hide Duck.ai buttons and links.
+    "kbi": "1",  # Compact results.
+    "kbl": "0",  # Disable Explore More's AI-generated follow-up questions.
+    "kpsb": "-1",  # Hide the protected-search reminder.
+}
+
+
+def main() -> None:
+    """Open DuckDuckGo search for a query in the browser."""
+    parser = argparse.ArgumentParser(description="Search DuckDuckGo")
+    parser.add_argument("query", nargs="+", help="search query")
+    args = parser.parse_args()
+
+    params = {"q": " ".join(args.query)}
+    params.update(PARAMS)
+    webbrowser.open(f"https://duckduckgo.com/?{urlencode(params)}")
+
+
+if __name__ == "__main__":
+    main()
