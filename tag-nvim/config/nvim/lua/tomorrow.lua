@@ -355,7 +355,7 @@ return function(name, palette)
   vim.api.nvim_set_hl(0, "@lsp.typemod.variable.defaultLibrary", { link = "@variable.builtin" })
 
   -- LSP: Rust semantic tokens
-  vim.api.nvim_set_hl(0, "@lsp.mod.attribute", { italic = true })
+  vim.api.nvim_set_hl(0, "@lsp.mod.attribute", {})
   vim.api.nvim_set_hl(0, "@lsp.mod.controlFlow", { link = "@keyword.repeat" })
   vim.api.nvim_set_hl(0, "@lsp.mod.deprecated", { strikethrough = true })
   vim.api.nvim_set_hl(0, "@lsp.mod.intraDocLink.rust", { link = "@markup.link" })
