@@ -3,6 +3,7 @@
 import argparse
 import filecmp
 import sys
+from collections.abc import Iterable
 from pathlib import Path
 
 FG_GREEN = "\033[32;1m"
@@ -108,7 +109,7 @@ def import_file(
 
 
 def import_files(
-    dotfiles_dir: Path, sources: list[Path], tag: str, *, dry_run: bool = False
+    dotfiles_dir: Path, sources: Iterable[Path], tag: str, *, dry_run: bool = False
 ) -> None:
     """Import multiple files into the repository under a given tag."""
     for source in sources:
