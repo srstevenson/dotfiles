@@ -28,8 +28,8 @@ syntax match xitPriority /\%(^\[[ x@~?]\] \+\)\@<=\%(!\+\.*\|\.\+!*\)\ze\%( \|$\
 syntax match xitTag /\%(#\)\@<!#[A-Za-z0-9_-]\+\%(=\%("[^"]*"\|'[^']*'\|[A-Za-z0-9_-]*\)\)\?/ contained contains=xitTagValue
 syntax match xitTagValue /\%(=\)\@<=\%("[^"]*"\|'[^']*'\|[A-Za-z0-9_-]\+\)/ contained
 
-" Match date formats without validating the calendar.
-" Only the first due date in an item is highlighted.
+" Match date formats without validating the calendar. Only the first due date
+" in an item is highlighted.
 syntax region xitAfterDueDate transparent matchgroup=xitDueDate
       \ start=+-> \d\{4}\%(\([-/]\)\%(\d\{2}\%(\1\d\{2}\)\?\|W\d\{2}\|Q\d\)\)\?\%([0-9/-]\)\@!+
       \ end=+\%(\n    .*\S.*\)\@!$+ contained keepend contains=xitTag
