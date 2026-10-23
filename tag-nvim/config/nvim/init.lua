@@ -94,6 +94,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+vim.api.nvim_create_user_command("Delete", function()
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == "" then
+    vim.notify("Buffer has no file", vim.log.levels.ERROR)
+    return
+  end
+  if vim.bo.modified then
+    vim.notify("Buffer has unsaved changes", vim.log.levels.ERROR)
+    return
+  end
+  if vim.fn.delete(path) ~= 0 then
+    vim.notify("Failed to delete " .. path, vim.log.levels.ERROR)
+  else
+    vim.api.nvim_buf_delete(0, {})
+  end
+end, { desc = "Delete current file and buffer" })
+
 -- LSP
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 vim.lsp.enable({ "fish_lsp", "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
