@@ -7,17 +7,21 @@ import webbrowser
 from urllib.parse import urlencode
 
 PARAMS = {
-    "k1": "-1",  # Hide adverts.
-    "kak": "-1",  # Hide browser installation instructions.
-    "kao": "-1",  # Hide homepage privacy tips.
-    "kaq": "-1",  # Hide privacy newsletter sign-up forms.
-    "kau": "-1",  # Disable feedback requests.
-    "kax": "-1",  # Hide reminders to add DuckDuckGo to the browser.
-    "kbe": "0",  # Disable Search Assist's AI-generated answers.
-    "kbg": "-1",  # Hide Duck.ai buttons and links.
+    "k1": "-1",  # No adverts.
+    "kac": "-1",  # No autocomplete suggestions.
+    "kak": "-1",  # No browser installation instructions.
+    "kao": "-1",  # No homepage privacy tips.
+    "kap": "-1",  # No newletter reminders.
+    "kaq": "-1",  # No newsletter sign-up forms.
+    "kau": "-1",  # No feedback requests.
+    "kax": "-1",  # No reminders to add to the browser.
+    "kbe": "0",  # No AI generated answers.
+    "kbg": "-1",  # No Duck.ai buttons and links.
     "kbi": "1",  # Compact results.
-    "kbl": "0",  # Disable Explore More's AI-generated follow-up questions.
-    "kpsb": "-1",  # Hide the protected-search reminder.
+    "kbj": "1",  # No AI generated images.
+    "kbl": "0",  # No AI generated follow-up questions.
+    "kpsb": "-1",  # No protected search reminder.
+    "kz": "-1",  # No Instant Answers.
 }
 
 
