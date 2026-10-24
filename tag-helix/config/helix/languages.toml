@@ -1,5 +1,13 @@
-[language-server]
-rumdl = { command = "rumdl", args = ["server"] }
+[language-server.rumdl]
+command = "rumdl"
+args = ["server"]
+
+[language-server.rledger-lsp]
+command = "rledger-lsp"
+
+[[language]]
+name = "beancount"
+language-servers = ["rledger-lsp"]
 
 [[language]]
 name = "json"
