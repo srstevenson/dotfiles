@@ -25,8 +25,7 @@ syntax match xitCheckboxInQuestion /^\[?\]/ contained
 
 syntax match xitPriority /\%(^\[[ x@~?]\] \+\)\@<=\%(!\+\.*\|\.\+!*\)\ze\%( \|$\)/ contained
 
-syntax match xitTag /\%(#\)\@<!#[A-Za-z0-9_-]\+\%(=\%("[^"]*"\|'[^']*'\|[A-Za-z0-9_-]*\)\)\?/ contained contains=xitTagValue
-syntax match xitTagValue /\%(=\)\@<=\%("[^"]*"\|'[^']*'\|[A-Za-z0-9_-]\+\)/ contained
+syntax match xitTag /\%(#\)\@<!#[A-Za-z0-9_-]\+/ contained
 
 " Match date formats without validating the calendar. Only the first due date
 " in an item is highlighted.
@@ -43,7 +42,6 @@ highlight default link xitCheckedItem Comment
 highlight default link xitObsoleteItem Comment
 highlight default link xitPriority DiagnosticError
 highlight default link xitTag Label
-highlight default link xitTagValue String
 highlight default link xitDueDate Special
 highlight default link xitTitle Title
 
