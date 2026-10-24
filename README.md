@@ -1,26 +1,20 @@
 # dotfiles
 
 This repository contains configuration files, managed using the included
-`dotfiles` script. Git and Python 3.9 or later are required.
+`dotfiles` script. Git, Make, and Python 3.9 or later are required.
 
 Clone the repository, enter the directory, and symlink the files into place
 with:
 
 ```bash
-git clone https://github.com/srstevenson/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-./tag-bin/local/bin/dotfiles link
+git clone https://github.com/srstevenson/dotfiles.git
+cd dotfiles
+make install
 ```
 
-To preview the changes before applying them, run:
-
-```bash
-./tag-bin/local/bin/dotfiles link --dry-run
-```
-
-The `link` subcommand processes every tag. It creates symlinks for missing files
-and replaces identical copies with symlinks. Files with differing contents are
-reported as divergent and left unchanged.
+`make install` runs `dotfiles link` which processes every tag. It creates
+symlinks for missing files and replaces identical copies with symlinks. Files
+with differing contents are reported as divergent and left unchanged.
 
 This also symlinks the `dotfiles` script to `~/.local/bin/dotfiles`, unless a
 conflicting file already exists. To run it without a full path, ensure
