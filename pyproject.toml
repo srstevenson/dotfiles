@@ -1,6 +1,10 @@
 [tool.ruff]
 target-version = "py39"
-extend-include = ["tag-bin/local/bin/dotfiles", "tag-git/local/bin/git-get"]
+extend-include = [
+  "tag-bin/local/bin/ddg",
+  "tag-bin/local/bin/dotfiles",
+  "tag-git/local/bin/git-get",
+]
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -30,4 +34,8 @@ python-version = "3.9"
 all = "error"
 
 [tool.ty.src]
-include = ["tag-bin/local/bin/dotfiles", "tag-git/local/bin/git-get"]
+include = [
+  "tag-bin/local/bin/ddg",
+  "tag-bin/local/bin/dotfiles",
+  "tag-git/local/bin/git-get",
+]

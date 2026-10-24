@@ -6,8 +6,8 @@ help:
 	@echo "Available targets:"
 	@echo "  help    - show this help message (default)"
 	@echo "  install - symlink dotfiles into place"
-	@echo "  fmt     - format with uv format"
-	@echo "  check   - check with Ruff, uv check, and uv format --check"
+	@echo "  fmt     - format code"
+	@echo "  check   - lint code and check formatting"
 
 .PHONY: install
 install:
@@ -16,6 +16,7 @@ install:
 .PHONY: fmt
 fmt:
 	uv format --no-project
+	shfmt -i 2 -w .
 
 .PHONY: check
 check:
@@ -23,3 +24,5 @@ check:
 	uvx ruff check
 	uv check --no-project
 	uv format --no-project --check
+	shfmt -f=0 . | xargs -0 shellcheck
+	shfmt -i 2 -d .
