@@ -8,7 +8,6 @@ from urllib.parse import urlencode
 
 PARAMS = {
     "k1": "-1",  # No adverts.
-    "kac": "-1",  # No autocomplete suggestions.
     "kak": "-1",  # No browser installation instructions.
     "kao": "-1",  # No homepage privacy tips.
     "kap": "-1",  # No newletter reminders.
