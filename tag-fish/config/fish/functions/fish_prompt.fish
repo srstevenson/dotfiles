@@ -6,7 +6,7 @@ set -g __fish_git_prompt_char_stagedstate '±'
 set -g __fish_git_prompt_char_dirtystate '!'
 set -g __fish_git_prompt_char_stashstate '≡'
 set -g __fish_git_prompt_char_untrackedfiles '?'
-set -g __fish_git_prompt_char_stateseparator ''
+set -g __fish_git_prompt_char_stateseparator ' '
 set -g __fish_git_prompt_color_branch magenta --bold
 set -g __fish_git_prompt_color_branch_done normal
 set -g __fish_git_prompt_color_stagedstate green --bold
@@ -20,7 +20,7 @@ function fish_prompt -d 'Write out the prompt'
 
     echo -ns (set_color --bold cyan) (path basename (prompt_pwd)) $normal
 
-    fish_git_prompt ' %s'
+    fish_jj_prompt; or fish_git_prompt ' %s'
 
     if jobs -q
         echo -ns ' ' (set_color --bold brblack) '&' $normal

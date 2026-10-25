@@ -71,7 +71,27 @@ zstyle ':completion:*' rehash true
 
 # Prompt
 autoload -Uz vcs_info
-add-zsh-hook precmd vcs_info
+_precmd_vcs() {
+  local info
+  if (( $+commands[jj] )) && info=$(jj log </dev/null 2>/dev/null --no-graph --color=never --revisions @ \
+    --template '
+      separate(" ",
+        "%F{magenta}%B" ++ change_id.shortest(8) ++ "%b%f",
+        bookmarks.map(|bookmark| stringify(bookmark).replace("%", "%%")).join(","),
+        concat(
+          if(!empty, "%F{green}%B±%b%f"),
+          if(conflict, "%F{red}×%f"),
+          if(divergent, "%F{magenta}≠%f"),
+        ),
+      )
+    '); then
+    vcs_prompt=" $info"
+  else
+    vcs_info
+    vcs_prompt=$vcs_info_msg_0_
+  fi
+}
+add-zsh-hook precmd _precmd_vcs
 
 +vi-git-stashed() {
   if git rev-parse --verify --quiet refs/stash >/dev/null; then
@@ -93,7 +113,7 @@ zstyle ':vcs_info:*' unstagedstr '%F{yellow}%B!%b%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}%B±%b%f'
 zstyle ':vcs_info:git+set-message:*' hooks git-stashed git-untracked
 
-PROMPT='%B%F{cyan}%1~%f%b${vcs_info_msg_0_}%(1j. %B%F{8}&%f%b.) %(?:%F{green}:%F{red})❯%f '
+PROMPT='%B%F{cyan}%1~%f%b${vcs_prompt}%(1j. %B%F{8}&%f%b.) %(?:%F{green}:%F{red})❯%f '
 
 zmodload zsh/datetime
 
