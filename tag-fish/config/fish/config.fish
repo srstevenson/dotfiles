@@ -10,3 +10,5 @@ set -gx VISUAL nvim
 set -gx HOMEBREW_NO_ANALYTICS 1
 
 bind ctrl-g edit_command_buffer
+
+abbr rg rg -S
