@@ -178,3 +178,5 @@ opf() {
 alias ls="ls --color=auto -h"
 alias ll="ls --color=auto -hl"
 alias la="ls --color=auto -Ahl"
+
+alias rg="rg -S"
