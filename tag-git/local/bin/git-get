@@ -63,11 +63,12 @@ def main() -> None:
     host, path = unpack_host_and_path(args.url)
     url = args.url
 
-    if path.startswith("srstevenson/"):
-        if host in ["codeberg.org", "github.com", "gitlab.com"]:
-            url = f"git@{host}:{path}.git"
-        elif host == "git.sr.ht":
-            url = f"git@{host}:~{path}"
+    if path.startswith("srstevenson/") and host in [
+        "codeberg.org",
+        "github.com",
+        "gitlab.com",
+    ]:
+        url = f"git@{host}:{path}.git"
     elif matches_hosts(args.url, ["codeberg.org", "github.com", "gitlab.com"]):
         if not args.url.startswith("git@"):
             url = f"https://{host}/{path}.git"
