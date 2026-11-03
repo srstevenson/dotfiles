@@ -142,6 +142,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- goto_word
+vim.keymap.set({ "n", "x" }, "gw", require("goto_word").jump, { desc = "Go to word" })
+
 -- mini.diff
 vim.pack.add({ "https://github.com/nvim-mini/mini.diff" })
 require("mini.diff").setup({
