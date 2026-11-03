@@ -368,6 +368,9 @@ vim.api.nvim_set_hl(0, "@lsp.typemod.function.associated.rust", { link = "@funct
 vim.api.nvim_set_hl(0, "@lsp.typemod.generic.injected.rust", { link = "@variable" })
 vim.api.nvim_set_hl(0, "@lsp.typemod.operator.controlFlow.rust", { link = "@operator" })
 
+-- goto_word
+vim.api.nvim_set_hl(0, "GotoWordLabel", { fg = base0A, bold = true })
+
 -- snacks.nvim
 vim.api.nvim_set_hl(0, "SnacksPicker", { link = "Normal" })
 vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = base03, bg = base00 })
