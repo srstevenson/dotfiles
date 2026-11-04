@@ -113,6 +113,14 @@ end, { desc = "Delete current file and buffer" })
 
 -- LSP
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
+vim.lsp.config("taplo", {
+  root_dir = function(bufnr, on_dir)
+    on_dir(
+      vim.fs.root(bufnr, { ".taplo.toml", "taplo.toml", ".git" })
+      or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+    )
+  end,
+})
 vim.lsp.enable({ "fish_lsp", "lua_ls", "ruff", "rumdl", "rust_analyzer", "taplo", "ty" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
