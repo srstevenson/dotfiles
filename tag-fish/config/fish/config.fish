@@ -8,6 +8,8 @@ set -g fish_greeting
 
 set -gx VISUAL nvim
 set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx HOMEBREW_NO_GITHUB_API 1
+set -gx HOMEBREW_NO_INSECURE_REDIRECT 1
 
 bind ctrl-g edit_command_buffer
 

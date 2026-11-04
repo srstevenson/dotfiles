@@ -20,7 +20,9 @@ path=(~/bin ~/.local/bin ~/.cargo/bin /opt/homebrew/bin(N) $path)
 
 export VISUAL="nvim"
 export LESS="FRX"
-export HOMEBREW_NO_ANALYTICS="1"
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_GITHUB_API=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # Title
 autoload -Uz add-zsh-hook
