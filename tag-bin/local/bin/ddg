@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-"""Search DuckDuckGo in the browser."""
-
 import argparse
 import webbrowser
 from urllib.parse import urlencode

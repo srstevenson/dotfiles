@@ -1,4 +1,4 @@
-function fish_right_prompt -d 'Write out the right prompt'
+function fish_right_prompt -d 'Print the right prompt'
     test $CMD_DURATION -ge 1000; or return
 
     set -l hours (math --scale=0 "$CMD_DURATION / 3600000")

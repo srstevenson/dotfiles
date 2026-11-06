@@ -129,7 +129,7 @@ vim.api.nvim_set_hl(0, "SpellRare", { undercurl = true, sp = base0D })
 -- Snippets
 vim.api.nvim_set_hl(0, "SnippetTabstop", { fg = base0A, bg = base02, bold = true })
 
--- Legacy syntax (regex based)
+-- Legacy syntax
 vim.api.nvim_set_hl(0, "Boolean", { fg = base09 })
 vim.api.nvim_set_hl(0, "Character", { fg = base0C })
 vim.api.nvim_set_hl(0, "Comment", { fg = base04 })
@@ -166,7 +166,7 @@ vim.api.nvim_set_hl(0, "VisualNOS", { bg = base02 })
 vim.api.nvim_set_hl(0, "WarningMsg", { fg = base0A })
 vim.api.nvim_set_hl(0, "WildMenu", { fg = base01, bg = base04 })
 
--- Legacy groups (regex based): Python
+-- Legacy groups: Python
 vim.api.nvim_set_hl(0, "pythonAttribute", { fg = base0D })
 vim.api.nvim_set_hl(0, "pythonExceptions", { fg = base0E })
 vim.api.nvim_set_hl(0, "pythonInclude", { fg = base0E })
@@ -174,7 +174,7 @@ vim.api.nvim_set_hl(0, "pythonOperator", { fg = base0E })
 vim.api.nvim_set_hl(0, "pythonRepeat", { fg = base0E })
 vim.api.nvim_set_hl(0, "pythonStatement", { fg = base0E })
 
--- Legacy groups (regex based): Rust
+-- Legacy groups: Rust
 vim.api.nvim_set_hl(0, "rustEnumVariant", { fg = base0C })
 vim.api.nvim_set_hl(0, "rustMacro", { fg = base09 })
 vim.api.nvim_set_hl(0, "rustModPath", { fg = base0A })
@@ -324,7 +324,7 @@ vim.api.nvim_set_hl(0, "@variable.member", { fg = base0D })
 vim.api.nvim_set_hl(0, "@variable.parameter", { fg = base05 })
 vim.api.nvim_set_hl(0, "@variable.parameter.builtin", { fg = base08 })
 
--- LSP semantic tokens. These usually link to Tree-sitter groups.
+-- LSP semantic tokens
 vim.api.nvim_set_hl(0, "@lsp.type.class", { link = "@type" })
 vim.api.nvim_set_hl(0, "@lsp.type.comment", { link = "@comment" })
 vim.api.nvim_set_hl(0, "@lsp.type.decorator", { link = "@attribute" })

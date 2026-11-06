@@ -1,4 +1,4 @@
-function fish_jj_prompt -d 'Write out the Jujutsu prompt'
+function fish_jj_prompt -d 'Print the Jujutsu prompt'
     command -sq jj; or return 1
 
     set -l info "$(

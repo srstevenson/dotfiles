@@ -1,4 +1,4 @@
-# Run `fish_config theme save none` once per machine to persist theme.
+# Run `fish_config theme save none` once to persist theme.
 
 fish_add_path -P ~/bin ~/.local/bin /opt/homebrew/bin
 
