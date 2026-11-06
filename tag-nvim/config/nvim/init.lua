@@ -48,13 +48,6 @@ vim.keymap.set({ "n", "v" }, "<space>p", '"+p', { desc = "Paste from system clip
 -- Buffers
 local user_autocmds = vim.api.nvim_create_augroup("UserAutocmds", {})
 
-vim.api.nvim_create_autocmd({ "BufWinEnter", "CursorMoved", "CursorMovedI" }, {
-  group = user_autocmds,
-  callback = function()
-    vim.opt_local.colorcolumn = vim.fn.virtcol(".") >= 75 and { 80 } or {}
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = user_autocmds,
   callback = function(args)
