@@ -22,5 +22,5 @@ if [[ -e $path ]]; then
   exit 1
 fi
 
-git init --quiet "$path"
+jj git init --quiet "$path"
 printf '%s\n' "$path"
