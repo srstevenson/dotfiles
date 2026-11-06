@@ -1,8 +1,3 @@
-# Install with:
-#   hx --grammar fetch
-#   hx --grammar build
-use-grammars = { only = ["xit"] }
-
 [language-server.rumdl]
 command = "rumdl"
 args = ["server"]
@@ -30,7 +25,3 @@ auto-format = true
 [[language]]
 name = "toml"
 auto-format = true
-
-[[grammar]]
-name = "xit"
-source = { git = "https://github.com/srstevenson/tree-sitter-xit", rev = "srs/tags-and-due-dates" }
