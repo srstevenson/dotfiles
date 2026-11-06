@@ -22,16 +22,10 @@ PARAMS = {
 }
 
 
-def main() -> None:
-    """Open DuckDuckGo search for a query in the browser."""
-    parser = argparse.ArgumentParser(description="Search DuckDuckGo")
-    parser.add_argument("query", nargs="+", help="search query")
-    args = parser.parse_args()
+parser = argparse.ArgumentParser(description="Search DuckDuckGo")
+parser.add_argument("query", nargs="+", help="search query")
+args = parser.parse_args()
 
-    params = {"q": " ".join(args.query)}
-    params.update(PARAMS)
-    webbrowser.open(f"https://duckduckgo.com/?{urlencode(params)}")
-
-
-if __name__ == "__main__":
-    main()
+params = {"q": " ".join(args.query)}
+params.update(PARAMS)
+webbrowser.open(f"https://duckduckgo.com/?{urlencode(params)}")
