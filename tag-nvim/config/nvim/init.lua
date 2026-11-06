@@ -6,7 +6,7 @@ vim.cmd.colorscheme("tomorrow-fleet")
 vim.opt.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
 vim.opt.confirm = true
 vim.opt.expandtab = true
-vim.opt.grepprg = "rg --vimgrep --hidden --glob=!.git"
+vim.opt.grepprg = "rg --smart-case --vimgrep --hidden --glob=!.git"
 vim.opt.ignorecase = true
 vim.opt.linebreak = true
 vim.opt.list = true
