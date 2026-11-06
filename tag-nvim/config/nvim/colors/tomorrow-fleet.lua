@@ -12,7 +12,7 @@ local base0A = "#ebc88d"
 local base0B = "#a8cc7c"
 local base0C = "#82d2ce"
 local base0D = "#87c3ff"
-local base0E = "#af9cff"
+local base0E = "#e394dc"
 
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
