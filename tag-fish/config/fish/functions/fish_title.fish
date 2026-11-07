@@ -7,7 +7,7 @@ function fish_title -d 'Write out the terminal title'
     test "$command" = fish; and set -e command
 
     if test -n "$command"
-        echo -- $command
+        echo -- (prompt_pwd)": $command"
     else
         prompt_pwd
     end
