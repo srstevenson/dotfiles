@@ -27,7 +27,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 # Title
 autoload -Uz add-zsh-hook
 
-_collapse_pwd() {
+prompt_pwd() {
   local current_pwd=${(D)PWD}
 
   if [[ $current_pwd != [/~] ]]; then
@@ -39,10 +39,10 @@ _collapse_pwd() {
   print -r -- "${current_pwd//\%/%%}"
 }
 
-_precmd_title() { print -Pn "\e]0;$(_collapse_pwd)\a" }
+_precmd_title() { print -Pn "\e]0;$(prompt_pwd)\a" }
 add-zsh-hook precmd _precmd_title
 
-_preexec_title() { print -Pn "\e]0;$(_collapse_pwd): ${2//\%/%%}\a" }
+_preexec_title() { print -Pn "\e]0;$(prompt_pwd): ${2//\%/%%}\a" }
 add-zsh-hook preexec _preexec_title
 
 # Keybindings
