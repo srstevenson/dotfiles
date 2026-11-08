@@ -2,8 +2,16 @@
 
 import argparse
 import subprocess
-from collections.abc import Iterable
 from pathlib import Path
+from urllib.parse import urlsplit
+
+REMOTE_PATH_FORMATS = {
+    "github.com": "{path}.git",
+    "gitlab.com": "{path}.git",
+    "codeberg.org": "{path}.git",
+    "gist.github.com": "{path}.git",
+    "git.sr.ht": "~{path}",
+}
 
 
 def expand_url(url: str) -> str:
@@ -14,7 +22,7 @@ def expand_url(url: str) -> str:
         return url
 
     if "/" not in url:
-        return f"git@github.com:srstevenson/{url}.git"
+        return f"https://github.com/srstevenson/{url}"
 
     head, tail = url.split("/", maxsplit=1)
 
@@ -22,10 +30,7 @@ def expand_url(url: str) -> str:
         # Assume `head` is a hostname if it contains `.`.
         return f"https://{head}/{tail}"
 
-    if head == "srstevenson":
-        return f"git@github.com:srstevenson/{tail}.git"
-
-    return f"https://github.com/{url}.git"
+    return f"https://github.com/{url}"
 
 
 def parse_args() -> argparse.Namespace:
@@ -41,48 +46,46 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def matches_hosts(url: str, hosts: Iterable[str]) -> bool:
-    """Check if a remote URL matches any of the specified Git hosts."""
-    return any(url.startswith((f"https://{host}/", f"git@{host}:")) for host in hosts)
+def resolve_repository(url: str) -> tuple[str, str, str]:
+    """Resolve an expanded URL to a clone URL, host, and local repository path."""
+    # Convert SCP-style syntax for parsing without changing the supplied URL.
+    remote = urlsplit(
+        "ssh://" + url.replace(":", "/", 1) if url.startswith("git@") else url
+    )
+    host = remote.hostname
+    if host is None or not remote.path.strip("/"):
+        message = "Expected a hostname and repository path"
+        raise ValueError(message)
+
+    path = remote.path.lstrip("/").lstrip("~").removesuffix(".git")
+    owner = path.partition("/")[0]
+    use_ssh = remote.scheme == "ssh" or owner == "srstevenson"
+
+    if host == "gist.github.com":
+        path = path.rsplit("/", maxsplit=1)[-1]
+
+    if host in REMOTE_PATH_FORMATS:
+        remote_path = REMOTE_PATH_FORMATS[host].format(path=path)
+        if url.startswith("ssh://"):
+            # Preserve explicit SSH users and ports.
+            url = remote._replace(path=f"/{remote_path}").geturl()
+        elif use_ssh:
+            url = f"git@{host}:{remote_path}"
+        else:
+            url = f"https://{host}/{remote_path}"
+
+    return url, host, path
 
 
-def unpack_host_and_path(url: str) -> tuple[str, str]:
-    """Extract host and repository path from a Git remote URL."""
-    if "@" in url:
-        host, repo = url.split("@", maxsplit=1)[1].split(":", maxsplit=1)
-    else:
-        host, repo = url.removeprefix("https://").split("/", maxsplit=1)
-
-    return host, repo.lstrip("~").removesuffix(".git")
-
-
-def main() -> None:
+def main() -> int:
     """Command-line entry point."""
     args = parse_args()
 
-    host, path = unpack_host_and_path(args.url)
-    url = args.url
-
-    if host == "gist.github.com":
-        use_ssh = path.startswith("srstevenson/") or url.startswith("git@")
-        path = path.rsplit("/", maxsplit=1)[-1]
-        url = f"git@{host}:{path}.git" if use_ssh else f"https://{host}/{path}.git"
-    elif path.startswith("srstevenson/") and host in [
-        "codeberg.org",
-        "github.com",
-        "gitlab.com",
-    ]:
-        url = f"git@{host}:{path}.git"
-    elif matches_hosts(args.url, ["codeberg.org", "github.com", "gitlab.com"]):
-        if not args.url.startswith("git@"):
-            url = f"https://{host}/{path}.git"
-    elif matches_hosts(args.url, ["git.sr.ht"]) and not args.url.startswith("git@"):
-        url = f"https://{host}/~{path}"
-
-    path = Path(path)
+    url, host, repository_path = resolve_repository(args.url)
+    path = Path(repository_path)
     path = path.with_name(path.name.lstrip("."))
 
-    subprocess.run(  # noqa: S603
+    return subprocess.run(  # noqa: S603
         [  # noqa: S607
             "git",
             "clone",
@@ -91,8 +94,8 @@ def main() -> None:
             Path.home().joinpath("Projects", host, path),
         ],
         check=False,
-    )
+    ).returncode
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
