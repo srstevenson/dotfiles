@@ -40,7 +40,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "url",
-        type=expand_url,
+        type=parse_repository,
         help="remote URL or GitHub shorthand (`project` or `user/project`)",
     )
     return parser.parse_args()
@@ -77,11 +77,19 @@ def resolve_repository(url: str) -> tuple[str, str, str]:
     return url, host, path
 
 
+def parse_repository(value: str) -> tuple[str, str, str]:
+    """Convert repository input, reporting invalid URLs as argument errors."""
+    try:
+        return resolve_repository(expand_url(value))
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
 def main() -> int:
     """Command-line entry point."""
     args = parse_args()
 
-    url, host, repository_path = resolve_repository(args.url)
+    url, host, repository_path = args.url
     path = Path(repository_path)
     path = path.with_name(path.name.lstrip("."))
 
