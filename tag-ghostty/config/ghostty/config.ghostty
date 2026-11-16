@@ -3,7 +3,6 @@ font-size = 15
 
 mouse-hide-while-typing = true
 theme = tomorrow-fleet
-window-theme = ghostty
 
 shell-integration-features = no-title
 
